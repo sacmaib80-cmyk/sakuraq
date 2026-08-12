@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Alien signal ping tap effect">
+<!-- เอฟเฟกต์ตอนแตะจอ: วงสัญญาณหกเหลี่ยม 2 วงหมุนสวนกันแล้วแผ่ออก + เศษสัญญาณกระเด็น
+     ใช้มิ้นต์ + ไฮไลต์ขาว จะได้เห็นทั้งบนพื้นสว่างและพื้นมืด
+     ทุก class ถูกขับด้วย CSS (.sq-tap-warp …) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<radialGradient id="awGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--aw-glow,#5cf2c0)" stop-opacity=".55"/>
+<stop offset=".6"  stop-color="var(--aw-glow,#5cf2c0)" stop-opacity=".15"/>
+<stop offset="1"   stop-color="var(--aw-glow,#5cf2c0)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<circle class="awHalo" cx="32" cy="32" r="17" fill="url(#awGlow)"/>
+
+<!-- แกนกลางวาบ -->
+<g class="awCore">
+<circle cx="32" cy="32" r="4.6" fill="var(--aw-pale,#e6fff7)"/>
+<circle cx="32" cy="32" r="8"   fill="none" stroke="var(--aw-ring,#5cf2c0)" stroke-width="1.6" opacity=".8"/>
+</g>
+
+<!-- วงหกเหลี่ยม 2 ชั้น หมุนสวนทางกัน -->
+<g fill="none" stroke="var(--aw-ring,#5cf2c0)" stroke-linejoin="round">
+<path class="awHex awHex1" d="M42 32 37 40.66 27 40.66 22 32 27 23.34 37 23.34Z" stroke-width="2.6"/>
+<path class="awHex awHex2" d="M40.66 37 32 42 23.34 37 23.34 27 32 22 40.66 27Z" stroke-width="1.6" opacity=".6"/>
+</g>
+
+<!-- ขีดสัญญาณ 4 ทิศ (สั้น หนา อ่านออกตอนย่อ) -->
+<g class="awTicks" stroke="var(--aw-pale,#e6fff7)" stroke-width="2.2" stroke-linecap="round" opacity=".85">
+<path class="awTick awTick1" d="M32 17v-5"/>
+<path class="awTick awTick2" d="M47 32h5"/>
+<path class="awTick awTick3" d="M32 47v5"/>
+<path class="awTick awTick4" d="M17 32h-5"/>
+</g>
+
+<!-- เศษสัญญาณกระเด็นทแยง -->
+<g class="awChevs" fill="var(--aw-ring,#5cf2c0)">
+<path class="awChev awChev1" d="M32 32l4.6 3.2-1.6 5.4-4.6-3.2z"/>
+<path class="awChev awChev2" d="M32 32l4.6-3.2 1.6 5.4-4.6 3.2z"/>
+<path class="awChev awChev3" d="M32 32l-4.6-3.2 1.6-5.4 4.6 3.2z"/>
+<path class="awChev awChev4" d="M32 32l-4.6 3.2-1.6-5.4 4.6-3.2z"/>
+</g>
+</svg>

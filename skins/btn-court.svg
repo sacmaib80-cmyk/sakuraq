@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Basketball leather button skin">
+<!-- ปุ่ม "หนังลูกบาส": ทั้งปุ่มคือผิวหนังลูกบอล ไม่ใช่ฉากย่อส่วน
+     จงใจไม่มีแสงกวาด/ประกายดาว เพราะสองอย่างนั้นเป็นลายเซ็นของสกินซากุระทอง/ตราโรงเรียนไปแล้ว
+     ตัวตนของปุ่มนี้คือ ผิวเม็ดหนัง + ตะเข็บ · กดแล้วตะเข็บเด้ง + วงกระแทกสองปลาย
+     ⚠️ พื้นต้องเข้มพอ เพราะตัวหนังสือปุ่มเป็นสีขาว (ไล่จบที่ #8C3410)
+     ตะเข็บพาดกลางปุ่มได้ แต่ต้องบาง+จาง ไม่งั้นแย่งตัวหนังสือ -->
+<defs>
+<!-- ⚠️ ไล่เฉดต้องแคบ ไม่งั้นปุ่มทรงแคปซูลจะอ่านเป็น "ไส้กรอก" ทันที (พลาดมาแล้ว)
+     ของเดิมไล่จากส้มอ่อนไปน้ำตาลไหม้ + มีคิ้วมันวาวพาดด้านบน = หนังไส้กรอกเป๊ะ
+     ลูกบาสจริงสีค่อนข้างสม่ำเสมอ เข้มขึ้นแค่ริมล่าง และผิวด้าน ไม่เงา -->
+<linearGradient id="skCrtHide" x1="0" y1="0" x2=".05" y2="1">
+<stop offset="0"   stop-color="var(--sk-h-1,#F2A063)"/>
+<stop offset=".42" stop-color="var(--sk-h-2,#E1762F)"/>
+<stop offset=".8"  stop-color="var(--sk-h-3,#C4551D)"/>
+<stop offset="1"   stop-color="var(--sk-h-4,#A34012)"/>
+</linearGradient>
+<radialGradient id="skCrtGrip" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="#FFE7C6" stop-opacity=".85"/>
+<stop offset=".5"  stop-color="#FFC98C" stop-opacity=".3"/>
+<stop offset="1"   stop-color="#FFC98C" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="skCrtTop" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="#FFE0B4" stop-opacity=".22"/>
+<stop offset="1"   stop-color="#FFE0B4" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="skCrtBot" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="#4E1804" stop-opacity="0"/>
+<stop offset="1"   stop-color="#4E1804" stop-opacity=".3"/>
+</linearGradient>
+<pattern id="skCrtGrain" width="7" height="7" patternUnits="userSpaceOnUse">
+<circle cx="1.8" cy="1.8" r="1"  fill="#FFD3A4" fill-opacity=".17"/>
+<circle cx="5.4" cy="4.8" r=".9" fill="#6E2708" fill-opacity=".2"/>
+<circle cx="3.4" cy="6.2" r=".6" fill="#FFD3A4" fill-opacity=".1"/>
+</pattern>
+<clipPath id="skCrtClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+</defs>
+
+<g clip-path="url(#skCrtClip)">
+<rect x="0" y="0" width="320" height="54" fill="url(#skCrtHide)"/>
+<rect x="0" y="0" width="320" height="54" fill="url(#skCrtGrain)"/>
+<rect x="0" y="0" width="320" height="22" fill="url(#skCrtTop)"/>
+<rect x="0" y="30" width="320" height="24" fill="url(#skCrtBot)"/>
+
+<!-- จุดแสงบนหนัง (โซนปลอดภัยซ้าย) — ตัวเดียวที่ขยับตอนไม่ได้กด -->
+<ellipse class="skGrip" cx="26" cy="17" rx="26" ry="14" fill="url(#skCrtGrip)"/>
+
+<!-- ตะเข็บ: เส้นยาวหนึ่งเส้นพาดทั้งใบ + ซี่ขวางสองข้างตามลายลูกบาสจริง
+     วาดสองชั้น (ร่องเข้ม + ขอบสว่างใต้ร่อง) ให้เห็นเป็น "ร่องลึก" ไม่ใช่เส้นขีด -->
+<g fill="none" stroke="var(--sk-seam-hi,#FFC895)" stroke-linecap="round" opacity=".3">
+<path d="M-12 19C64 43 156 12 246 33c30 7 52 11 90 9" stroke-width="2"/>
+<path d="M60-10C43 15 43 39 65 66" stroke-width="2"/>
+<path d="M250-10c17 25 17 49-5 76" stroke-width="2"/>
+</g>
+<g fill="none" stroke="var(--sk-seam,#68260A)" stroke-linecap="round">
+<path class="skSeam" d="M-12 16C64 40 156 9 246 30c30 7 52 11 90 9" stroke-width="3" stroke-opacity=".72"/>
+<path class="skSeam" d="M58-10C41 15 41 39 63 66" stroke-width="3" stroke-opacity=".72"/>
+<path class="skSeam" d="M252-10c17 25 17 49-5 76" stroke-width="3" stroke-opacity=".72"/>
+<path class="skSeam" d="M300 10c-8 11-9 22-3 34" stroke-width="2" stroke-opacity=".45"/>
+<path class="skSeam" d="M20 8c-8 12-9 24-2 38" stroke-width="2" stroke-opacity=".45"/>
+</g>
+
+<!-- วงกระแทกตอนกด (CSS เปิด/ปิด) — จังหวะ "ลูกบอลโดนอัด" ไม่ใช่ประกายดาว -->
+<g class="skHits" fill="none" stroke="var(--sk-ring,#FFE9CC)">
+<circle class="skHit skHit1" cx="24"  cy="27" r="12" stroke-width="2.6"/>
+<circle class="skHit skHit2" cx="24"  cy="27" r="12" stroke-width="1.5" stroke-opacity=".65"/>
+<circle class="skHit skHit1" cx="296" cy="27" r="12" stroke-width="2.6"/>
+<circle class="skHit skHit2" cx="296" cy="27" r="12" stroke-width="1.5" stroke-opacity=".65"/>
+</g>
+
+<!-- ขอบลูกบอล: เส้นเข้มรอบนอกอย่างเดียว
+     ⚠️ ห้ามใส่คิ้วสว่างพาดยาวด้านบน (เคยมี opacity .5) มันคือคิ้วมันของไส้กรอกเป๊ะ -->
+<rect x="1" y="1" width="318" height="52" rx="26" fill="none" stroke="#5E2008" stroke-width="2" opacity=".45"/>
+</g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Abyss porthole timer skin">
+<!-- หน้าจับเวลา "เกจวัดความลึก": ช่องหน้าต่างทองเหลืองที่มีน้ำไล่ระดับขึ้นตามเวลา
+     ตรงกลางต้องโปร่ง — ชั้นน้ำเป็น HTML อยู่ข้างล่างไฟล์นี้ ตัวเลขเวลาอยู่ชั้นบนสุด
+     พิกัดที่ผูกกับ CSS: ผิวน้ำวิ่งจาก y=250 (เริ่ม) ขึ้นไป y=70 (ครบ) = ระยะ 180 หน่วย -->
+<defs>
+<linearGradient id="taBrass" x1="0" y1="0" x2=".4" y2="1">
+<stop offset="0"   stop-color="var(--ta-brass-hi,#f6e2ae)"/>
+<stop offset=".38" stop-color="var(--ta-brass,#c9a15a)"/>
+<stop offset=".72" stop-color="var(--ta-brass-lo,#7a5824)"/>
+<stop offset="1"   stop-color="var(--ta-brass-2,#b18c46)"/>
+</linearGradient>
+<linearGradient id="taBell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0"   stop-color="var(--ta-brass-hi,#f6e2ae)"/>
+<stop offset=".55" stop-color="var(--ta-brass,#c9a15a)"/>
+<stop offset="1"   stop-color="var(--ta-brass-lo,#7a5824)"/>
+</linearGradient>
+<radialGradient id="taLampGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0" stop-color="var(--ta-lamp,#ffe08a)" stop-opacity=".85"/>
+<stop offset="1" stop-color="var(--ta-lamp,#ffe08a)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<!-- วงแหวนทองเหลืองรอบช่องหน้าต่าง (กลางโปร่ง) -->
+<path d="M150 0a150 150 0 1 1-.1 0zM150 24a126 126 0 1 0 .1 0z" fill="url(#taBrass)" fill-rule="evenodd"/>
+<circle cx="150" cy="150" r="149" fill="none" stroke="var(--ta-brass-lo,#7a5824)" stroke-width="2" opacity=".65"/>
+<circle cx="150" cy="150" r="127" fill="none" stroke="var(--ta-brass-lo,#7a5824)" stroke-width="3" opacity=".8"/>
+<circle cx="150" cy="150" r="138" fill="none" stroke="var(--ta-brass-hi,#f6e2ae)" stroke-width="1.4" opacity=".45"/>
+
+<!-- หมุดรอบวง -->
+<g fill="var(--ta-brass-lo,#7a5824)" opacity=".85">
+<circle cx="150" cy="12"  r="6"/><circle cx="247" cy="52"  r="6"/><circle cx="288" cy="150" r="6"/>
+<circle cx="247" cy="248" r="6"/><circle cx="150" cy="288" r="6"/><circle cx="53"  cy="248" r="6"/>
+<circle cx="12"  cy="150" r="6"/><circle cx="53"  cy="52"  r="6"/>
+</g>
+<g fill="var(--ta-brass-hi,#f6e2ae)" opacity=".6">
+<circle cx="150" cy="10"  r="2"/><circle cx="286" cy="148" r="2"/>
+<circle cx="150" cy="286" r="2"/><circle cx="10"  cy="148" r="2"/>
+</g>
+
+<!-- ขีดวัดระดับด้านขวา (ผิวน้ำเดินตามสเกลนี้พอดี y 70→250) -->
+<g stroke="var(--ta-tick,#9fe0ef)" stroke-linecap="round" opacity=".75">
+<path d="M214 70h18M222 88h10M222 106h10M214 124h18M222 142h10M222 160h10M214 178h18M222 196h10M222 214h10M214 232h18M214 250h18" stroke-width="2.4"/>
+</g>
+<g stroke="var(--ta-tick-2,#d9f6ff)" stroke-width="1" opacity=".35">
+<path d="M233 70v180"/>
+</g>
+
+<!-- เข็มชี้ระดับ (เลื่อนขึ้นตามเวลาโดย CSS) -->
+<g class="taMark">
+<path d="M212 250l-16-8v16z" fill="url(#taBell)"/>
+<path d="M212 250l-16-8v16z" fill="none" stroke="var(--ta-brass-lo,#7a5824)" stroke-width="1"/>
+</g>
+
+<!-- ทุ่นไฟเล็กเกาะขอบสเกล (อยู่กับที่ ไม่วิ่งพ้นกรอบ) -->
+<g opacity=".9">
+<circle cx="243" cy="60" r="16" fill="url(#taLampGlow)"/>
+<circle cx="243" cy="60" r="5.5" fill="var(--ta-lamp,#ffe08a)"/>
+<circle cx="243" cy="60" r="5.5" fill="none" stroke="var(--ta-brass-lo,#7a5824)" stroke-width="1.6"/>
+</g>
+
+<!-- แสงสะท้อนบนกระจก -->
+<path d="M62 84c22-24 54-38 86-38-40 6-72 30-86 66-6-12-6-21 0-28z" fill="#ffffff" opacity=".13"/>
+<path d="M226 226c-14 16-32 27-52 32 26-6 47-22 58-45 1 6-1 10-6 13z" fill="#ffffff" opacity=".07"/>
+<circle cx="150" cy="150" r="126" fill="none" stroke="#000000" stroke-width="14" opacity=".16"/>
+</svg>

@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Outdoor basketball court at golden hour">
+<!--
+  ธีมหน้า Home: สนามบาสกลางแจ้งตอนแดดร่ม  (ฉากนิ่ง ไม่มีอนิเมชั่น ตามที่ user สั่ง)
+
+  ═══ กายวิภาคของแป้นบาส (ของเดิมพังตรงนี้ อย่าทำซ้ำ) ═══
+  ห่วงบาสไม่ได้ลอยอยู่บนผนัง มันต้องมี "เส้นทางลงพื้น" ให้ตาไล่ตามได้ครบ:
+      กระดานหลัง  ->  คอห่าน (แขนโค้ง)  ->  เสา  ->  ปลอกกันกระแทก  ->  ฐานคอนกรีต  ->  เงาที่พื้น
+  ของเดิมมีแค่ตอตะปูสั้นๆ ยื่นออกจากกระดาน แล้วจบกลางอากาศ = อ่านไม่ออกว่ายืนอยู่บนอะไร
+
+  ═══ เส้นสนามต้องอ้างอิงตำแหน่งห่วง ไม่ใช่วาดโค้งมั่วๆ ═══
+  ทุกเส้นบนพื้นในไฟล์นี้ใช้จุดศูนย์กลางเดียวกันคือ x=283 (= กึ่งกลางกระดานหลัง = กึ่งกลางห่วง)
+      เส้นหลัง (baseline)      y 636  พาดขวางหลังห่วง
+      เขตโทษ (key)             สี่เหลี่ยมคางหมู  ไกล 240..326 (y636)  ใกล้ 186..380 (y730)
+                               ไกลต้องแคบกว่าใกล้ ไม่งั้นภาพจะแบนเพราะไม่มีเปอร์สเปกทีฟ
+      วงโทษ                    วงรี cx283 cy730 rx97 ry26  ครึ่งใกล้ทึบ ครึ่งไกลประ
+                               rx ต้องเท่าครึ่งความกว้างปากเขตโทษเป๊ะ (สนามจริงวงโทษกว้างเท่า key)
+      เส้น 3 แต้ม              ครึ่งวงรี cx283 cy636 rx250 ry132  ก้นโค้ง y768
+                               ต้องอ้อมพ้นก้นวงโทษ (y756) เสมอ ไม่งั้นผิดกติกาสายตาทันที
+      วงใต้ห่วง (restricted)   cx283 cy636 rx46 ry24
+  ถ้าย้ายเสา/กระดาน ต้องย้ายเลข 283 ทุกที่พร้อมกัน ไม่งั้นสนามจะเบี้ยวทันที
+  ความลึกของเขตโทษถูกกำหนดโดย "ตัวหมา" ไม่ใช่ความสวย: หมาบังถึง y701
+  ถ้าเขตโทษตื้นกว่านั้นจะเหลือโผล่แค่ริมล่าง อ่านเป็นพรมเช็ดเท้า (พลาดมาแล้วรอบนึง)
+
+  ═══ พื้นที่ที่ห้ามวางของสำคัญ (วัดจากหน้าจอจริง 430x900) ═══
+      y 0..45      การ์ดคะแนนทับอยู่ (x 22..360)
+      y 92..150    ปุ่ม "ไปต่อกันมั้ย" ทับอยู่ (x 22..235)
+      x 198..420 ตั้งแต่ y 402 ลงไป   ตัวมาสคอตทับหมด
+      y 784 ลงไป   แถบเมนูล่างทับ
+  -> ของสำคัญจึงอยู่: ห่วง (y 166..320, กลางค่อนขวา) · ดวงอาทิตย์+ม้านั่ง (ซ้าย) · เส้นสนาม (y 636..768)
+
+  ห้ามพิมพ์ยัติภังค์คู่ในคอมเมนต์ XML (ไฟล์จะ parse ไม่ผ่าน)
+  id ทุกตัวขึ้นต้น bc* · สีผ่านตัวแปร hs-* เผื่อรีทินต์
+-->
+<defs>
+  <linearGradient id="bcSky" x1="0" y1="0" x2=".1" y2="1">
+    <stop offset="0"    stop-color="var(--hs-sky-1,#1F3A66)"/>
+    <stop offset=".30"  stop-color="var(--hs-sky-2,#3E6291)"/>
+    <stop offset=".54"  stop-color="var(--hs-sky-3,#8E86A0)"/>
+    <stop offset=".74"  stop-color="var(--hs-sky-4,#D08A5E)"/>
+    <stop offset="1"    stop-color="var(--hs-sky-5,#F6BE7E)"/>
+  </linearGradient>
+  <radialGradient id="bcSunGlow" cx=".5" cy=".5" r=".5">
+    <stop offset="0"    stop-color="var(--hs-sun,#FFF0C6)" stop-opacity=".95"/>
+    <stop offset=".26"  stop-color="var(--hs-sun-2,#FFCE85)" stop-opacity=".55"/>
+    <stop offset=".62"  stop-color="var(--hs-sun-2,#F0A05C)" stop-opacity=".18"/>
+    <stop offset="1"    stop-color="var(--hs-sun-2,#F0A05C)" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bcCourt" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"    stop-color="var(--hs-ct-1,#93402A)"/>
+    <stop offset=".24"  stop-color="var(--hs-ct-2,#AE5034)"/>
+    <stop offset="1"    stop-color="var(--hs-ct-3,#CA6440)"/>
+  </linearGradient>
+  <!-- เกล็ดผิวยางสนามกลางแจ้ง — ใช้แทน "ร่องตามยาว" ของเดิม
+       ร่องตามยาวทำให้พื้นอ่านเป็นปาร์เกต์โรงยิมในร่มทันที (เห็นตอนเปิดภาพจริงดู) -->
+  <pattern id="bcFleck" width="26" height="26" patternUnits="userSpaceOnUse">
+    <circle cx="4"  cy="6"  r="1.7" fill="#EE9068" fill-opacity=".15"/>
+    <circle cx="17" cy="14" r="1.3" fill="#6B2A19" fill-opacity=".17"/>
+    <circle cx="9"  cy="21" r="1.1" fill="#EE9068" fill-opacity=".11"/>
+    <circle cx="23" cy="3"  r="1.2" fill="#6B2A19" fill-opacity=".13"/>
+  </pattern>
+  <linearGradient id="bcBoard" x1=".1" y1="0" x2=".6" y2="1">
+    <stop offset="0"    stop-color="var(--hs-bd-1,#FDFEFF)"/>
+    <stop offset=".55"  stop-color="var(--hs-bd-2,#E7EFF6)"/>
+    <stop offset="1"    stop-color="var(--hs-bd-3,#C3D2E0)"/>
+  </linearGradient>
+  <linearGradient id="bcSteel" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="var(--hs-steel-hi,#6E7597)"/>
+    <stop offset=".26"  stop-color="var(--hs-steel,#3A3E5C)"/>
+    <stop offset="1"    stop-color="var(--hs-steel-lo,#22243A)"/>
+  </linearGradient>
+  <linearGradient id="bcBall" x1=".25" y1=".18" x2=".8" y2="1">
+    <stop offset="0"    stop-color="var(--hs-ball-1,#F5A25C)"/>
+    <stop offset=".5"   stop-color="var(--hs-ball-2,#DC6A32)"/>
+    <stop offset="1"    stop-color="var(--hs-ball-3,#933B18)"/>
+  </linearGradient>
+  <linearGradient id="bcHaze" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"    stop-color="var(--hs-haze,#FFC489)" stop-opacity="0"/>
+    <stop offset="1"    stop-color="var(--hs-haze,#FFC489)" stop-opacity=".34"/>
+  </linearGradient>
+  <linearGradient id="bcFar" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"    stop-color="var(--hs-far-1,#5B5A84)" stop-opacity=".62"/>
+    <stop offset="1"    stop-color="var(--hs-far-2,#7C6E86)" stop-opacity=".34"/>
+  </linearGradient>
+  <pattern id="bcMesh" width="15" height="15" patternUnits="userSpaceOnUse">
+    <path d="M0 0l15 15M15 0L0 15" fill="none" stroke="var(--hs-mesh,#9AA6C6)" stroke-width="1.3" stroke-opacity=".5"/>
+  </pattern>
+</defs>
+
+<!-- ═════════ ท้องฟ้า ═════════ -->
+<rect x="0" y="0" width="440" height="640" fill="url(#bcSky)"/>
+
+<!-- เมฆ 2 ชั้น (นิ่ง)
+     ชั้นบนต้องเป็นโทนเย็น: เมฆสีส้มบนฟ้าน้ำเงินเข้มจะผสมออกมาเป็นสีเทาหม่น อ่านเป็นรอยเปื้อน
+     ชั้นล่างใกล้ดวงอาทิตย์ถึงเป็นสีส้มได้ เพราะพื้นหลังอุ่นแล้ว -->
+<g fill="var(--hs-cloud-hi,#A9BEDF)">
+  <path d="M-20 118c56-16 118-14 168 4 34 12 70 10 104-4-24 22-64 30-108 24-58-8-118-12-164-6z" opacity=".2"/>
+  <path d="M132 182c46-11 96-9 136 6 27 10 56 8 82-4-19 17-52 25-86 19-46-8-94-13-132-7z" opacity=".15"/>
+</g>
+<g fill="var(--hs-cloud,#C6C0E0)">
+  <!-- ริ้วที่ y262 ยังอยู่ในช่วงฟ้าน้ำเงินอมม่วง ไม่ใช่ช่วงสีส้ม -> ต้องใช้โทนเย็นเหมือนกัน
+       เคยใช้สีส้ม #F2B183 แล้วออกมาเป็นริ้วเทาหม่นพาดจอ (เห็นตอนซูมดูแป้นบาส) -->
+  <path d="M-20 262c40-10 84-8 118 5 24 9 48 7 70-3-16 15-44 22-74 17-40-7-80-12-114-7z" opacity=".22"/>
+  <!-- ห้ามวางเมฆกลางจอช่วง x240..360: ย้ายไปไหนก็อ่านเป็นรอยเปื้อน เพราะมันเป็นก้อนกลมโดดๆ
+       กลางฟ้าโล่ง ไม่มีอะไรอ้างอิง (ลองย้ายมาแล้ว 1 รอบ ยังเปื้อนเหมือนเดิม)
+       เมฆที่ทำงานได้ต้องเป็นริ้วยาวพาดออกนอกจอ -> เหลือไว้แค่ 3 ริ้วด้านบน -->
+</g>
+
+<!-- ═════════ ดวงอาทิตย์ต่ำ (ซ้าย) — ตัวกำหนดทิศแสงทั้งฉาก: เงาทุกอันทอดไปทางขวา ═════════ -->
+<circle cx="78" cy="446" r="168" fill="url(#bcSunGlow)"/>
+<circle cx="78" cy="446" r="41" fill="var(--hs-sun,#FFF3D2)"/>
+<circle cx="78" cy="446" r="41" fill="none" stroke="var(--hs-sun-2,#FFD79A)" stroke-width="6" opacity=".55"/>
+
+<!-- ═════════ เมืองไกล (จมในหมอกแดด ไม่ต้องคม) ═════════ -->
+<g fill="url(#bcFar)">
+  <path d="M-10 520v-66h26v-18h20v18h22v52h30v-40h34v40h26v-72h30v72h24v-30h28v30h26v-54h30v54h34v-24h30v24h32v-42h30v42h32v40H-10z"/>
+</g>
+<g fill="var(--hs-far-win,#FFE0AE)" opacity=".5">
+  <rect x="6" y="462" width="4" height="6"/><rect x="46" y="446" width="4" height="6"/>
+  <rect x="122" y="428" width="4" height="6"/><rect x="130" y="444" width="4" height="6"/>
+  <rect x="212" y="452" width="4" height="6"/><rect x="266" y="440" width="4" height="6"/>
+  <rect x="336" y="442" width="4" height="6"/><rect x="392" y="424" width="4" height="6"/>
+</g>
+
+<!-- ═════════ แนวต้นไม้หลังรั้ว (เงาดำ เว้นช่องให้ดวงอาทิตย์) ═════════ -->
+<g fill="var(--hs-tree,#2E2C4E)">
+  <path d="M-20 624V520c14-24 38-26 50-6 8-16 26-16 32 2 6-10 18-8 20 6v102z"/>
+  <path d="M132 624V510c12-26 40-30 54-8 10-18 30-16 36 4 10-12 24-6 26 10v108z"/>
+  <path d="M258 624V498c14-30 44-32 58-8 12-20 34-18 40 6 12-14 28-6 30 12v116z"/>
+  <path d="M392 624V516c12-24 36-26 48-6v114z"/>
+</g>
+<g fill="var(--hs-tree-rim,#7A6A8E)" opacity=".55">
+  <path d="M-20 520c14-24 38-26 50-6-14-8-32-4-44 14z"/>
+  <path d="M132 510c12-26 40-30 54-8-16-10-38-6-52 14z"/>
+  <path d="M258 498c14-30 44-32 58-8-16-12-40-8-56 14z"/>
+</g>
+
+<!-- ═════════ รั้วตาข่ายรอบสนาม ═════════ -->
+<g>
+  <rect x="0" y="456" width="440" height="162" fill="url(#bcMesh)"/>
+  <g fill="var(--hs-post,#2A2C44)">
+    <rect x="8"   y="446" width="8" height="180"/>
+    <rect x="96"  y="446" width="8" height="180"/>
+    <rect x="184" y="446" width="8" height="180"/>
+    <rect x="272" y="446" width="8" height="180"/>
+    <rect x="360" y="446" width="8" height="180"/>
+  </g>
+  <rect x="0" y="446" width="440" height="9"  fill="var(--hs-post,#2A2C44)"/>
+  <rect x="0" y="608" width="440" height="8"  fill="var(--hs-post,#2A2C44)"/>
+  <g fill="var(--hs-post-hi,#6E6C92)" opacity=".7">
+    <rect x="8" y="446" width="2.6" height="180"/>
+    <rect x="96" y="446" width="2.6" height="180"/>
+    <rect x="184" y="446" width="2.6" height="180"/>
+    <rect x="0" y="446" width="440" height="2.4"/>
+  </g>
+</g>
+
+<!-- หมอกแดดตรงเส้นขอบฟ้า ให้ของไกลจมลงไป -->
+<rect x="0" y="470" width="440" height="150" fill="url(#bcHaze)"/>
+
+<!-- ═════════ พื้นสนาม ═════════ -->
+<rect x="0" y="618" width="440" height="242" fill="url(#bcCourt)"/>
+<!-- ขอบไกลจางลงกว่าเดิมมาก: ของเดิมทึบ .6 กลืนเส้นหลังหายไปทั้งเส้น -->
+<rect x="0" y="618" width="440" height="6" fill="var(--hs-ct-edge,#6E2E1E)" opacity=".38"/>
+<rect x="0" y="618" width="440" height="242" fill="url(#bcFleck)"/>
+<!-- เหลือรอยต่อตามขวางจางๆ พอบอกระยะ · ตัดร่องตามยาวทิ้งหมด (มันอ่านเป็นพื้นไม้โรงยิม) -->
+<g stroke="var(--hs-ct-seam,#7A3423)" stroke-width="1.4" opacity=".17">
+  <path d="M0 672h440"/><path d="M0 742h440"/><path d="M0 818h440"/>
+</g>
+
+<!-- ═════════ เส้นสนาม (ทุกเส้นอ้างอิงห่วงที่ x=283) ═════════
+     ⚠️ ตัวหมายืนกินพื้นที่ x183..420 y402..692 (เงาถึง ~701)
+     เขตโทษรอบก่อนลึกแค่ y634..714 = โดนหมาบังเกือบหมด เหลือโผล่ 13 หน่วย อ่านเป็น "พรมเช็ดเท้า"
+     รอบนี้ลากเขตโทษลึกถึง y730 + วงโทษถึง y756 -> ช่วง y701..768 อยู่ใต้ตัวหมา มองเห็นเต็มๆ -->
+<!-- เขตโทษ: ทาสีก่อน แล้วค่อยตีเส้นทับ -->
+<!-- ⚠️ ไม่ทาสีเขตโทษ (ลองมาแล้ว 2 รอบ ทั้งทึบและจาง)
+     สีฟ้า/เขียวบนพื้นดินเผาอุ่นๆ ผสมออกมาเป็นเทา + มีเส้นขอบครีมล้อมรอบทั้งสี่ด้าน
+     = ตาอ่านเป็น "พรมเช็ดเท้าใต้ตัวหมา" ทุกครั้ง ไม่ว่าจะปรับ opacity เท่าไหร่
+     สนามกลางแจ้งจริงจำนวนมากก็ตีแค่เส้น ไม่ทาสีเขตโทษ -> ใช้เส้นล้วน จบปัญหาที่ต้นเหตุ
+     เหลือแค่คราบสีเข้มจางๆ ตรงใต้ห่วง (จุดที่คนยืนเยอะสุด = สีถลอก) ให้พื้นไม่โล่งเกินไป -->
+<path d="M240 636H326L380 730H186Z" fill="var(--hs-ct-worn,#6E2E1E)" opacity=".14"/>
+<g fill="none" stroke="var(--hs-line,#FBEFDC)" stroke-linecap="round" stroke-linejoin="round">
+  <!-- เส้นหลัง -->
+  <path d="M-10 636H450" stroke-width="5"/>
+  <!-- เขตโทษ -->
+  <path d="M240 636H326L380 730H186Z" stroke-width="5"/>
+  <!-- วงโทษ: กว้างเท่าปากเขตโทษพอดี (สนามจริงเส้นผ่านศูนย์กลาง = ความกว้าง key) -->
+  <path d="M186 730C186 744.4 229.4 756 283 756S380 744.4 380 730" stroke-width="5"/>
+  <!-- เส้น 3 แต้ม: ต้องอ้อมพ้นวงโทษเสมอ (ก้นโค้ง y768 > ก้นวงโทษ y756) -->
+  <path d="M33 636C33 708.9 144.9 768 283 768S533 708.9 533 636" stroke-width="5"/>
+  <!-- วงครึ่งใต้ห่วง -->
+  <path d="M237 636c0 13.3 20.6 24 46 24s46-10.7 46-24" stroke-width="4"/>
+</g>
+<!-- ครึ่งไกลของวงโทษ: สนามจริงเป็นเส้นประ แต่ที่ขนาดนี้มันไปตกใต้ตัวหมาพอดี
+     แล้วอ่านเป็น "ชายพรม" (เห็นตอนเปิดภาพดู) -> ตัดทิ้ง เหลือครึ่งใกล้ทึบเส้นเดียว -->
+
+<!-- ═════════ แป้นบาส: กระดาน -> คอห่าน -> เสา -> ปลอก -> ฐาน -> เงา ═════════ -->
+<g>
+  <!-- เงาฐานเสาทอดไปทางขวาตามดวงอาทิตย์ที่อยู่ซ้าย -->
+  <path d="M414 622L450 616v26l-46-10z" fill="var(--hs-shadow,#4A1E12)" opacity=".34"/>
+  <ellipse cx="426" cy="623" rx="27" ry="8" fill="var(--hs-shadow,#4A1E12)" opacity=".42"/>
+
+  <!-- ฐานคอนกรีต: ต้องกว้างกว่าปลอกชัดเจน ไม่งั้นปลอกจะอ่านเป็น "กล่องสีลอยอยู่" -->
+  <path d="M396 598h60l10 26h-80z" fill="var(--hs-base,#8E8A96)"/>
+  <path d="M396 598h60l3 9h-66z" fill="var(--hs-base-hi,#C2BECA)"/>
+  <path d="M396 598h60l10 26h-80z" fill="none" stroke="var(--hs-base-lo,#3F3A4A)" stroke-width="2.6" stroke-linejoin="round" opacity=".55"/>
+
+  <!-- เสา -->
+  <rect x="416" y="258" width="20" height="346" fill="url(#bcSteel)"/>
+  <rect x="416" y="258" width="4"  height="346" fill="var(--hs-steel-hi,#8E93B8)" opacity=".85"/>
+
+  <!-- ปลอกกันกระแทกที่โคนเสา (ของจริงทุกสนามมี)
+       ⚠️ เคยใช้สีฟ้า -> อ่านเป็น "กล่องสีน้ำเงินลอยอยู่ริมจอ" เพราะไม่มีอะไรเกี่ยวกับมันเลย
+       ต้องเป็นตระกูลสีเดียวกับเสา (แค่สว่างกว่า+อ้วนกว่า) ตาถึงจะอ่านว่ามันหุ้มเสาอยู่ -->
+  <rect x="410" y="498" width="32" height="102" rx="9" fill="var(--hs-pad,#3A3F55)"/>
+  <rect x="410" y="498" width="8"  height="102" rx="5"  fill="var(--hs-pad-hi,#61688A)" opacity=".85"/>
+  <rect x="410" y="498" width="32" height="9"  rx="4"  fill="var(--hs-pad-hi,#61688A)" opacity=".5"/>
+  <!-- แถบส้มคาดกลาง = สีเดียวกับขอบห่วง ผูกปลอกเข้ากับแป้นบาส ไม่ให้เป็นของหลงฉาก -->
+  <rect x="410" y="530" width="32" height="17" fill="var(--hs-rim,#E0562E)" opacity=".9"/>
+  <rect x="410" y="530" width="32" height="5"  fill="#FFB48A" opacity=".45"/>
+  <g stroke="var(--hs-pad-lo,#1B1E2E)" stroke-linecap="round" fill="none">
+    <path d="M410 566h32" stroke-width="3" opacity=".5"/>
+    <rect x="410" y="498" width="32" height="102" rx="9" stroke-width="2.6" opacity=".75"/>
+  </g>
+
+  <!-- คอห่าน: เสาโค้งไปรับหลังกระดาน (นี่คือชิ้นที่ของเดิมขาดไป) -->
+  <path d="M426 286C426 218 396 206 352 208" fill="none" stroke="var(--hs-steel-lo,#22243A)" stroke-width="17" stroke-linecap="round"/>
+  <path d="M426 286C426 218 396 206 352 208" fill="none" stroke="var(--hs-steel-hi,#6E7597)" stroke-width="5"  stroke-linecap="round" opacity=".75"/>
+  <!-- ค้ำยันสามเหลี่ยมใต้คอห่าน -->
+  <path d="M420 300L404 236" stroke="var(--hs-steel-lo,#22243A)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- แผ่นยึดหลังกระดาน -->
+  <rect x="336" y="192" width="24" height="34" rx="4" fill="var(--hs-steel-lo,#22243A)"/>
+
+  <!-- กระดานหลัง -->
+  <rect x="214" y="166" width="138" height="86" rx="5" fill="url(#bcBoard)"/>
+  <rect x="214" y="166" width="138" height="86" rx="5" fill="none" stroke="var(--hs-rim,#E0562E)" stroke-width="6"/>
+  <!-- กรอบเล็ง: ต้องหนา+เข้มกว่ากรอบนอก เพราะมันอยู่บนพื้นขาว (คอนทราสต์ต่ำกว่ากรอบนอกที่ตัดกับฟ้า)
+       ใช้ stroke-width เท่ากันเมื่อไหร่ กรอบเล็งจะจางจนแทบมองไม่เห็น (เห็นตอนซูมดู) -->
+  <rect x="260" y="212" width="46" height="36" fill="none" stroke="var(--hs-rim-2,#C9421C)" stroke-width="6.5"/>
+  <path d="M222 174h44" stroke="#FFFFFF" stroke-width="5" opacity=".85" stroke-linecap="round"/>
+
+  <!-- ห่วง: แผ่นยึดหน้ากระดาน + วงแหวน (วงรีเพราะมองจากด้านล่าง) -->
+  <rect x="271" y="248" width="24" height="12" rx="3" fill="var(--hs-rim,#E0562E)"/>
+  <ellipse cx="283" cy="264" rx="30" ry="8.5" fill="none" stroke="var(--hs-rim,#E0562E)" stroke-width="6"/>
+  <path d="M253 262a30 8.5 0 0 1 26-8" fill="none" stroke="var(--hs-rim-hi,#FF9C6E)" stroke-width="2.6" stroke-linecap="round" opacity=".9"/>
+
+  <!-- ตาข่าย: 11 เส้นสอบเข้า + วงพาด 3 ชั้น -->
+  <g fill="none" stroke="var(--hs-net,#FBFCFF)" stroke-width="2" stroke-linecap="round" opacity=".92">
+    <path d="M253 266l17 54"/><path d="M259 269l13 51"/><path d="M266 271l9 49"/>
+    <path d="M274 272l5 48"/><path d="M283 272.5v47.5"/><path d="M292 272l-5 48"/>
+    <path d="M300 271l-9 49"/><path d="M307 269l-13 51"/><path d="M313 266l-17 54"/>
+    <path d="M256 282q27 11 54 0"/>
+    <path d="M262 300q21 9 42 0"/>
+    <path d="M268 314q15 6 30 0"/>
+  </g>
+</g>
+
+<!-- ═════════ ม้านั่งข้างสนาม (ฝั่งซ้าย ย้อนแสง) ═════════ -->
+<g>
+  <!-- เงาทอดขวา -->
+  <path d="M18 640L166 630l24 20-152 14z" fill="var(--hs-shadow,#4A1E12)" opacity=".3"/>
+  <g fill="var(--hs-bench,#2B2A46)">
+    <rect x="6"  y="566" width="150" height="11" rx="4"/>
+    <rect x="6"  y="581" width="150" height="11" rx="4"/>
+    <rect x="14" y="592" width="12"  height="46" rx="3"/>
+    <rect x="136" y="592" width="12" height="46" rx="3"/>
+    <rect x="6"  y="612" width="150" height="7"  rx="3"/>
+  </g>
+  <g fill="var(--hs-bench-hi,#8E86AE)" opacity=".7">
+    <rect x="6" y="566" width="150" height="2.6" rx="1.3"/>
+    <rect x="6" y="581" width="150" height="2.6" rx="1.3"/>
+  </g>
+  <!-- กระเป๋าวางบนม้านั่ง -->
+  <path d="M40 566c0-16 10-24 24-24s24 8 24 24z" fill="var(--hs-bag,#1F3A63)"/>
+  <path d="M40 566c0-16 10-24 24-24 6 0 11 2 15 5-12 1-20 9-22 19z" fill="var(--hs-bag-hi,#4A6C9E)" opacity=".7"/>
+  <path d="M54 544c0-6 4-9 10-9s10 3 10 9" fill="none" stroke="var(--hs-bag-hi,#4A6C9E)" stroke-width="3.4"/>
+</g>
+
+<!-- ลูกบาสวางนิ่งข้างม้านั่ง (ไม่มีอนิเมชั่น: ฉากนี้เป็นฉากนิ่ง) -->
+<g>
+  <ellipse cx="176" cy="666" rx="24" ry="7" fill="var(--hs-shadow,#4A1E12)" opacity=".38"/>
+  <ellipse cx="200" cy="664" rx="30" ry="6" fill="var(--hs-shadow,#4A1E12)" opacity=".22"/>
+  <circle cx="176" cy="645" r="22" fill="url(#bcBall)"/>
+  <g fill="none" stroke="var(--hs-ball-seam,#54240F)" stroke-width="2.2" stroke-linecap="round">
+    <path d="M154 645h44"/>
+    <path d="M176 623v44"/>
+    <path d="M160 629q16 16 0 32"/>
+    <path d="M192 629q-16 16 0 32"/>
+  </g>
+  <path d="M162 632a22 22 0 0 1 12-7" fill="none" stroke="#FFD9B4" stroke-width="3.4" stroke-linecap="round" opacity=".6"/>
+</g>
+
+<!-- แสงแดดต่ำสาดพื้นจากซ้าย ปิดท้ายให้ทั้งฉากอยู่ในแสงเดียวกัน -->
+<path d="M0 618h150l-96 242H0z" fill="var(--hs-sun,#FFD79A)" opacity=".12"/>
+</svg>

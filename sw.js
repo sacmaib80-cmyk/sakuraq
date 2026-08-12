@@ -1,0 +1,142 @@
+// bump ทุกครั้งที่แก้ไฟล์ใน APP_SHELL หรือ auth.js — fetch handler เป็น cache-first
+// ถ้าไม่ bump คนที่เคยเปิดจะยังได้ auth.js ตัวเก่า (ล็อกอิน iOS จะไม่มีทางทำงาน)
+const CACHE_NAME = "sakuraq-v0-18-14-court-art";
+
+const APP_SHELL = [
+  "/index.html",
+  "/manifest.webmanifest",
+  "/logo-192.png",
+  "/app-icon.png",
+  "/rive.min.js",
+  "/rive.wasm",
+  "/fox-idle.webm"
+];
+
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      await cache.addAll(APP_SHELL);
+    })
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+          return Promise.resolve();
+        })
+      )
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("message", (event) => {
+  if(event.data?.type === "SKIP_WAITING"){
+    self.skipWaiting();
+  }
+
+  if(event.data?.type === "SCHEDULE_NOTIFICATION"){
+    const { title, body, delayMs, tag } = event.data;
+
+    // event.waitUntil keeps the SW alive until the promise resolves,
+    // preventing the browser from terminating it before the timer fires.
+    // Note: browsers cap SW lifetime ~30s, so delayMs > 30000 is unreliable.
+    event.waitUntil(
+      new Promise(resolve => {
+        setTimeout(async () => {
+          try {
+            const clientList = await self.clients.matchAll({ type: "window" });
+            const isVisible = clientList.some(c => c.visibilityState === "visible");
+            if(!isVisible){
+              await self.registration.showNotification(title, {
+                body,
+                icon: "./logo-192.png",
+                tag: tag || "sakuraq-quest-done",
+                requireInteraction: true,
+                vibrate: [200, 100, 200]
+              });
+            }
+          } finally {
+            resolve();
+          }
+        }, delayMs);
+      })
+    );
+  }
+});
+
+self.addEventListener("fetch", (event) => {
+  const req = event.request;
+
+  if (req.method !== "GET") return;
+
+const url = new URL(req.url);
+
+if (url.protocol !== "http:" && url.protocol !== "https:") return;
+if (url.origin !== self.location.origin) return;
+
+  if (req.mode === "navigate") {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          // cache ทับ /index.html เฉพาะตอน navigate ไปหน้าแอปจริงเท่านั้น
+          // (เดิม cache ทุกหน้า → เปิด welcome.html/board.html แล้ว offline fallback ของแอปพัง)
+          if (url.pathname === "/" || url.pathname === "/index.html") {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put("/index.html", clone).catch(() => {});
+            });
+          }
+          return res;
+        })
+        .catch(() => caches.match("/index.html"))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      if (cached) return cached;
+
+      return fetch(req).then((res) => {
+        if (!res || res.status !== 200) return res;
+
+        const clone = res.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(req, clone).catch((err) => {
+            console.error("[SW] cache.put failed:", err);
+          });
+        });
+
+        return res;
+      });
+    })
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
+      for (const client of clientList) {
+        if ("focus" in client) {
+          return client.focus();
+        }
+      }
+
+      if (clients.openWindow) {
+        return clients.openWindow("/index.html");
+      }
+
+      return Promise.resolve();
+    })
+  );
+});

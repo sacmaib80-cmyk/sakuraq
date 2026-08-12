@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Alien hull panel button skin">
+<!-- แผงตัวยานเอเลี่ยน: โลหะกรมท่าเจียรมุม + อักขระต่างดาวเรืองมิ้นต์ + ท่อพลังงานที่มีแสงวิ่ง
+     กลางปุ่ม (x 100-220) เว้นเข้มเรียบ ตัวหนังสือขาวจะได้อ่านออก
+     ทุก class ถูกขับด้วย CSS (.sqSkin-saucer …) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<linearGradient id="skSauHull" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"    stop-color="var(--sk-hull-1,#3a4a7e)"/>
+<stop offset=".26"  stop-color="var(--sk-hull-2,#23305c)"/>
+<stop offset=".62"  stop-color="var(--sk-hull-3,#151d3d)"/>
+<stop offset="1"    stop-color="var(--sk-hull-4,#0d1329)"/>
+</linearGradient>
+<linearGradient id="skSauBevel" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="var(--sk-spec,#c6d6ff)" stop-opacity=".55"/>
+<stop offset="1" stop-color="var(--sk-spec,#c6d6ff)" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="skSauConduit" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0"   stop-color="var(--sk-mint,#5cf2c0)" stop-opacity=".18"/>
+<stop offset=".5"  stop-color="var(--sk-mint,#5cf2c0)" stop-opacity=".5"/>
+<stop offset="1"   stop-color="var(--sk-mint,#5cf2c0)" stop-opacity=".18"/>
+</linearGradient>
+<radialGradient id="skSauLamp" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--sk-mint-pale,#c9ffee)" stop-opacity=".9"/>
+<stop offset=".45" stop-color="var(--sk-mint,#5cf2c0)" stop-opacity=".38"/>
+<stop offset="1"   stop-color="var(--sk-mint,#5cf2c0)" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="skSauClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+</defs>
+
+<g clip-path="url(#skSauClip)">
+<rect x="0" y="0" width="320" height="54" fill="url(#skSauHull)"/>
+
+<!-- แผ่นเปลือกยาน: เจียรมุมเป็นเหลี่ยม ไม่ใช่สี่เหลี่ยมเรียบ -->
+<path d="M0 0h320v11l-26 6H26L0 11z" fill="var(--sk-hull-1,#3a4a7e)" opacity=".34"/>
+<path d="M0 54h320V43l-26-6H26L0 43z" fill="#000000" opacity=".3"/>
+
+<!-- รอยต่อแผ่น + ขีดเทคนิคจางๆ (ให้ผิวมีเนื้อ ไม่ใช่ไล่เฉดเปล่า) -->
+<g stroke="var(--sk-seam,#0a0f22)" stroke-width="1.5" opacity=".72">
+<path d="M96 0v54M224 0v54"/>
+</g>
+<g stroke="var(--sk-seam-hi,#5b6e9e)" stroke-width="1" opacity=".3">
+<path d="M97.4 0v54M225.4 0v54M0 17h320"/>
+</g>
+<g stroke="var(--sk-seam-hi,#5b6e9e)" stroke-width="1" opacity=".16">
+<path d="M104 24h34M104 30h22M186 24h30M186 30h18"/>
+</g>
+
+<!-- หมุดยึดแผ่น -->
+<g fill="var(--sk-rivet,#5b6e9e)" opacity=".6">
+<circle cx="110" cy="8.5" r="1.5"/><circle cx="136" cy="8.5" r="1.5"/><circle cx="162" cy="8.5" r="1.5"/>
+<circle cx="188" cy="8.5" r="1.5"/><circle cx="214" cy="8.5" r="1.5"/>
+<circle cx="110" cy="45.5" r="1.5"/><circle cx="136" cy="45.5" r="1.5"/><circle cx="162" cy="45.5" r="1.5"/>
+<circle cx="188" cy="45.5" r="1.5"/><circle cx="214" cy="45.5" r="1.5"/>
+</g>
+<g fill="var(--sk-spec,#c6d6ff)" opacity=".4">
+<circle cx="110" cy="7.9" r=".6"/><circle cx="162" cy="7.9" r=".6"/><circle cx="214" cy="7.9" r=".6"/>
+</g>
+
+<!-- ══ ฝั่งซ้าย: อักขระต่างดาวสลักบนแผ่น (ติดไฟไล่ทีละตัว) ══ -->
+<g class="skGlyphs" stroke="var(--sk-mint,#5cf2c0)" stroke-width="2" stroke-linecap="round" fill="none">
+<g class="skGlyph skGlyph1"><path d="M20 20v14M20 27h7"/><circle cx="20" cy="16.4" r="1.9" fill="var(--sk-mint,#5cf2c0)" stroke="none"/></g>
+<g class="skGlyph skGlyph2"><path d="M36 34l7-18 7 18M39 28h8"/></g>
+<g class="skGlyph skGlyph3"><path d="M59 17v20M55 24h9"/><path d="M55 32h9" opacity=".8"/></g>
+<!-- เดิมมีตัวที่ 4 ที่ x 72-83 แต่ไปชนกับไอคอนของปุ่มเอง (อยู่ราว x=83) -> ตัดทิ้ง -->
+</g>
+
+<!-- ══ ฝั่งขวา: จานรับสัญญาณ + วงคลื่นที่แผ่ออก ══ -->
+<g class="skDish">
+<path d="M281 39c-7-5-9-15-4-22s15-8 22-3l-4 5c-5-3-11-2-14 2s-2 10 3 13z"
+      fill="var(--sk-dish,#48598c)"/>
+<path d="M281 39c-7-5-9-15-4-22 2-3 5-5 8-6-4 2-6 5-7 8-3 8-1 15 6 20z"
+      fill="var(--sk-spec,#c6d6ff)" opacity=".38"/>
+<path d="M283 36l-6 9" stroke="var(--sk-dish,#48598c)" stroke-width="3" stroke-linecap="round"/>
+<circle cx="292" cy="24" r="2.4" fill="var(--sk-mint-pale,#c9ffee)"/>
+</g>
+<g class="skWaves" fill="none" stroke="var(--sk-mint,#5cf2c0)" stroke-linecap="round">
+<path class="skWave skWave1" d="M296 12a15 15 0 0 1 0 22" stroke-width="1.8"/>
+<path class="skWave skWave2" d="M302 6a23 23 0 0 1 0 34"  stroke-width="1.5"/>
+<path class="skWave skWave3" d="M308 0a31 31 0 0 1 0 46"  stroke-width="1.3"/>
+</g>
+
+<!-- ══ ท่อพลังงานพาดขวางใต้กลาง + หัวแสงวิ่งไปทางขวา ══ -->
+<path d="M8 41h304" stroke="var(--sk-conduit,#1d2a52)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+<path d="M8 41h304" stroke="url(#skSauConduit)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+<g class="skPulse">
+<circle cx="0" cy="41" r="9" fill="url(#skSauLamp)"/>
+<circle cx="0" cy="41" r="2.4" fill="var(--sk-mint-pale,#c9ffee)"/>
+</g>
+
+<!-- ══ ประกายตอนกด: ปกติซ่อน CSS เป็นคนเปิด ══ -->
+<g class="skSparks" fill="var(--sk-mint-pale,#c9ffee)" opacity="0">
+<path class="skSpark skSpark1" d="M118 40l2.2 5.4 5.4 2.2-5.4 2.2-2.2 5.4-2.2-5.4-5.4-2.2 5.4-2.2z"/>
+<path class="skSpark skSpark2" d="M160 42l1.7 4.2 4.2 1.7-4.2 1.7-1.7 4.2-1.7-4.2-4.2-1.7 4.2-1.7z"/>
+<path class="skSpark skSpark3" d="M202 40l2 4.9 4.9 2-4.9 2-2 4.9-2-4.9-4.9-2 4.9-2z"/>
+<path class="skSpark skSpark4" d="M142 44l1.4 3.5 3.5 1.4-3.5 1.4-1.4 3.5-1.4-3.5-3.5-1.4 3.5-1.4z"/>
+<path class="skSpark skSpark5" d="M182 44l1.4 3.5 3.5 1.4-3.5 1.4-1.4 3.5-1.4-3.5-3.5-1.4 3.5-1.4z"/>
+</g>
+
+<!-- ขอบปุ่ม: ไฮไลต์บน (แสงตกจากบน) + ขอบมิ้นต์บาง -->
+<rect x="0" y="0" width="320" height="54" rx="27" fill="none"
+      stroke="var(--sk-mint,#5cf2c0)" stroke-opacity=".3" stroke-width="2"/>
+<path d="M30 1.7h260" stroke="url(#skSauBevel)" stroke-width="2" stroke-linecap="round" fill="none"/>
+</g>
+</svg>

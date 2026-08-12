@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Storm Bolt button skin">
+<!--
+  สกินปุ่ม "สายฟ้า" — แผ่นเหล็กกลางพายุ
+  กฎที่ยึด: ไล่สีใช้กับ "แสง" เท่านั้น (ท้องฟ้า/แสงวาบ) วัตถุเป็นสีทึบ
+           · สายฟ้าวาดเป็นเส้นหักมุมจริง มีแกนขาวข้างใน
+           · กลางปุ่มเป็นที่ของตัวหนังสือ → ของคมอยู่ริม 2 ข้าง กลางมีแค่สายฝนจางๆ
+-->
+<defs>
+  <linearGradient id="skBoltSky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="var(--sk-sky-1,#38506e)"/>
+    <stop offset=".5"  stop-color="var(--sk-sky-2,#141d2b)"/>
+    <stop offset="1"   stop-color="var(--sk-sky-3,#070b12)"/>
+  </linearGradient>
+  <radialGradient id="skBoltFlash" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="var(--sk-flash,#ffe37a)" stop-opacity=".5"/>
+    <stop offset="1" stop-color="var(--sk-flash,#ffe37a)" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="skBoltGlow" x="-60%" y="-90%" width="220%" height="280%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="skBoltClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+</defs>
+
+<g clip-path="url(#skBoltClip)">
+  <rect x="0" y="0" width="320" height="54" fill="url(#skBoltSky)"/>
+
+  <!-- เมฆ: ก้อนโค้งเกาะขอบบน ไม่ใช่แถบเลอะทั้งแผ่น -->
+  <g fill="var(--sk-cloud,#465d7c)" opacity=".5">
+    <path d="M-4 12c8-9 20-11 28-5 6-6 16-6 21 1 7-2 13 2 15 8H-4z"/>
+    <path d="M232 8c7-8 18-9 25-4 6-5 14-5 19 1 6-2 12 1 14 6H232z" opacity=".85"/>
+  </g>
+  <g fill="var(--sk-cloud-2,#1d2939)" opacity=".55">
+    <path d="M-4 54c10-10 26-12 36-5 9-8 23-8 32 0 10-8 25-8 34 0 10-8 25-8 34 0 9-7 22-7 31 0 9-7 22-6 31 2v3z"/>
+  </g>
+
+  <!-- สายฝนเฉียง (จางมาก ทำหน้าที่เป็นเนื้อพื้นผิว) -->
+  <g stroke="var(--sk-rain,#cfe0f5)" stroke-width="1" stroke-linecap="round" opacity=".14">
+    <path d="M84 6l-7 14M104 14l-7 14M126 4l-7 14M148 16l-7 14M170 6l-7 14
+             M192 16l-7 14M214 6l-7 14M236 18l-7 14M118 30l-6 12M164 32l-6 12M210 30l-6 12"/>
+  </g>
+
+  <!-- แสงวาบหลังสายฟ้าหลัก -->
+  <ellipse cx="40" cy="27" rx="52" ry="30" fill="url(#skBoltFlash)"/>
+  <ellipse cx="288" cy="28" rx="38" ry="24" fill="url(#skBoltFlash)" opacity=".8"/>
+
+  <!-- สายฟ้าหลัก (ซ้าย) — เส้นหักมุม + แกนขาว -->
+  <g filter="url(#skBoltGlow)">
+    <path d="M44 4L22 26h13l-9 24 26-30H38l10-16z" fill="var(--sk-bolt,#ffd94a)"/>
+    <path d="M42 10L29 25h8l-6 15 16-19h-9l7-11z" fill="var(--sk-bolt-core,#fffdf0)" opacity=".95"/>
+  </g>
+  <!-- สายฟ้ารอง (ขวา) เล็กกว่า เอียงคนละองศา -->
+  <g filter="url(#skBoltGlow)" opacity=".95">
+    <path d="M296 10l-15 16h9l-6 18 18-22h-9l7-12z" fill="var(--sk-bolt,#ffd94a)"/>
+    <path d="M294 15l-8 10h5l-4 10 11-13h-6l5-7z" fill="var(--sk-bolt-core,#fffdf0)" opacity=".9"/>
+  </g>
+
+  <!-- ประกายไฟฟ้าแตกแขนง -->
+  <g stroke="var(--sk-bolt,#ffd94a)" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".75">
+    <path d="M60 16l6-6 1 5M66 40l7 2-3 4M272 42l-7 3 2 4M276 14l-6-5-1 5"/>
+  </g>
+
+  <!-- ขอบแผ่นเหล็ก -->
+  <rect x="0" y="0" width="320" height="54" rx="27" fill="none"
+        stroke="var(--sk-rim,#8ba0bd)" stroke-opacity=".45" stroke-width="1.5"/>
+  <path d="M34 1.4h252" stroke="var(--sk-rim-lite,#e6eefb)" stroke-opacity=".4"
+        stroke-width="1.6" stroke-linecap="round" fill="none"/>
+</g>
+</svg>

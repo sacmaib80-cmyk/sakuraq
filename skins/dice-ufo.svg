@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Alien core cube dice skin">
+<!-- ลูกเต๋า "แกนพลังงานต่างดาว" — ลูกบาศก์ไอโซเมตริก
+     แต่ละหน้าคนละเฉด (โลหะกรมท่า) เพื่อให้อ่านออกว่าเป็นก้อน 3 มิติ ตอนย่อเหลือ 60px
+     แต้ม = เซลล์พลังงานเรืองมิ้นต์ฝังในเบ้า ไม่ใช่จุดทึบ · หน้าข้างสลักอักขระต่างดาว -->
+<defs>
+<linearGradient id="duTop" x1="0" y1="0" x2=".7" y2="1">
+<stop offset="0"   stop-color="var(--du-top-1,#8FA3C8)"/>
+<stop offset=".42" stop-color="var(--du-top-2,#46578C)"/>
+<stop offset="1"   stop-color="var(--du-top-3,#2A3564)"/>
+</linearGradient>
+<linearGradient id="duLeft" x1="0" y1="0" x2=".45" y2="1">
+<stop offset="0"   stop-color="var(--du-left-1,#33427A)"/>
+<stop offset=".52" stop-color="var(--du-left-2,#1D2750)"/>
+<stop offset="1"   stop-color="var(--du-left-3,#0C1230)"/>
+</linearGradient>
+<linearGradient id="duRight" x1="0" y1="0" x2=".6" y2="1">
+<stop offset="0"   stop-color="var(--du-right-1,#24314F)"/>
+<stop offset=".5"  stop-color="var(--du-right-2,#141C3C)"/>
+<stop offset="1"   stop-color="var(--du-right-3,#080D22)"/>
+</linearGradient>
+<radialGradient id="duCell" cx=".36" cy=".3" r=".78">
+<stop offset="0"   stop-color="var(--du-cell-hi,#FFFFFF)"/>
+<stop offset=".38" stop-color="var(--du-cell,#C9FFEE)"/>
+<stop offset="1"   stop-color="var(--du-cell-lo,#2E9A93)"/>
+</radialGradient>
+<radialGradient id="duGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0" stop-color="var(--du-glow,#5CF2C0)" stop-opacity=".55"/>
+<stop offset="1" stop-color="var(--du-glow,#5CF2C0)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<!-- แสงเรืองใต้ก้อน (ทำให้ก้อนไม่ลอยเคว้ง) -->
+<ellipse cx="36" cy="66" rx="26" ry="6" fill="url(#duGlow)"/>
+
+<!-- ตัวลูกบาศก์ -->
+<path d="M36 8 64 24 36 40 8 24z"  fill="url(#duTop)"/>
+<path d="M8 24 36 40v26L8 50z"     fill="url(#duLeft)"/>
+<path d="M64 24 36 40v26l28-16z"   fill="url(#duRight)"/>
+
+<!-- ร่องแผ่นเปลือกบนหน้าบน -->
+<g stroke="var(--du-seam,#0C1230)" stroke-width="1.1" opacity=".5" fill="none">
+<path d="M22 16 50 32M50 16 22 32"/>
+</g>
+<g stroke="var(--du-top-1,#8FA3C8)" stroke-width=".8" opacity=".35" fill="none">
+<path d="M22.8 16.5 50.8 32.5"/>
+</g>
+
+<!-- อักขระต่างดาวสลักบนหน้าข้าง -->
+<g stroke="var(--du-etch,#5CF2C0)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".55">
+<path d="M15 36v12M12 41h6"/>
+<path d="M23 44v12M20 50h6"/>
+<path d="M50 44v11M53 39v11"/>
+</g>
+
+<!-- แต้ม "4" = เซลล์พลังงานฝังบนหน้าบน (ตำแหน่งไล่ไป 4 มุมของหน้ารูปข้าวหลามตัด) -->
+<g>
+<ellipse cx="36" cy="16.5" rx="5.4" ry="3.1" fill="var(--du-socket,#080D22)"/>
+<ellipse cx="36" cy="15.9" rx="4.2" ry="2.4" fill="url(#duCell)"/>
+</g>
+<g>
+<ellipse cx="49.5" cy="24" rx="5.4" ry="3.1" fill="var(--du-socket,#080D22)"/>
+<ellipse cx="49.5" cy="23.4" rx="4.2" ry="2.4" fill="url(#duCell)"/>
+</g>
+<g>
+<ellipse cx="36" cy="31.5" rx="5.4" ry="3.1" fill="var(--du-socket,#080D22)"/>
+<ellipse cx="36" cy="30.9" rx="4.2" ry="2.4" fill="url(#duCell)"/>
+</g>
+<g>
+<ellipse cx="22.5" cy="24" rx="5.4" ry="3.1" fill="var(--du-socket,#080D22)"/>
+<ellipse cx="22.5" cy="23.4" rx="4.2" ry="2.4" fill="url(#duCell)"/>
+</g>
+
+<!-- คมขอบรับแสง / ขอบเงา -->
+<g stroke="var(--du-edge,#C6D6FF)" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".7">
+<path d="M8 24 36 8l28 16"/>
+</g>
+<g stroke="var(--du-shade,#050815)" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".85">
+<path d="M8 50 36 66l28-16M36 40v26"/>
+</g>
+<!-- แถบไฟตามรอยต่อฐาน -->
+<path d="M8 24 36 40l28-16" fill="none" stroke="var(--du-cell,#C9FFEE)" stroke-width="1" opacity=".45"/>
+</svg>

@@ -1,0 +1,284 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Alien planet surface at night">
+<!-- พื้นผิวดาวต่างดาวยามค่ำ
+     เส้นพื้น y=612 (มาสคอตนั่งที่ y 633-680 · กลางเท้า x=300 · เท้ากิน x 228-371)
+     ของทุกชิ้นต้องมีฐานต่ำกว่าเส้นพื้น + มีเงา/แสงที่จุดสัมผัส ไม่งั้นตาจะอ่านว่า "ลอย"
+     ตัวมาสคอตกินราว x 150-430 / y 360-680 -> ของสูงเกาะริมสองข้าง (x<180, x>370)
+     ท้องฟ้าเหนือ y=350 ว่างหมด = ที่ของดาวเคราะห์/ดวงจันทร์/ยาน
+     จุดเด่นมีจุดเดียว: ดาวเคราะห์วงแหวนสีอุ่น ตัดกับฟ้าเย็นทั้งภาพ (ที่เหลือเป็นมิ้นต์โทนเดียว)
+     บนสุดอาจถูกครอปบนจอเตี้ย (xMidYMax) -> ห้ามวางของสำคัญเหนือ y=60 -->
+<defs>
+<linearGradient id="alSky" x1="0" y1="0" x2=".18" y2="1">
+<stop offset="0"   stop-color="var(--hs-sky-1,#06091A)"/>
+<stop offset=".42" stop-color="var(--hs-sky-2,#111838)"/>
+<stop offset=".8"  stop-color="var(--hs-sky-3,#1E2853)"/>
+<stop offset="1"   stop-color="var(--hs-sky-4,#2B3766)"/>
+</linearGradient>
+<linearGradient id="alHorizon" x1="0" y1="1" x2="0" y2="0">
+<stop offset="0"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity=".26"/>
+<stop offset="1"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="alAur" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-aur-2,#FF5FA8)" stop-opacity=".22"/>
+<stop offset=".45" stop-color="var(--hs-mint,#5CF2C0)" stop-opacity=".3"/>
+<stop offset="1"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="alPlanet" cx=".33" cy=".27" r=".78">
+<stop offset="0"   stop-color="var(--hs-pl-hi,#FFDCAE)"/>
+<stop offset=".34" stop-color="var(--hs-pl,#E8B478)"/>
+<stop offset=".68" stop-color="var(--hs-pl-lo,#A56B45)"/>
+<stop offset="1"   stop-color="var(--hs-pl-dk,#3E2A2C)"/>
+</radialGradient>
+<radialGradient id="alMoon" cx=".34" cy=".3" r=".76">
+<stop offset="0"   stop-color="var(--hs-moon-hi,#E4EEFF)"/>
+<stop offset=".55" stop-color="var(--hs-moon,#A9B8D4)"/>
+<stop offset="1"   stop-color="var(--hs-moon-lo,#4C5878)"/>
+</radialGradient>
+<linearGradient id="alCrysA" x1="0" y1="0" x2=".9" y2="1">
+<stop offset="0"   stop-color="var(--hs-cry-hi,#7FEFD2)"/>
+<stop offset=".5"  stop-color="var(--hs-cry,#2E9A93)"/>
+<stop offset="1"   stop-color="var(--hs-cry-lo,#123E51)"/>
+</linearGradient>
+<linearGradient id="alCrysB" x1="1" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-cry,#2E9A93)"/>
+<stop offset="1"   stop-color="var(--hs-cry-dk,#0C2A3E)"/>
+</linearGradient>
+<radialGradient id="alPool" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity=".42"/>
+<stop offset="1"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="alBeam" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity=".46"/>
+<stop offset="1"   stop-color="var(--hs-mint,#5CF2C0)" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="alGround" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-gnd-1,#1B2447)"/>
+<stop offset=".35" stop-color="var(--hs-gnd-2,#101736)"/>
+<stop offset="1"   stop-color="var(--hs-gnd-3,#080C22)"/>
+</linearGradient>
+<clipPath id="alPlanetClip"><circle cx="100" cy="250" r="68"/></clipPath>
+<clipPath id="alSkyClip"><rect x="0" y="0" width="440" height="612"/></clipPath>
+</defs>
+
+<!-- ══════════ ท้องฟ้า ══════════ -->
+<g clip-path="url(#alSkyClip)">
+<rect x="0" y="0" width="440" height="612" fill="url(#alSky)"/>
+<rect x="0" y="392" width="440" height="220" fill="url(#alHorizon)"/>
+
+<!-- ดาว: 3 ขนาด กระจายไม่เป็นระเบียบ -->
+<g fill="var(--hs-star,#DCE8FF)">
+<circle class="hsStar hsStar1" cx="38"  cy="96"  r="1.5"/>
+<circle class="hsStar hsStar3" cx="76"  cy="52"  r="1"/>
+<circle class="hsStar hsStar2" cx="196" cy="74"  r="1.8"/>
+<circle class="hsStar hsStar4" cx="238" cy="126" r="1.1"/>
+<circle class="hsStar hsStar5" cx="286" cy="66"  r="1.4"/>
+<circle class="hsStar hsStar1" cx="330" cy="168" r="1"/>
+<circle class="hsStar hsStar6" cx="418" cy="122" r="1.7"/>
+<circle class="hsStar hsStar3" cx="404" cy="212" r="1.2"/>
+<circle class="hsStar hsStar2" cx="264" cy="228" r="1"/>
+<circle class="hsStar hsStar5" cx="352" cy="252" r="1.5"/>
+<circle class="hsStar hsStar4" cx="220" cy="180" r="1.3"/>
+<circle class="hsStar hsStar6" cx="164" cy="118" r="1"/>
+<circle class="hsStar hsStar1" cx="300" cy="118" r="1.1"/>
+<circle class="hsStar hsStar3" cx="424" cy="66"  r="1.3"/>
+<circle class="hsStar hsStar2" cx="30"  cy="330" r="1.2"/>
+<circle class="hsStar hsStar5" cx="72"  cy="392" r="1"/>
+<circle class="hsStar hsStar4" cx="392" cy="330" r="1.4"/>
+<circle class="hsStar hsStar6" cx="428" cy="392" r="1"/>
+<circle class="hsStar hsStar1" cx="252" cy="300" r="1"/>
+<circle class="hsStar hsStar3" cx="150" cy="330" r="1.1"/>
+<circle class="hsStar hsStar2" cx="196" cy="404" r="1"/>
+<circle class="hsStar hsStar5" cx="358" cy="416" r="1.2"/>
+<circle class="hsStar hsStar4" cx="118" cy="60"  r="1.2"/>
+<circle class="hsStar hsStar6" cx="366" cy="98"  r="1"/>
+</g>
+
+<!-- แสงเหนือ: 2 ริบบิ้น ไล่จากชมพูจางไปมิ้นต์ (ชมพูมีน้อยมากโดยตั้งใจ) -->
+<g class="hsAurs">
+<path class="hsAur hsAur1"
+      d="M-60 214C40 150 122 250 216 190c94-60 168 30 292-38v-96C384 130 310 44 216 104 122 164 40 66-60 130z"
+      fill="url(#alAur)" opacity=".8"/>
+<path class="hsAur hsAur2"
+      d="M-60 288C56 236 130 316 240 262c110-54 178 22 268-28v-64C418 218 350 148 240 202 130 256 56 178-60 232z"
+      fill="url(#alAur)" opacity=".46"/>
+</g>
+
+<!-- ดาวตก (วิ่งนานๆ ที) -->
+<g class="hsShoot">
+<path d="M0 0l58-26" stroke="var(--hs-star,#DCE8FF)" stroke-width="2" stroke-linecap="round" fill="none" opacity=".9"/>
+<circle cx="0" cy="0" r="2.1" fill="#ffffff"/>
+</g>
+
+<!-- ══════ ดาวเคราะห์วงแหวน = จุดเด่นของภาพ ══════
+     วางค่อนล่าง-ซ้าย: เว้นที่โล่งให้การ์ดคะแนน+ปุ่ม CTA ที่ลอยอยู่ครึ่งบนของจอ
+     และกันโดนครอปบนจอเตี้ย (ฉากตรึงขอบล่าง ยิ่งอยู่สูงยิ่งเสี่ยงหาย) -->
+<g transform="rotate(-16 100 250)">
+<!-- วงแหวนครึ่งหลัง -->
+<path d="M-15 250A115 27 0 0 1 215 250" fill="none" stroke="var(--hs-ring,#E4C79C)" stroke-width="10" opacity=".5"/>
+<path d="M-15 250A115 27 0 0 1 215 250" fill="none" stroke="var(--hs-ring-hi,#FFEDD2)" stroke-width="3" opacity=".55"/>
+</g>
+
+<circle cx="100" cy="250" r="68" fill="url(#alPlanet)"/>
+<!-- แถบเมฆบนดาว (โค้งตามผิวทรงกลม) -->
+<g clip-path="url(#alPlanetClip)" opacity=".38">
+<path d="M16 218c36-14 90-14 134 4-46 11-93 11-134-4z" fill="var(--hs-pl-band,#8A5537)"/>
+<path d="M14 259c41-11 97-9 140 7-50 9-100 7-140-7z" fill="var(--hs-pl-band,#8A5537)" opacity=".7"/>
+<path d="M28 286c36-7 82-5 116 7-41 7-82 5-116-7z" fill="var(--hs-pl-band,#8A5537)" opacity=".5"/>
+<path d="M34 192c29-9 70-7 100 5-36 5-72 4-100-5z" fill="var(--hs-pl-hi,#FFDCAE)" opacity=".35"/>
+</g>
+<!-- ขอบรับแสงบางๆ ด้านบน-ซ้าย -->
+<path d="M100 182a68 68 0 0 0-64 46" fill="none" stroke="var(--hs-pl-hi,#FFDCAE)" stroke-width="2.2" opacity=".5"/>
+
+<g transform="rotate(-16 100 250)">
+<!-- วงแหวนครึ่งหน้า (พาดทับตัวดาว) -->
+<path d="M-15 250A115 27 0 0 0 215 250" fill="none" stroke="var(--hs-ring,#E4C79C)" stroke-width="10" opacity=".72"/>
+<path d="M-15 250A115 27 0 0 0 215 250" fill="none" stroke="var(--hs-ring-hi,#FFEDD2)" stroke-width="3" opacity=".85"/>
+<path d="M-15 250A115 27 0 0 0 215 250" fill="none" stroke="var(--hs-sky-2,#111838)" stroke-width="1.2" opacity=".5"/>
+</g>
+
+<!-- ══════ ดวงจันทร์ดวงเล็ก ══════ -->
+<g>
+<circle cx="392" cy="92" r="21" fill="url(#alMoon)"/>
+<g fill="var(--hs-moon-lo,#4C5878)" opacity=".45">
+<circle cx="386" cy="86" r="4.6"/><circle cx="398" cy="100" r="3.2"/><circle cx="384" cy="101" r="2.2"/>
+</g>
+<path d="M392 71a21 21 0 0 0-19 12" fill="none" stroke="var(--hs-moon-hi,#E4EEFF)" stroke-width="1.6" opacity=".55"/>
+</g>
+
+<!-- ══════ ยานลำเล็กลอยไกลๆ (ผูกกับธีมหน้าจับเวลา) ══════ -->
+<g class="hsUfo">
+<path class="hsUfoBeam" d="M318 306l32 118h-64z" fill="url(#alBeam)"/>
+<ellipse cx="318" cy="304" rx="9" ry="6" fill="var(--hs-hull-hi,#8FA3C8)" opacity=".9"/>
+<path d="M318 292c9 0 16 5 16 9H302c0-4 7-9 16-9z" fill="var(--hs-hull,#3D4C7E)"/>
+<path d="M296 301h44c0 5-10 9-22 9s-22-4-22-9z" fill="var(--hs-hull-dk,#1A2246)"/>
+<path d="M296 301h44" stroke="var(--hs-mint,#5CF2C0)" stroke-width="1.4" opacity=".7"/>
+<circle cx="306" cy="304" r="1.5" fill="var(--hs-mint-pale,#C9FFEE)"/>
+<circle cx="318" cy="305" r="1.5" fill="var(--hs-mint-pale,#C9FFEE)"/>
+<circle cx="330" cy="304" r="1.5" fill="var(--hs-mint-pale,#C9FFEE)"/>
+</g>
+
+<!-- ══════ ภูเขาไกล (มีหมอกคั่น = เกิดระยะ) ══════ -->
+<path d="M-10 612V486l52-64 38 44 46-92 52 78 40-40 56 86 44-56 60 74 72-58v154z"
+      fill="var(--hs-mtn-far,#28325F)" opacity=".85"/>
+<rect x="0" y="470" width="440" height="142" fill="url(#alHorizon)" opacity=".55"/>
+
+<!-- ภูเขาใกล้: ยอดเอียงแบบหินต่างดาว ไม่ใช่สามเหลี่ยมตรง -->
+<path d="M-10 612V536l44-52 26 40 40-58 34 62 52-44 46 56 40-32 50 60 66-44 62 44v44z"
+      fill="var(--hs-mtn-near,#141B3A)"/>
+<path d="M34 484l26 40-20 6z" fill="var(--hs-mtn-lit,#2A3868)" opacity=".8"/>
+<path d="M174 492l46 56-30 4z" fill="var(--hs-mtn-lit,#2A3868)" opacity=".7"/>
+<path d="M310 516l50 60-32 2z" fill="var(--hs-mtn-lit,#2A3868)" opacity=".6"/>
+</g>
+
+<!-- ══════════ พื้นดิน ══════════ -->
+<rect x="0" y="612" width="440" height="248" fill="url(#alGround)"/>
+<!-- ขอบพื้นรับแสงจากขอบฟ้า -->
+<path d="M0 612h440" stroke="var(--hs-mint,#5CF2C0)" stroke-width="2.4" opacity=".3"/>
+<path d="M0 615h440" stroke="var(--hs-gnd-rim,#3E5486)" stroke-width="2" opacity=".55"/>
+
+<!-- หลุมอุกกาบาตฝั่งซ้าย (ที่มาของตัวอย่างที่ยานมาเก็บ)
+     ⚠️ วงรีเข้มเฉยๆ ตาจะอ่านเป็น "แอ่งน้ำ" (เคยพลาดมาแล้วกับก้อนหินในสวนซากุระ)
+     -> ต้องมี "ขอบหลุมนูน" เป็นก้อนดินรอบปาก + ผนังหลุมฝั่งไกลรับแสง ถึงจะอ่านเป็นหลุม -->
+<g>
+<ellipse cx="96" cy="690" rx="72" ry="19" fill="var(--hs-gnd-4,#060919)"/>
+<path d="M24 690a72 19 0 0 1 144 0c-14 6-40 9-72 9s-58-3-72-9z" fill="var(--hs-gnd-2,#101736)"/>
+<path d="M28 684a70 17 0 0 1 136 0" fill="none" stroke="var(--hs-gnd-rim,#3E5486)" stroke-width="3" opacity=".6"/>
+<!-- ก้อนดินขอบปากหลุม -->
+<g fill="var(--hs-rock,#1A2246)">
+<path d="M22 692c7-6 16-8 22-4 5 4 1 8-7 9s-15-1-15-5z"/>
+<path d="M58 700c9-6 20-7 25-2 4 4-2 8-12 8s-16-3-13-6z"/>
+<path d="M120 701c9-6 21-6 26-1 4 4-3 8-13 8s-16-4-13-7z"/>
+<path d="M158 691c8-6 17-7 22-3 4 4 0 8-8 8s-15-2-14-5z"/>
+</g>
+<g fill="var(--hs-rock-lit,#33427A)" opacity=".65">
+<path d="M22 692c7-6 16-8 22-4-6-1-13 1-18 5z"/>
+<path d="M120 701c9-6 21-6 26-1-7-2-16 0-22 3z"/>
+</g>
+</g>
+
+<!-- ก้อนหินกระจาย (อยู่ในแถบที่มองเห็นจริง y 620-740 — ต่ำกว่านี้โดนแถบเมนูล่างบัง) -->
+<g fill="var(--hs-rock,#1A2246)">
+<path d="M356 664c12-4 24-1 27 5 2 5-6 9-18 9s-20-3-20-7c0-3 5-5 11-7z"/>
+<path d="M186 728c14-5 29-1 32 6 2 6-8 10-23 10s-24-4-24-8c0-4 6-6 15-8z"/>
+<path d="M296 706c10-4 21-1 23 4 2 5-6 8-16 8s-18-3-18-6c0-3 5-4 11-6z"/>
+</g>
+<g fill="var(--hs-rock-lit,#33427A)" opacity=".7">
+<path d="M356 664c12-4 24-1 27 5-6-3-14-4-22-3z"/>
+<path d="M186 728c14-5 29-1 32 6-8-4-19-5-29-3z"/>
+</g>
+
+<!-- ══════ แท่งคริสตัลฝั่งซ้าย (เกาะริม ไม่บังมาสคอต) ══════ -->
+<g class="hsCrysGroup">
+<ellipse cx="88" cy="646" rx="86" ry="22" fill="url(#alPool)"/>
+<!-- แท่งใหญ่ -->
+<path d="M62 360 26 566l18 84 32 8z" fill="url(#alCrysA)"/>
+<path d="M62 360 96 560l-20 98-32-8z" fill="url(#alCrysB)"/>
+<path class="hsCrys hsCrys1" d="M62 360 50 562l14 96 16-98z" fill="var(--hs-cry-glow,#8FF6D6)" opacity=".65"/>
+<path d="M62 360 26 566l18 84 32 8 20-98z" fill="none" stroke="var(--hs-cry-edge,#A6FBE2)" stroke-width="1.6" opacity=".4"/>
+<!-- แท่งกลาง -->
+<path d="M126 452 104 594l12 56 22 6z" fill="url(#alCrysA)"/>
+<path d="M126 452 152 590l-14 66-22-6z" fill="url(#alCrysB)"/>
+<path class="hsCrys hsCrys2" d="M126 452 118 592l8 64 10-66z" fill="var(--hs-cry-glow,#8FF6D6)" opacity=".55"/>
+<!-- แท่งเล็ก -->
+<path d="M16 520 2 606l8 42 14 4z" fill="url(#alCrysA)"/>
+<path d="M16 520 34 604l-10 48-14-4z" fill="url(#alCrysB)"/>
+<path class="hsCrys hsCrys3" d="M16 520 10 606l6 46 7-48z" fill="var(--hs-cry-glow,#8FF6D6)" opacity=".5"/>
+</g>
+
+<!-- ══════ แท่งคริสตัลฝั่งขวา (เตี้ยกว่า = ไม่สมมาตร มีจุดเด่นข้างเดียว) ══════ -->
+<g class="hsCrysGroup">
+<ellipse cx="404" cy="642" rx="60" ry="18" fill="url(#alPool)"/>
+<path d="M400 468 380 596l10 52 18 6z" fill="url(#alCrysA)"/>
+<path d="M400 468 426 592l-18 62-18-6z" fill="url(#alCrysB)"/>
+<path class="hsCrys hsCrys2" d="M400 468 392 594l8 60 10-62z" fill="var(--hs-cry-glow,#8FF6D6)" opacity=".6"/>
+<path d="M400 468 380 596l10 52 18 6 18-62z" fill="none" stroke="var(--hs-cry-edge,#A6FBE2)" stroke-width="1.5" opacity=".38"/>
+<path d="M438 542 424 610l8 36 14 2z" fill="url(#alCrysA)"/>
+<path class="hsCrys hsCrys3" d="M438 542 430 610l8 40 6-42z" fill="var(--hs-cry-glow,#8FF6D6)" opacity=".45"/>
+</g>
+
+<!-- ══════ เห็ดเรืองแสงบนพื้น (หายใจได้) ══════
+     ⚠️ ฉากสูง 860 แต่บนจอเห็นพื้นแค่ราว y 612-740 (ที่เหลือโดนแถบเมนูล่างบัง)
+        -> ของบนพื้นต้องอยู่ในแถบนี้ ไม่งั้นวาดไปก็ไม่มีใครเห็น -->
+<g class="hsPods">
+<g class="hsPod hsPod1">
+<ellipse cx="44" cy="700" rx="26" ry="9" fill="url(#alPool)"/>
+<path d="M38 700v-16" stroke="var(--hs-stem,#2A3A63)" stroke-width="4.4" stroke-linecap="round"/>
+<path d="M24 684a14 11 0 0 1 28 0z" fill="var(--hs-cry-glow,#8FF6D6)"/>
+<path d="M24 684a14 11 0 0 1 28 0" fill="none" stroke="var(--hs-cry-edge,#A6FBE2)" stroke-width="1.4" opacity=".7"/>
+</g>
+<g class="hsPod hsPod2">
+<ellipse cx="86" cy="730" rx="20" ry="7" fill="url(#alPool)"/>
+<path d="M84 730v-11" stroke="var(--hs-stem,#2A3A63)" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M74 719a10 8 0 0 1 20 0z" fill="var(--hs-cry-glow,#8FF6D6)"/>
+</g>
+<g class="hsPod hsPod3">
+<ellipse cx="386" cy="694" rx="24" ry="8" fill="url(#alPool)"/>
+<path d="M388 694v-14" stroke="var(--hs-stem,#2A3A63)" stroke-width="4" stroke-linecap="round"/>
+<path d="M375 680a13 10 0 0 1 26 0z" fill="var(--hs-cry-glow,#8FF6D6)"/>
+<path d="M375 680a13 10 0 0 1 26 0" fill="none" stroke="var(--hs-cry-edge,#A6FBE2)" stroke-width="1.3" opacity=".7"/>
+</g>
+<g class="hsPod hsPod4">
+<ellipse cx="420" cy="726" rx="18" ry="6" fill="url(#alPool)"/>
+<path d="M418 726v-10" stroke="var(--hs-stem,#2A3A63)" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M409 716a9 7 0 0 1 18 0z" fill="var(--hs-cry-glow,#8FF6D6)"/>
+</g>
+<g class="hsPod hsPod5">
+<ellipse cx="330" cy="734" rx="20" ry="7" fill="url(#alPool)"/>
+<path d="M328 734v-11" stroke="var(--hs-stem,#2A3A63)" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M318 723a10 8 0 0 1 20 0z" fill="var(--hs-cry-glow,#8FF6D6)"/>
+</g>
+</g>
+
+<!-- ══════ หญ้าเส้นบางไหวตามลม ══════ -->
+<g class="hsBlades" fill="none" stroke="var(--hs-blade,#2F7F82)" stroke-linecap="round">
+<path class="hsBlade hsBlade1" d="M148 662c-3-18 2-30 10-40" stroke-width="2.4"/>
+<path class="hsBlade hsBlade2" d="M158 664c1-16 6-26 14-33" stroke-width="1.8" opacity=".8"/>
+<path class="hsBlade hsBlade3" d="M338 656c4-20-1-32-9-42" stroke-width="2.4"/>
+<path class="hsBlade hsBlade1" d="M328 658c-1-15-6-25-13-31" stroke-width="1.8" opacity=".8"/>
+<path class="hsBlade hsBlade2" d="M206 700c-4-20 1-32 9-42" stroke-width="2.2" opacity=".7"/>
+<path class="hsBlade hsBlade3" d="M264 690c4-18-1-30-8-38" stroke-width="2" opacity=".65"/>
+<path class="hsBlade hsBlade1" d="M96 690c-3-16 1-27 8-35" stroke-width="2" opacity=".7"/>
+</g>
+
+<!-- หมอกบางเหนือพื้น = คั่นระยะระหว่างพื้นกับภูเขา -->
+<rect x="0" y="600" width="440" height="46" fill="var(--hs-mint,#5CF2C0)" opacity=".07"/>
+</svg>

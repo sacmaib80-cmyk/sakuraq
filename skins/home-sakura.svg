@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Sakura garden at dusk">
+<!--
+  ฉากหน้า Home "สวนซากุระ" — ตัวที่มีอนิเมชั่น
+  กฎที่ยึด:
+  · แสงมาจากโคมหินฝั่งขวา (อุ่น) ตัดกับฟ้าเย็นด้านหลัง
+  · ต้นไม้เป็นทรงทึบซ้อนชั้น ไม่ใช่ไล่สีนุ่ม — ความฟูมาจากขอบหยักของพุ่ม
+  · ของที่ขยับถูกแยกเป็นคลาส (.hsPetal / .hsGlow / .hsRipple) ให้ CSS ในแอปขับ
+    ไม่ใช้ SMIL เพราะต้องหยุดตาม prefers-reduced-motion ได้
+  · กลางล่างเว้นให้มาสคอต — ต้นไม้เกาะซ้าย โคมเกาะขวา บ่อน้ำอยู่ล่างสุด
+-->
+<defs>
+  <linearGradient id="skSky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="var(--hs-sky-1,#ffd9e6)"/>
+    <stop offset=".45" stop-color="var(--hs-sky-2,#ffeaf0)"/>
+    <stop offset="1"   stop-color="var(--hs-sky-3,#e7f4f2)"/>
+  </linearGradient>
+  <radialGradient id="skLanternGlow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="var(--hs-lamp,#ffb46a)" stop-opacity=".75"/>
+    <stop offset="1" stop-color="var(--hs-lamp,#ffb46a)" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="skWater" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="var(--hs-water-1,#a9d8d6)"/>
+    <stop offset="1" stop-color="var(--hs-water-2,#7cbcc0)"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="440" height="860" fill="url(#skSky)"/>
+
+<!-- ดวงอาทิตย์ตกดวงเล็ก -->
+<circle cx="342" cy="150" r="34" fill="var(--hs-sun,#fff0d4)" opacity=".9"/>
+
+<!-- ภูเขาไกล 2 ชั้น (สีทึบ) -->
+<path d="M0 430l96-96 74 66 62-58 96 90 112-74v182H0z" fill="var(--hs-hill-far,#cfe0e6)"/>
+<path d="M0 486l72-62 68 50 78-58 90 70 132-52v130H0z" fill="var(--hs-hill,#b6d3d3)"/>
+
+<!-- ต้นซากุระฝั่งซ้าย: ลำต้นเรียวจากพื้นขึ้นไปรับพุ่มโดยตรง (ต้องต่อกันจริง ไม่ลอย) -->
+<g>
+  <ellipse cx="76" cy="742" rx="58" ry="12" fill="var(--hs-grass-3,#8fb98c)" opacity=".5"/>
+  <!-- ลำต้น: โคนกว้าง 46 → ยอดเรียว 12 โค้งเข้าหากลางภาพ -->
+  <path id="trunk" d="M64 744c-4-52 2-104 18-152 14-42 30-80 40-124 6-24 8-46 6-66l26-4c2 26-2 52-10 78-14 46-30 84-42 126-13 46-18 96-14 142z"
+        fill="var(--hs-trunk,#7d5763)"/>
+  <path d="M138 402c8-26 12-52 10-78l16-2c2 26-2 52-10 78z" fill="var(--hs-trunk-2,#5f414c)"/>
+  <path d="M64 744c-3-40-1-80 8-118l16 6c-8 36-10 74-8 112z" fill="var(--hs-trunk-2,#5f414c)" opacity=".55"/>
+  <!-- กิ่งแยก 3 กิ่ง ปลายเรียว -->
+  <g stroke="var(--hs-trunk,#7d5763)" fill="none" stroke-linecap="round">
+    <path d="M150 344c26-14 54-12 80 4" stroke-width="11"/>
+    <path d="M142 300c14-24 36-40 62-46" stroke-width="9"/>
+    <path d="M132 380c-22-6-40-22-48-44" stroke-width="8"/>
+  </g>
+
+  <!-- พุ่มดอก: ต้องคร่อมปลายลำต้น ไม่ใช่ลอยอยู่เหนือ -->
+  <g transform="translate(4,72)">
+  <g fill="var(--hs-bloom-2,#ffa8c6)">
+    <path d="M78 300c-26 4-44-16-40-40 2-16 16-28 32-28-4-20 12-38 32-36 8-18 32-24 48-12 20-12 44 0 48 22 20 2 34 22 28 42 8 16-2 36-20 40-6 18-28 26-44 16-14 14-38 12-50-4-12 6-28 4-34 0z"/>
+  </g>
+  <g fill="var(--hs-bloom,#ffc2d6)">
+    <path d="M86 286c-22 4-38-14-34-34 2-14 14-24 28-24-4-18 10-32 28-30 6-16 28-20 42-10 16-10 38 0 40 20 18 2 30 18 24 36 6 14-2 30-18 34-6 16-24 22-38 14-12 12-32 10-42-4-10 6-24 2-30-2z"/>
+    <path d="M214 268c-16 2-26-10-24-24 2-10 10-17 20-17-3-13 7-23 20-21 4-11 20-14 30-7 11-7 27 0 28 14 13 2 21 13 17 26 4 10-1 21-13 24-4 11-17 16-27 10-8 8-22 7-30-3-7 4-17 1-21-2z"/>
+  </g>
+  <!-- ดอกเน้นขอบพุ่ม -->
+  <g fill="var(--hs-bloom-3,#fff0f5)">
+    <circle cx="72"  cy="262" r="9"/><circle cx="120" cy="216" r="8"/>
+    <circle cx="176" cy="212" r="7"/><circle cx="206" cy="252" r="8"/>
+    <circle cx="148" cy="300" r="7"/><circle cx="92"  cy="322" r="8"/>
+    <circle cx="246" cy="230" r="6"/><circle cx="268" cy="266" r="7"/>
+  </g>
+  </g>
+</g>
+
+<!-- โคมหินฝั่งขวา (โทโรว) + แสงเรือง (ขยับ: .hsGlow) -->
+<g id="lantern">
+  <ellipse class="hsGlow" cx="368" cy="556" rx="104" ry="92" fill="url(#skLanternGlow)"/>
+  <ellipse cx="368" cy="694" rx="56" ry="11" fill="var(--hs-grass-3,#8fb98c)" opacity=".55"/>
+  <g fill="var(--hs-stone,#9aa3a8)">
+    <!-- ฐานล่าง 2 ชั้น -->
+    <path d="M326 690h84l-8-18h-68z"/>
+    <path d="M338 672h60l-6-14h-48z"/>
+    <!-- เสา -->
+    <rect x="356" y="600" width="24" height="58"/>
+    <!-- แท่นรับเรือนไฟ -->
+    <path d="M336 600h64l-8-16h-48z"/>
+    <!-- เรือนไฟ (ผนัง 2 ข้าง) -->
+    <rect x="340" y="536" width="14" height="48"/>
+    <rect x="382" y="536" width="14" height="48"/>
+    <rect x="340" y="576" width="56" height="8"/>
+    <!-- หลังคาปีกงอน -->
+    <path d="M318 536h100l-14-26H332z"/>
+    <path d="M318 536c-6 0-8-8-2-10l14-4-2 14zM418 536c6 0 8-8 2-10l-14-4 2 14z"/>
+    <!-- ยอด -->
+    <path d="M368 476l16 34h-32z"/>
+    <circle cx="368" cy="474" r="7"/>
+  </g>
+  <g fill="var(--hs-stone-2,#7b858b)">
+    <rect x="368" y="600" width="12" height="58"/>
+    <path d="M368 476l16 34h-8z"/>
+    <path d="M368 536h50l-14-26h-36z" opacity=".45"/>
+  </g>
+  <!-- ช่องไฟ -->
+  <rect x="354" y="536" width="28" height="40" fill="var(--hs-lamp,#ffb46a)"/>
+  <rect x="354" y="536" width="28" height="40" fill="var(--hs-lamp-2,#ffe0b8)" opacity=".45"/>
+  <path d="M368 540c5 6 7 12 4 18-2 4-6 3-8 0-3-6-1-12 4-18z" fill="var(--hs-lamp-2,#fff3df)"/>
+</g>
+
+<!-- พื้นหญ้า — ขอบหญ้าอยู่ที่ y~596 (เท้ามาสคอตตกที่ 633-680 จึงยืนบนหญ้าจริง ไม่ลอย) -->
+<path d="M0 596c70-16 140-16 210-2 76 16 152 16 230-4v270H0z" fill="var(--hs-grass,#bcd9b6)"/>
+<path d="M0 642c76-12 148-10 214 4 70 14 148 12 226-8v222H0z" fill="var(--hs-grass-2,#a6cba2)"/>
+
+<!-- บ่อน้ำ + ระลอก (ขยับ: .hsRipple) -->
+<g>
+  <ellipse cx="220" cy="812" rx="188" ry="44" fill="url(#skWater)"/>
+  <ellipse cx="220" cy="812" rx="188" ry="44" fill="none" stroke="var(--hs-water-edge,#8fc6c4)" stroke-width="3"/>
+  <g class="hsRipple" stroke="var(--hs-ripple,#e6f7f6)" stroke-width="2.5" fill="none" opacity=".75">
+    <ellipse cx="140" cy="806" rx="34" ry="8"/>
+    <ellipse cx="140" cy="806" rx="56" ry="13" opacity=".55"/>
+  </g>
+  <g class="hsRipple hsRipple2" stroke="var(--hs-ripple,#e6f7f6)" stroke-width="2.5" fill="none" opacity=".6">
+    <ellipse cx="302" cy="824" rx="26" ry="6"/>
+    <ellipse cx="302" cy="824" rx="46" ry="11" opacity=".5"/>
+  </g>
+  <!-- เงาสะท้อนโคม -->
+  <path d="M360 786c6 12 6 26 0 40-8-14-8-28 0-40z" fill="var(--hs-lamp,#ffb46a)" opacity=".35"/>
+</g>
+
+<!-- ก้อนหินริมทาง: ทรงเหลี่ยมมนมีด้านเงา ไม่ใช่วงรีแบนๆ (ของเดิมอ่านเป็นแอ่งน้ำสีเทา) -->
+<g>
+  <ellipse cx="392" cy="712" rx="30" ry="7" fill="var(--hs-grass-3,#8fb98c)" opacity=".45"/>
+  <path d="M368 710c2-16 12-26 26-26 12 0 22 8 24 20 2 10-6 16-20 17-16 1-31-3-30-11z" fill="var(--hs-stone,#9aa3a8)"/>
+  <path d="M394 684c12 0 22 8 24 20 2 10-6 16-20 17 6-12 5-26-4-37z" fill="var(--hs-stone-2,#7b858b)"/>
+  <ellipse cx="66" cy="700" rx="20" ry="5" fill="var(--hs-grass-3,#8fb98c)" opacity=".4"/>
+  <path d="M50 698c1-11 8-18 18-18 8 0 15 6 16 14 1 7-4 11-13 12-11 1-22-2-21-8z" fill="var(--hs-stone,#9aa3a8)" opacity=".85"/>
+</g>
+
+<!-- กลีบซากุระปลิว (ขยับ: .hsPetal — CSS ในแอปเป็นคนขับ) -->
+<g fill="var(--hs-bloom-3,#ffc6db)">
+  <path class="hsPetal hsPetal1" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(120,120)"/>
+  <path class="hsPetal hsPetal2" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(238,80)"/>
+  <path class="hsPetal hsPetal3" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(330,210)"/>
+  <path class="hsPetal hsPetal4" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(62,180)"/>
+  <path class="hsPetal hsPetal5" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(180,60)"/>
+  <path class="hsPetal hsPetal6" d="M9 0C16.5 5.1 18.9 12.6 15 18.3 12.9 21.3 11.1 20.1 9 17.7 6.9 20.1 5.1 21.3 3 18.3-0.9 12.6 1.5 5.1 9 0z" transform="translate(286,150)"/>
+</g>
+</svg>

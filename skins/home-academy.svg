@@ -1,0 +1,408 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Royal academy courtyard under a bright sky">
+<!-- ลานโรงเรียนหลวง — ตึกขาวหลังคาเขียวล้อมรอบ + หอนาฬิกา + เกาะลอยฟ้า
+     เส้นพื้น y=612 (มาสคอตนั่งที่ y 633-680 · กลางเท้า x=300 · เท้ากิน x 228-371)
+     ของทุกชิ้นต้องมีฐานต่ำกว่าเส้นพื้น + มีเงาที่จุดสัมผัส ไม่งั้นตาจะอ่านว่า "ลอย"
+     ตัวมาสคอตกินราว x 150-430 / y 360-680 -> ของสูงเกาะริมสองข้าง (x<170, x>388)
+     เหนือ y=360 ว่าง = ที่ของหอนาฬิกา/เมฆ/เกาะลอย · ห้ามวางของสำคัญเหนือ y=60 (โดนครอปบนจอเตี้ย)
+     "ที่ยืนของหมา" = แผ่นตราหินฝังพื้นวงรีที่ cx=300 (กว้างกว่าเท้า จะได้เห็นขอบรอบตัว)
+     พาเลตต์คุมไว้ 3 ทาง: ฟ้า(ท้องฟ้า) · เขียวสนิม(หลังคา) · ขาวหินอ่อน — อุ่นจุดเดียวคือลานอิฐ
+     ทอง = แต้มเน้นเล็กๆ เท่านั้น (ยอดหอ/เข็มนาฬิกา/ขอบตรา) -->
+<defs>
+<linearGradient id="acSky" x1="0" y1="0" x2=".1" y2="1">
+<stop offset="0"   stop-color="var(--hs-sky-1,#2E86D8)"/>
+<stop offset=".38" stop-color="var(--hs-sky-2,#5FB0E8)"/>
+<stop offset=".72" stop-color="var(--hs-sky-3,#A6DBF5)"/>
+<stop offset="1"   stop-color="var(--hs-sky-4,#DCEFFA)"/>
+</linearGradient>
+<radialGradient id="acSun" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="#FFFFFF" stop-opacity=".85"/>
+<stop offset=".45" stop-color="#EAF7FF" stop-opacity=".3"/>
+<stop offset="1"   stop-color="#EAF7FF" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="acWall" x1="0" y1="0" x2=".35" y2="1">
+<stop offset="0"   stop-color="var(--hs-wall-1,#FCFDFF)"/>
+<stop offset=".55" stop-color="var(--hs-wall-2,#EDF2F9)"/>
+<stop offset="1"   stop-color="var(--hs-wall-3,#D5DFEC)"/>
+</linearGradient>
+<linearGradient id="acRoof" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-roof-1,#79D2B8)"/>
+<stop offset=".42" stop-color="var(--hs-roof-2,#43A78D)"/>
+<stop offset="1"   stop-color="var(--hs-roof-3,#2A7462)"/>
+</linearGradient>
+<linearGradient id="acBrick" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-brick-1,#F0C293)"/>
+<stop offset=".45" stop-color="var(--hs-brick-2,#E5A971)"/>
+<stop offset="1"   stop-color="var(--hs-brick-3,#D18F58)"/>
+</linearGradient>
+<linearGradient id="acGold" x1="0" y1="0" x2=".3" y2="1">
+<stop offset="0"   stop-color="var(--hs-gold-1,#FBE9B0)"/>
+<stop offset=".45" stop-color="var(--hs-gold-2,#E3BB60)"/>
+<stop offset="1"   stop-color="var(--hs-gold-3,#A97C2E)"/>
+</linearGradient>
+<radialGradient id="acLamp" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--hs-lamp,#FFF0C4)" stop-opacity=".9"/>
+<stop offset=".4"  stop-color="var(--hs-lamp,#FFE49A)" stop-opacity=".35"/>
+<stop offset="1"   stop-color="var(--hs-lamp,#FFE49A)" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="acIsle" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-isle-1,#8FBDA4)"/>
+<stop offset=".3"  stop-color="var(--hs-isle-2,#6E9C8A)"/>
+<stop offset="1"   stop-color="var(--hs-isle-3,#3E5D63)"/>
+</linearGradient>
+</defs>
+
+<rect x="0" y="0" width="440" height="860" fill="url(#acSky)"/>
+<ellipse cx="392" cy="86" rx="190" ry="150" fill="url(#acSun)"/>
+
+<!-- ══════════════ เมฆริ้ว (cirrus) ══════════════
+     ทรงเป็น "ริ้วบาง ปลายเรียว" ซ้อนกันหลายเส้น ไม่ใช่ก้อนกลมป่องๆ
+     3 ชั้นวิ่งคนละความเร็ว = ได้ระยะลึก · ชั้นไกลจางและช้ากว่า -->
+<g fill="#FFFFFF">
+<g class="hsCloud hsCloudFar" opacity=".5">
+<path d="M-30 96c40-9 84-11 124-5 26 4 52 2 76-5-18 10-44 15-72 14-42-2-88 1-128-4z"/>
+<path d="M96 58c30-7 64-8 94-3 20 3 40 1 58-4-14 8-34 11-55 11-32-1-66 1-97-4z"/>
+<path d="M186 150c46-10 96-12 142-5 30 4 60 2 88-6-21 12-51 17-83 16-49-2-100 1-147-5z"/>
+<path d="M-10 232c34-8 72-9 106-4 22 3 44 1 64-5-15 9-37 13-61 12-36-1-75 1-109-3z"/>
+<path d="M244 292c30-7 64-8 94-3 20 3 40 1 58-4-14 8-34 11-55 11-32-1-66 1-97-4z"/>
+</g>
+<g class="hsCloud hsCloudMid" opacity=".78">
+<path d="M14 128c44-12 94-14 140-6 30 5 60 2 88-7-20 13-50 19-84 18-48-2-98 1-144-5z"/>
+<path d="M42 140c26-6 56-7 82-3-22 7-52 8-82 3z"/>
+<path d="M198 76c38-10 80-12 120-5 26 4 52 2 76-6-18 11-44 16-72 15-42-1-86 1-124-4z"/>
+<path d="M-40 306c46-12 98-14 146-6 31 5 62 2 91-7-21 13-52 19-87 18-50-2-102 1-150-5z"/>
+<path d="M232 262c34-9 72-11 108-5 23 4 47 2 68-5-16 10-40 14-65 14-38-1-77 1-111-4z"/>
+<path d="M266 274c22-5 48-6 70-3-19 6-45 7-70 3z"/>
+</g>
+<g class="hsCloud hsCloudNear" opacity=".95">
+<path d="M-20 186c48-13 102-15 152-6 32 6 65 2 95-8-22 14-54 20-90 19-52-2-106 1-157-5z"/>
+<path d="M20 200c28-7 60-8 88-4-24 8-56 9-88 4z"/>
+<path d="M250 30c40-11 84-13 126-5 27 4 55 1 79-7-19 12-46 17-76 16-44-1-90 1-129-4z"/>
+<path d="M52 380c40-11 84-13 126-6 27 4 55 1 79-6-19 11-46 16-76 15-44-1-90 1-129-3z"/>
+</g>
+</g>
+
+<!-- ══════════════ เกาะลอยฟ้า — ก้นเป็นหินแหลมไม่เท่ากัน (ถ้าเป็นกรวยเรียบจะอ่านเป็นลูกข่าง) ══════════════ -->
+<g class="hsIsle hsIsle1">
+<path d="M26 304l10 20 6-9 8 27 8-15 10 19 8-25 8 13 6-30z" fill="url(#acIsle)"/>
+<path d="M22 300c9-8 26-12 42-12s33 4 42 12c-9 6-27 9-42 9s-33-3-42-9z" fill="var(--hs-isle-top,#8FD3A8)"/>
+<path d="M22 300c9-8 26-12 42-12v9c-16 0-33 1-42 3z" fill="var(--hs-isle-hi,#B6E8C6)" opacity=".7"/>
+<path d="M50 292c2-13 8-19 14-19s12 6 14 19c-8 3-20 3-28 0z" fill="var(--hs-tree,#3E8F6B)"/>
+<path d="M80 294c1-9 5-13 9-13s8 4 9 13c-5 2-13 2-18 0z" fill="var(--hs-tree-2,#2C6F52)"/>
+</g>
+<g class="hsIsle hsIsle2">
+<path d="M330 208l12 24 7-11 9 32 9-18 12 23 9-30 10 16 7-36z" fill="url(#acIsle)"/>
+<path d="M326 204c10-9 30-14 47-14s37 5 47 14c-10 7-30 10-47 10s-37-3-47-10z" fill="var(--hs-isle-top,#8FD3A8)"/>
+<path d="M326 204c10-9 30-14 47-14v10c-18 0-37 1-47 4z" fill="var(--hs-isle-hi,#B6E8C6)" opacity=".7"/>
+<path d="M350 196c2-14 9-21 16-21s14 7 16 21c-9 3-23 3-32 0z" fill="var(--hs-tree,#3E8F6B)"/>
+<path d="M384 198c1-10 6-15 11-15s10 5 11 15c-6 2-16 2-22 0z" fill="var(--hs-tree-2,#2C6F52)"/>
+<path d="M336 338h4l6 10h-16z" fill="var(--hs-isle-3,#3E5D63)" opacity=".35"/>
+</g>
+<g class="hsIsle hsIsle3" opacity=".92">
+<path d="M368 342l8 15 5-7 6 20 6-11 7 14 6-19 6 9 4-21z" fill="url(#acIsle)"/>
+<path d="M365 339c7-6 20-9 31-9s24 3 31 9c-7 5-20 7-31 7s-24-2-31-7z" fill="var(--hs-isle-top,#8FD3A8)"/>
+<path d="M388 332c1-8 5-12 9-12s8 4 9 12c-5 2-13 2-18 0z" fill="var(--hs-tree,#3E8F6B)"/>
+</g>
+
+<!-- ══════════════ วงเมฆพิธีการหลังหอนาฬิกา ══════════════
+     ทำเป็น "ก้อนเมฆเรียงเป็นวง" (ตามภาพอ้างอิง) ไม่ใช่เส้นโค้งลอยๆ ที่อ่านไม่ออกว่าคืออะไร
+     วาดก่อนหอ -> หอบังตรงกลาง = วงอยู่ข้างหลังจริง -->
+<g fill="var(--hs-arch,#FFFFFF)">
+<circle cx="116" cy="470" r="20"/><circle cx="120" cy="445" r="20"/><circle cx="130" cy="422" r="20"/>
+<circle cx="146" cy="402" r="20"/><circle cx="168" cy="387" r="20"/><circle cx="193" cy="377" r="20"/>
+<circle cx="220" cy="374" r="20"/><circle cx="247" cy="377" r="20"/><circle cx="272" cy="387" r="20"/>
+<circle cx="294" cy="402" r="20"/><circle cx="310" cy="422" r="20"/><circle cx="320" cy="445" r="20"/>
+<circle cx="324" cy="470" r="20"/>
+</g>
+<path d="M156 468a64 60 0 0 1 128 0" fill="none" stroke="var(--hs-sky-3,#A6DBF5)" stroke-width="5" opacity=".5"/>
+
+<!-- ══════════════ หอนาฬิกา ══════════════ -->
+<g>
+<!-- ยอดแหลม + ธง -->
+<path d="M186 228l34-56 34 56z" fill="url(#acRoof)"/>
+<path d="M220 172l34 56h-16z" fill="var(--hs-roof-3,#2A7462)" opacity=".55"/>
+<path d="M220 172v-16" stroke="var(--hs-gold-2,#E3BB60)" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="220" cy="152" r="5" fill="url(#acGold)"/>
+<path class="hsFlag" d="M222 150c14 2 22 8 30 4-6 8-6 14 0 20-10 4-18-2-30 0z" fill="var(--hs-flag,#E86A7C)"/>
+<!-- บัวหัวเสา -->
+<rect x="182" y="228" width="76" height="10" rx="3" fill="var(--hs-wall-1,#FCFDFF)"/>
+<rect x="182" y="236" width="76" height="5" rx="2" fill="var(--hs-wall-3,#D5DFEC)"/>
+<!-- เรือนนาฬิกา -->
+<rect x="190" y="241" width="60" height="62" fill="url(#acWall)"/>
+<rect x="190" y="241" width="10" height="62" fill="var(--hs-wall-3,#D5DFEC)" opacity=".5"/>
+<circle cx="220" cy="270" r="24" fill="url(#acGold)"/>
+<circle cx="220" cy="270" r="19" fill="#FBFDFF"/>
+<g stroke="var(--hs-ink,#3C4A63)" stroke-linecap="round">
+<path d="M220 270v-12" stroke-width="3.2"/>
+<path d="M220 270l8 6" stroke-width="2.6"/>
+<path class="hsTick" d="M220 270v-15" stroke="var(--hs-gold-3,#A97C2E)" stroke-width="1.6"/>
+</g>
+<circle cx="220" cy="270" r="2.4" fill="var(--hs-ink,#3C4A63)"/>
+<g fill="var(--hs-ink,#3C4A63)" opacity=".5">
+<rect x="219" y="253" width="2" height="4"/><rect x="219" y="283" width="2" height="4"/>
+<rect x="203" y="269" width="4" height="2"/><rect x="233" y="269" width="4" height="2"/>
+</g>
+<!-- หอช่วงล่าง -->
+<rect x="194" y="303" width="52" height="316" fill="url(#acWall)"/>
+<rect x="194" y="303" width="9" height="316" fill="var(--hs-wall-3,#D5DFEC)" opacity=".55"/>
+<rect x="237" y="303" width="9" height="316" fill="var(--hs-wall-3,#D5DFEC)" opacity=".3"/>
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M210 330a10 10 0 0 1 20 0v26h-20z"/>
+<path d="M210 386a10 10 0 0 1 20 0v26h-20z"/>
+</g>
+<g fill="var(--hs-win-hi,#BFE4F6)" opacity=".65">
+<path d="M212 332a8 8 0 0 1 8-8v32h-8z"/>
+<path d="M212 388a8 8 0 0 1 8-8v32h-8z"/>
+</g>
+<rect x="190" y="356" width="60" height="6" rx="2" fill="var(--hs-wall-1,#FCFDFF)"/>
+<rect x="190" y="412" width="60" height="6" rx="2" fill="var(--hs-wall-1,#FCFDFF)"/>
+</g>
+
+<!-- ══════════════ ตึกกลาง (หลังหอ) ══════════════ -->
+<g>
+<path d="M132 492h176l-14-30H146z" fill="url(#acRoof)"/>
+<rect x="132" y="492" width="176" height="128" fill="url(#acWall)"/>
+<rect x="132" y="492" width="176" height="7" fill="var(--hs-wall-3,#D5DFEC)"/>
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M148 528a8 8 0 0 1 16 0v22h-16z"/><path d="M176 528a8 8 0 0 1 16 0v22h-16z"/>
+<path d="M248 528a8 8 0 0 1 16 0v22h-16z"/><path d="M276 528a8 8 0 0 1 16 0v22h-16z"/>
+<path d="M148 578a8 8 0 0 1 16 0v24h-16z"/><path d="M276 578a8 8 0 0 1 16 0v24h-16z"/>
+</g>
+</g>
+
+<!-- ══════════════ ตึกซ้าย ══════════════ -->
+<g>
+<!-- ป้อมมุม -->
+<path d="M128 344l24-46 24 46z" fill="url(#acRoof)"/>
+<path d="M152 298l24 46h-11z" fill="var(--hs-roof-3,#2A7462)" opacity=".5"/>
+<circle cx="152" cy="292" r="4" fill="url(#acGold)"/>
+<rect x="132" y="344" width="40" height="276" fill="url(#acWall)"/>
+<rect x="132" y="344" width="8" height="276" fill="var(--hs-wall-3,#D5DFEC)" opacity=".5"/>
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M144 372a8 8 0 0 1 16 0v20h-16z"/><path d="M144 424a8 8 0 0 1 16 0v20h-16z"/>
+<path d="M144 476a8 8 0 0 1 16 0v20h-16z"/>
+</g>
+<!-- ตัวตึก -->
+<path d="M-16 428h150l-18-34H2z" fill="url(#acRoof)"/>
+<path d="M-16 428h150v10H-16z" fill="var(--hs-wall-1,#FCFDFF)"/>
+<rect x="-16" y="438" width="150" height="182" fill="url(#acWall)"/>
+<!-- หน้าต่างโค้ง 2 แถว -->
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M4 470a9 9 0 0 1 18 0v24H4z"/><path d="M36 470a9 9 0 0 1 18 0v24H36z"/>
+<path d="M68 470a9 9 0 0 1 18 0v24H68z"/><path d="M100 470a9 9 0 0 1 18 0v24h-18z"/>
+<path d="M4 528a9 9 0 0 1 18 0v26H4z"/><path d="M36 528a9 9 0 0 1 18 0v26H36z"/>
+<path d="M68 528a9 9 0 0 1 18 0v26H68z"/><path d="M100 528a9 9 0 0 1 18 0v26h-18z"/>
+</g>
+<g fill="var(--hs-win-hi,#BFE4F6)" opacity=".6">
+<path d="M6 472a7 7 0 0 1 7-7v29H6z"/><path d="M38 472a7 7 0 0 1 7-7v29h-7z"/>
+<path d="M70 472a7 7 0 0 1 7-7v29h-7z"/><path d="M102 472a7 7 0 0 1 7-7v29h-7z"/>
+</g>
+<rect x="-16" y="500" width="150" height="6" fill="var(--hs-wall-1,#FCFDFF)"/>
+<!-- ซุ้มทางเดินชั้นล่าง -->
+<g fill="var(--hs-arcade,#9FB6CE)">
+<path d="M0 620v-32a13 13 0 0 1 26 0v32z"/><path d="M38 620v-32a13 13 0 0 1 26 0v32z"/>
+<path d="M76 620v-32a13 13 0 0 1 26 0v32z"/><path d="M114 620v-32a13 13 0 0 1 20 0v32z"/>
+</g>
+</g>
+
+<!-- ══════════════ ตึกขวา (สูงกว่า = ไม่สมมาตรเป๊ะ ตาจะได้มีที่ลง) ══════════════ -->
+<g>
+<path d="M296 402l26-50 26 50z" fill="url(#acRoof)"/>
+<path d="M322 352l26 50h-12z" fill="var(--hs-roof-3,#2A7462)" opacity=".5"/>
+<circle cx="322" cy="346" r="4" fill="url(#acGold)"/>
+<rect x="302" y="402" width="42" height="218" fill="url(#acWall)"/>
+<rect x="336" y="402" width="8" height="218" fill="var(--hs-wall-3,#D5DFEC)" opacity=".45"/>
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M314 430a8 8 0 0 1 16 0v20h-16z"/><path d="M314 482a8 8 0 0 1 16 0v20h-16z"/>
+<path d="M314 534a8 8 0 0 1 16 0v20h-16z"/>
+</g>
+
+<path d="M456 400H326l16-34h114z" fill="url(#acRoof)"/>
+<path d="M326 400h130v10H326z" fill="var(--hs-wall-1,#FCFDFF)"/>
+<rect x="326" y="410" width="130" height="210" fill="url(#acWall)"/>
+<g fill="var(--hs-win,#6FA9CE)">
+<path d="M348 442a9 9 0 0 1 18 0v24h-18z"/><path d="M380 442a9 9 0 0 1 18 0v24h-18z"/>
+<path d="M412 442a9 9 0 0 1 18 0v24h-18z"/>
+<path d="M348 500a9 9 0 0 1 18 0v26h-18z"/><path d="M380 500a9 9 0 0 1 18 0v26h-18z"/>
+<path d="M412 500a9 9 0 0 1 18 0v26h-18z"/>
+</g>
+<g fill="var(--hs-win-hi,#BFE4F6)" opacity=".6">
+<path d="M350 444a7 7 0 0 1 7-7v29h-7z"/><path d="M382 444a7 7 0 0 1 7-7v29h-7z"/>
+<path d="M414 444a7 7 0 0 1 7-7v29h-7z"/>
+</g>
+<rect x="326" y="472" width="130" height="6" fill="var(--hs-wall-1,#FCFDFF)"/>
+<g fill="var(--hs-arcade,#9FB6CE)">
+<path d="M336 620v-32a13 13 0 0 1 26 0v32z"/><path d="M374 620v-32a13 13 0 0 1 26 0v32z"/>
+<path d="M412 620v-32a13 13 0 0 1 26 0v32z"/>
+</g>
+<!-- เสาธงชาติโรงเรียน -->
+<path d="M290 620V470" stroke="var(--hs-wall-3,#C6D2E2)" stroke-width="4" stroke-linecap="round"/>
+<path class="hsFlag hsFlag2" d="M292 476c16 3 26 10 36 5-7 9-7 16 0 23-12 5-21-2-36 1z" fill="var(--hs-flag-2,#5B8FE0)"/>
+</g>
+
+<!-- ══════════════ ต้นไม้แนวหลัง ══════════════ -->
+<g>
+<g fill="var(--hs-tree,#3E8F6B)">
+<ellipse cx="176" cy="586" rx="26" ry="30"/><ellipse cx="196" cy="596" rx="20" ry="24"/>
+<ellipse cx="268" cy="590" rx="24" ry="28"/><ellipse cx="250" cy="600" rx="18" ry="22"/>
+</g>
+<g fill="var(--hs-tree-2,#2C6F52)" opacity=".55">
+<ellipse cx="184" cy="600" rx="18" ry="18"/><ellipse cx="276" cy="604" rx="16" ry="16"/>
+</g>
+<rect x="174" y="606" width="6" height="16" fill="var(--hs-trunk,#7A6046)"/>
+<rect x="266" y="608" width="6" height="14" fill="var(--hs-trunk,#7A6046)"/>
+</g>
+
+<!-- ══════════════ พื้นลานอิฐ ══════════════ -->
+<rect x="0" y="612" width="440" height="248" fill="url(#acBrick)"/>
+<rect x="0" y="608" width="440" height="10" fill="var(--hs-kerb,#EFE3D2)"/>
+<rect x="0" y="618" width="440" height="3" fill="var(--hs-kerb-2,#C9A987)" opacity=".6"/>
+<!-- รอยต่ออิฐ: เส้นห่างขึ้นเรื่อยๆ เมื่อเข้าใกล้ = ได้ระยะ -->
+<g stroke="var(--hs-brick-line,#C98F5E)" stroke-width="1.6" opacity=".45">
+<path d="M0 638h440"/><path d="M0 668h440"/><path d="M0 706h440"/><path d="M0 754h440"/><path d="M0 812h440"/>
+</g>
+<g stroke="var(--hs-brick-line,#C98F5E)" stroke-width="1.4" opacity=".3">
+<path d="M60 621l-34 239"/><path d="M150 621l-26 239"/><path d="M240 621l-4 239"/>
+<path d="M330 621l22 239"/><path d="M410 621l44 239"/>
+</g>
+
+<!-- ══════════════ ผังพื้น (แก้รอบ 2 ตาม user) ══════════════
+     ปัญหาเดิม 3 ข้อ + วิธีแก้:
+     1) แปลงดอกไม้เคยอยู่ที่ y 666-704 = "หน้า" เท้าหมา (y 633-680) แต่ตัวหมาถูกวาดทับ
+        -> ตาอ่านว่าหมายืนกลางพุ่มหญ้า  ->  ย้ายแปลงไปชิดแนวตึก (y 612-656) = อยู่หลังหมาชัดเจน
+        และวาด "แปลง" ก่อน "แผ่นตราพื้น" เสมอ (ของไกลวาดก่อน ของใกล้วาดทับ)
+     2) เสาไฟสูงแค่ 222 หน่วย แต่หมาสูง 325 -> ของที่อยู่ "หน้า" กลับเตี้ยกว่า = เปอร์สเปกทีฟผิด
+        -> ยืดเป็น 432 หน่วย (1.33 เท่าของหมา) + ทำให้หนาขึ้น
+        หัวโคมวางที่ y 302-364 เพราะวัดแล้ว: จอ 398x764 ปุ่ม CTA จบที่ y=232 · จอ 360x640 จบที่ y=317
+        -> วางต่ำกว่านั้นถึงจะไม่โดนการ์ด/ปุ่มบัง
+     3) ศาลา/รูปปั้นเล็กเกินสำหรับระยะที่ยืน -> ถอยไปชิดแนวตึกแล้วขยายขึ้น
+        (ฉากนี้พื้นลึกแค่ y 612-860 ของที่ "ระยะเดียวกับหมา" ต้องใหญ่ระดับสถาปัตยกรรม ซึ่งใส่ไม่ได้
+         จึงย้ายไปเป็นของ "ระยะไกล" แทน แล้วให้เสาไฟเป็นของระยะหน้าตัวเดียว)  -->
+
+<!-- ── ศาลาแปดเหลี่ยม (ระยะไกล ชิดแนวตึกซ้าย) ── -->
+<g>
+<ellipse cx="98" cy="632" rx="66" ry="10" fill="var(--hs-shadow,#8A6440)" opacity=".16"/>
+<path d="M40 520h116l-58-54z" fill="url(#acRoof)"/>
+<path d="M98 466l58 54h-26z" fill="var(--hs-roof-3,#2A7462)" opacity=".45"/>
+<path d="M98 466v-16" stroke="var(--hs-gold-2,#E3BB60)" stroke-width="3" stroke-linecap="round"/>
+<circle cx="98" cy="446" r="5" fill="url(#acGold)"/>
+<rect x="34" y="520" width="128" height="10" rx="3" fill="var(--hs-wall-1,#FCFDFF)"/>
+<g fill="var(--hs-wall-2,#EDF2F9)">
+<rect x="42" y="530" width="11" height="88"/><rect x="70" y="530" width="11" height="88"/>
+<rect x="98" y="530" width="11" height="88"/><rect x="126" y="530" width="11" height="88"/>
+<rect x="148" y="530" width="11" height="88"/>
+</g>
+<g fill="var(--hs-wall-3,#C6D2E2)">
+<rect x="49" y="530" width="3" height="88"/><rect x="77" y="530" width="3" height="88"/>
+<rect x="105" y="530" width="3" height="88"/><rect x="133" y="530" width="3" height="88"/>
+</g>
+<path d="M46 560h114" stroke="var(--hs-gold-2,#E3BB60)" stroke-width="2.4" opacity=".5"/>
+<rect x="30" y="616" width="136" height="10" rx="4" fill="var(--hs-kerb,#EFE3D2)"/>
+<rect x="36" y="626" width="124" height="7" rx="3" fill="var(--hs-kerb-2,#C9A987)"/>
+</g>
+
+<!-- ── รูปปั้นผู้ก่อตั้ง (ระยะไกล ชิดแนวตึกขวา) ── -->
+<g>
+<ellipse cx="402" cy="648" rx="42" ry="9" fill="var(--hs-shadow,#8A6440)" opacity=".16"/>
+<rect x="366" y="632" width="72" height="12" rx="3" fill="var(--hs-stone-2,#C3CEDC)"/>
+<rect x="374" y="570" width="56" height="62" fill="var(--hs-stone,#DCE3EC)"/>
+<rect x="374" y="570" width="14" height="62" fill="#FFFFFF" opacity=".45"/>
+<rect x="366" y="558" width="72" height="12" rx="3" fill="var(--hs-stone-2,#C3CEDC)"/>
+<rect x="392" y="586" width="20" height="26" rx="2" fill="var(--hs-gold-3,#B98F3C)" opacity=".32"/>
+<g fill="var(--hs-stone,#E6ECF4)">
+<path d="M380 558c3-26 11-38 22-38s19 12 22 38z"/>
+<circle cx="402" cy="512" r="14"/>
+<path d="M402 496c9 0 14 5 14 10h-28c0-5 5-10 14-10z"/>
+</g>
+<g fill="var(--hs-stone-2,#C3CEDC)" opacity=".55">
+<path d="M402 520c11 0 19 12 22 38h-22z"/>
+<path d="M402 496c9 0 14 5 14 10h-14z"/>
+</g>
+</g>
+
+<!-- ── แปลงดอกไม้ 2 ฝั่ง: ชิดแนวตึก (y 612-656) = อยู่ "หลัง" หมาแน่นอน ── -->
+<g>
+<path d="M-10 648h206l-18-36H-10z" fill="var(--hs-bed,#7FA97F)"/>
+<path d="M-10 648h206l-7-12H-10z" fill="var(--hs-bed-2,#5E8A62)" opacity=".7"/>
+<g fill="var(--hs-leaf,#4F8F63)">
+<ellipse cx="14" cy="634" rx="20" ry="11"/><ellipse cx="58" cy="640" rx="22" ry="12"/>
+<ellipse cx="106" cy="634" rx="20" ry="11"/><ellipse cx="152" cy="642" rx="18" ry="10"/>
+<ellipse cx="186" cy="636" rx="16" ry="9"/>
+</g>
+<g>
+<circle cx="4"   cy="628" r="4.6" fill="var(--hs-fl-1,#FF8FB3)"/>
+<circle cx="26"  cy="636" r="4"   fill="var(--hs-fl-2,#FFD36E)"/>
+<circle cx="48"  cy="628" r="4.4" fill="var(--hs-fl-3,#FFFFFF)"/>
+<circle cx="70"  cy="638" r="5"   fill="var(--hs-fl-4,#C79BE8)"/>
+<circle cx="92"  cy="630" r="4.2" fill="var(--hs-fl-1,#FF8FB3)"/>
+<circle cx="116" cy="626" r="4.6" fill="var(--hs-fl-2,#FFD36E)"/>
+<circle cx="140" cy="638" r="4"   fill="var(--hs-fl-3,#FFFFFF)"/>
+<circle cx="166" cy="632" r="4.4" fill="var(--hs-fl-1,#FF8FB3)"/>
+<circle cx="190" cy="640" r="4"   fill="var(--hs-fl-4,#C79BE8)"/>
+</g>
+</g>
+<g>
+<path d="M450 650H278l20-38h152z" fill="var(--hs-bed,#7FA97F)"/>
+<path d="M450 650H278l7-13h165z" fill="var(--hs-bed-2,#5E8A62)" opacity=".7"/>
+<g fill="var(--hs-leaf,#4F8F63)">
+<ellipse cx="310" cy="640" rx="18" ry="10"/><ellipse cx="356" cy="634" rx="22" ry="12"/>
+<ellipse cx="404" cy="640" rx="20" ry="11"/><ellipse cx="440" cy="634" rx="16" ry="9"/>
+</g>
+<g>
+<circle cx="296" cy="640" r="4"   fill="var(--hs-fl-3,#FFFFFF)"/>
+<circle cx="320" cy="630" r="4.6" fill="var(--hs-fl-1,#FF8FB3)"/>
+<circle cx="346" cy="626" r="4.4" fill="var(--hs-fl-2,#FFD36E)"/>
+<circle cx="372" cy="634" r="5"   fill="var(--hs-fl-4,#C79BE8)"/>
+<circle cx="398" cy="628" r="4.2" fill="var(--hs-fl-1,#FF8FB3)"/>
+<circle cx="424" cy="638" r="4.6" fill="var(--hs-fl-3,#FFFFFF)"/>
+<circle cx="444" cy="628" r="4"   fill="var(--hs-fl-2,#FFD36E)"/>
+</g>
+</g>
+
+<!-- ── แผ่นตราหินฝังพื้น = ที่ยืนของหมา ──
+     วาดหลังแปลงดอกไม้ (ของใกล้ทับของไกล) · สีคุมให้ใกล้สีอิฐ ไม่ให้เด้งเป็น "ฝาท่อ"
+     รัศมี 100 > ครึ่งความกว้างเท้า (72) -> เห็นขอบรอบตัวหมาพอดี ไม่เวิ้งเกิน -->
+<g>
+<ellipse cx="300" cy="678" rx="116" ry="34" fill="var(--hs-inlay,#EFCEA4)"/>
+<ellipse cx="300" cy="678" rx="116" ry="34" fill="none" stroke="var(--hs-inlay-edge,#C98F5E)" stroke-width="2.8"/>
+<ellipse cx="300" cy="678" rx="100" ry="29" fill="var(--hs-inlay-2,#F7E2C6)"/>
+<g stroke="var(--hs-inlay-edge,#C98F5E)" stroke-width="1.6" opacity=".38">
+<path d="M300 650v56"/><path d="M198 678h204"/>
+<path d="M226 660l148 36"/><path d="M226 696l148-36"/>
+</g>
+<ellipse cx="300" cy="678" rx="46" ry="14" fill="none" stroke="var(--hs-gold-3,#B98F3C)" stroke-width="2" opacity=".75"/>
+<path d="M300 670l4.6 6 7 2.2-7 2.2-4.6 6-4.6-6-7-2.2 7-2.2z" fill="var(--hs-gold-2,#E3BB60)" opacity=".9"/>
+<ellipse cx="300" cy="691" rx="106" ry="12" fill="var(--hs-shadow,#8A6440)" opacity=".12"/>
+</g>
+
+<!-- ── เสาไฟระยะหน้า (ต้นเดียว ฝั่งซ้าย) ──
+     สูง 432 หน่วย = 1.33 เท่าของมาสคอต (325) · ฐานอยู่ที่ y=734 = ใกล้ตากว่าหมา (680) ถูกตามระยะ
+     ฝั่งขวาจงใจไม่มีต้นที่ 2: เคยวางแล้วมันทับรูปปั้นจนอ่านเป็นก้อนเดียว -->
+<g>
+<ellipse class="hsLampGlow" cx="40" cy="276" rx="54" ry="58" fill="url(#acLamp)"/>
+<ellipse cx="40" cy="736" rx="28" ry="9" fill="var(--hs-shadow,#8A6440)" opacity=".22"/>
+<path d="M20 736h40l-6-18H26z" fill="var(--hs-iron,#3E4A5C)"/>
+<rect x="26" y="694" width="28" height="26" rx="4" fill="var(--hs-iron,#3E4A5C)"/>
+<rect x="30" y="700" width="6" height="16" rx="2" fill="var(--hs-iron-hi,#7A8698)" opacity=".55"/>
+<rect x="34" y="304" width="13" height="392" fill="var(--hs-iron,#3E4A5C)"/>
+<rect x="36" y="304" width="4" height="392" fill="var(--hs-iron-hi,#7A8698)" opacity=".6"/>
+<!-- ลายเหล็กดัดกลางเสา -->
+<path d="M24 470c-9 7-9 17 0 24M57 470c9 7 9 17 0 24" stroke="var(--hs-iron,#3E4A5C)" stroke-width="4" fill="none" stroke-linecap="round"/>
+<circle cx="40" cy="482" r="5" fill="var(--hs-iron,#3E4A5C)"/>
+<!-- โคม -->
+<path d="M26 296h29l-5 10H31z" fill="var(--hs-iron,#3E4A5C)"/>
+<path d="M27 268h27l-3 28H30z" fill="var(--hs-lamp,#FFE49A)"/>
+<path d="M27 268h27l-3 28h-6l2-28z" fill="#FFFFFF" opacity=".45"/>
+<path d="M24 268h33l-7-16H31z" fill="var(--hs-iron,#3E4A5C)"/>
+<path d="M40 252v-8" stroke="var(--hs-iron,#3E4A5C)" stroke-width="3" stroke-linecap="round"/>
+<circle cx="40" cy="240" r="5.4" fill="url(#acGold)"/>
+</g>
+
+<!-- ══════════════ ละอองแสง/กลีบใบไม้ลอย ══════════════ -->
+<g fill="var(--hs-mote,#FFFFFF)">
+<circle class="hsMote hsMote1" cx="120" cy="540" r="3.2" opacity=".8"/>
+<circle class="hsMote hsMote2" cx="332" cy="500" r="2.6" opacity=".7"/>
+<circle class="hsMote hsMote3" cx="196" cy="580" r="3"   opacity=".65"/>
+<circle class="hsMote hsMote4" cx="386" cy="600" r="2.4" opacity=".6"/>
+<circle class="hsMote hsMote2" cx="70"  cy="600" r="2.8" opacity=".6"/>
+</g>
+</svg>

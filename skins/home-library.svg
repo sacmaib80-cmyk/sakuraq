@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Night library room">
+<!--
+  ฉากหน้า Home "ห้องสมุดกลางคืน" — วาดมือ
+  ผัง (user เคาะเอง): หน้าต่าง+พระจันทร์ = ซ้ายสุด · โต๊ะ+โคมไฟ = ใต้หน้าต่าง · ชั้นหนังสือใหญ่ = ขวาสุด
+  กฎที่ยึด:
+  · **เส้นพื้น y=612** (วัดจากเท้ามาสคอตจริง ตกที่ y 633-680 ทุกขนาดจอ)
+  · **ของที่วางบนของ ต้องแตะกันจริง** — โคมไฟฐานต้องอยู่ที่ y=548 พอดี (= หน้าโต๊ะ)
+    เคยพลาดมาแล้ว: วาดโคมลอยเหนือโต๊ะ 10 หน่วย ตรวจด้วย scratchpad/check-contact.js
+  · สันหนังสือสีทึบล้วน ความสูงไม่เท่ากัน ไม่มีเล่มไหนไล่สี
+  · ชิ้นที่ต้องตรวจการวาง มี id กำกับ (#desk #lamp #bookcase #bookpile)
+-->
+<defs>
+  <radialGradient id="lbMoon" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="var(--hs-moon,#e9f0ff)" stop-opacity=".5"/>
+    <stop offset="1" stop-color="var(--hs-moon,#e9f0ff)" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="lbLamp" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="var(--hs-lamp,#ffc46b)" stop-opacity=".7"/>
+    <stop offset="1" stop-color="var(--hs-lamp,#ffc46b)" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="lbWindow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="var(--hs-night-1,#33456e)"/>
+    <stop offset="1" stop-color="var(--hs-night-2,#1b2540)"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="440" height="612" fill="var(--hs-wall,#161d33)"/>
+
+<!-- ═══ ซ้ายสุด: หน้าต่างโค้ง + พระจันทร์ ═══ -->
+<g>
+  <path d="M6 106a58 58 0 0 1 116 0v180H6z" fill="var(--hs-frame,#2a3550)"/>
+  <path d="M14 108a50 50 0 0 1 100 0v170H14z" fill="url(#lbWindow)"/>
+  <circle cx="86" cy="150" r="25" fill="var(--hs-moon,#f2e9c8)"/>
+  <circle cx="76" cy="143" r="21" fill="url(#lbWindow)" opacity=".92"/>
+  <g fill="var(--hs-star,#dfe8ff)">
+    <circle cx="34" cy="136" r="2.1"/><circle cx="52" cy="188" r="1.6"/>
+    <circle cx="104" cy="206" r="1.8"/><circle cx="28" cy="234" r="1.5"/>
+    <circle cx="58" cy="114" r="1.5"/><circle cx="98" cy="252" r="1.7"/>
+  </g>
+  <g stroke="var(--hs-frame,#2a3550)" stroke-width="8" fill="none"><path d="M64 54v232M14 178h100"/></g>
+  <rect x="-2" y="278" width="132" height="13" rx="4" fill="var(--hs-frame,#2a3550)"/>
+</g>
+<ellipse cx="66" cy="266" rx="150" ry="130" fill="url(#lbMoon)"/>
+
+<!-- นาฬิกาบนผนังกลาง (ผนังโล่งระหว่างหน้าต่างกับตู้) -->
+<g>
+  <circle cx="204" cy="212" r="27" fill="var(--hs-frame2,#39304a)"/>
+  <circle cx="204" cy="212" r="21" fill="var(--hs-clock,#e8dfc8)" opacity=".9"/>
+  <g stroke="var(--hs-desk-2,#2c2436)" stroke-width="2.6" stroke-linecap="round"><path d="M204 212v-12M204 212l10 6"/></g>
+  <circle cx="204" cy="212" r="2.4" fill="var(--hs-desk-2,#2c2436)"/>
+</g>
+
+<!-- ═══ พื้น (y 612 ลงไป) ═══ -->
+<rect x="0" y="612" width="440" height="248" fill="var(--hs-floor,#1d2438)"/>
+<rect x="0" y="612" width="440" height="14" fill="#000" opacity=".22"/>
+<g stroke="var(--hs-floor-2,#151b2c)" stroke-width="3" opacity=".85">
+  <path d="M0 668h440M0 726h440M0 790h440"/>
+</g>
+<g>
+  <!-- พรม: ยึดตำแหน่งเท้ามาสคอตที่วัดจริง — กลางเท้าอยู่ที่ x=300 (ไม่ใช่กลางจอ 220)
+       เท้ากินช่วง x 228-371 · y 633-680 → พรมคลุม x 160-440 · y 612-724 ครบทุกขนาดจอ -->
+  <ellipse cx="300" cy="668" rx="140" ry="56" fill="var(--hs-rug,#5b3f52)"/>
+  <ellipse cx="300" cy="668" rx="116" ry="43" fill="var(--hs-rug-2,#6e4b60)"/>
+  <ellipse cx="300" cy="668" rx="80"  ry="27" fill="var(--hs-rug,#5b3f52)"/>
+</g>
+
+<!-- ═══ ขวาสุด: ชั้นหนังสือใหญ่ — ฐานจบที่ y=656 (ยืนบนพื้นจริง) ═══ -->
+<g id="bookcase">
+  <ellipse cx="360" cy="660" rx="92" ry="12" fill="#000" opacity=".3"/>
+  <rect x="278" y="88" width="168" height="568" fill="var(--hs-case,#233150)"/>
+  <rect x="278" y="88" width="10" height="568" fill="var(--hs-case-2,#1a2440)" opacity=".7"/>
+  <g fill="var(--hs-case-2,#1a2440)">
+    <rect x="278" y="88"  width="168" height="12"/>
+    <rect x="278" y="216" width="168" height="10"/>
+    <rect x="278" y="344" width="168" height="10"/>
+    <rect x="278" y="472" width="168" height="10"/>
+    <rect x="278" y="626" width="168" height="30"/>
+  </g>
+  <g>
+    <!-- ชั้น 1 -->
+    <rect x="296" y="118" width="15" height="98"  fill="var(--hs-bk-1,#7b4a52)"/>
+    <rect x="313" y="134" width="13" height="82"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <rect x="328" y="110" width="17" height="106" fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="347" y="142" width="13" height="74"  fill="var(--hs-bk-4,#4a5a86)"/>
+    <rect x="362" y="124" width="19" height="92"  fill="var(--hs-bk-5,#6b4470)"/>
+    <rect x="383" y="138" width="15" height="78"  fill="var(--hs-bk-1,#7b4a52)"/>
+    <rect x="400" y="120" width="13" height="96"  fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="415" y="144" width="16" height="72"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <!-- ชั้น 2 -->
+    <rect x="296" y="256" width="17" height="88"  fill="var(--hs-bk-4,#4a5a86)"/>
+    <rect x="315" y="240" width="13" height="104" fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="330" y="264" width="19" height="80"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <rect x="351" y="248" width="15" height="96"  fill="var(--hs-bk-5,#6b4470)"/>
+    <rect x="368" y="268" width="13" height="76"  fill="var(--hs-bk-1,#7b4a52)"/>
+    <path d="M385 344l30-74 12 6-28 68z" fill="var(--hs-bk-4,#4a5a86)"/>
+    <!-- ชั้น 3 -->
+    <rect x="296" y="382" width="15" height="90"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <rect x="313" y="398" width="17" height="74"  fill="var(--hs-bk-5,#6b4470)"/>
+    <rect x="332" y="376" width="13" height="96"  fill="var(--hs-bk-1,#7b4a52)"/>
+    <rect x="347" y="392" width="19" height="80"  fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="368" y="382" width="15" height="90"  fill="var(--hs-bk-4,#4a5a86)"/>
+    <rect x="385" y="406" width="15" height="66"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <rect x="402" y="388" width="18" height="84"  fill="var(--hs-bk-5,#6b4470)"/>
+    <!-- ชั้น 4 -->
+    <rect x="298" y="518" width="19" height="108" fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="319" y="534" width="15" height="92"  fill="var(--hs-bk-1,#7b4a52)"/>
+    <rect x="336" y="510" width="13" height="116" fill="var(--hs-bk-4,#4a5a86)"/>
+    <rect x="351" y="528" width="17" height="98"  fill="var(--hs-bk-5,#6b4470)"/>
+    <rect x="370" y="540" width="15" height="86"  fill="var(--hs-bk-2,#3f6b76)"/>
+    <rect x="387" y="516" width="18" height="110" fill="var(--hs-bk-3,#8a7040)"/>
+    <rect x="407" y="536" width="14" height="90"  fill="var(--hs-bk-1,#7b4a52)"/>
+  </g>
+</g>
+
+<!-- ═══ ซ้าย: โต๊ะทำงานใต้หน้าต่าง + โคมไฟตั้งบนโต๊ะ ═══
+     จุดแตะพื้นของโต๊ะอยู่ที่ y=636 — "สูงกว่า" เท้ามาสคอต (633-680)
+     กฎเปอร์สเปกทีฟ: ของที่อยู่ลึกกว่า จุดแตะพื้นต้องอยู่สูงกว่าบนภาพ -->
+<g>
+  <ellipse cx="66" cy="446" rx="140" ry="118" fill="url(#lbLamp)"/>
+  <ellipse cx="62" cy="640" rx="76" ry="11" fill="#000" opacity=".3"/>
+  <g id="desk">
+    <rect x="-14" y="493" width="152" height="13" rx="4" fill="var(--hs-desk,#3a2f46)"/>
+    <rect x="2"   y="506" width="13" height="130" fill="var(--hs-desk-2,#2c2436)"/>
+    <rect x="116" y="506" width="13" height="130" fill="var(--hs-desk-2,#2c2436)"/>
+    <rect x="2"   y="541" width="127" height="8" fill="var(--hs-desk-2,#2c2436)" opacity=".7"/>
+  </g>
+  <!-- โคมไฟ: ฐานแตะหน้าโต๊ะ (y=493) พอดี -->
+  <ellipse cx="54" cy="493" rx="24" ry="4" fill="#000" opacity=".28"/>
+  <g id="lamp">
+    <rect x="34" y="485" width="40" height="8" rx="3" fill="var(--hs-lampbody,#4b3a55)"/>
+    <rect x="50" y="425" width="8" height="62" fill="var(--hs-lampbody,#4b3a55)"/>
+    <path d="M26 425h56l-14-42H40z" fill="var(--hs-lampshade,#c9743f)"/>
+    <path d="M54 425h28l-14-42H54z" fill="var(--hs-lampshade-2,#a35a2e)"/>
+  </g>
+  <ellipse cx="54" cy="427" rx="26" ry="6" fill="var(--hs-lamp,#ffc46b)" opacity=".9"/>
+  <!-- หนังสือเปิดค้างบนโต๊ะ -->
+  <g>
+    <path d="M84 493l30-9 20 7v9H84z" fill="var(--hs-page,#e8dfc8)"/>
+    <path d="M114 491l22-7 8 9h-30z" fill="var(--hs-page-2,#cfc4a8)"/>
+    <path d="M114 484v9" stroke="var(--hs-desk-2,#2c2436)" stroke-width="2"/>
+  </g>
+</g>
+
+<!-- กองหนังสือวางกับพื้น (กลาง ค่อนซ้าย) -->
+<g id="bookpile">
+  <ellipse cx="184" cy="722" rx="34" ry="6" fill="#000" opacity=".25"/>
+  <rect x="156" y="706" width="56" height="12" fill="var(--hs-bk-3,#8a7040)"/>
+  <rect x="160" y="694" width="48" height="12" fill="var(--hs-bk-2,#3f6b76)"/>
+  <rect x="158" y="682" width="52" height="12" fill="var(--hs-bk-5,#6b4470)"/>
+</g>
+</svg>

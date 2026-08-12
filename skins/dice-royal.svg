@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Marble crest cube dice skin">
+<!-- ลูกเต๋า "หินอ่อนตราโรงเรียน" — ลูกบาศก์ไอโซเมตริก ท่าเดียวกับ dice-pearl/dice-ufo
+     จะได้ยืนเรียงกันในร้านแล้วเป็นชุดเดียวกัน
+     แต่ละหน้าคนละเฉด (หินอ่อนขาว) เพื่อให้อ่านออกว่าเป็นก้อน 3 มิติตอนย่อเหลือ 60px
+     แต้ม = หมุดทองฝังเบ้า · ขอบลูกบาศก์ตีเส้นทอง · หน้าบนมีตราลงยาเขียว -->
+<defs>
+<linearGradient id="drTop" x1="0" y1="0" x2=".7" y2="1">
+<stop offset="0"   stop-color="var(--dr-top-1,#FFFFFF)"/>
+<stop offset=".45" stop-color="var(--dr-top-2,#F0F4FA)"/>
+<stop offset="1"   stop-color="var(--dr-top-3,#DCE5F0)"/>
+</linearGradient>
+<linearGradient id="drLeft" x1="0" y1="0" x2=".45" y2="1">
+<stop offset="0"   stop-color="var(--dr-left-1,#E6ECF5)"/>
+<stop offset=".5"  stop-color="var(--dr-left-2,#CFD9E8)"/>
+<stop offset="1"   stop-color="var(--dr-left-3,#AFBDD2)"/>
+</linearGradient>
+<linearGradient id="drRight" x1="0" y1="0" x2=".6" y2="1">
+<stop offset="0"   stop-color="var(--dr-right-1,#CAD5E4)"/>
+<stop offset=".52" stop-color="var(--dr-right-2,#A9B7CC)"/>
+<stop offset="1"   stop-color="var(--dr-right-3,#8593AC)"/>
+</linearGradient>
+<linearGradient id="drGold" x1="0" y1="0" x2=".3" y2="1">
+<stop offset="0"   stop-color="var(--dr-g-1,#FBEEBE)"/>
+<stop offset=".4"  stop-color="var(--dr-g-2,#E7C471)"/>
+<stop offset="1"   stop-color="var(--dr-g-3,#A97C2E)"/>
+</linearGradient>
+<radialGradient id="drStud" cx=".34" cy=".3" r=".75">
+<stop offset="0"   stop-color="#FFF8DE"/>
+<stop offset=".42" stop-color="var(--dr-g-2,#E7C471)"/>
+<stop offset="1"   stop-color="var(--dr-g-4,#7E5C1E)"/>
+</radialGradient>
+</defs>
+
+<!-- เงาใต้ก้อน -->
+<ellipse cx="36" cy="66" rx="20" ry="4.4" fill="#2A3550" opacity=".2"/>
+
+<!-- หน้าบน -->
+<path d="M36 6l26 15-26 15-26-15z" fill="url(#drTop)"/>
+<!-- หน้าซ้าย -->
+<path d="M10 21l26 15v30L10 51z" fill="url(#drLeft)"/>
+<!-- หน้าขวา -->
+<path d="M62 21L36 36v30l26-15z" fill="url(#drRight)"/>
+
+<!-- ลายหินอ่อนจาง -->
+<g stroke="#93A6C0" fill="none" opacity=".3">
+<path d="M18 24c6 4 12 3 18 6" stroke-width=".9"/>
+<path d="M40 30c6-3 11-2 16-5" stroke-width=".8"/>
+<path d="M14 34c4 6 8 6 10 12" stroke-width=".9"/>
+<path d="M50 40c-3 6-6 7-7 13" stroke-width=".8"/>
+</g>
+
+<!-- ขอบทอง -->
+<g stroke="url(#drGold)" fill="none" stroke-linejoin="round">
+<path d="M36 6l26 15-26 15-26-15z" stroke-width="1.8"/>
+<path d="M10 21v30l26 15V36z" stroke-width="1.8"/>
+<path d="M62 21v30L36 66V36z" stroke-width="1.8"/>
+</g>
+
+<!-- หน้าบน: ตราลงยาเขียว 1 ดวง -->
+<g>
+<ellipse cx="36" cy="21" rx="8.4" ry="4.9" fill="var(--dr-en,#11503F)"/>
+<ellipse cx="36" cy="21" rx="8.4" ry="4.9" fill="none" stroke="url(#drGold)" stroke-width="1.2"/>
+<path d="M36 17.6l1.5 3 3.2.5-2.3 2.3.5 3.2-2.9-1.6-2.9 1.6.5-3.2-2.3-2.3 3.2-.5z" fill="var(--dr-g-1,#FBEEBE)"/>
+</g>
+
+<!-- หน้าซ้าย: แต้ม 3 เม็ด (หมุดทองฝังเบ้า) -->
+<g>
+<ellipse cx="17.6" cy="34.5" rx="3.1" ry="3.6" fill="#8C9AB2" opacity=".5"/>
+<ellipse cx="17.6" cy="33.8" rx="2.7" ry="3.2" fill="url(#drStud)"/>
+<ellipse cx="24.6" cy="44.5" rx="3.1" ry="3.6" fill="#8C9AB2" opacity=".5"/>
+<ellipse cx="24.6" cy="43.8" rx="2.7" ry="3.2" fill="url(#drStud)"/>
+<ellipse cx="31.4" cy="54.5" rx="3.1" ry="3.6" fill="#8C9AB2" opacity=".5"/>
+<ellipse cx="31.4" cy="53.8" rx="2.7" ry="3.2" fill="url(#drStud)"/>
+</g>
+
+<!-- หน้าขวา: แต้ม 2 เม็ด + ลายเส้นสลัก -->
+<g>
+<ellipse cx="47" cy="40.5" rx="3.1" ry="3.6" fill="#6E7C95" opacity=".5"/>
+<ellipse cx="47" cy="39.8" rx="2.7" ry="3.2" fill="url(#drStud)"/>
+<ellipse cx="54" cy="50.5" rx="3.1" ry="3.6" fill="#6E7C95" opacity=".5"/>
+<ellipse cx="54" cy="49.8" rx="2.7" ry="3.2" fill="url(#drStud)"/>
+<path d="M41 52l6 3.5" stroke="var(--dr-g-3,#A97C2E)" stroke-width="1" opacity=".55"/>
+<path d="M41 57l6 3.5" stroke="var(--dr-g-3,#A97C2E)" stroke-width="1" opacity=".4"/>
+</g>
+
+<!-- ไฮไลต์ขอบบนซ้าย -->
+<path d="M36 6l26 15-3 1.7L36 9.4 13 22.7 10 21z" fill="#FFFFFF" opacity=".55"/>
+</svg>

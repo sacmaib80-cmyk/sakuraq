@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Attic morning room">
+<!--
+  ฉากหน้า Home "ห้องใต้หลังคายามเช้า" — วาดมือ ไม่ได้เจนจากรูป
+  กฎที่ยึด:
+  · **เส้นพื้นอยู่ที่ y=612** — วัดจากตำแหน่งเท้ามาสคอตจริง (ตกที่ y 633-680 ทุกขนาดจอ)
+    ของทุกชิ้นต้องมีฐานต่ำกว่าเส้นนี้ ไม่งั้นมันจะลอยติดผนัง
+  · ของวางชิดริมซ้าย/ขวา เพราะกลางจอถูกมาสคอตบังหมด
+  · แสงมาทางเดียว = หน้าต่างกลมบนซ้าย → เงาทุกชิ้นตกไปทางขวา
+  · วัตถุใช้สีทึบ + เงา 1 สเต็ป ไล่สีสงวนไว้ให้ "แสง" เท่านั้น
+-->
+<defs>
+  <linearGradient id="atShaft" x1="0" y1="0" x2=".5" y2="1">
+    <stop offset="0" stop-color="var(--hs-light,#ffe6b4)" stop-opacity=".8"/>
+    <stop offset="1" stop-color="var(--hs-light,#ffe6b4)" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="atGlow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="var(--hs-light,#ffe6b4)" stop-opacity=".85"/>
+    <stop offset="1" stop-color="var(--hs-light,#ffe6b4)" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<!-- ผนัง (จบที่เส้นพื้น 612) -->
+<rect x="0" y="0" width="440" height="612" fill="var(--hs-wall,#f6ead6)"/>
+<path d="M440 0v612H330l10-612z" fill="var(--hs-wall-2,#ecdcc2)"/>
+
+<!-- คานหลังคาเฉียง -->
+<g fill="var(--hs-beam,#c79a63)">
+  <path d="M0 92l144-92h42L0 142z"/>
+  <path d="M440 92L296 0h-42l186 142z"/>
+</g>
+<g fill="var(--hs-beam-2,#a87c47)" opacity=".5">
+  <path d="M0 142L186 0h14L0 170z"/>
+  <path d="M440 142L254 0h-14l200 170z"/>
+</g>
+
+<!-- เสาไม้: ต้องลงไปจบที่พื้น ไม่ลอยค้างกลางผนัง -->
+<g>
+  <rect x="46" y="118" width="16" height="500" fill="var(--hs-beam,#c79a63)"/>
+  <rect x="62" y="118" width="6"  height="500" fill="var(--hs-beam-2,#a87c47)" opacity=".5"/>
+  <rect x="378" y="118" width="16" height="500" fill="var(--hs-beam,#c79a63)"/>
+  <rect x="372" y="118" width="6"  height="500" fill="var(--hs-beam-2,#a87c47)" opacity=".5"/>
+</g>
+
+<!-- หน้าต่างกลม = แหล่งแสงเดียว -->
+<g>
+  <circle cx="140" cy="196" r="84" fill="var(--hs-frame,#b98a52)"/>
+  <circle cx="140" cy="196" r="74" fill="var(--hs-sky,#ffeec9)"/>
+  <path d="M140 122a74 74 0 0 1 0 148z" fill="var(--hs-sky-2,#ffe0a8)" opacity=".65"/>
+  <g stroke="var(--hs-frame,#b98a52)" stroke-width="7" fill="none"><path d="M66 196h148M140 122v148"/></g>
+  <circle cx="140" cy="196" r="11" fill="var(--hs-frame,#b98a52)"/>
+  <circle cx="118" cy="172" r="25" fill="var(--hs-sun,#fff6de)" opacity=".95"/>
+</g>
+
+<!-- ลำแสงตกถึงพื้น (ปลายลำแสงต้องจบที่เส้นพื้น) -->
+<path d="M96 232L26 612h140l62-380z" fill="url(#atShaft)" opacity=".5"/>
+<ellipse cx="112" cy="616" rx="130" ry="22" fill="url(#atGlow)" opacity=".45"/>
+
+<!-- ฝุ่นในลำแสง -->
+<g fill="var(--hs-dust,#fff6e2)">
+  <circle cx="106" cy="300" r="3.6" opacity=".8"/><circle cx="146" cy="352" r="2.8" opacity=".65"/>
+  <circle cx="86"  cy="392" r="3.2" opacity=".75"/><circle cx="128" cy="432" r="2.4" opacity=".55"/>
+  <circle cx="70"  cy="480" r="3.6" opacity=".65"/><circle cx="156" cy="500" r="2.8" opacity=".5"/>
+  <circle cx="100" cy="548" r="3" opacity=".55"/>
+</g>
+
+<!-- ชั้นแขวนผนัง: หนังสือ + กระถางเล็ก (ย้ายกระถางขึ้นมาจากพื้น เพราะเดิมไปอยู่หลังมาสคอต) -->
+<g>
+  <rect x="286" y="318" width="128" height="11" fill="var(--hs-shelf,#c79a63)"/>
+  <rect x="286" y="329" width="128" height="6"  fill="var(--hs-beam-2,#a87c47)" opacity=".55"/>
+  <!-- ขายึดชั้น -->
+  <path d="M296 335h10l-6 14h-8z" fill="var(--hs-beam-2,#a87c47)" opacity=".7"/>
+  <path d="M396 335h10l-6 14h-8z" fill="var(--hs-beam-2,#a87c47)" opacity=".7"/>
+  <!-- หนังสือ (ชิดซ้ายของชั้น) -->
+  <g>
+    <rect x="294" y="278" width="15" height="40" fill="var(--hs-book-1,#d9694f)"/>
+    <rect x="311" y="270" width="13" height="48" fill="var(--hs-book-2,#4f7fa8)"/>
+    <rect x="326" y="284" width="17" height="34" fill="var(--hs-book-3,#e0a94b)"/>
+    <path d="M347 318l24-32 9 5-22 27z" fill="var(--hs-book-4,#7d9c63)"/>
+  </g>
+  <!-- กระถางเล็กบนชั้น: ฐานวางแนบขอบชั้นพอดี -->
+  <g id="shelfpot">
+    <g fill="var(--hs-leaf,#7fa96a)">
+      <path d="M390 288c-15-4-21-17-19-33 15 3 22 16 19 33z"/>
+      <path d="M390 288c13-6 17-20 13-35-14 5-19 19-13 35z" fill="var(--hs-leaf-2,#658c54)"/>
+      <path d="M390 288c-2-17 6-30 19-35-2 17-9 29-19 35z"/>
+    </g>
+    <path d="M374 288h32l-5 30h-22z" fill="var(--hs-pot,#cf7f5b)"/>
+    <path d="M392 288h14l-5 30h-9z" fill="var(--hs-pot-2,#a95f3f)"/>
+    <rect x="371" y="284" width="38" height="8" rx="3" fill="var(--hs-pot-2,#a95f3f)"/>
+  </g>
+</g>
+
+<!-- ═══ พื้นไม้ (y 612 ลงไป) ═══ -->
+<rect x="0" y="612" width="440" height="248" fill="var(--hs-floor,#d9b083)"/>
+<!-- เงาที่รอยต่อผนัง-พื้น: ตัวที่ทำให้ "อ่านออกว่านี่คือพื้น" -->
+<rect x="0" y="612" width="440" height="16" fill="var(--hs-floor-2,#b98a58)" opacity=".38"/>
+<g stroke="var(--hs-floor-2,#b98a58)" stroke-width="2.5" opacity=".4">
+  <path d="M0 664h440M0 722h440M0 788h440"/>
+</g>
+<g stroke="var(--hs-floor-2,#b98a58)" stroke-width="2" opacity=".24">
+  <path d="M136 628v36M312 628v36M70 664v58M254 664v58M396 664v58M180 722v66M348 722v66M56 788v72"/>
+</g>
+
+<!-- ═══ ของที่ "วางบนพื้น" — ฐานทุกชิ้นต่ำกว่า 612 ═══ -->
+<!-- หีบไม้ ซ้าย -->
+<g id="chest">
+  <ellipse cx="72" cy="700" rx="70" ry="10" fill="var(--hs-floor-2,#b98a58)" opacity=".35"/>
+  <path d="M14 626h116v74H14z" fill="var(--hs-box,#d8b183)"/>
+  <path d="M14 626h116v16H14z" fill="var(--hs-box-2,#c1985f)"/>
+  <path d="M14 610c0-14 26-22 58-22s58 8 58 22v16H14z" fill="var(--hs-box-3,#e6c69b)"/>
+  <g fill="var(--hs-strap,#8a6238)" opacity=".8">
+    <rect x="38" y="592" width="12" height="108"/>
+    <rect x="94" y="592" width="12" height="108"/>
+  </g>
+  <rect x="14" y="640" width="116" height="7" fill="var(--hs-strap,#8a6238)" opacity=".45"/>
+  <rect x="64" y="636" width="16" height="18" rx="3" fill="var(--hs-lock,#e0b45a)"/>
+  <rect x="70" y="642" width="4" height="7" fill="var(--hs-strap,#8a6238)"/>
+</g>
+
+</svg>

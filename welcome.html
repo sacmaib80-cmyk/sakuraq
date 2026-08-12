@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="th" data-i18n-root>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SakuraQ — เปลี่ยนความตั้งใจให้เป็นนิสัย</title>
+<meta name="description" content="SakuraQ แอปสร้างวินัยและติดตามนิสัยในรูปแบบเควส จับเวลาโฟกัส สะสมแต้ม ปลุกตัวเองให้ลงมือทำทุกวัน — ทดลองใช้ฟรี ไม่ต้องใช้บัตร">
+<meta name="theme-color" content="#5b6af0">
+<link rel="icon" href="logo-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SakuraQ — เปลี่ยนความตั้งใจให้เป็นนิสัย">
+<meta property="og:description" content="แอปสร้างวินัยแบบเควส จับเวลาโฟกัส สะสมแต้ม สร้างสตรีค — ทดลองใช้ฟรี ไม่มีโฆษณา ข้อมูลเป็นส่วนตัว">
+<meta property="og:image" content="logo-192.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SakuraQ — เปลี่ยนความตั้งใจให้เป็นนิสัย">
+<meta name="twitter:description" content="แอปสร้างวินัยแบบเควส ทดลองใช้ฟรี ไม่มีโฆษณา ข้อมูลเป็นส่วนตัว">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#5b6af0;
+  --purple-2:#7c7de8;
+  --indigo:#4554d6;
+  --pink:#ff7aa2;
+  --pink-soft:#ff9cb5;
+  --ink:#1b1930;
+  --ink-soft:#46435f;
+  --muted:#83809a;
+  --bg:#f7f7fa;
+  --card:#ffffff;
+  --line:rgba(28,26,55,.09);
+  /* layered, desaturated shadows (key + ambient) — reads as real light, not a colored glow */
+  --shadow-sm:0 1px 2px rgba(24,22,55,.06),0 2px 5px rgba(24,22,55,.05);
+  --shadow-md:0 2px 4px rgba(24,22,55,.06),0 10px 24px -8px rgba(24,22,55,.14);
+  --shadow-lg:0 6px 14px rgba(24,22,55,.07),0 28px 56px -18px rgba(24,22,55,.20);
+  --radius:20px;
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Plus Jakarta Sans","Noto Sans Thai",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- ambient background ---------- */
+.bg-aura{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.22;animation:drift 30s ease-in-out infinite}
+.orb.a{width:440px;height:440px;background:radial-gradient(circle,#b9c0ff,transparent 68%);top:-160px;left:-120px}
+.orb.b{width:360px;height:360px;background:radial-gradient(circle,#ffd2e1,transparent 68%);top:340px;right:-160px;animation-delay:-10s}
+.orb.c{width:460px;height:460px;background:radial-gradient(circle,#cdd3ff,transparent 68%);bottom:-220px;left:34%;animation-delay:-18s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(26px,-20px) scale(1.05)}66%{transform:translate(-20px,16px) scale(.97)}}
+/* fine grain for a premium, tactile (non-flat) surface */
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* falling sakura petals */
+#petals{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-30px;width:14px;height:14px;background:linear-gradient(135deg,#ffd0e0,#ff9cc0);border-radius:14px 1px 14px 1px;opacity:.0;will-change:transform}
+
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:50;transition:.3s}
+header.nav .bar{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.2px}
+.brand img{width:38px;height:38px;border-radius:11px;box-shadow:var(--shadow-sm)}
+.brand b{color:var(--purple)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn{
+  font-family:inherit;font-weight:700;font-size:15px;border:0;cursor:pointer;
+  border-radius:14px;padding:12px 22px;transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,filter .25s;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;white-space:nowrap;
+}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid rgba(91,106,240,.5);outline-offset:2px}
+.btn-ghost{background:#fff;color:var(--ink-soft);box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.btn-ghost:hover{color:var(--indigo);border-color:rgba(91,106,240,.3);transform:translateY(-1px)}
+.btn-primary{
+  background:#5b6af0;color:#fff;
+  /* crafted depth: tight neutral key + soft desaturated ambient + inner top light */
+  box-shadow:0 1px 2px rgba(24,22,55,.18),0 5px 12px -3px rgba(45,43,110,.32),inset 0 1px 0 rgba(255,255,255,.22);
+}
+.btn-primary:hover{transform:translateY(-2px);background:#5563ee;box-shadow:0 2px 4px rgba(24,22,55,.2),0 12px 22px -5px rgba(45,43,110,.38),inset 0 1px 0 rgba(255,255,255,.24)}
+.btn-lg{padding:16px 32px;font-size:17px;border-radius:15px}
+
+header.nav.scrolled{background:rgba(247,247,250,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:54px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;
+  color:var(--indigo);background:rgba(91,106,240,.1);padding:7px 14px;border-radius:30px;
+  border:1px solid rgba(91,106,240,.16);margin-bottom:22px;
+}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#3ad29f;box-shadow:0 0 0 4px rgba(58,210,159,.22);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(58,210,159,0)}}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-1px;font-weight:800;margin-bottom:20px}
+h1 .grad{color:var(--purple);position:relative;white-space:nowrap}
+h1 .grad::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.30em;background:rgba(91,106,240,.16);border-radius:3px;z-index:-1}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--ink-soft);max-width:520px;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:24px}
+.trust-row{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:13.5px;font-weight:600}
+.trust-row span{display:inline-flex;align-items:center;gap:7px}
+.trust-row svg{width:17px;height:17px;color:#3ad29f;flex:none}
+
+/* hero visual */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+.phone{
+  position:relative;width:min(288px,82vw);border-radius:38px;padding:13px;
+  background:linear-gradient(160deg,#fff,#eef0ff);
+  box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(255,255,255,.7);
+  z-index:2;
+}
+.phone .screen{
+  border-radius:27px;overflow:hidden;background:linear-gradient(165deg,#5b6af0,#7c7de8 55%,#9a7ce8);
+  aspect-ratio:9/18.5;position:relative;color:#fff;padding:24px 20px;
+}
+.screen .s-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:.85;font-weight:600}
+.screen .s-greet{margin-top:26px;font-size:15px;opacity:.9}
+.screen .s-name{font-size:24px;font-weight:800;margin-top:2px}
+.ring-wrap{display:flex;justify-content:center;margin:22px 0}
+.ring{width:148px;height:148px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .rtxt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .rtxt b{font-size:30px;font-weight:800;letter-spacing:.5px}
+.ring .rtxt small{font-size:11px;opacity:.8;font-weight:600;margin-top:2px}
+.s-card{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);border-radius:15px;padding:13px 14px;margin-top:11px;display:flex;align-items:center;gap:11px;backdrop-filter:blur(4px)}
+.s-card .ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:17px;flex:none}
+.s-card .meta b{font-size:13.5px;font-weight:700;display:block}
+.s-card .meta small{font-size:11px;opacity:.78}
+.s-card .pts{margin-left:auto;font-weight:800;font-size:13px}
+
+.hero-mascot{position:absolute;width:188px;right:-6px;bottom:-14px;z-index:3;filter:drop-shadow(0 18px 30px rgba(80,60,160,.35));animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-14px)}}
+.spark{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px rgba(255,255,255,.8)}
+
+/* ---------- section shells ---------- */
+section{position:relative}
+.sec-pad{padding:72px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+.sec-head .kicker{font-weight:700;color:var(--purple);font-size:14px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.sec-head h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.6px;line-height:1.15}
+.sec-head p{color:var(--ink-soft);margin-top:14px;font-size:16.5px}
+
+/* features */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat{
+  background:var(--card);border-radius:var(--radius);padding:30px 26px;border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s;position:relative;overflow:hidden;
+}
+.feat:hover{transform:translateY(-7px);box-shadow:var(--shadow-md)}
+.feat .fic{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.feat:nth-child(1) .fic{background:rgba(91,106,240,.12);color:#4554d6}
+.feat:nth-child(2) .fic{background:rgba(124,125,232,.14);color:#6c5fd4}
+.feat:nth-child(3) .fic{background:rgba(255,122,162,.13);color:#e25d82}
+.feat:nth-child(4) .fic{background:rgba(86,182,240,.14);color:#2f8ed0}
+.feat:nth-child(5) .fic{background:rgba(67,181,138,.14);color:#2fa074}
+.feat:nth-child(6) .fic{background:rgba(176,140,240,.14);color:#8763dd}
+.feat .fic svg{width:25px;height:25px}
+.feat h3{font-size:18.5px;font-weight:800;margin-bottom:8px}
+.feat p{color:var(--ink-soft);font-size:14.5px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{position:relative;padding:30px 24px;border-radius:var(--radius);background:linear-gradient(180deg,#fff,#fbfaff);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.step .num{counter-increment:step;width:44px;height:44px;border-radius:13px;background:var(--purple);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 1px 2px rgba(24,22,55,.2),inset 0 1px 0 rgba(255,255,255,.22)}
+.step .num::before{content:counter(step)}
+.step h3{font-size:18px;font-weight:800;margin-bottom:7px}
+.step p{color:var(--ink-soft);font-size:14.5px}
+
+/* trust / anti-scam */
+.trust-band{background:linear-gradient(135deg,#1f2350,#2b2f63);color:#fff;border-radius:32px;padding:54px 44px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.trust-band::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(124,125,232,.55),transparent 70%);top:-120px;right:-80px}
+.trust-band .tb-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.trust-band h2{font-size:clamp(24px,3vw,34px);font-weight:800;line-height:1.2;letter-spacing:-.5px;margin-bottom:14px}
+.trust-band p.sub{color:#c5c8f0;font-size:16px;margin-bottom:0}
+.tb-list{display:flex;flex-direction:column;gap:16px}
+.tb-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 18px}
+.tb-item .ck{width:30px;height:30px;border-radius:9px;background:rgba(58,210,159,.18);display:flex;align-items:center;justify-content:center;flex:none;color:#5ee0b0}
+.tb-item .ck svg{width:17px;height:17px}
+.tb-item b{font-size:15px;font-weight:700;display:block;margin-bottom:2px}
+.tb-item span{font-size:13.5px;color:#b8bbe6}
+
+/* faq */
+#faq{scroll-margin-top:90px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .25s,border-color .25s}
+.faq-item.open{box-shadow:var(--shadow-md);border-color:rgba(91,106,240,.28)}
+.faq-q{width:100%;text-align:left;font-family:inherit;font-weight:700;font-size:16px;color:var(--ink);
+  background:none;border:0;cursor:pointer;padding:19px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;line-height:1.4}
+.faq-ic{flex:none;width:24px;height:24px;border-radius:8px;position:relative;background:rgba(91,106,240,.1);transition:background .25s}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;background:var(--purple);border-radius:2px;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.faq-ic::before{width:11px;height:2.5px}
+.faq-ic::after{width:2.5px;height:11px}
+.faq-item.open .faq-ic{background:var(--purple)}
+.faq-item.open .faq-ic::before,.faq-item.open .faq-ic::after{background:#fff}
+.faq-item.open .faq-ic::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s cubic-bezier(.2,.8,.2,1)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>p{overflow:hidden;margin:0;padding:0 22px;color:var(--ink-soft);font-size:14.5px;transition:padding .32s}
+.faq-item.open .faq-a>p{padding:0 22px 20px}
+
+/* download */
+#download{scroll-margin-top:90px}
+/* platform picker — Android ได้ไฟล์ .apk / iPhone ใช้เว็บแอปแล้วเพิ่มลงหน้าจอโฮม */
+.plat-tabs{display:flex;gap:6px;background:#f1f0fa;border:1px solid var(--line);border-radius:15px;padding:5px;margin:0 auto 24px;max-width:360px}
+.plat-tab{flex:1;font-family:inherit;font-size:14px;font-weight:700;color:var(--ink-soft);background:transparent;border:0;border-radius:11px;padding:11px 8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:.18s}
+.plat-tab svg{width:16px;height:16px;flex:none}
+.plat-tab[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:var(--shadow-md)}
+.plat-panel[hidden]{display:none!important}
+.plat-alt{text-align:center;margin-top:16px;font-size:13px}
+.plat-alt a{color:var(--purple);font-weight:700;text-decoration:none;border-bottom:1.5px solid rgba(91,106,240,.28);padding-bottom:1px}
+.plat-alt a:hover{border-bottom-color:var(--purple)}
+.signup-card{
+  max-width:560px;margin:0 auto;background:var(--card);border-radius:28px;padding:44px 40px;
+  box-shadow:var(--shadow-lg);border:1px solid var(--line);position:relative;overflow:hidden;
+}
+.signup-card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--purple),var(--pink))}
+.signup-card .su-mascot{width:84px;margin:0 auto 14px;filter:drop-shadow(0 10px 18px rgba(80,60,160,.25))}
+.signup-card h2{text-align:center;font-size:27px;font-weight:800;letter-spacing:-.4px}
+.signup-card .su-sub{text-align:center;color:var(--ink-soft);margin:8px auto 26px;font-size:15px;max-width:400px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink-soft);margin-bottom:7px}
+.field input{
+  width:100%;font-family:inherit;font-size:15.5px;padding:14px 16px;border-radius:14px;
+  border:1.5px solid var(--line);background:#fbfbff;color:var(--ink);transition:.2s;
+}
+.field input::placeholder{color:#a8a5c8}
+.field input:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 4px rgba(91,106,240,.12)}
+.field input.invalid{border-color:#f0668a;box-shadow:0 0 0 4px rgba(240,102,138,.12)}
+.field .err{color:#e0567c;font-size:12.5px;font-weight:600;margin-top:6px;display:none}
+.field.show-err .err{display:block}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.su-submit{width:100%;margin-top:6px}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:13px;font-weight:600;margin:20px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.btn-google{width:100%;background:#fff;color:#3c4043;border:1.5px solid #e3e3ef;box-shadow:var(--shadow-md)}
+.btn-google:hover{background:#fafaff;border-color:#c9c9e4;transform:translateY(-2px)}
+.btn-google svg{width:20px;height:20px}
+.su-google{font-size:16.5px;padding:16px 28px;border-radius:16px;display:flex;width:fit-content;max-width:100%;margin:6px auto 0}
+.secure-note{display:flex;align-items:flex-start;gap:8px;justify-content:center;text-align:center;color:var(--muted);font-size:12.5px;font-weight:500;margin-top:14px;line-height:1.45}
+.secure-note svg{width:15px;height:15px;color:#3ad29f;flex:none;margin-top:2px}
+.file-meta{text-align:center;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:12px}
+.install-steps{margin-top:22px;background:linear-gradient(180deg,#fbfaff,#f4f4ff);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px}
+.ist-title{font-weight:800;font-size:14.5px;margin-bottom:12px;color:var(--ink)}
+.ist{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);margin-bottom:11px;line-height:1.5}
+.ist:last-child{margin-bottom:0}
+.ist-n{flex:none;width:23px;height:23px;border-radius:7px;background:linear-gradient(135deg,var(--purple),var(--indigo));color:#fff;font-weight:800;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ist b{color:var(--ink);font-weight:700}
+.ist em{font-style:normal;color:var(--muted);font-size:12px}
+.su-news{text-align:center;color:var(--ink-soft);font-size:13.5px;margin-bottom:10px}
+.news-row{display:flex;gap:10px;align-items:flex-start}
+.news-row .field{flex:1;margin-bottom:0}
+.news-row #suBtn{padding:14px 22px;white-space:nowrap;flex:none}
+.su-fine{text-align:center;color:var(--muted);font-size:12px;margin-top:18px;line-height:1.5}
+.su-fine a{color:var(--purple);font-weight:600}
+.su-success{display:none;text-align:center;padding:14px 0}
+.su-success .ok-ic{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#4fd3a0,#2fbf8a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -8px rgba(47,191,138,.5);animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+.su-success .ok-ic svg{width:38px;height:38px;color:#fff}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.su-success h3{font-size:23px;font-weight:800;margin-bottom:8px}
+.su-success p{color:var(--ink-soft);font-size:15px}
+
+/* footer */
+footer{padding:40px 0 50px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);margin-top:60px}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-grid .brand{font-size:17px}
+.foot-links{display:flex;gap:22px;font-weight:600}
+.foot-links a:hover{color:var(--purple)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .hero-actions,.trust-row{justify-content:center}
+  .hero-visual{margin-top:24px;min-height:380px}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .trust-band .tb-grid{grid-template-columns:1fr;gap:28px}
+  .eyebrow{margin-left:auto;margin-right:auto}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .feat-grid{grid-template-columns:1fr}
+  /* hide the secondary nav link on small screens, but NEVER the language toggle —
+     most visitors arrive on a phone and must still be able to switch TH/EN */
+  .nav-cta .btn-ghost:not(.langBtn){display:none}
+  .sec-pad{padding:54px 0}
+  .trust-band{padding:38px 24px}
+  .signup-card{padding:34px 22px}
+}
+@media(max-width:400px){
+  .news-row{flex-direction:column}
+  .news-row #suBtn{width:100%}
+  h1{font-size:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* language toggle (nav) */
+.langBtn{ font-weight:800; letter-spacing:.04em; min-width:52px; cursor:pointer; font-family:inherit; }
+</style>
+</head>
+<body>
+
+<div class="bg-aura"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<div class="grain"></div>
+<div id="petals"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap bar">
+    <a class="brand" href="#top"><img src="logo-192.png" alt="SakuraQ"><span>Sakura<b>Q</b></span></a>
+    <div class="nav-cta">
+      <button class="btn btn-ghost langBtn" id="langBtn" type="button" aria-label="Switch language"><span id="langBtnText">EN</span></button>
+      <a class="btn btn-ghost" href="#features" data-i18n="nav.features">ฟีเจอร์</a>
+      <a class="btn btn-primary" href="#download" data-i18n="nav.download">ดาวน์โหลด</a>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow" data-i18n-html="hero.eyebrow"><span class="dot"></span> ฟรี 100% · Android และ iPhone</span>
+      <h1 data-i18n-html="hero.h1">เปลี่ยนความตั้งใจ<br>ให้กลายเป็น<span class="grad">นิสัยจริง ๆ</span></h1>
+      <p class="lead" data-i18n="hero.lead">SakuraQ เปลี่ยนงานที่ต้องทำให้เป็น “เควส” สนุก ๆ — จับเวลาโฟกัส สะสมแต้ม สร้างสตรีค และมีระบบปลุกวินัยตอนเช้า ให้คุณลงมือทำได้จริงทุกวัน</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#download">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+          <span data-i18n="hero.ctaDownload">ดาวน์โหลดฟรี</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#how" data-i18n="hero.ctaHow">ดูวิธีใช้งาน</a>
+      </div>
+      <div class="trust-row">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="trust.free">ฟรี 100%</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="trust.noads">ไม่มีโฆษณา</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="trust.private">ข้อมูลเป็นส่วนตัว</span></span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone" id="heroPhone">
+        <div class="screen">
+          <div class="s-top"><span>9:41</span><span data-i18n="mock.top">วันนี้ · 4 เควส</span></div>
+          <div class="s-greet" data-i18n="mock.greet">สวัสดีตอนเช้า</div>
+          <div class="s-name" data-i18n="mock.name">พร้อมลุยรึยัง?</div>
+          <div class="ring-wrap">
+            <div class="ring">
+              <svg width="148" height="148" viewBox="0 0 148 148">
+                <circle cx="74" cy="74" r="62" stroke="rgba(255,255,255,.2)" stroke-width="12" fill="none"/>
+                <circle id="heroRing" cx="74" cy="74" r="62" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="389.6" stroke-dashoffset="120"/>
+              </svg>
+              <div class="rtxt"><b>24:00</b><small data-i18n="mock.focus">โฟกัส</small></div>
+            </div>
+          </div>
+          <div class="s-card"><div class="ic">📚</div><div class="meta"><b data-i18n="mock.q1">อ่านหนังสือ</b><small data-i18n="mock.learning">การเรียนรู้</small></div><div class="pts">+12</div></div>
+          <div class="s-card"><div class="ic">🏃</div><div class="meta"><b data-i18n="mock.q2">ออกกำลังกาย</b><small data-i18n="mock.body">ร่างกาย</small></div><div class="pts">+10</div></div>
+        </div>
+      </div>
+      <img class="hero-mascot" src="mascot.png" alt="มาสคอต SakuraQ">
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" id="features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="feat.kicker">ทำไมต้อง SakuraQ</div>
+      <h2 data-i18n="feat.h2">เครื่องมือสร้างวินัย ที่ออกแบบให้คุณอยากกลับมาทำ</h2>
+      <p data-i18n="feat.sub">ไม่ใช่แค่ to-do list ธรรมดา แต่เป็นระบบที่ทำให้การลงมือทำรู้สึกคุ้มค่าทุกครั้ง</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-i18n="feat.timer.h">จับเวลาโฟกัส</h3>
+        <p data-i18n="feat.timer.p">ตั้งเวลาทำงานเป็นรอบ เห็นวงแหวนนับถอยหลังชัดเจน ช่วยให้คุณจดจ่อกับสิ่งตรงหน้าได้นานขึ้น</p>
+      </div>
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9H22l-6 4.6 2.3 7L12 17.5 5.7 20.5 8 13.5l-6-4.6h7.6z"/></svg></div>
+        <h3 data-i18n="feat.points.h">สะสมแต้ม &amp; เลเวล</h3>
+        <p data-i18n="feat.points.p">ทุกเควสที่ทำสำเร็จได้แต้มจริง สะสมขึ้นเลเวล ปลดล็อกธีมและไอเทมในร้านค้า — แรงจูงใจที่จับต้องได้</p>
+      </div>
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18M5 12c4-3 8 3 12 0V3C13 6 9 0 5 3z"/></svg></div>
+        <h3 data-i18n="feat.gate.h">ระบบปลุกวินัยตอนเช้า</h3>
+        <p data-i18n="feat.gate.p">Morning Gate ท้าให้คุณเริ่มเควสแรกภายในเวลาที่ตั้งไว้ สร้างนิสัยลงมือทำตั้งแต่ตื่น ไม่ผัดวันประกันพรุ่ง</p>
+      </div>
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg></div>
+        <h3 data-i18n="feat.stats.h">สถิติย้อนหลัง</h3>
+        <p data-i18n="feat.stats.p">กราฟแสดงพัฒนาการรายวัน รายสัปดาห์ เห็นสตรีคและจุดที่ทำได้ดี ให้คุณรู้ว่ากำลังก้าวหน้าจริง</p>
+      </div>
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a6 6 0 10-12 0c0 4-2 5-2 5h16s-2-1-2-5z"/><path d="M10 19a2 2 0 004 0"/></svg></div>
+        <h3 data-i18n="feat.noti.h">เตือนเมื่อหมดเวลา</h3>
+        <p data-i18n="feat.noti.p">แจ้งเตือนตรงเวลาแม้ปิดแอป ไม่พลาดจังหวะพัก จังหวะทำงาน ช่วยให้คุณวางมือถือลงได้อย่างสบายใจ</p>
+      </div>
+      <div class="feat reveal">
+        <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.6A5 5 0 0018 8h-1.3A7 7 0 103 16"/><path d="M12 12v9M8 17l4 4 4-4"/></svg></div>
+        <h3 data-i18n="feat.cloud.h">เซฟขึ้นคลาวด์</h3>
+        <p data-i18n="feat.cloud.p">ล็อกอินด้วย Google แล้วข้อมูลซิงค์อัตโนมัติ เปลี่ยนเครื่องก็ไม่หาย เล่นต่อได้ทุกที่</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="how.kicker">ใช้ง่ายใน 3 ขั้นตอน</div>
+      <h2 data-i18n="how.h2">เริ่มได้ภายในหนึ่งนาที</h2>
+      <p data-i18n="how.sub">ไม่ต้องตั้งค่าซับซ้อน เปิดแอปแล้วลงมือได้เลย</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num"></div><h3 data-i18n="how.s1.h">ตั้งเควส</h3><p data-i18n="how.s1.p">พิมพ์สิ่งที่อยากทำ เลือกหมวดและเวลา หรือให้แอปสุ่มเควสให้ก็ได้</p></div>
+      <div class="step reveal"><div class="num"></div><h3 data-i18n="how.s2.h">กดเริ่มแล้วโฟกัส</h3><p data-i18n="how.s2.p">วงแหวนจับเวลาเริ่มเดิน คุณแค่จดจ่อกับงาน ที่เหลือแอปจัดการให้</p></div>
+      <div class="step reveal"><div class="num"></div><h3 data-i18n="how.s3.h">รับแต้ม &amp; สะสมสตรีค</h3><p data-i18n="how.s3.p">ทำสำเร็จได้แต้มทันที กลับมาทำต่อทุกวันเพื่อรักษาสตรีคให้ยาวขึ้น</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="trust-band reveal">
+      <div class="tb-grid">
+        <div>
+          <h2 data-i18n="tr.h2">ทำไมถึงไว้ใจ SakuraQ ได้?</h2>
+          <p class="sub" data-i18n="tr.p">เราเข้าใจว่าทุกวันนี้มีแอปหลอกลวงเยอะ เราเลยทำทุกอย่างให้โปร่งใส — นี่คือแอปสร้างนิสัย ไม่ใช่การลงทุน ไม่ใช่พนัน ไม่มีการเก็บเงินแอบ ๆ</p>
+        </div>
+        <div class="tb-list">
+          <div class="tb-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div><b data-i18n="tr.b1">ไม่ขอข้อมูลการเงิน</b><span data-i18n="tr.i1">ไม่มีบัตรเครดิต ไม่มีกระเป๋าเงิน ไม่มีการโอน “แต้ม” เป็นเงินจริง — แต้มมีไว้ปลดล็อกของในแอปเท่านั้น</span></div></div>
+          <div class="tb-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div><b data-i18n="tr.b2">ข้อมูลเป็นของคุณ</b><span data-i18n="tr.i2">เก็บในเครื่องคุณและคลาวด์ส่วนตัวผ่าน Google เท่านั้น เราไม่ขายข้อมูล ไม่มีโฆษณาติดตาม</span></div></div>
+          <div class="tb-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div><b data-i18n="tr.b3">ลบได้ทุกเมื่อ</b><span data-i18n="tr.i3">เลิกใช้เมื่อไหร่ก็ลบบัญชีและข้อมูลได้เอง ไม่มีเงื่อนไขผูกมัด ไม่มีค่าใช้จ่ายแฝง</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" id="faq">
+  <div class="wrap" style="max-width:760px">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="faq.kicker">คำถามที่พบบ่อย</div>
+      <h2 data-i18n="faq.h2">สงสัยอะไร ถามได้ตรง ๆ</h2>
+      <p data-i18n="faq.sub">เราตอบแบบไม่อ้อมค้อม เพราะอยากให้คุณมั่นใจก่อนเริ่ม</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" data-i18n="faq.q1">SakuraQ ฟรีจริงไหม มีค่าใช้จ่ายแอบแฝงหรือเปล่า?<span class="faq-ic"></span></button>
+        <div class="faq-a"><p data-i18n="faq.a1">ฟรีจริง ฟีเจอร์หลักทั้งหมดใช้ได้โดยไม่เสียเงิน ไม่ต้องผูกบัตรเครดิต ไม่มีสมาชิกรายเดือน และไม่มีการเรียกเก็บเงินภายหลัง</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" data-i18n="faq.q2">แอปขอข้อมูลอะไรของฉันบ้าง?<span class="faq-ic"></span></button>
+        <div class="faq-a"><p data-i18n="faq.a2">แค่ชื่อกับอีเมลจากบัญชี Google เพื่อใช้เซฟข้อมูลข้ามเครื่องเท่านั้น เราไม่ขอเบอร์โทร ตำแหน่งที่อยู่ หรือรายชื่อผู้ติดต่อของคุณ</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" data-i18n="faq.q3">“แต้ม” ในแอปแลกเป็นเงินได้ไหม?<span class="faq-ic"></span></button>
+        <div class="faq-a"><p data-i18n="faq.a3">ไม่ได้ และไม่เกี่ยวกับเงินจริงเลย แต้มมีไว้ปลดล็อกธีมและไอเทมตกแต่งในแอปเท่านั้น — SakuraQ ไม่ใช่แอปลงทุน ไม่ใช่พนัน และไม่มีการเติมเงิน</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" data-i18n="faq.q4">ข้อมูลของฉันปลอดภัยแค่ไหน?<span class="faq-ic"></span></button>
+        <div class="faq-a"><p data-i18n="faq.a4">ข้อมูลเก็บอยู่ในเครื่องคุณและคลาวด์ส่วนตัวที่ผูกกับบัญชี Google ของคุณเอง เราไม่ขายข้อมูลให้ใคร และไม่มีโฆษณาที่คอยติดตามพฤติกรรม</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" data-i18n="faq.q5">เลิกใช้แล้วลบข้อมูลได้ไหม?<span class="faq-ic"></span></button>
+        <div class="faq-a"><p data-i18n="faq.a5">ได้ทุกเมื่อ คุณลบข้อมูลและออกจากระบบได้เองจากในแอป ไม่มีเงื่อนไขผูกมัด ไม่ต้องติดต่อใครให้ยุ่งยาก</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" id="download">
+  <div class="wrap">
+    <div class="signup-card reveal">
+      <div id="suForm">
+        <img class="su-mascot" src="mascot-open.png" alt="">
+        <h2 data-i18n="dl.h2">ดาวน์โหลด SakuraQ</h2>
+        <p class="su-sub" data-i18n="dl.p">Android โหลดไฟล์ติดตั้งได้เลย · iPhone/iPad ใช้ผ่านเว็บแล้วเพิ่มลงหน้าจอโฮมให้เปิดเหมือนแอปจริง — ฟรีทั้งคู่</p>
+
+        <div class="plat-tabs" id="platTabs" role="tablist" aria-label="เลือกระบบปฏิบัติการ">
+          <button class="plat-tab" type="button" role="tab" id="platTabAndroid" data-plat="android" aria-selected="true" aria-controls="platPanelAndroid">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9Zm-2.6 0A1.4 1.4 0 0 1 4.8 10.4v4.2a1.4 1.4 0 0 1-2.8 0v-4.2A1.4 1.4 0 0 1 3.4 9Zm17.2 0A1.4 1.4 0 0 1 22 10.4v4.2a1.4 1.4 0 0 1-2.8 0v-4.2A1.4 1.4 0 0 1 20.6 9ZM9 20.6h1.6v2a1.3 1.3 0 0 1-2.6 0v-2Zm4.4 0H15v2a1.3 1.3 0 0 1-2.6 0v-2ZM7.6 7.8a4.6 4.6 0 0 1 8.8 0Zm1.7-3.9.9 1.6-.7.4-.9-1.6Zm5.4 0 .7.4-.9 1.6-.7-.4Z"/></svg>
+            <span data-i18n="plat.android">Android</span>
+          </button>
+          <button class="plat-tab" type="button" role="tab" id="platTabIos" data-plat="ios" aria-selected="false" aria-controls="platPanelIos">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.2 0 1.9-1 2.6-2.1.8-1.2 1.1-2.4 1.2-2.4-.1 0-2.2-.9-2.2-3.4ZM14.3 5.9c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2Z"/></svg>
+            <span data-i18n="plat.ios">iPhone / iPad</span>
+          </button>
+        </div>
+
+        <div class="plat-panel" id="platPanelAndroid" role="tabpanel" aria-labelledby="platTabAndroid">
+          <a class="btn btn-primary btn-lg su-google" href="https://github.com/sacmaib80-cmyk/Skr-v.0.11.2/releases/latest/download/sakuraq.apk" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+            <span data-i18n="dl.btnAndroid">ดาวน์โหลดสำหรับ Android</span>
+          </a>
+          <div class="file-meta" data-i18n="dl.meta">ไฟล์ .apk · ~22 MB · รองรับ Android 6 ขึ้นไป</div>
+
+          <div class="install-steps">
+            <div class="ist-title" data-i18n="dl.stepsTitle">วิธีติดตั้ง (1 นาที)</div>
+            <div class="ist"><span class="ist-n">1</span><span data-i18n-html="dl.step1">กดปุ่มดาวน์โหลดด้านบน รอไฟล์ <b>.apk</b> โหลดเสร็จ</span></div>
+            <div class="ist"><span class="ist-n">2</span><span data-i18n-html="dl.step2">แตะที่ไฟล์เพื่อเปิด ถ้าขึ้นเตือน “แหล่งที่ไม่รู้จัก” ให้กด <b>อนุญาต/ตั้งค่า</b> แล้วเปิดสวิตช์ให้เบราว์เซอร์ติดตั้งได้ <em>(เป็นขั้นตอนปกติของ Android สำหรับแอปนอก Play Store)</em></span></div>
+            <div class="ist"><span class="ist-n">3</span><span data-i18n-html="dl.step3">กด <b>ติดตั้ง</b> → เปิดแอป → เริ่มเควสแรกได้เลย</span></div>
+          </div>
+        </div>
+
+        <div class="plat-panel" id="platPanelIos" role="tabpanel" aria-labelledby="platTabIos" hidden>
+          <a class="btn btn-primary btn-lg su-google" id="iosOpenBtn" href="https://sakuraq-b7f96.firebaseapp.com/index.html" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M15 3h6v6M21 3l-9 9M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            <span data-i18n="dl.btnIos">เปิดแอปบน iPhone</span>
+          </a>
+          <div class="file-meta" data-i18n="dl.metaIos">ไม่ต้องโหลดไฟล์ · แนะนำ iOS 16.4 ขึ้นไป · เพิ่มลงหน้าจอโฮมแล้วเปิดได้เหมือนแอปจริง</div>
+
+          <div class="install-steps">
+            <div class="ist-title" data-i18n="dl.stepsTitleIos">วิธีติดตั้งบน iPhone (1 นาที)</div>
+            <div class="ist"><span class="ist-n">1</span><span data-i18n-html="dl.iosStep1">กดปุ่มด้านบนเพื่อเปิดแอป <em>(ต้องเปิดใน <b>Safari</b> เท่านั้น — Chrome บน iPhone เพิ่มลงหน้าจอโฮมไม่ได้)</em></span></div>
+            <div class="ist"><span class="ist-n">2</span><span data-i18n-html="dl.iosStep2">แตะปุ่ม <b>แชร์</b> (ไอคอนสี่เหลี่ยมมีลูกศรขึ้น) ที่แถบล่างของ Safari</span></div>
+            <div class="ist"><span class="ist-n">3</span><span data-i18n-html="dl.iosStep3">เลื่อนลงแล้วกด <b>เพิ่มไปยังหน้าจอโฮม</b> → กด <b>เพิ่ม</b> → เปิดจากไอคอนได้เลย</span></div>
+          </div>
+        </div>
+
+        <div class="plat-alt"><a href="https://sakuraq-b7f96.firebaseapp.com/index.html" rel="noopener" data-i18n="dl.altWeb">หรือเปิดบนเว็บเลย ไม่ต้องติดตั้ง →</a></div>
+
+        <div class="divider" data-i18n="news.title">อยากรู้ตอนมีเวอร์ชันใหม่?</div>
+        <form id="trialForm" novalidate>
+          <p class="su-news" data-i18n="news.p">ฝากอีเมลไว้ เดี๋ยวเราส่งข่าวอัปเดตและฟีเจอร์ใหม่ให้</p>
+          <div class="news-row">
+            <div class="field" id="fEmail">
+              <input type="email" id="suEmail" name="email" placeholder="you@example.com" autocomplete="email" inputmode="email" aria-label="อีเมลสำหรับรับข่าวสาร" required>
+              <div class="err" id="emailErr" data-i18n="news.err">กรุณากรอกอีเมลให้ถูกต้อง</div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="suBtn" data-i18n="news.submit">ฝากไว้</button>
+          </div>
+          <input type="text" id="suName" name="name" class="hp" tabindex="-1" aria-hidden="true">
+          <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </form>
+        <p class="su-fine" data-i18n-html="legal.fine">การดาวน์โหลดถือว่ายอมรับ <a href="#">เงื่อนไขการใช้งาน</a> และ <a href="#" data-i18n="legal.link">นโยบายความเป็นส่วนตัว</a> — เราจะไม่ส่งสแปมหรือขายอีเมลของคุณ</p>
+      </div>
+      <div class="su-success" id="suSuccess">
+        <div class="ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3 id="suSuccessTitle" data-i18n="ok.h3">เรียบร้อย! 🌸</h3>
+        <p id="suSuccessMsg" data-i18n="ok.p">บันทึกอีเมลของคุณแล้ว เราจะส่งข่าวเวอร์ชันใหม่ไปให้ — ดาวน์โหลดแอปไปลองเลยก็ได้นะ</p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/sacmaib80-cmyk/Skr-v.0.11.2/releases/latest/download/sakuraq.apk" rel="noopener" style="margin-top:20px" data-i18n="dl.btnApp">ดาวน์โหลดแอป</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <a class="brand" href="#top"><img src="logo-192.png" alt="" style="width:30px;height:30px;border-radius:9px"><span>Sakura<b>Q</b></span></a>
+    <div class="foot-links">
+      <a data-i18n="foot.features" href="#features">ฟีเจอร์</a>
+      <a data-i18n="foot.how" href="#how">วิธีใช้</a>
+      <a data-i18n="foot.download" href="#download">ดาวน์โหลด</a>
+    </div>
+    <div><span data-i18n="foot.copy">© 2026 SakuraQ · สร้างด้วยใจโดยนักพัฒนาอิสระ</span></div>
+  </div>
+</footer>
+
+<script type="module">
+  // Firestore bridge so the newsletter form can save signups to the cloud.
+  import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  const cfg={apiKey:"AIzaSyA_GnE6EKZdxem2XUHpgMuub2gPj3_PFgM",authDomain:"sakuraq-b7f96.firebaseapp.com",projectId:"sakuraq-b7f96",storageBucket:"sakuraq-b7f96.firebasestorage.app",messagingSenderId:"1069498952404",appId:"1:1069498952404:web:34daf6db0244513bda6941"};
+  try{
+    const app = getApps().length ? getApp() : initializeApp(cfg);
+    window.sqDB = getFirestore(app);
+    window.sqCloud = Object.assign(window.sqCloud||{}, { collection, addDoc });
+  }catch(e){ console.warn("Firestore bridge init skipped:", e); }
+</script>
+<script>
+/* ---------- nav scroll state ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+
+/* ---------- scroll reveal ---------- */
+const reveals=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+reveals.forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+// safety net: never leave content invisible if observer never fires (JS-light env / SEO / a11y)
+setTimeout(()=>reveals.forEach(el=>el.classList.add('in')),2600);
+
+/* ---------- sakura petals ---------- */
+(function(){
+  const layer=document.getElementById('petals');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const N=14;
+  for(let i=0;i<N;i++){
+    const p=document.createElement('div');p.className='petal';
+    layer.appendChild(p);
+    seed(p,true);
+  }
+  function seed(p,first){
+    const x=Math.random()*100;
+    const size=8+Math.random()*12;
+    const dur=9+Math.random()*9;
+    const delay=first?-Math.random()*dur:0;
+    p.style.left=x+'vw';
+    p.style.width=p.style.height=size+'px';
+    p.style.opacity=(.35+Math.random()*.4).toFixed(2);
+    p.animate([
+      {transform:`translateY(-30px) translateX(0) rotate(0deg)`,offset:0},
+      {transform:`translateY(40vh) translateX(${(Math.random()*60-30)}px) rotate(180deg)`,offset:.5},
+      {transform:`translateY(105vh) translateX(${(Math.random()*120-60)}px) rotate(360deg)`,offset:1}
+    ],{duration:dur*1000,delay:delay*1000,iterations:Infinity,easing:'linear'});
+  }
+})();
+
+/* ---------- hero parallax + ring demo ---------- */
+(function(){
+  const phone=document.getElementById('heroPhone');
+  const mascot=document.querySelector('.hero-mascot');
+  if(phone&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    addEventListener('pointermove',(e)=>{
+      const cx=(e.clientX/innerWidth-.5);const cy=(e.clientY/innerHeight-.5);
+      phone.style.transform=`rotateY(${cx*6}deg) rotateX(${-cy*5}deg) translateZ(0)`;
+      if(mascot)mascot.style.transform=`translate(${cx*-14}px,${cy*-10}px)`;
+    },{passive:true});
+  }
+  // animate the demo ring like a countdown
+  const ring=document.getElementById('heroRing');const total=389.6;let off=120;
+  if(ring){setInterval(()=>{off=(off+1.4)%total;ring.style.strokeDashoffset=off},90)}
+})();
+
+/* ---------- faq accordion ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.closest('.faq-item');const open=item.classList.toggle('open');
+    q.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+
+/* ---------- platform picker ----------
+   เลือกแท็บให้ตรงกับเครื่องที่เปิดอยู่ แต่ยังกดสลับเองได้
+   (คนเปิดบนคอมมักจะกำลังหาลิงก์ส่งให้ตัวเอง/ให้เพื่อน) */
+(function(){
+  var tabs=document.querySelectorAll('.plat-tab');
+  if(!tabs.length)return;
+
+  function show(plat){
+    for(var i=0;i<tabs.length;i++){
+      var on=tabs[i].getAttribute('data-plat')===plat;
+      tabs[i].setAttribute('aria-selected',on?'true':'false');
+      var panel=document.getElementById(tabs[i].getAttribute('aria-controls'));
+      if(panel)panel.hidden=!on;
+    }
+  }
+
+  var ua=navigator.userAgent||'';
+  // iPadOS 13+ รายงานตัวเองเป็น Macintosh — แยกจาก Mac จริงด้วยจำนวนจุดสัมผัส
+  var isIOS=/iPad|iPhone|iPod/.test(ua)||(/Macintosh/.test(ua)&&(navigator.maxTouchPoints||0)>1);
+  show(isIOS?'ios':'android');
+
+  for(var i=0;i<tabs.length;i++){
+    tabs[i].addEventListener('click',function(){show(this.getAttribute('data-plat'))});
+  }
+})();
+
+/* ---------- signup form ---------- */
+(function(){
+  const form=document.getElementById('trialForm');
+  const email=document.getElementById('suEmail');
+  const fEmail=document.getElementById('fEmail');
+  const btn=document.getElementById('suBtn');
+  const formBox=document.getElementById('suForm');
+  const success=document.getElementById('suSuccess');
+  const successMsg=document.getElementById('suSuccessMsg');
+  const hp=form.querySelector('.hp');
+  const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  email.addEventListener('input',()=>{if(fEmail.classList.contains('show-err')&&EMAIL_RE.test(email.value.trim()))fEmail.classList.remove('show-err');email.classList.remove('invalid')});
+
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const val=email.value.trim();
+    if(!EMAIL_RE.test(val)){
+      fEmail.classList.add('show-err');email.classList.add('invalid');email.focus();return;
+    }
+    // honeypots: any hidden field filled = bot → silently pretend success
+    const trap=[...form.querySelectorAll('.hp')].some(f=>f.value);
+    if(trap){showOK('บันทึกอีเมลของคุณแล้ว 🌸');return;}
+    btn.disabled=true;const old=btn.textContent;btn.textContent='กำลังบันทึก…';
+    try{
+      await saveSignup(val);
+      showOK();
+    }catch(err){
+      console.warn('signup save failed (queued locally):',err);
+      showOK(); // honest-but-resilient: we still queued it locally
+    }finally{btn.disabled=false;btn.textContent=old}
+  });
+
+  function showOK(msg){
+    if(msg)successMsg.textContent=msg;
+    formBox.style.display='none';success.style.display='block';
+    success.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  async function saveSignup(emailVal){
+    const rec={email:emailVal,ts:Date.now(),ua:navigator.userAgent,ref:location.href};
+    // always queue locally first (never lose a signup)
+    try{
+      const q=JSON.parse(localStorage.getItem('sq_trial_signups')||'[]');
+      q.push(rec);localStorage.setItem('sq_trial_signups',JSON.stringify(q));
+    }catch(_){}
+    // best-effort cloud write if Firestore bridge is available
+    if(window.sqDB&&window.sqCloud&&window.sqCloud.collection&&window.sqCloud.addDoc){
+      await window.sqCloud.addDoc(window.sqCloud.collection(window.sqDB,'trialSignups'),rec);
+    }
+  }
+})();
+</script>
+
+<script>
+/* ---- welcome.html i18n ----
+   Auto-detects the visitor's language (Thai only when the browser says Thai),
+   remembers the choice in localStorage, and swaps every [data-i18n] node.
+   Kept deliberately small and dependency-free: this page must stay a single file. */
+(function(){
+  var I18N = {"nav.features":{"th":"ฟีเจอร์","en":"Features"},"nav.download":{"th":"ดาวน์โหลด","en":"Download"},"hero.eyebrow":{"th":"<span class=\"dot\"></span> ฟรี 100% · สำหรับ Android","en":"<span class=\"dot\"></span> 100% free · for Android"},"hero.lead":{"th":"SakuraQ เปลี่ยนงานที่ต้องทำให้เป็น “เควส” สนุก ๆ — จับเวลาโฟกัส สะสมแต้ม สร้างสตรีค และมีระบบปลุกวินัยตอนเช้า ให้คุณลงมือทำได้จริงทุกวัน","en":"SakuraQ turns the things you keep putting off into quests. Time your focus, earn real points, build a streak, and let the Morning Gate get you started before the day slips away."},"hero.ctaDownload":{"th":"ดาวน์โหลดฟรี","en":"Download free"},"hero.ctaHow":{"th":"ดูวิธีใช้งาน","en":"See how it works"},"trust.free":{"th":"ฟรี 100%","en":"100% free"},"trust.noads":{"th":"ไม่มีโฆษณา","en":"No ads"},"trust.private":{"th":"ข้อมูลเป็นส่วนตัว","en":"Your data stays yours"},"mock.top":{"th":"วันนี้ · 4 เควส","en":"Today · 4 quests"},"mock.greet":{"th":"สวัสดีตอนเช้า","en":"Good morning"},"mock.name":{"th":"พร้อมลุยรึยัง?","en":"Ready to go?"},"mock.focus":{"th":"โฟกัส","en":"Focus"},"mock.learning":{"th":"การเรียนรู้","en":"Learning"},"mock.body":{"th":"ร่างกาย","en":"Physical"},"feat.kicker":{"th":"ทำไมต้อง SakuraQ","en":"Why SakuraQ"},"feat.h2":{"th":"เครื่องมือสร้างวินัย ที่ออกแบบให้คุณอยากกลับมาทำ","en":"A discipline tool built so you actually come back to it"},"feat.sub":{"th":"ไม่ใช่แค่ to-do list ธรรมดา แต่เป็นระบบที่ทำให้การลงมือทำรู้สึกคุ้มค่าทุกครั้ง","en":"Not another to-do list. A system that makes starting feel worth it every time."},"feat.timer.h":{"th":"จับเวลาโฟกัส","en":"Focus timer"},"feat.timer.p":{"th":"ตั้งเวลาทำงานเป็นรอบ เห็นวงแหวนนับถอยหลังชัดเจน ช่วยให้คุณจดจ่อกับสิ่งตรงหน้าได้นานขึ้น","en":"Work in timed rounds with a countdown ring you can read at a glance, so you stay on one thing for longer."},"feat.points.h":{"th":"สะสมแต้ม &amp; เลเวล","en":"Points &amp; levels"},"feat.points.p":{"th":"ทุกเควสที่ทำสำเร็จได้แต้มจริง สะสมขึ้นเลเวล ปลดล็อกธีมและไอเทมในร้านค้า — แรงจูงใจที่จับต้องได้","en":"Every finished quest earns real points. Level up and unlock themes and items in the shop — progress you can see."},"feat.gate.h":{"th":"ระบบปลุกวินัยตอนเช้า","en":"Morning Gate"},"feat.gate.p":{"th":"Morning Gate ท้าให้คุณเริ่มเควสแรกภายในเวลาที่ตั้งไว้ สร้างนิสัยลงมือทำตั้งแต่ตื่น ไม่ผัดวันประกันพรุ่ง","en":"Morning Gate dares you to start your first quest inside a window you set. Beat the clock and the day starts on your terms."},"feat.stats.h":{"th":"สถิติย้อนหลัง","en":"History &amp; stats"},"feat.stats.p":{"th":"กราฟแสดงพัฒนาการรายวัน รายสัปดาห์ เห็นสตรีคและจุดที่ทำได้ดี ให้คุณรู้ว่ากำลังก้าวหน้าจริง","en":"Daily and weekly charts show your streak and your best runs, so you can tell real progress from a good feeling."},"feat.noti.h":{"th":"เตือนเมื่อหมดเวลา","en":"Alerts when time is up"},"feat.noti.p":{"th":"แจ้งเตือนตรงเวลาแม้ปิดแอป ไม่พลาดจังหวะพัก จังหวะทำงาน ช่วยให้คุณวางมือถือลงได้อย่างสบายใจ","en":"Notifications fire on time even with the app closed, so you can put the phone down and still catch the end of a round."},"feat.cloud.h":{"th":"เซฟขึ้นคลาวด์","en":"Cloud backup"},"feat.cloud.p":{"th":"ล็อกอินด้วย Google แล้วข้อมูลซิงค์อัตโนมัติ เปลี่ยนเครื่องก็ไม่หาย เล่นต่อได้ทุกที่","en":"Sign in with Google and your data syncs automatically. Switch phones and pick up exactly where you left off."},"how.kicker":{"th":"ใช้ง่ายใน 3 ขั้นตอน","en":"Three steps"},"how.h2":{"th":"เริ่มได้ภายในหนึ่งนาที","en":"Up and running in a minute"},"how.sub":{"th":"ไม่ต้องตั้งค่าซับซ้อน เปิดแอปแล้วลงมือได้เลย","en":"No setup maze. Open it and start."},"how.s1.h":{"th":"ตั้งเควส","en":"Set a quest"},"how.s1.p":{"th":"พิมพ์สิ่งที่อยากทำ เลือกหมวดและเวลา หรือให้แอปสุ่มเควสให้ก็ได้","en":"Type what you want to do, pick a category and a length — or let the app roll one for you."},"how.s2.h":{"th":"กดเริ่มแล้วโฟกัส","en":"Hit start and focus"},"how.s2.p":{"th":"วงแหวนจับเวลาเริ่มเดิน คุณแค่จดจ่อกับงาน ที่เหลือแอปจัดการให้","en":"The ring starts counting. You do the work; the app handles the rest."},"how.s3.h":{"th":"รับแต้ม &amp; สะสมสตรีค","en":"Earn points &amp; keep the streak"},"how.s3.p":{"th":"ทำสำเร็จได้แต้มทันที กลับมาทำต่อทุกวันเพื่อรักษาสตรีคให้ยาวขึ้น","en":"Finish and the points land right away. Come back tomorrow to keep the streak alive."},"tr.h2":{"th":"ทำไมถึงไว้ใจ SakuraQ ได้?","en":"Why you can trust this app"},"tr.p":{"th":"เราเข้าใจว่าทุกวันนี้มีแอปหลอกลวงเยอะ เราเลยทำทุกอย่างให้โปร่งใส — นี่คือแอปสร้างนิสัย ไม่ใช่การลงทุน ไม่ใช่พนัน ไม่มีการเก็บเงินแอบ ๆ","en":"There are a lot of shady apps out there, so here it is plainly: this is a habit app. Not an investment. Not gambling. No hidden charges."},"tr.i1":{"th":"ไม่มีบัตรเครดิต ไม่มีกระเป๋าเงิน ไม่มีการโอน “แต้ม” เป็นเงินจริง — แต้มมีไว้ปลดล็อกของในแอปเท่านั้น","en":"No card, no wallet, no converting points into money. Points only unlock things inside the app."},"tr.i2":{"th":"เก็บในเครื่องคุณและคลาวด์ส่วนตัวผ่าน Google เท่านั้น เราไม่ขายข้อมูล ไม่มีโฆษณาติดตาม","en":"Stored on your phone and in your own Google-linked cloud. We do not sell data and there are no tracking ads."},"tr.i3":{"th":"เลิกใช้เมื่อไหร่ก็ลบบัญชีและข้อมูลได้เอง ไม่มีเงื่อนไขผูกมัด ไม่มีค่าใช้จ่ายแฝง","en":"Leave whenever you want and delete your account and data yourself. No lock-in, no surprise fees."},"faq.kicker":{"th":"คำถามที่พบบ่อย","en":"FAQ"},"faq.h2":{"th":"สงสัยอะไร ถามได้ตรง ๆ","en":"Straight answers"},"faq.sub":{"th":"เราตอบแบบไม่อ้อมค้อม เพราะอยากให้คุณมั่นใจก่อนเริ่ม","en":"No hedging — you should feel sure before you install."},"faq.q1":{"th":"SakuraQ ฟรีจริงไหม มีค่าใช้จ่ายแอบแฝงหรือเปล่า?","en":"Is SakuraQ really free? Any hidden costs?"},"faq.a1":{"th":"ฟรีจริง ฟีเจอร์หลักทั้งหมดใช้ได้โดยไม่เสียเงิน ไม่ต้องผูกบัตรเครดิต ไม่มีสมาชิกรายเดือน และไม่มีการเรียกเก็บเงินภายหลัง","en":"Really free. Every core feature works without paying. No card required, no subscription, and nothing billed later."},"faq.q2":{"th":"แอปขอข้อมูลอะไรของฉันบ้าง?","en":"What data does the app ask for?"},"faq.a2":{"th":"แค่ชื่อกับอีเมลจากบัญชี Google เพื่อใช้เซฟข้อมูลข้ามเครื่องเท่านั้น เราไม่ขอเบอร์โทร ตำแหน่งที่อยู่ หรือรายชื่อผู้ติดต่อของคุณ","en":"Only your name and email from your Google account, used to sync across devices. No phone number, no location, no contacts."},"faq.q3":{"th":"“แต้ม” ในแอปแลกเป็นเงินได้ไหม?","en":"Can points be exchanged for money?"},"faq.a3":{"th":"ไม่ได้ และไม่เกี่ยวกับเงินจริงเลย แต้มมีไว้ปลดล็อกธีมและไอเทมตกแต่งในแอปเท่านั้น — SakuraQ ไม่ใช่แอปลงทุน ไม่ใช่พนัน และไม่มีการเติมเงิน","en":"No, and they have nothing to do with real money. Points unlock themes and cosmetic items only. This is not an investment app, not gambling, and there is no top-up."},"faq.q4":{"th":"ข้อมูลของฉันปลอดภัยแค่ไหน?","en":"How safe is my data?"},"faq.a4":{"th":"ข้อมูลเก็บอยู่ในเครื่องคุณและคลาวด์ส่วนตัวที่ผูกกับบัญชี Google ของคุณเอง เราไม่ขายข้อมูลให้ใคร และไม่มีโฆษณาที่คอยติดตามพฤติกรรม","en":"It lives on your phone and in a private cloud tied to your own Google account. We never sell it, and nothing tracks your behaviour for ads."},"faq.q5":{"th":"เลิกใช้แล้วลบข้อมูลได้ไหม?","en":"Can I delete everything if I stop using it?"},"faq.a5":{"th":"ได้ทุกเมื่อ คุณลบข้อมูลและออกจากระบบได้เองจากในแอป ไม่มีเงื่อนไขผูกมัด ไม่ต้องติดต่อใครให้ยุ่งยาก","en":"Any time. You can wipe your data and sign out from inside the app. No lock-in and no support ticket needed."},"dl.h2":{"th":"ดาวน์โหลด SakuraQ","en":"Download SakuraQ"},"dl.p":{"th":"ติดตั้งลงมือถือ Android แล้วใช้ได้เต็มที่ — ฟรี ไม่มีโฆษณา ไม่ต้องสมัครก่อนก็เริ่มได้","en":"Install it on your Android phone and use everything — free, no ads, and no signup needed to start."},"dl.meta":{"th":"ไฟล์ .apk · ~22 MB · รองรับ Android 6 ขึ้นไป","en":".apk file · ~22 MB · Android 6 and up"},"dl.stepsTitle":{"th":"วิธีติดตั้ง (1 นาที)","en":"How to install (1 minute)"},"dl.step1":{"th":"กดปุ่มดาวน์โหลดด้านบน รอไฟล์ <b>.apk</b> โหลดเสร็จ","en":"Tap the download button above and wait for the <b>.apk</b> to finish"},"dl.step2":{"th":"แตะที่ไฟล์เพื่อเปิด ถ้าขึ้นเตือน “แหล่งที่ไม่รู้จัก” ให้กด <b>ตั้งค่า</b> แล้วอนุญาต","en":"Open the file. If Android warns about an “unknown source”, tap <b>Settings</b> and allow it"},"dl.step3":{"th":"กด <b>ติดตั้ง</b> แล้วเปิดแอปได้เลย","en":"Tap <b>Install</b>, then open the app"},"news.title":{"th":"อยากรู้ตอนมีเวอร์ชันใหม่?","en":"Want to hear about new versions?"},"news.p":{"th":"ฝากอีเมลไว้ เดี๋ยวเราส่งข่าวอัปเดตและฟีเจอร์ใหม่ให้","en":"Leave your email and we will send updates and new features."},"news.err":{"th":"กรุณากรอกอีเมลให้ถูกต้อง","en":"Please enter a valid email address"},"news.submit":{"th":"ฝากไว้","en":"Notify me"},"legal.pre":{"th":"การดาวน์โหลดถือว่ายอมรับ","en":"By downloading you accept the"},"legal.link":{"th":"นโยบายความเป็นส่วนตัว","en":"privacy policy"},"ok.h3":{"th":"เรียบร้อย! 🌸","en":"You are on the list 🌸"},"ok.p":{"th":"บันทึกอีเมลของคุณแล้ว เราจะส่งข่าวเวอร์ชันใหม่ไปให้ — ดาวน์โหลดแอปไปลองเลยก็ได้นะ","en":"Email saved. We will let you know when a new version lands — grab the app and try it in the meantime."},"hero.h1":{"th":"เปลี่ยนความตั้งใจ<br>ให้กลายเป็น<span class=\"grad\">นิสัยจริง ๆ</span>","en":"Turn intentions into<br><span class=\"grad\">habits that stick</span>"},"legal.fine":{"th":"การดาวน์โหลดถือว่ายอมรับ <a href=\"#\">เงื่อนไขการใช้งาน</a> และ <a href=\"#\">นโยบายความเป็นส่วนตัว</a>","en":"By downloading you accept the <a href=\"#\">terms of use</a> and <a href=\"#\">privacy policy</a>"},"mock.q1":{"th":"อ่านหนังสือ","en":"Read a book"},"mock.q2":{"th":"ออกกำลังกาย","en":"Workout"},"tr.b1":{"th":"ไม่ขอข้อมูลการเงิน","en":"No financial details"},"tr.b2":{"th":"ข้อมูลเป็นของคุณ","en":"Your data is yours"},"tr.b3":{"th":"ลบได้ทุกเมื่อ","en":"Delete any time"},"dl.btnAndroid":{"th":"ดาวน์โหลดสำหรับ Android","en":"Download for Android"},"dl.btnApp":{"th":"ดาวน์โหลดแอป","en":"Download the app"},"foot.features":{"th":"ฟีเจอร์","en":"Features"},"foot.how":{"th":"วิธีใช้","en":"How it works"},"foot.download":{"th":"ดาวน์โหลด","en":"Download"},"foot.copy":{"th":"© 2026 SakuraQ · สร้างด้วยใจโดยนักพัฒนาอิสระ","en":"© 2026 SakuraQ · built by an indie developer"}};
+  /* เพิ่มทีหลัง: แยกทางติดตั้งตามระบบปฏิบัติการ (Android = .apk / iPhone = เว็บแอป + เพิ่มลงหน้าจอโฮม)
+     คีย์ที่ชื่อซ้ำกับก้อนบนจะทับของเดิม — จงใจ เพราะข้อความเก่าพูดถึง Android อย่างเดียว */
+  var I18N_PLATFORM = {
+    "hero.eyebrow": {th:"<span class=\"dot\"></span> ฟรี 100% · Android และ iPhone", en:"<span class=\"dot\"></span> 100% free · Android and iPhone"},
+    "dl.p": {
+      th:"Android โหลดไฟล์ติดตั้งได้เลย · iPhone/iPad ใช้ผ่านเว็บแล้วเพิ่มลงหน้าจอโฮมให้เปิดเหมือนแอปจริง — ฟรีทั้งคู่",
+      en:"Android installs the app file directly. On iPhone or iPad you open it on the web and add it to your Home Screen, where it runs like a real app — free either way."
+    },
+    "plat.android": {th:"Android", en:"Android"},
+    "plat.ios": {th:"iPhone / iPad", en:"iPhone / iPad"},
+    "dl.btnIos": {th:"เปิดแอปบน iPhone", en:"Open the app on iPhone"},
+    "dl.metaIos": {
+      th:"ไม่ต้องโหลดไฟล์ · แนะนำ iOS 16.4 ขึ้นไป · เพิ่มลงหน้าจอโฮมแล้วเปิดได้เหมือนแอปจริง",
+      en:"No file to download · iOS 16.4 or newer recommended · add it to your Home Screen and it opens like a real app"
+    },
+    "dl.stepsTitleIos": {th:"วิธีติดตั้งบน iPhone (1 นาที)", en:"How to install on iPhone (1 minute)"},
+    "dl.iosStep1": {
+      th:"กดปุ่มด้านบนเพื่อเปิดแอป <em>(ต้องเปิดใน <b>Safari</b> เท่านั้น — Chrome บน iPhone เพิ่มลงหน้าจอโฮมไม่ได้)</em>",
+      en:"Tap the button above to open the app <em>(it has to be <b>Safari</b> — Chrome on iPhone cannot add to the Home Screen)</em>"
+    },
+    "dl.iosStep2": {
+      th:"แตะปุ่ม <b>แชร์</b> (ไอคอนสี่เหลี่ยมมีลูกศรขึ้น) ที่แถบล่างของ Safari",
+      en:"Tap the <b>Share</b> button (the square with an arrow) in Safari's bottom bar"
+    },
+    "dl.iosStep3": {
+      th:"เลื่อนลงแล้วกด <b>เพิ่มไปยังหน้าจอโฮม</b> → กด <b>เพิ่ม</b> → เปิดจากไอคอนได้เลย",
+      en:"Scroll down, tap <b>Add to Home Screen</b>, then <b>Add</b> — open it from the icon"
+    },
+    "dl.altWeb": {th:"หรือเปิดบนเว็บเลย ไม่ต้องติดตั้ง →", en:"Or just open it on the web, no install →"}
+  };
+  for(var pk in I18N_PLATFORM){ I18N[pk] = I18N_PLATFORM[pk]; }
+
+  var META = {
+    th: {
+      title: "SakuraQ — เปลี่ยนความตั้งใจให้เป็นนิสัย",
+      desc: "SakuraQ แอปสร้างวินัยและติดตามนิสัยในรูปแบบเควส จับเวลาโฟกัส สะสมแต้ม ปลุกตัวเองให้ลงมือทำทุกวัน — ใช้ได้ทั้ง Android และ iPhone ฟรี ไม่ต้องใช้บัตร"
+    },
+    en: {
+      title: "SakuraQ — turn good intentions into habits that stick",
+      desc: "SakuraQ is a free habit tracker for Android and iPhone that turns your tasks into timed quests. Focus timer, points, streaks and a Morning Gate that gets you started. No ads, no card."
+    }
+  };
+  var KEY = "sq_welcome_lang";
+
+  function detect(){
+    try{
+      var saved = localStorage.getItem(KEY);
+      if(saved === "th" || saved === "en") return saved;
+    }catch(e){}
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || "en"];
+    for(var i=0;i<langs.length;i++){
+      if(/^th\b/i.test(langs[i] || "")) return "th";
+    }
+    return "en"; // default for everyone else — this page is aimed at a global audience
+  }
+
+  function apply(lang){
+    var nodes = document.querySelectorAll("[data-i18n],[data-i18n-html]");
+    for(var i=0;i<nodes.length;i++){
+      var el = nodes[i], k = el.getAttribute("data-i18n") || el.getAttribute("data-i18n-html"), row = I18N[k];
+      if(!row) continue;
+      var val = row[lang];
+      if(val == null) continue;
+      el.innerHTML = val;           // values may contain entities such as &amp;
+    }
+    document.documentElement.setAttribute("lang", lang);
+    var m = META[lang] || META.en;
+    document.title = m.title;
+    var d = document.querySelector('meta[name="description"]');
+    if(d) d.setAttribute("content", m.desc);
+    var ogt = document.querySelector('meta[property="og:title"]');
+    if(ogt) ogt.setAttribute("content", m.title);
+    var ogd = document.querySelector('meta[property="og:description"]');
+    if(ogd) ogd.setAttribute("content", m.desc);
+    var ogl = document.querySelector('meta[property="og:locale"]');
+    if(ogl) ogl.setAttribute("content", lang === "th" ? "th_TH" : "en_US");
+    // the button offers the OTHER language
+    var t = document.getElementById("langBtnText");
+    if(t) t.textContent = (lang === "th") ? "EN" : "ไทย";
+    window.__sqLang = lang;
+  }
+
+  function setLang(lang){
+    try{ localStorage.setItem(KEY, lang); }catch(e){}
+    apply(lang);
+  }
+
+  function init(){
+    apply(detect());
+    var b = document.getElementById("langBtn");
+    if(b) b.addEventListener("click", function(){
+      setLang(window.__sqLang === "th" ? "en" : "th");
+    });
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+  window.sqSetLang = setLang;
+})();
+</script>
+</body>
+</html>

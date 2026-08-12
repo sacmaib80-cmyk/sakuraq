@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Gilded Sakura button skin">
+<!--
+  สกินปุ่ม "ซากุระทองคำ" — ตัวแพงสุด (มีเอฟเฟกต์)
+  แนวคิด: เครื่องเขินญี่ปุ่น — พื้นรักสีดำ ลงลายทองแบบ maki-e
+  กฎที่ยึด: ทองต้องมี 3 ค่า (เงา/ตัว/ไฮไลต์) ไม่งั้นจะดูเป็นสีเหลืองแบน
+           · ลายอยู่ริมสองข้างเสมอ กลางปุ่มปล่อยว่างให้ตัวหนังสือ
+           · ชั้นที่ขยับ (.skShine / .skPetal) ถูกขับด้วย CSS ในแอป ไม่ใช่ SMIL
+-->
+<defs>
+  <linearGradient id="skGildLacquer" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="var(--sk-lac-1,#2a2230)"/>
+    <stop offset=".42" stop-color="var(--sk-lac-2,#15111b)"/>
+    <stop offset="1"   stop-color="var(--sk-lac-3,#0b0810)"/>
+  </linearGradient>
+  <linearGradient id="skGildGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="var(--sk-gold-hi,#ffe9ad)"/>
+    <stop offset=".45" stop-color="var(--sk-gold,#e3ba63)"/>
+    <stop offset="1"   stop-color="var(--sk-gold-lo,#a2762c)"/>
+  </linearGradient>
+  <linearGradient id="skGildSweep" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#fff8e0" stop-opacity="0"/>
+    <stop offset=".46"  stop-color="#fff8e0" stop-opacity=".42"/>
+    <stop offset=".54"  stop-color="#fff8e0" stop-opacity=".42"/>
+    <stop offset="1"    stop-color="#fff8e0" stop-opacity="0"/>
+  </linearGradient>
+  <clipPath id="skGildClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+</defs>
+
+<g clip-path="url(#skGildClip)">
+  <rect x="0" y="0" width="320" height="54" fill="url(#skGildLacquer)"/>
+
+  <!-- ผงทองในเนื้อรัก (nashiji) -->
+  <g fill="var(--sk-gold,#e3ba63)" opacity=".22">
+    <circle cx="38" cy="14" r="1"/><circle cx="61" cy="41" r=".8"/><circle cx="88" cy="11" r=".9"/>
+    <circle cx="120" cy="44" r=".8"/><circle cx="150" cy="9"  r=".7"/><circle cx="182" cy="46" r=".9"/>
+    <circle cx="214" cy="13" r=".8"/><circle cx="244" cy="42" r="1"/><circle cx="268" cy="18" r=".8"/>
+    <circle cx="292" cy="36" r=".9"/><circle cx="104" cy="27" r=".7"/><circle cx="200" cy="30" r=".7"/>
+  </g>
+
+  <!-- กิ่งซากุระฝั่งซ้าย -->
+  <g stroke="url(#skGildGold)" fill="none" stroke-linecap="round">
+    <path d="M2 44c14-3 24-9 31-18 6-8 14-13 24-15" stroke-width="1.9"/>
+    <path d="M22 34c-2-5-1-9 2-13M40 22c1-5 4-8 9-10M13 40c-3-3-4-7-4-11" stroke-width="1.1" opacity=".85"/>
+  </g>
+  <!-- กิ่งฝั่งขวา (บาง สั้นกว่า เพื่อไม่ให้สมมาตรเป๊ะ) -->
+  <g stroke="url(#skGildGold)" fill="none" stroke-linecap="round" opacity=".9">
+    <path d="M318 12c-12 2-21 7-27 15" stroke-width="1.6"/>
+    <path d="M300 22c1 4 0 8-3 11" stroke-width="1"/>
+  </g>
+
+  <!-- ดอกซากุระ 5 กลีบ (วาดกลีบทีละใบ ไม่ใช้ดาวสำเร็จรูป) -->
+  <g fill="url(#skGildGold)">
+    <g transform="translate(24,20) scale(1.05)">
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(72)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(144)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(216)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="1.9" fill="var(--sk-lac-2,#15111b)"/>
+      <g stroke="var(--sk-gold-hi,#ffe9ad)" stroke-width=".5" stroke-linecap="round"><path d="M0 0v-3.2M0 0l3-1.1M0 0l1.9 2.6M0 0l-1.9 2.6M0 0l-3-1.1"/></g>
+    </g>
+    <g transform="translate(47,11) scale(.7)" opacity=".95">
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(72)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(144)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(216)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="1.6" fill="var(--sk-lac-2,#15111b)"/>
+    </g>
+    <g transform="translate(303,34) scale(.62)" opacity=".9">
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(72)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(144)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(216)"/>
+      <path d="M0-7c2.6 0 4.6 2 4.6 4.2 0 1.9-1.6 3.4-4.6 4.4-3-1-4.6-2.5-4.6-4.4C-4.6-5-2.6-7 0-7z" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="1.7" fill="var(--sk-lac-2,#15111b)"/>
+    </g>
+  </g>
+
+  <!-- กลีบซากุระ: ปกติซ่อนอยู่ โผล่ลอยขึ้นเฉพาะตอนกด (CSS ในแอปเป็นคนขับ)
+       เหตุผล: วางไว้ตลอดมันไปรกหลังตัวหนังสือ และที่ขนาดจริงกลีบเล็กจนอ่านไม่ออกว่าเป็นกลีบ -->
+  <g class="skPetals" fill="url(#skGildGold)" opacity="0">
+    <path class="skPetal skPetal1" d="M3.5 0C6.4 2.1 7.4 5.2 5.8 7.6 5 8.8 4.3 8.3 3.5 7.3 2.7 8.3 2 8.8 1.2 7.6-0.4 5.2 0.6 2.1 3.5 0z" transform="translate(74,30) rotate(18) scale(.95)"/>
+    <path class="skPetal skPetal2" d="M3.5 0C6.4 2.1 7.4 5.2 5.8 7.6 5 8.8 4.3 8.3 3.5 7.3 2.7 8.3 2 8.8 1.2 7.6-0.4 5.2 0.6 2.1 3.5 0z" transform="translate(146,36) rotate(-34) scale(.8)"/>
+    <path class="skPetal skPetal3" d="M3.5 0C6.4 2.1 7.4 5.2 5.8 7.6 5 8.8 4.3 8.3 3.5 7.3 2.7 8.3 2 8.8 1.2 7.6-0.4 5.2 0.6 2.1 3.5 0z" transform="translate(224,16) rotate(122) scale(.85)"/>
+    <path class="skPetal skPetal4" d="M3.5 0C6.4 2.1 7.4 5.2 5.8 7.6 5 8.8 4.3 8.3 3.5 7.3 2.7 8.3 2 8.8 1.2 7.6-0.4 5.2 0.6 2.1 3.5 0z" transform="translate(268,38) rotate(-12) scale(.72)"/>
+  </g>
+
+  <!-- แสงกวาดทอง (เอฟเฟกต์หลัก) -->
+  <rect class="skShine" x="-140" y="0" width="120" height="54" fill="url(#skGildSweep)"/>
+
+  <!-- ขอบทองคู่ -->
+  <rect x="1" y="1" width="318" height="52" rx="26" fill="none" stroke="url(#skGildGold)" stroke-width="1.6"/>
+  <rect x="4.5" y="4.5" width="311" height="45" rx="22.5" fill="none" stroke="var(--sk-gold-lo,#a2762c)" stroke-opacity=".55" stroke-width=".9"/>
+</g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 84" role="img" aria-label="Alien specimen crystal">
+<!-- ตัวอย่างที่ถูกลำแสงดูดขึ้น = ตัวบอกความคืบหน้า (ยิ่งเวลาเดิน ยิ่งลอยสูงและเล็กลง)
+     3 เหลี่ยมคนละค่าความสว่าง = อ่านเป็นก้อนมีเหลี่ยม ไม่ใช่สามเหลี่ยมแบน -->
+<defs>
+<radialGradient id="bcGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--bc-mint,#5cf2c0)" stop-opacity=".55"/>
+<stop offset=".55" stop-color="var(--bc-mint,#5cf2c0)" stop-opacity=".16"/>
+<stop offset="1"   stop-color="var(--bc-mint,#5cf2c0)" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="bcFaceL" x1="0" y1="0" x2=".8" y2="1">
+<stop offset="0"   stop-color="var(--bc-dk,#1d7f74)"/>
+<stop offset="1"   stop-color="var(--bc-dk2,#0d3f47)"/>
+</linearGradient>
+<linearGradient id="bcFaceR" x1="1" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--bc-mid,#3fd6ae)"/>
+<stop offset="1"   stop-color="var(--bc-mid2,#166b6c)"/>
+</linearGradient>
+<linearGradient id="bcFaceC" x1=".5" y1="0" x2=".5" y2="1">
+<stop offset="0"   stop-color="var(--bc-hi,#e6fff7)"/>
+<stop offset=".45" stop-color="var(--bc-mint,#5cf2c0)"/>
+<stop offset="1"   stop-color="var(--bc-mid2,#166b6c)"/>
+</linearGradient>
+</defs>
+
+<circle class="bcHalo" cx="32" cy="42" r="30" fill="url(#bcGlow)"/>
+
+<path d="M32 5 16 32l5 36 11 8z"  fill="url(#bcFaceL)"/>
+<path d="M32 5 48 32l-5 36-11 8z" fill="url(#bcFaceR)"/>
+<path d="M32 5 26 34l6 42 6-42z"  fill="url(#bcFaceC)" opacity=".95"/>
+
+<!-- สันเหลี่ยม -->
+<g stroke="var(--bc-hi,#e6fff7)" stroke-width="1.1" fill="none" opacity=".7">
+<path d="M32 5v71M32 5 16 32M32 5 48 32"/>
+</g>
+<path d="M32 5 16 32l5 36 11 8 11-8 5-36z" fill="none"
+      stroke="var(--bc-edge,#9dfbdd)" stroke-width="1.3" stroke-linejoin="round" opacity=".55"/>
+
+<!-- แสงวาบบนสัน -->
+<path d="M32 9l3.4 16-3.4 10-3.4-10z" fill="#ffffff" opacity=".55"/>
+
+<!-- เศษหินเล็กที่ลอยตามขึ้นมาด้วย -->
+<g fill="var(--bc-mint,#5cf2c0)" opacity=".8">
+<path class="bcFrag bcFrag1" d="M9 56l3 4-3 4-3-4z"/>
+<path class="bcFrag bcFrag2" d="M55 46l2.4 3.2-2.4 3.2-2.4-3.2z"/>
+<path class="bcFrag bcFrag3" d="M50 68l2 2.6-2 2.6-2-2.6z"/>
+</g>
+</svg>

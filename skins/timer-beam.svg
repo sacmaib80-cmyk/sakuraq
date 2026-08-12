@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 118" role="img" aria-label="Flying saucer">
+<!-- ยานจานบิน (หัวเรื่องของหน้าจับเวลา) — ลอยอยู่ด้านบน ลำแสงพุ่งลงจากวงใต้ท้อง
+     แสงมาจากบน-ซ้าย: หลังคาโดมสว่าง ใต้ท้องเข้ม ขอบกว้างสุด (y=63) เป็นเส้นสะท้อนคม
+     ตัวเอเลี่ยนในโดมคือจุดที่ตาลงพอดี — เล็กแต่เป็นตัวเล่าเรื่องทั้งธีม
+     ทุก class ถูกขับด้วย CSS (.runTheme-beam …) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<linearGradient id="bmShellTop" x1=".2" y1="0" x2=".7" y2="1">
+<stop offset="0"   stop-color="var(--bm-hull-hi,#8fa3c8)"/>
+<stop offset=".42" stop-color="var(--bm-hull,#46578c)"/>
+<stop offset="1"   stop-color="var(--bm-hull-lo,#232e58)"/>
+</linearGradient>
+<linearGradient id="bmShellBot" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--bm-hull-lo,#232e58)"/>
+<stop offset=".55" stop-color="var(--bm-hull-dk,#141b3a)"/>
+<stop offset="1"   stop-color="var(--bm-hull-dk2,#0b1029)"/>
+</linearGradient>
+<linearGradient id="bmDome" x1=".25" y1="0" x2=".8" y2="1">
+<stop offset="0"   stop-color="var(--bm-glass-hi,#d7fff4)" stop-opacity=".92"/>
+<stop offset=".38" stop-color="var(--bm-glass,#5cf2c0)" stop-opacity=".42"/>
+<stop offset="1"   stop-color="var(--bm-glass-lo,#0f5a58)" stop-opacity=".72"/>
+</linearGradient>
+<radialGradient id="bmUnder" cx=".5" cy=".18" r=".72">
+<stop offset="0"   stop-color="var(--bm-mint-pale,#c9ffee)" stop-opacity=".95"/>
+<stop offset=".38" stop-color="var(--bm-mint,#5cf2c0)" stop-opacity=".55"/>
+<stop offset="1"   stop-color="var(--bm-mint,#5cf2c0)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<!-- แสงเรืองใต้ท้องยาน (วาดก่อน = อยู่หลังตัวยาน) -->
+<ellipse class="bmHalo" cx="150" cy="88" rx="86" ry="26" fill="url(#bmUnder)" opacity=".55"/>
+
+<!-- ── เปลือกล่าง (ในเงา) ── -->
+<path d="M12 63C12 76 70 88 150 88s138-12 138-25z" fill="url(#bmShellBot)"/>
+
+<!-- ── เปลือกบน ── -->
+<path d="M150 32c66 0 121 15 138 31H12c17-16 72-31 138-31z" fill="url(#bmShellTop)"/>
+<!-- ร่องแผ่นเปลือกบน แผ่ออกจากโดม (น้อยเส้น ให้รู้ว่าเป็นแผ่นๆ พอ) -->
+<g stroke="var(--bm-hull-dk,#141b3a)" stroke-width="1.4" opacity=".5" fill="none">
+<path d="M104 44L56 62M196 44l48 18M126 37l-22 26M174 37l22 26"/>
+</g>
+<g stroke="var(--bm-hull-hi,#8fa3c8)" stroke-width="1" opacity=".28" fill="none">
+<path d="M105.4 44L57.4 62M127.4 37l-22 26"/>
+</g>
+
+<!-- ขอบกว้างสุด: เส้นสะท้อนคม = ตัวที่ทำให้อ่านเป็นโลหะ ไม่ใช่พลาสติกแบน -->
+<path d="M12 63h276" stroke="var(--bm-rim,#0b1029)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+<path d="M22 61.4h256" stroke="var(--bm-spec,#c6d6ff)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".75"/>
+<path d="M60 60.2h120" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"/>
+
+<!-- ── โดมกระจก ── -->
+<ellipse cx="150" cy="41" rx="49" ry="9" fill="var(--bm-hull-lo,#232e58)"/>
+<path d="M150 4c27 0 48 17 48 37H102c0-20 21-37 48-37z" fill="url(#bmDome)"/>
+<!-- เอเลี่ยนตัวจิ๋วในโดม -->
+<g class="bmPilot">
+<path d="M150 19c9 0 15 6 15 13 0 4-3 8-7 9h-16c-4-1-7-5-7-9 0-7 6-13 15-13z" fill="var(--bm-pilot,#0c2b3d)" opacity=".85"/>
+<ellipse cx="144" cy="30" rx="3.4" ry="4.6" transform="rotate(-16 144 30)" fill="var(--bm-mint-pale,#c9ffee)"/>
+<ellipse cx="156" cy="30" rx="3.4" ry="4.6" transform="rotate(16 156 30)" fill="var(--bm-mint-pale,#c9ffee)"/>
+</g>
+<!-- แสงสะท้อนบนกระจก -->
+<path d="M124 17c8-7 19-10 28-8-10 1-19 6-24 15-3-3-5-5-4-7z" fill="#ffffff" opacity=".42"/>
+<path d="M180 34c2-6 1-12-2-17 6 5 9 12 8 19-3 0-5-1-6-2z" fill="#ffffff" opacity=".16"/>
+<!-- ปลอกโลหะรอบโคนโดม -->
+<path d="M102 41a48 9 0 0 1 96 0" fill="none" stroke="var(--bm-hull-hi,#8fa3c8)" stroke-width="2.6" opacity=".8"/>
+<path d="M102 41a48 9 0 0 0 96 0" fill="none" stroke="var(--bm-hull-dk,#141b3a)" stroke-width="2" opacity=".7"/>
+
+<!-- ── ไฟรอบท้องยาน (ติดไล่ทีละดวงด้วย CSS) ── -->
+<g class="bmLites">
+<g class="bmLite bmLite1"><circle cx="62"  cy="76"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="62"  cy="76"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite2"><circle cx="84"  cy="78.5" r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="84"  cy="78.5" r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite3"><circle cx="106" cy="80"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="106" cy="80"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite4"><circle cx="128" cy="81"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="128" cy="81"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite5"><circle cx="172" cy="81"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="172" cy="81"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite6"><circle cx="194" cy="80"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="194" cy="80"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite7"><circle cx="216" cy="78.5" r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="216" cy="78.5" r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+<g class="bmLite bmLite8"><circle cx="238" cy="76"   r="5.6" fill="var(--bm-mint,#5cf2c0)" opacity=".28"/><circle cx="238" cy="76"   r="2.6" fill="var(--bm-mint-pale,#c9ffee)"/></g>
+</g>
+
+<!-- ── ช่องดูดใต้ท้อง (ต้นทางของลำแสง) ── -->
+<ellipse cx="150" cy="85" rx="34" ry="9" fill="var(--bm-hull-dk2,#0b1029)"/>
+<ellipse cx="150" cy="85" rx="34" ry="9" fill="none" stroke="var(--bm-hull-hi,#8fa3c8)" stroke-width="1.6" opacity=".5"/>
+<ellipse class="bmIntake" cx="150" cy="85" rx="27" ry="6.4" fill="var(--bm-mint-pale,#c9ffee)" opacity=".9"/>
+</svg>

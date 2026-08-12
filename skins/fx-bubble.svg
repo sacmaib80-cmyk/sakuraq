@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bubble burst tap effect">
+<!-- เอฟเฟกต์ตอนแตะจอ: ระลอกน้ำวงกลม + ฟองอากาศแตกลอยขึ้น
+     ใช้สีฟ้าคราม + ไฮไลต์ขาว จะได้เห็นทั้งบนพื้นสว่างและพื้นมืด
+     ทุก class ถูกขับด้วย CSS (.sq-tap-bubble …) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<radialGradient id="fbGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--fb-glow,#8ff0ff)" stop-opacity=".5"/>
+<stop offset=".65" stop-color="var(--fb-glow,#8ff0ff)" stop-opacity=".14"/>
+<stop offset="1"   stop-color="var(--fb-glow,#8ff0ff)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<circle class="fbHalo" cx="32" cy="32" r="16" fill="url(#fbGlow)"/>
+
+<!-- ระลอกน้ำ 2 วง -->
+<g fill="none" stroke="var(--fb-ring,#3fd0e8)" stroke-linecap="round">
+<circle class="fbRing fbRing1" cx="32" cy="32" r="10" stroke-width="2.6"/>
+<circle class="fbRing fbRing2" cx="32" cy="32" r="10" stroke-width="1.6" opacity=".6"/>
+</g>
+
+<!-- ฟองอากาศ: วงกลมมีขอบ + จุดไฮไลต์ขาวเม็ดเล็ก (เม็ดใหญ่ช้า เม็ดเล็กเร็ว) -->
+<g class="fbBub fbBub1">
+<circle cx="32" cy="32" r="6.4" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.9"/>
+<circle cx="29.6" cy="29.4" r="1.7" fill="#ffffff" opacity=".95"/>
+</g>
+<g class="fbBub fbBub2">
+<circle cx="32" cy="32" r="4.4" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.6"/>
+<circle cx="30.4" cy="30.4" r="1.2" fill="#ffffff" opacity=".95"/>
+</g>
+<g class="fbBub fbBub3">
+<circle cx="32" cy="32" r="5.2" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.7"/>
+<circle cx="30.2" cy="30.2" r="1.4" fill="#ffffff" opacity=".95"/>
+</g>
+<g class="fbBub fbBub4">
+<circle cx="32" cy="32" r="3.4" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.4"/>
+<circle cx="30.8" cy="30.8" r="1" fill="#ffffff" opacity=".9"/>
+</g>
+<g class="fbBub fbBub5">
+<circle cx="32" cy="32" r="2.6" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.3"/>
+</g>
+<g class="fbBub fbBub6">
+<circle cx="32" cy="32" r="3" fill="var(--fb-fill,#c9f6ff)" fill-opacity=".3" stroke="var(--fb-ring,#3fd0e8)" stroke-width="1.3"/>
+</g>
+</svg>

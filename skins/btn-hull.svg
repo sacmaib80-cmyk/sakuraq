@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Submarine hull button skin">
+<!-- ตัวเรือดำน้ำ: เหล็กชุบน้ำเค็ม + หมุดทองเหลือง + ช่องหน้าต่างกลม
+     กลางปุ่ม (x 90-230) เว้นให้เข้มเรียบ ตัวหนังสือขาวจะได้อ่านออก -->
+<defs>
+<linearGradient id="skHullSteel" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--sk-steel-1,#1f5a6b)"/>
+<stop offset=".38" stop-color="var(--sk-steel-2,#123c4e)"/>
+<stop offset="1"   stop-color="var(--sk-steel-3,#08222f)"/>
+</linearGradient>
+<linearGradient id="skHullBrass" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--sk-brass-hi,#f5e0ab)"/>
+<stop offset=".48" stop-color="var(--sk-brass,#c9a15a)"/>
+<stop offset="1"   stop-color="var(--sk-brass-lo,#795526)"/>
+</linearGradient>
+<radialGradient id="skHullGlass" cx=".36" cy=".28" r=".85">
+<stop offset="0"   stop-color="var(--sk-glass-1,#8ff0e4)"/>
+<stop offset=".45" stop-color="var(--sk-glass-2,#2a94a8)"/>
+<stop offset="1"   stop-color="var(--sk-glass-3,#07303f)"/>
+</radialGradient>
+<clipPath id="skHullClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+<clipPath id="skHullPortL"><circle cx="36" cy="27" r="14"/></clipPath>
+<clipPath id="skHullPortR"><circle cx="286" cy="27" r="10"/></clipPath>
+</defs>
+
+<g clip-path="url(#skHullClip)">
+<rect x="0" y="0" width="320" height="54" fill="url(#skHullSteel)"/>
+
+<!-- คราบสนิมเขียว (verdigris) — วาดเป็นก้อนขอบไม่เท่ากัน ไม่ใช่วงกลมเรียบ -->
+<g fill="var(--sk-patina,#3e8f86)" opacity=".22">
+<path d="M118 2c14-3 24 2 30 9 5 7 1 13-8 15-12 2-24-1-30-7-5-6-3-14 8-17z"/>
+<path d="M196 40c12-4 24-1 29 5 4 6-2 11-12 12-13 2-25-1-27-7-2-5 3-8 10-10z"/>
+<path d="M62 44c9-2 17 1 19 5 2 4-3 6-11 6-9 0-15-2-15-5 0-3 3-5 7-6z"/>
+</g>
+
+<!-- แสงหักเหจากผิวน้ำ (caustics) — พาดขวางเฉพาะครึ่งบน -->
+<g class="skCaustic" fill="none" stroke="var(--sk-caustic,#a8f2ff)" stroke-linecap="round" opacity=".26">
+<path d="M-30 12c18-7 30 5 48-2 18-7 30 5 48-2 18-7 30 5 48-2 18-7 30 5 48-2 18-7 30 5 48-2 18-7 30 5 48-2" stroke-width="2.2"/>
+<path d="M-30 22c16-5 26 4 42-1 16-5 26 4 42-1 16-5 26 4 42-1 16-5 26 4 42-1 16-5 26 4 42-1 16-5 26 4 42-1 16-5 26 4 42-1" stroke-width="1.3" opacity=".7"/>
+</g>
+
+<!-- รอยต่อแผ่นเหล็ก -->
+<g stroke="var(--sk-seam,#06212c)" stroke-width="1.6" opacity=".8">
+<path d="M0 37h320"/>
+</g>
+<g stroke="var(--sk-seam-hi,#3d7f92)" stroke-width="1" opacity=".35">
+<path d="M0 38.4h320"/>
+</g>
+<g stroke="var(--sk-seam,#06212c)" stroke-width="1.4" opacity=".55">
+<path d="M108 0v54M212 0v54"/>
+</g>
+
+<!-- หมุดทองเหลืองบน/ล่าง -->
+<g fill="url(#skHullBrass)">
+<circle cx="70"  cy="7" r="2"/><circle cx="94"  cy="7" r="2"/><circle cx="118" cy="7" r="2"/>
+<circle cx="142" cy="7" r="2"/><circle cx="166" cy="7" r="2"/><circle cx="190" cy="7" r="2"/>
+<circle cx="214" cy="7" r="2"/><circle cx="238" cy="7" r="2"/><circle cx="262" cy="7" r="2"/>
+<circle cx="70"  cy="47" r="2"/><circle cx="94"  cy="47" r="2"/><circle cx="118" cy="47" r="2"/>
+<circle cx="142" cy="47" r="2"/><circle cx="166" cy="47" r="2"/><circle cx="190" cy="47" r="2"/>
+<circle cx="214" cy="47" r="2"/><circle cx="238" cy="47" r="2"/><circle cx="262" cy="47" r="2"/>
+</g>
+<g fill="var(--sk-brass-hi,#f5e0ab)" opacity=".7">
+<circle cx="70"  cy="6.3" r=".7"/><circle cx="118" cy="6.3" r=".7"/><circle cx="166" cy="6.3" r=".7"/>
+<circle cx="214" cy="6.3" r=".7"/><circle cx="262" cy="6.3" r=".7"/>
+</g>
+
+<!-- ช่องหน้าต่างซ้าย (ตัวเด่น) -->
+<g>
+<circle cx="36" cy="27" r="18" fill="url(#skHullBrass)"/>
+<circle cx="36" cy="27" r="18" fill="none" stroke="var(--sk-brass-lo,#795526)" stroke-width="1" opacity=".6"/>
+<circle cx="36" cy="27" r="14" fill="url(#skHullGlass)"/>
+<g clip-path="url(#skHullPortL)">
+<!-- น้ำข้างนอกช่องหน้าต่าง: สาหร่าย + ปลาเงา + ฟองลอย -->
+<path d="M22 41c2-8-1-14 1-20 1 5 4 9 3 20zM30 41c1-7-2-12 0-17 2 5 4 9 3 17z" fill="var(--sk-kelp,#0e5a56)" opacity=".85"/>
+<path d="M46 24c-5 0-9 2-11 4 2 2 6 4 11 4 3 0 5-1 6-2l4 3v-10l-4 3c-1-1-3-2-6-2z" fill="var(--sk-fish,#ffd48a)"/>
+<circle cx="43" cy="27" r="1" fill="var(--sk-steel-3,#08222f)"/>
+<circle cx="30" cy="18" r="1.6" fill="var(--sk-bub,#d8fbff)" opacity=".8"/>
+<circle cx="26" cy="14" r="1" fill="var(--sk-bub,#d8fbff)" opacity=".6"/>
+</g>
+<!-- แสงสะท้อนบนกระจก -->
+<path d="M27 17c5-3 11-3 15-1-6 0-11 3-13 8-2-3-3-5-2-7z" fill="var(--sk-glare,#ffffff)" opacity=".4"/>
+<!-- หมุดรอบขอบ -->
+<g fill="var(--sk-brass-lo,#795526)" opacity=".75">
+<circle cx="36" cy="11.5" r="1.3"/><circle cx="47" cy="16" r="1.3"/><circle cx="51.5" cy="27" r="1.3"/>
+<circle cx="47" cy="38" r="1.3"/><circle cx="36" cy="42.5" r="1.3"/><circle cx="25" cy="38" r="1.3"/>
+<circle cx="20.5" cy="27" r="1.3"/><circle cx="25" cy="16" r="1.3"/>
+</g>
+</g>
+
+<!-- ช่องหน้าต่างขวา (เล็ก) -->
+<g>
+<circle cx="286" cy="27" r="13" fill="url(#skHullBrass)"/>
+<circle cx="286" cy="27" r="10" fill="url(#skHullGlass)"/>
+<g clip-path="url(#skHullPortR)">
+<path d="M292 30c-4 0-7 2-8 3 1 1 4 3 8 3 2 0 4-1 5-2l3 2v-8l-3 2c-1-1-3-2-5-2z" fill="var(--sk-fish-2,#8ff0e4)" opacity=".9"/>
+<circle cx="281" cy="20" r="1.2" fill="var(--sk-bub,#d8fbff)" opacity=".7"/>
+</g>
+<path d="M280 21c3-2 7-2 10-1-4 0-7 2-8 5-2-2-2-3-2-4z" fill="var(--sk-glare,#ffffff)" opacity=".35"/>
+</g>
+
+<!-- ฟองอากาศ: ปกติซ่อน โผล่ตอนกด (CSS เป็นคนสั่ง) -->
+<g class="skBubbles" fill="none" stroke="var(--sk-bub,#d8fbff)" stroke-width="1.4" opacity="0">
+<circle class="skBub skBub1" cx="88"  cy="46" r="3.4"/>
+<circle class="skBub skBub2" cx="132" cy="48" r="2.4"/>
+<circle class="skBub skBub3" cx="178" cy="46" r="4"/>
+<circle class="skBub skBub4" cx="222" cy="48" r="2.6"/>
+<circle class="skBub skBub5" cx="256" cy="46" r="3.2"/>
+</g>
+
+<!-- ขอบปุ่ม -->
+<rect x="0" y="0" width="320" height="54" rx="27" fill="none"
+stroke="var(--sk-brass,#c9a15a)" stroke-opacity=".55" stroke-width="2"/>
+<path d="M34 1.6h252" stroke="var(--sk-rim-lite,#bfeef7)" stroke-opacity=".35"
+stroke-width="1.6" stroke-linecap="round" fill="none"/>
+</g>
+</svg>

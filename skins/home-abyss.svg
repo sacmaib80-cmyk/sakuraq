@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Undersea station room">
+<!-- ห้องสถานีใต้ทะเลลึก
+     เส้นพื้น y=612 (มาสคอตยืนที่ y 633-680 · กลางเท้า x=300 · เท้ากิน x 228-371)
+     ของทุกชิ้นต้องมีฐานต่ำกว่าเส้นพื้น + มีเงาที่จุดสัมผัส ไม่งั้นตาจะอ่านว่า "ลอย"
+     กลาง-ล่างเว้นให้มาสคอตนั่ง ของเกาะริมสองข้าง -->
+<defs>
+<linearGradient id="abWall" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-wall-1,#0e4560)"/>
+<stop offset=".55" stop-color="var(--hs-wall-2,#0b3247)"/>
+<stop offset="1"   stop-color="var(--hs-wall-3,#082635)"/>
+</linearGradient>
+<radialGradient id="abSea" cx=".42" cy=".3" r=".85">
+<stop offset="0"   stop-color="var(--hs-sea-1,#1d7d99)"/>
+<stop offset=".5"  stop-color="var(--hs-sea-2,#0c4e6c)"/>
+<stop offset="1"   stop-color="var(--hs-sea-3,#04202f)"/>
+</radialGradient>
+<linearGradient id="abBrass" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-brass-hi,#f3dda8)"/>
+<stop offset=".5"  stop-color="var(--hs-brass,#c9a15a)"/>
+<stop offset="1"   stop-color="var(--hs-brass-lo,#77531f)"/>
+</linearGradient>
+<linearGradient id="abShaft" x1="0" y1="0" x2=".35" y2="1">
+<stop offset="0" stop-color="var(--hs-light,#9fe9ff)" stop-opacity=".55"/>
+<stop offset="1" stop-color="var(--hs-light,#9fe9ff)" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="abJelly" cx=".5" cy=".45" r=".5">
+<stop offset="0" stop-color="var(--hs-jelly,#ffb0dd)" stop-opacity=".75"/>
+<stop offset="1" stop-color="var(--hs-jelly,#ffb0dd)" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="abPort"><circle cx="112" cy="214" r="84"/></clipPath>
+<clipPath id="abPort2"><circle cx="96" cy="393" r="34"/></clipPath>
+</defs>
+
+<!-- ผนังสถานี -->
+<rect x="0" y="0" width="440" height="612" fill="url(#abWall)"/>
+<path d="M440 0v612H336l10-612z" fill="var(--hs-wall-4,#072130)" opacity=".55"/>
+
+<!-- ซี่โครงเหล็กแนวตั้ง + หมุด -->
+<g>
+<rect x="34" y="0" width="20" height="612" fill="var(--hs-rib,#12556f)"/>
+<rect x="54" y="0" width="7"  height="612" fill="var(--hs-rib-2,#082a3a)" opacity=".7"/>
+<rect x="396" y="0" width="20" height="612" fill="var(--hs-rib,#12556f)"/>
+<rect x="389" y="0" width="7"  height="612" fill="var(--hs-rib-2,#082a3a)" opacity=".7"/>
+<g fill="var(--hs-brass,#c9a15a)" opacity=".75">
+<circle cx="44" cy="70" r="4"/><circle cx="44" cy="170" r="4"/><circle cx="44" cy="270" r="4"/>
+<circle cx="44" cy="370" r="4"/><circle cx="44" cy="470" r="4"/><circle cx="44" cy="570" r="4"/>
+<circle cx="406" cy="70" r="4"/><circle cx="406" cy="170" r="4"/><circle cx="406" cy="270" r="4"/>
+<circle cx="406" cy="370" r="4"/><circle cx="406" cy="470" r="4"/><circle cx="406" cy="570" r="4"/>
+</g>
+</g>
+<!-- รอยต่อแผ่นผนัง -->
+<g stroke="var(--hs-seam,#061e2b)" stroke-width="3" opacity=".45">
+<path d="M61 236h328M61 468h328"/>
+</g>
+
+<!-- ลำแสงจากผิวน้ำ ส่องผ่านเพดาน -->
+<g class="hsShafts">
+<path class="hsShaft hsShaft1" d="M96 0l-58 612h96L184 0z" fill="url(#abShaft)" opacity=".4"/>
+<path class="hsShaft hsShaft2" d="M264 0l-30 612h58L318 0z" fill="url(#abShaft)" opacity=".26"/>
+</g>
+
+<!-- ช่องหน้าต่างใหญ่: มองออกไปเห็นทะเลเปิด -->
+<g>
+<circle cx="112" cy="214" r="97" fill="url(#abBrass)"/>
+<circle cx="112" cy="214" r="97" fill="none" stroke="var(--hs-brass-lo,#77531f)" stroke-width="3" opacity=".6"/>
+<circle cx="112" cy="214" r="84" fill="url(#abSea)"/>
+<g clip-path="url(#abPort)">
+<!-- แสงส่องลงในน้ำนอกหน้าต่าง -->
+<path d="M60 130l-34 168h44l40-168z" fill="var(--hs-light,#9fe9ff)" opacity=".18"/>
+<path d="M132 130l-14 168h30l22-168z" fill="var(--hs-light,#9fe9ff)" opacity=".12"/>
+<!-- ดงสาหร่ายก้นทะเล -->
+<g fill="var(--hs-kelp,#126b5f)">
+<path d="M40 300c8-44-4-76 4-110 8 30 16 62 12 110z"/>
+<path d="M66 300c6-36-4-62 2-90 8 24 12 54 10 90z"/>
+<path d="M162 300c-8-40 2-70-4-102-10 28-14 60-10 102z"/>
+<path d="M186 300c-6-30 2-52-2-76-8 20-10 46-8 76z"/>
+</g>
+<!-- ฝูงปลา -->
+<g class="hsFish" fill="var(--hs-fish,#ffd48a)">
+<g class="hsFish1"><path d="M150 176c-10 0-18 4-22 9 4 5 12 9 22 9 6 0 11-2 13-5l9 7V165l-9 7c-2-3-7-5-13-5z"/><circle cx="143" cy="182" r="2" fill="var(--hs-sea-3,#04202f)"/></g>
+<g class="hsFish2" opacity=".85"><path d="M92 246c-7 0-13 3-16 6 3 4 9 7 16 7 4 0 8-2 9-4l7 5v-16l-7 5c-1-2-5-3-9-3z" fill="var(--hs-fish-2,#8ff0e4)"/></g>
+<g class="hsFish3" opacity=".7"><path d="M64 154c-6 0-11 2-13 5 2 3 7 6 13 6 3 0 6-1 7-3l6 4v-14l-6 5c-1-2-4-3-7-3z" fill="var(--hs-fish-2,#8ff0e4)"/></g>
+</g>
+</g>
+<!-- แสงสะท้อนบนกระจก + หมุดรอบขอบ -->
+<path d="M62 152c26-18 60-22 88-10-36 0-66 18-78 46-10-14-14-26-10-36z" fill="#ffffff" opacity=".16"/>
+<g fill="var(--hs-brass-lo,#77531f)" opacity=".8">
+<circle cx="112" cy="127" r="5"/><circle cx="174" cy="152" r="5"/><circle cx="199" cy="214" r="5"/>
+<circle cx="174" cy="276" r="5"/><circle cx="112" cy="301" r="5"/><circle cx="50" cy="276" r="5"/>
+<circle cx="25"  cy="214" r="5"/><circle cx="50" cy="152" r="5"/>
+</g>
+</g>
+
+<!-- โคมแมงกะพรุน ห้อยจากเพดาน -->
+<g id="jellylamp">
+<rect x="356" y="0" width="4" height="126" fill="var(--hs-brass-lo,#77531f)"/>
+<path d="M340 126h36l-4 14h-28z" fill="url(#abBrass)"/>
+<ellipse class="hsGlow" cx="358" cy="182" rx="86" ry="76" fill="url(#abJelly)"/>
+<circle cx="358" cy="176" r="34" fill="var(--hs-glass,#bfeef7)" opacity=".22"/>
+<circle cx="358" cy="176" r="34" fill="none" stroke="url(#abBrass)" stroke-width="3"/>
+<!-- ตัวแมงกะพรุนข้างใน -->
+<path d="M340 174c0-12 8-21 18-21s18 9 18 21c0 5-8 7-18 7s-18-2-18-7z" fill="var(--hs-jelly-2,#ffd5ec)"/>
+<g stroke="var(--hs-jelly-2,#ffd5ec)" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9">
+<path d="M347 181c-2 8 1 12-1 19M354 182c-1 9 2 13 0 20M362 182c1 9-2 13 0 20M369 181c2 8-1 12 1 19"/>
+</g>
+<path d="M348 166c3-4 8-6 12-5-5 1-8 4-9 9-2-2-3-3-3-4z" fill="#ffffff" opacity=".5"/>
+</g>
+
+<!-- ช่องหน้าต่างเล็ก — อยู่ผนังซ้ายใต้บานใหญ่ (ฝั่งขวาโดนมาสคอตบังหมด) -->
+<g>
+<circle cx="96" cy="393" r="42" fill="url(#abBrass)"/>
+<circle cx="96" cy="393" r="34" fill="url(#abSea)"/>
+<g clip-path="url(#abPort2)">
+<path d="M74 427c4-20-2-34 2-48 6 14 8 32 6 48z" fill="var(--hs-kelp,#126b5f)"/>
+<path d="M112 385c-7 0-13 3-16 6 3 4 9 7 16 7 4 0 8-2 9-4l7 5v-16l-7 5c-1-2-5-3-9-3z" fill="var(--hs-fish-2,#8ff0e4)" opacity=".9"/>
+<circle cx="82" cy="371" r="2.4" fill="var(--hs-bub,#cdf6ff)" opacity=".7"/>
+</g>
+<path d="M76 375c9-7 21-9 30-6-12 0-22 6-26 15-4-4-5-7-4-9z" fill="#ffffff" opacity=".18"/>
+<g fill="var(--hs-brass-lo,#77531f)" opacity=".8">
+<circle cx="96" cy="357" r="3"/><circle cx="126" cy="393" r="3"/>
+<circle cx="96" cy="429" r="3"/><circle cx="66"  cy="393" r="3"/>
+</g>
+</g>
+
+<!-- ชั้นแขวนผนัง + ของบนชั้น (ฐานทุกชิ้นแตะหน้าชั้น y=352) -->
+<g>
+<rect x="248" y="352" width="152" height="12" fill="var(--hs-shelf,#8a6238)"/>
+<rect x="248" y="364" width="152" height="6"  fill="var(--hs-shelf-2,#5e4324)" opacity=".7"/>
+<path d="M258 370h11l-7 16h-9z" fill="var(--hs-shelf-2,#5e4324)" opacity=".8"/>
+<path d="M382 370h11l-7 16h-9z" fill="var(--hs-shelf-2,#5e4324)" opacity=".8"/>
+<!-- ขวดเก่ามีเรือจำลอง -->
+<g id="abBottle">
+<path d="M262 316h30v36h-30z" fill="var(--hs-bottle,#4f9e8f)" opacity=".9"/>
+<path d="M272 300h10v16h-10z" fill="var(--hs-bottle,#4f9e8f)" opacity=".9"/>
+<rect x="270" y="294" width="14" height="8" rx="3" fill="var(--hs-cork,#b9884f)"/>
+<path d="M266 330h22l-6 12h-12z" fill="var(--hs-bottle-2,#2f7466)"/>
+<path d="M266 322c2-4 6-6 10-6-4 2-6 5-6 10z" fill="#ffffff" opacity=".4"/>
+</g>
+<!-- ปะการังเขากวาง -->
+<g id="abCoral">
+<path d="M312 352c-2-16 2-26-2-36 6 6 10 16 10 36z" fill="var(--hs-coral,#e2705f)"/>
+<path d="M320 352c0-20 4-30 12-38-4 12-4 24-4 38z" fill="var(--hs-coral-2,#f2a086)"/>
+<path d="M328 352c2-14 8-22 16-26-6 8-8 16-8 26z" fill="var(--hs-coral,#e2705f)"/>
+</g>
+<!-- ดาวทะเล -->
+<g id="abStar" transform="translate(372,340)">
+<path d="M0-14 4.2-4.4 14.6-3.3 6.9 3.8 9 14 0 8.9-9 14-6.9 3.8-14.6-3.3-4.2-4.4z" fill="var(--hs-star,#f0b45f)"/>
+<circle cx="0" cy="0" r="3" fill="var(--hs-star-2,#c98a3a)"/>
+</g>
+</g>
+
+<!-- ===== พื้นเรือ (เริ่มที่ y=612) ===== -->
+<rect x="0" y="612" width="440" height="248" fill="var(--hs-deck,#0f3547)"/>
+<rect x="0" y="612" width="440" height="16" fill="var(--hs-deck-2,#082433)" opacity=".7"/>
+<g stroke="var(--hs-deck-2,#082433)" stroke-width="3" opacity=".8">
+<path d="M0 668h440M0 726h440M0 792h440"/>
+</g>
+<g stroke="var(--hs-deck-2,#082433)" stroke-width="2.4" opacity=".5">
+<path d="M120 628v40M300 628v40M60 668v58M232 668v58M382 668v58M158 726v66M330 726v66M74 792v68"/>
+</g>
+<!-- หมุดบนแผ่นพื้น -->
+<g fill="var(--hs-brass,#c9a15a)" opacity=".3">
+<circle cx="30" cy="646" r="3"/><circle cx="410" cy="646" r="3"/>
+<circle cx="30" cy="700" r="3"/><circle cx="410" cy="700" r="3"/>
+<circle cx="30" cy="760" r="3"/><circle cx="410" cy="760" r="3"/>
+</g>
+
+<!-- เสื่อสานจากสาหร่าย — คลุมตำแหน่งเท้ามาสคอต (y 633-680, x 228-371)
+     ขอบไม่กลมเป๊ะ + มีลายสานขวาง + ชายครุย ไม่งั้นตาจะอ่านเป็น "แอ่งน้ำ" -->
+<defs>
+<clipPath id="abRugClip"><ellipse cx="300" cy="690" rx="154" ry="65"/></clipPath>
+</defs>
+<g id="abRug">
+<ellipse cx="300" cy="702" rx="150" ry="56" fill="#000" opacity=".22"/>
+<ellipse cx="300" cy="690" rx="154" ry="65" fill="var(--hs-rug-edge,#123a3f)"/>
+<ellipse cx="300" cy="690" rx="144" ry="60" fill="var(--hs-rug,#1e5a5c)"/>
+<ellipse cx="300" cy="690" rx="130" ry="53" fill="var(--hs-rug-2,#2e7f74)"/>
+<ellipse cx="300" cy="690" rx="112" ry="44" fill="var(--hs-rug,#1e5a5c)"/>
+<ellipse cx="300" cy="690" rx="74"  ry="28" fill="var(--hs-rug-2,#2e7f74)"/>
+<ellipse cx="300" cy="690" rx="38"  ry="13" fill="var(--hs-rug-3,#48a68c)"/>
+<g clip-path="url(#abRugClip)">
+<!-- รอยสาน: ขีดสั้นๆ ไล่ตามวง ไม่ใช่ตาราง (ตารางอ่านเป็นตาข่าย) -->
+<g stroke="var(--hs-rug-4,#6fc7a6)" stroke-width="3.4" stroke-linecap="round" opacity=".55">
+<path d="M182 680h14M210 670h14M244 662h14M282 658h14M320 658h14M356 662h14M388 670h14M412 680h14"/>
+<path d="M176 700h14M204 712h14M240 720h14M280 726h14M322 726h14M358 720h14M392 712h14M416 700h14"/>
+<path d="M228 690h14M264 686h14M310 686h14M346 690h14"/>
+</g>
+<g stroke="var(--hs-rug-edge,#0d2f33)" stroke-width="2.6" stroke-linecap="round" opacity=".55">
+<path d="M196 686h14M226 676h14M298 668h14M368 676h14M398 686h14M208 706h14M286 716h14M362 706h14M262 696h14M330 696h14"/>
+</g>
+</g>
+<ellipse cx="300" cy="690" rx="154" ry="65" fill="none" stroke="var(--hs-rug-rim,#0d2f33)" stroke-width="3" opacity=".8"/>
+</g>
+
+<!-- หมวกนักประดาน้ำวางบนลัง (ฐานลังจบที่ y=660 = อยู่บนพื้น) -->
+<g id="abCrate">
+<ellipse cx="86" cy="662" rx="72" ry="12" fill="#000" opacity=".32"/>
+<rect x="26" y="560" width="120" height="100" fill="var(--hs-crate,#8a6238)"/>
+<rect x="26" y="560" width="120" height="12"  fill="var(--hs-crate-2,#a67c48)"/>
+<g stroke="var(--hs-crate-2,#a67c48)" stroke-width="7" opacity=".85">
+<path d="M26 600h120M26 634h120"/>
+</g>
+<g stroke="var(--hs-crate-3,#5e4324)" stroke-width="4" opacity=".7">
+<path d="M62 560v100M110 560v100"/>
+</g>
+</g>
+<g id="abHelmet">
+<ellipse cx="86" cy="558" rx="42" ry="7" fill="#000" opacity=".28"/>
+<path d="M52 560c-4-14-4-28 2-38h64c6 10 6 24 2 38z" fill="url(#abBrass)"/>
+<circle cx="86" cy="510" r="34" fill="url(#abBrass)"/>
+<circle cx="86" cy="510" r="34" fill="none" stroke="var(--hs-brass-lo,#77531f)" stroke-width="2" opacity=".7"/>
+<circle cx="86" cy="512" r="18" fill="var(--hs-sea-2,#0c4e6c)"/>
+<circle cx="86" cy="512" r="18" fill="none" stroke="var(--hs-brass-lo,#77531f)" stroke-width="3"/>
+<path d="M74 504c6-5 14-6 20-4-8 1-14 5-16 12-3-3-4-6-4-8z" fill="#ffffff" opacity=".35"/>
+<circle cx="52" cy="506" r="9" fill="url(#abBrass)"/>
+<circle cx="52" cy="506" r="4" fill="var(--hs-sea-3,#04202f)" opacity=".7"/>
+<circle cx="120" cy="506" r="9" fill="url(#abBrass)"/>
+<circle cx="120" cy="506" r="4" fill="var(--hs-sea-3,#04202f)" opacity=".7"/>
+<g fill="var(--hs-brass-lo,#77531f)" opacity=".8">
+<circle cx="58" cy="548" r="3"/><circle cx="86" cy="552" r="3"/><circle cx="114" cy="548" r="3"/>
+</g>
+</g>
+
+<!-- กระถางหินกับดอกไม้ทะเล (ขวา ฐานจบที่ y=644) -->
+<g id="abAnemone">
+<ellipse cx="404" cy="646" rx="42" ry="9" fill="#000" opacity=".3"/>
+<path d="M376 596h56l-8 50h-40z" fill="var(--hs-pot,#5c7a86)"/>
+<path d="M404 596h28l-8 50h-20z" fill="var(--hs-pot-2,#405a66)"/>
+<rect x="372" y="590" width="64" height="10" rx="4" fill="var(--hs-pot-2,#405a66)"/>
+<g class="hsAnemone" fill="none" stroke="var(--hs-anem,#f0709a)" stroke-width="5" stroke-linecap="round">
+<path d="M386 590c-6-18-4-32 2-42"/>
+<path d="M396 590c-3-22 0-36 6-46"/>
+<path d="M408 590c2-22 8-34 16-42"/>
+<path d="M418 590c6-16 12-24 20-28"/>
+</g>
+<g fill="var(--hs-anem-2,#ffc2d6)">
+<circle cx="388" cy="548" r="4"/><circle cx="402" cy="544" r="4"/>
+<circle cx="424" cy="548" r="4"/><circle cx="438" cy="562" r="4"/>
+</g>
+</g>
+
+<!-- ฟองอากาศลอยขึ้น (สองมุม ไม่บังมาสคอต) -->
+<g class="hsBubbles" fill="none" stroke="var(--hs-bub,#cdf6ff)" stroke-width="2.6">
+<circle class="hsBubble hsBubble1" cx="176" cy="600" r="7" opacity=".7"/>
+<circle class="hsBubble hsBubble2" cx="196" cy="600" r="4.5" opacity=".55"/>
+<circle class="hsBubble hsBubble3" cx="162" cy="600" r="5.5" opacity=".6"/>
+<circle class="hsBubble hsBubble4" cx="426" cy="600" r="6" opacity=".6"/>
+<circle class="hsBubble hsBubble5" cx="412" cy="600" r="4" opacity=".5"/>
+<circle class="hsBubble hsBubble6" cx="20"  cy="600" r="5" opacity=".5"/>
+</g>
+</svg>

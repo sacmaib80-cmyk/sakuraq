@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Royal academy crest button skin">
+<!-- ป้ายทองเหลืองโรงเรียนหลวง: แผ่นลงยาสีเขียวมรกต + กรอบทองเจียร + ตราโรงเรียนซ้าย + ช่อลอเรลขวา
+     พื้นต้อง "เข้ม" เพราะตัวหนังสือปุ่มเป็นสีขาว (ถ้าทำหินอ่อนขาวตามธีมจะอ่านไม่ออก)
+     กลางปุ่ม (x 96-226) เว้นเรียบ ไม่มีลาย
+     ทุก class ถูกขับด้วย CSS (.sqSkin-royal …) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<linearGradient id="skRoyEnamel" x1="0" y1="0" x2=".1" y2="1">
+<stop offset="0"   stop-color="var(--sk-en-1,#1C6B57)"/>
+<stop offset=".3"  stop-color="var(--sk-en-2,#11503F)"/>
+<stop offset=".72" stop-color="var(--sk-en-3,#0B3B2F)"/>
+<stop offset="1"   stop-color="var(--sk-en-4,#072A21)"/>
+</linearGradient>
+<linearGradient id="skRoyGold" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--sk-g-1,#FBEEBE)"/>
+<stop offset=".34" stop-color="var(--sk-g-2,#E7C471)"/>
+<stop offset=".68" stop-color="var(--sk-g-3,#B98F3C)"/>
+<stop offset="1"   stop-color="var(--sk-g-4,#7E5C1E)"/>
+</linearGradient>
+<linearGradient id="skRoyBevel" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/>
+<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="skRoySheen" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0"   stop-color="#FFF6D8" stop-opacity="0"/>
+<stop offset=".45" stop-color="#FFF6D8" stop-opacity=".62"/>
+<stop offset=".55" stop-color="#FFFFFF" stop-opacity=".8"/>
+<stop offset="1"   stop-color="#FFF6D8" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="skRoyLamp" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="#FFF3CE" stop-opacity=".9"/>
+<stop offset="1"   stop-color="#E7C471" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="skRoyClip"><rect x="0" y="0" width="320" height="54" rx="27"/></clipPath>
+</defs>
+
+<g clip-path="url(#skRoyClip)">
+<rect x="0" y="0" width="320" height="54" fill="url(#skRoyEnamel)"/>
+
+<!-- ลายหินอ่อนจางในเนื้อลงยา -->
+<g stroke="#8FE8C8" stroke-width="1" fill="none" opacity=".14">
+<path d="M-10 40c40-10 78 6 118-4 34-9 62 6 96-2 30-7 56 4 86-2"/>
+<path d="M-10 16c36 8 70-6 106 2 32 7 60-6 92 0 28 5 52-6 82-2"/>
+</g>
+
+<!-- กรอบทองคู่ -->
+<rect x="3.5" y="3.5" width="313" height="47" rx="23.5" fill="none" stroke="url(#skRoyGold)" stroke-width="3"/>
+<rect x="8" y="8" width="304" height="38" rx="19" fill="none" stroke="var(--sk-g-2,#E7C471)" stroke-width="1" opacity=".5"/>
+<path d="M27 4h266" stroke="url(#skRoyBevel)" stroke-width="2.4" stroke-linecap="round"/>
+
+<!-- ══ ตราโรงเรียนฝั่งซ้าย ══
+     ⚠️ พื้นที่ว่างจริงของปุ่มแคบกว่าที่คิด เพราะ "ไอคอน+ตัวหนังสือ+ลูกศร" ของปุ่มเลื่อนตามภาษา
+     วัดจริง (พิกัดใน viewBox 320): ไทย -> ไอคอน 83..105 / ลูกศรจบ 237
+                                    อังกฤษ -> ไอคอน 39..61 / ลูกศรจบ 281
+     ที่ปลอดภัยทั้ง 2 ภาษา = x < 38 และ x > 282 เท่านั้น -->
+<g class="skCrest">
+<circle cx="23" cy="27" r="15" fill="url(#skRoyLamp)" opacity=".55"/>
+<path d="M23 11l13 5v11c0 8-6 14-13 16-7-2-13-8-13-16V16z" fill="url(#skRoyGold)"/>
+<path d="M23 14l10 4v9c0 6-4 11-10 13-6-2-10-7-10-13v-9z" fill="var(--sk-en-3,#0B3B2F)"/>
+<path d="M23 19l2.6 5.2 5.4.8-4 4 1 5.6-5-2.8-5 2.8 1-5.6-4-4 5.4-.8z" fill="var(--sk-g-1,#FBEEBE)"/>
+</g>
+<!-- ช่อลอเรลฝั่งขวา (พ้นลูกศรของปุ่มทั้ง 2 ภาษา) -->
+<g fill="var(--sk-g-2,#E7C471)" opacity=".9">
+<path d="M300 27c-8-7-8-15 0-22 5 7 5 15 0 22z"/>
+<path d="M300 27c8-7 8-15 0-22-5 7-5 15 0 22z" opacity=".7"/>
+<path d="M300 29c-9 6-9 14 0 20 6-6 6-14 0-20z"/>
+<path d="M300 29c9 6 9 14 0 20-6-6-6-14 0-20z" opacity=".7"/>
+<circle cx="300" cy="27" r="2.6" fill="var(--sk-g-1,#FBEEBE)"/>
+</g>
+<!-- หมุดทองมุมบน-ล่าง -->
+<g fill="url(#skRoyGold)">
+<circle cx="74" cy="12" r="2"/><circle cx="74" cy="42" r="2"/>
+<circle cx="248" cy="12" r="2"/><circle cx="248" cy="42" r="2"/>
+</g>
+
+<!-- แสงทองกวาด (CSS ขยับ) -->
+<rect class="skShine" x="-120" y="0" width="96" height="54" fill="url(#skRoySheen)"/>
+
+<!-- ประกายตอนกด (CSS เปิด/ปิด) -->
+<g class="skSparks" fill="var(--sk-g-1,#FBEEBE)">
+<path class="skSpark skSpark1" d="M96 20l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+<path class="skSpark skSpark2" d="M150 14l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/>
+<path class="skSpark skSpark3" d="M206 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+<path class="skSpark skSpark4" d="M124 36l1.4 3.4 3.4 1.4-3.4 1.4-1.4 3.4-1.4-3.4-3.4-1.4 3.4-1.4z"/>
+<path class="skSpark skSpark5" d="M182 34l1.4 3.4 3.4 1.4-3.4 1.4-1.4 3.4-1.4-3.4-3.4-1.4 3.4-1.4z"/>
+</g>
+</g>
+</svg>
