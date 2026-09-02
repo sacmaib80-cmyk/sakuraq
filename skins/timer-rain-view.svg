@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="26 24 248 218" role="img" aria-label="View outside the window">
+<!-- วิวนอกหน้าต่างของหน้าจับเวลา (อยู่ระหว่างชั้นฟ้ากับชั้นสายฝน)
+     พื้นที่กระจกจริง = x 26-274 / y 24-242 ของอ้างอิงจากกรอบใน timer-rain.svg
+     ห้ามวางอะไรกลางบานช่วง x 90-210 y 90-160 เพราะตัวเลขเวลานั่งทับอยู่ตรงนั้น
+
+     ทุกชิ้นเป็นเงาทึบสีเดียว ไม่ไล่เฉด (ไกล = ซีดลง) แบบเดียวกับวิวหลังกระจกในฉากหน้า Home
+     ต้นไม้ใช้กิ่ง + ใบเป็นแฉกเล็ก ห้ามเป็นก้อนมนก้อนเดียว ตาจะอ่านเป็นเมฆ (พลาดมาแล้ว) -->
+
+<!-- รุ้งกินน้ำ: โผล่เฉพาะตอนใกล้หมดเวลา (CSS คุม opacity ด้วย --rt-progress) -->
+<g class="trBow" fill="none" stroke-linecap="round" opacity="0">
+<path d="M52 214a98 98 0 0 1 196 0" stroke="var(--tv-bow-1,#e88b6a)" stroke-width="5"/>
+<path d="M52 214a98 98 0 0 1 196 0" stroke="var(--tv-bow-2,#e8c66a)" stroke-width="5" transform="translate(0 6)"/>
+<path d="M52 214a98 98 0 0 1 196 0" stroke="var(--tv-bow-3,#7fc48c)" stroke-width="5" transform="translate(0 12)"/>
+<path d="M52 214a98 98 0 0 1 196 0" stroke="var(--tv-bow-4,#7fa8d8)" stroke-width="5" transform="translate(0 18)"/>
+</g>
+
+<!-- ภูเขาไกล -->
+<g fill="var(--tv-hill-far,#93a8b4)">
+<path d="M26 214l40-40 26 24 22-20 30 36z"/>
+<path d="M150 214l34-32 24 22 26-26 40 36z"/>
+</g>
+<!-- เงาเมืองเตี้ยๆ ริมขวา -->
+<g fill="var(--tv-city,#7b8fa0)">
+<path d="M212 214v-34h16v-12h14v46z"/>
+<path d="M246 214v-26h18v26z"/>
+<path d="M196 214v-20h14v20z"/>
+</g>
+<g fill="var(--tv-city-lit,#ffd9a0)" opacity=".75">
+<rect x="217" y="176" width="4" height="6"/><rect x="232" y="188" width="4" height="6"/>
+<rect x="251" y="194" width="4" height="6"/>
+</g>
+
+<!-- พื้นดินเปียก + แสงสะท้อนเป็นริ้วตั้ง -->
+<rect x="26" y="212" width="248" height="30" fill="var(--tv-ground,#6d818e)"/>
+<rect x="26" y="212" width="248" height="5" fill="var(--tv-ground-2,#849aa6)" opacity=".7"/>
+<g stroke="var(--tv-reflect,#cfe0e8)" stroke-width="3" stroke-linecap="round" opacity=".28">
+<path d="M46 222v14M92 224v12M168 222v16M214 226v10M252 222v14"/>
+</g>
+
+<!-- ต้นไม้ริมซ้าย: ทั้งต้นเอนสู้ลมตอนพายุ แล้วค่อยตั้งตรงเมื่อฝนซา (CSS คุม) -->
+<g class="trTree">
+<g stroke="var(--tv-tree,#4d626d)" fill="none" stroke-linecap="round">
+<path d="M62 214v-40" stroke-width="7"/>
+<path d="M62 178l-15-22M62 178l17-24M62 176v-24" stroke-width="4.8"/>
+<path d="M47 156l-10-11M47 157l-3-15M79 154l11-10M79 155l4-15M62 152l-8-12M62 152l9-13" stroke-width="3"/>
+</g>
+<g fill="var(--tv-leaf,#4a6b63)">
+<ellipse cx="38" cy="141" rx="6.2" ry="2.9" transform="rotate(-34 38 141)"/>
+<ellipse cx="47" cy="136" rx="5.8" ry="2.7" transform="rotate(-52 47 136)"/>
+<ellipse cx="56" cy="141" rx="6" ry="2.8" transform="rotate(-20 56 141)"/>
+<ellipse cx="62" cy="132" rx="5.4" ry="2.5" transform="rotate(-64 62 132)"/>
+<ellipse cx="72" cy="134" rx="6.2" ry="2.9" transform="rotate(28 72 134)"/>
+<ellipse cx="82" cy="131" rx="5.6" ry="2.6" transform="rotate(52 82 131)"/>
+<ellipse cx="90" cy="140" rx="6.2" ry="2.9" transform="rotate(34 90 140)"/>
+</g>
+<g fill="var(--tv-leaf-2,#5d8177)" opacity=".9">
+<ellipse cx="44" cy="151" rx="5.4" ry="2.5" transform="rotate(-24 44 151)"/>
+<ellipse cx="53" cy="146" rx="5" ry="2.4" transform="rotate(-46 53 146)"/>
+<ellipse cx="66" cy="143" rx="5.6" ry="2.6" transform="rotate(6 66 143)"/>
+<ellipse cx="78" cy="146" rx="5.2" ry="2.4" transform="rotate(40 78 146)"/>
+<ellipse cx="86" cy="151" rx="5.4" ry="2.5" transform="rotate(22 86 151)"/>
+<ellipse cx="70" cy="124" rx="5" ry="2.3" transform="rotate(70 70 124)"/>
+</g>
+</g>
+
+<!-- เสาไฟถนน: จุดอุ่นจุดเดียวตอนฟ้ายังมืด -->
+<g>
+<rect x="176" y="166" width="3.6" height="48" fill="var(--tv-tree,#4d626d)"/>
+<path d="M169 166h18l-4 8h-10z" fill="var(--tv-tree,#4d626d)"/>
+<ellipse class="trLamp" cx="178" cy="174" rx="16" ry="14" fill="var(--tv-city-lit,#ffd9a0)" opacity=".28"/>
+<ellipse cx="178" cy="170" rx="4" ry="3.4" fill="var(--tv-city-lit,#ffd9a0)"/>
+</g>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 720" data-outfit="shades" role="img" aria-label="Deal With It pixel sunglasses for the fox mascot">
+<!--
+  แว่นดำมีม "Deal With It" — ของที่ยัดเข้าช่อง fx-outfit-face ของ fox.svg
+  พิกัดอยู่ใน user space เดียวกับ fox.svg (viewBox 0 0 956 720) วาดทับได้เลยไม่ต้องแปลง
+
+  ── กริดพิกเซล ──
+  cell 16 หน่วย · 19 คอลัมน์ × 5 แถว · มุมซ้ายบน (326,256) -> กิน x 326..630 · y 256..336
+  ใช้คอลัมน์ "คี่" (19) เพื่อให้คอลัมน์กลาง (col 9) คร่อมสันจมูก x=478 พอดี
+
+  ── ทำไมต้องซ่อนตา ──
+  ตาหมาใหญ่มาก (ตาขาว rx43 ry53 -> ซ้าย x357..443 · ขวา x513..599 · y245..351)
+  รอบแรกทำแว่นสูง 112 เพื่อปิดตาให้มิด แต่ user บอก "ใหญ่เกินถ้าเทียบแว่นปกติ"
+  -> ย่อเหลือ 80 แล้ว "ซ่อนตา" ตอนสวมแทน (กฎ CSS ข้างล่าง) ขอบตาจะได้ไม่โผล่ใต้เลนส์
+
+  ── ขอบเขตของกฎซ่อนตา ──
+  ผูกกับ [data-sq-outfit="mascot-shades"] ที่ applyMascotOutfit() ติดให้เฉพาะ <svg> ที่ใส่ชุดนี้
+  -> การ์ดในร้าน (โคลนตัวหมา) กับตัวจริงบนหน้า Home แยกกันเอง ไม่ลามข้ามกัน
+     (ห้ามเขียนเป็น .fx-eyeOpen เฉย ๆ เพราะ <style> ใน SVG มีผลทั้งเอกสาร = เปิดร้านแล้วตาตัวจริงหาย)
+
+  ── ความกว้าง ──
+  x 326..630 อยู่ในกรอบกะโหลกที่ระดับ y≈256 -> ขาแว่นไม่ล้นออกนอกหน้า
+
+  ตกลงมาสวมครั้งเดียวตอนใส่ (dwDrop) — โหมดลดการเคลื่อนไหวเปลี่ยนเป็นจางเข้า ไม่ได้ดับทิ้ง
+-->
+
+<g data-slot="face">
+  <style>
+    svg[data-sq-outfit="mascot-shades"] .fx-eyeOpen,
+    svg[data-sq-outfit="mascot-shades"] .fx-eyeShut{ opacity: 0 !important; }
+
+    @keyframes dwDrop{
+      0%   { transform: translateY(-88px); opacity: 0; }
+      55%  { transform: translateY(6px);   opacity: 1; }
+      78%  { transform: translateY(-3px); }
+      100% { transform: translateY(0);     opacity: 1; }
+    }
+    @keyframes dwFade{ from{opacity:0} to{opacity:1} }
+    .dwShades{ animation: dwDrop .46s cubic-bezier(.3,.9,.35,1) 1 both; }
+    @media (prefers-reduced-motion: reduce){
+      .dwShades{ animation: dwFade .5s ease 1 both; }
+    }
+  </style>
+
+  <g class="dwShades">
+    <!-- แถว 0: กรอบบนเต็มความกว้าง (คิ้วแว่น + ขาแว่นในชิ้นเดียว) -->
+    <rect x="326" y="256" width="304.8" height="16.8" fill="#131022"/>
+
+    <!-- แถว 1-2: ตัวเลนส์ ซ้าย cols1-7 (x342..454) · ขวา cols11-17 (x502..614) · เว้นสันจมูก cols8-10 -->
+    <rect x="342" y="272" width="112.8" height="16.8" fill="#131022"/>
+    <rect x="502" y="272" width="112.8" height="16.8" fill="#131022"/>
+    <rect x="342" y="288" width="112.8" height="16.8" fill="#131022"/>
+    <rect x="502" y="288" width="112.8" height="16.8" fill="#131022"/>
+
+    <!-- แถว 3-4: บีบเข้าฝั่งนอกแถวละ 1 ช่อง = ก้นเลนส์มีสเต็ป ไม่ใช่สี่เหลี่ยมทื่อ -->
+    <rect x="358" y="304" width="96.8" height="16.8" fill="#131022"/>
+    <rect x="502" y="304" width="96.8" height="16.8" fill="#131022"/>
+    <rect x="374" y="320" width="80.8" height="16.8" fill="#131022"/>
+    <rect x="502" y="320" width="80.8" height="16.8" fill="#131022"/>
+
+    <!-- ประกายบนเลนส์ (แสงมาทางซ้ายบนเหมือนกันทั้ง 2 ข้าง) -->
+    <rect x="342" y="272" width="16.8" height="16.8" fill="#FFFFFF" opacity=".92"/>
+    <rect x="358" y="288" width="16.8" height="16.8" fill="#FFFFFF" opacity=".5"/>
+    <rect x="502" y="272" width="16.8" height="16.8" fill="#FFFFFF" opacity=".92"/>
+    <rect x="518" y="288" width="16.8" height="16.8" fill="#FFFFFF" opacity=".5"/>
+  </g>
+</g>
+</svg>

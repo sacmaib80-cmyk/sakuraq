@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Storm-in-glass cube dice skin">
+<!-- ลูกเต๋า "พายุในลูกแก้ว" — ลูกบาศก์ไอโซเมตริก ท่าเดียวกับ dice-pearl/dice-ufo/dice-royal
+     จะได้ยืนเรียงกันในร้านแล้วเป็นชุดเดียวกัน
+     ตัวตนของลูกนี้ = แก้วใส + มีเมฆฝนจิ๋วขังอยู่ข้างใน + หยดน้ำเกาะผิว
+     แต่ละหน้าคนละเฉด เพื่อให้อ่านออกว่าเป็นก้อน 3 มิติตอนย่อเหลือ 60px
+     แต้มเป็นเม็ดน้ำนูน ไม่ใช่จุดทึบ ไม่งั้นความเป็นแก้วหายหมด -->
+<defs>
+<linearGradient id="dnTop" x1="0" y1="0" x2=".7" y2="1">
+<stop offset="0"   stop-color="var(--dn-top-1,#e8f4f9)"/>
+<stop offset="1"   stop-color="var(--dn-top-2,#b9d6e4)"/>
+</linearGradient>
+<clipPath id="dnCore"><path d="M36 8 62 23 36 38 10 23z"/></clipPath>
+</defs>
+
+<!-- เงาใต้ลูกเต๋า -->
+<ellipse cx="36" cy="67" rx="20" ry="4" fill="#0d2530" opacity=".28"/>
+
+<!-- หน้าซ้าย -->
+<path d="M10 23 36 38v28L10 51z" fill="var(--dn-left,#5b829a)"/>
+<!-- หน้าขวา -->
+<path d="M62 23 36 38v28l26-15z" fill="var(--dn-right,#7ba3b8)"/>
+<!-- หน้าบน -->
+<path d="M36 8 62 23 36 38 10 23z" fill="url(#dnTop)"/>
+
+<!-- ═══ เมฆฝนจิ๋วขังอยู่ในลูกแก้ว (มองผ่านหน้าบน) ═══
+     รอบแรกวาดเป็นก้อนโค้งก้อนเดียวชิดขอบบน แล้วโดน clip ตัดครึ่ง -> อ่านเป็น "รอยเปื้อนเทา"
+     เงาเมฆที่อ่านผิดไม่ได้ = วงกลม 3 วงเกยกัน + ฐานแบน (ที่นี่ "ก้อนมน" คือสิ่งที่ต้องการ)
+     ต้องอยู่ในกรอบหน้าบน: ที่ y=19 หน้าบนกว้าง +-21 -> เมฆกว้าง 26 พอดีไม่ชนขอบ -->
+<g clip-path="url(#dnCore)">
+<g fill="var(--dn-cloud,#8299a8)">
+<circle cx="30" cy="19.5" r="5.6"/>
+<circle cx="37.5" cy="17.4" r="6.8"/>
+<circle cx="44" cy="20" r="5"/>
+<rect x="24.4" y="19.5" width="24.6" height="5.4" rx="2.7"/>
+</g>
+<g fill="var(--dn-cloud-hi,#b6c9d6)">
+<circle cx="37.5" cy="15.4" r="4.4"/>
+<circle cx="30.4" cy="17.6" r="3.2"/>
+</g>
+<g stroke="var(--dn-rain,#e4f4fb)" stroke-width="1.6" stroke-linecap="round" opacity=".95">
+<path d="M30 26.5l-2 5.5M36.5 27l-2 6M43 26.5l-2 5"/>
+</g>
+</g>
+
+<!-- ขอบลูกบาศก์: เส้นสว่างบางๆ = ขอบแก้วรับแสง -->
+<g fill="none" stroke="var(--dn-edge,#dff0f8)" stroke-width="1.5" stroke-linejoin="round" opacity=".85">
+<path d="M36 8 62 23 36 38 10 23z"/>
+<path d="M10 23v28l26 15 26-15V23"/>
+<path d="M36 38v28"/>
+</g>
+
+<!-- ═══ แต้ม = เม็ดน้ำนูน (มีเงาใต้เม็ด + ไฮไลต์ขาวบนเม็ด) ═══ -->
+<!-- หน้าซ้าย 2 แต้ม -->
+<g>
+<ellipse cx="19" cy="36" rx="3.4" ry="3.9" fill="var(--dn-pip-sh,#3f6377)" opacity=".55"/>
+<ellipse cx="19" cy="35" rx="3.4" ry="3.9" fill="var(--dn-pip,#d7ecf5)" opacity=".92"/>
+<ellipse cx="18" cy="33.4" rx="1.1" ry="1.3" fill="#ffffff"/>
+<ellipse cx="28" cy="51" rx="3.4" ry="3.9" fill="var(--dn-pip-sh,#3f6377)" opacity=".55"/>
+<ellipse cx="28" cy="50" rx="3.4" ry="3.9" fill="var(--dn-pip,#d7ecf5)" opacity=".92"/>
+<ellipse cx="27" cy="48.4" rx="1.1" ry="1.3" fill="#ffffff"/>
+</g>
+<!-- หน้าขวา 3 แต้ม -->
+<g>
+<ellipse cx="45" cy="51" rx="3.4" ry="3.9" fill="var(--dn-pip-sh,#3f6377)" opacity=".5"/>
+<ellipse cx="45" cy="50" rx="3.4" ry="3.9" fill="var(--dn-pip,#e4f4fb)" opacity=".92"/>
+<ellipse cx="44" cy="48.4" rx="1.1" ry="1.3" fill="#ffffff"/>
+<ellipse cx="53" cy="41" rx="3.2" ry="3.7" fill="var(--dn-pip-sh,#3f6377)" opacity=".5"/>
+<ellipse cx="53" cy="40" rx="3.2" ry="3.7" fill="var(--dn-pip,#e4f4fb)" opacity=".92"/>
+<ellipse cx="52" cy="38.5" rx="1" ry="1.2" fill="#ffffff"/>
+<ellipse cx="53" cy="58" rx="3.2" ry="3.7" fill="var(--dn-pip-sh,#3f6377)" opacity=".5"/>
+<ellipse cx="53" cy="57" rx="3.2" ry="3.7" fill="var(--dn-pip,#e4f4fb)" opacity=".92"/>
+<ellipse cx="52" cy="55.5" rx="1" ry="1.2" fill="#ffffff"/>
+</g>
+
+<!-- หยดน้ำเกาะผิวด้านนอก + รอยไหลสั้นๆ -->
+<g fill="var(--dn-bead,#f4fbfe)" opacity=".85">
+<circle cx="15" cy="44" r="1.5"/><circle cx="24" cy="58" r="1.2"/>
+<circle cx="59" cy="33" r="1.3"/><circle cx="48" cy="63" r="1.1"/>
+</g>
+<g fill="var(--dn-bead,#f4fbfe)" opacity=".45">
+<rect x="21.2" y="40" width="1.4" height="7" rx=".7"/>
+<rect x="56.4" y="42" width="1.3" height="6" rx=".65"/>
+</g>
+
+<!-- ไฮไลต์แก้วบนมุมซ้ายของหน้าบน -->
+<path d="M20 22 33 14l5 3-13 8z" fill="#ffffff" opacity=".5"/>
+</svg>

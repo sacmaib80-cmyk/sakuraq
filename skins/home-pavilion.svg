@@ -1,0 +1,523 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Chinese moon-gate study room at night">
+<!-- ฉากหน้า Home ชุด "หอพระจันทร์" (จีน)
+     เส้นพื้น y=612 (มาสคอตยืนที่ y 633-680 . กลางเท้า x=300 . เท้ากิน x 228-371)
+     เขตหวงห้าม: ตัวมาสคอตจริงกินราว x 220-432 ที่ y 430-695 (หางกับหูกินเยอะกว่ารอยเท้ามาก)
+       -> ของใหญ่ทุกชิ้นจึงอยู่ฝั่งซ้าย (x<220) หรืออยู่สูงกว่า y=430
+     ของทุกชิ้นที่วางบนพื้นต้องมีเงาสัมผัสก่อนตัววัตถุ ไม่งั้นตาจะอ่านว่า "ลอย"
+
+     ═══ กฎกลางของชุดนี้ (เอาไปตรวจของทุกชิ้นในชุด ไม่ใช่แค่ฉาก) ═══
+     งานที่ยังไม่จบ = หมึกดำ  /  งานที่จบแล้ว = ตราแดง
+     ในวัฒนธรรมจีน ตราชาดแดงจะประทับก็ต่อเมื่องานเสร็จ
+     สีแดงจึงเป็น "สีของการยืนยัน" ไม่ใช่สีตกแต่ง แดงในชุดนี้ใช้ได้เฉพาะกับ:
+       โคมที่จุดแล้ว . ป้ายที่แขวนแล้ว . ตราบนภาพที่วาดจบแล้ว . ปุ่มที่กดได้
+     ฉากนี้ = ห้องของคนที่ "วาดจบไปแล้วหลายภาพ" ภาพบนผนังจึงมีตราแดงครบ
+     ส่วนหน้าจับเวลา = ภาพที่ยังวาดไม่จบ (หมึกล้วน ยังไม่มีตรา)
+
+     ลำดับวัสดุ (ห้ามให้ของที่อยู่ติดกันเป็นวัสดุเดียวกัน):
+       กระดาษ/โคม = แสง . ไม้จันทน์ = โครง . ชาดแดง = ของที่แตะ . ทองเหลือง = ขอบ/หมุด
+     ของอินทรีย์ที่วาดยาก (ไผ่ ภูเขา หมอก พระจันทร์) ถูกกักไว้หลังประตูวงกลมทั้งหมด
+     ที่ขนาดนั้นมันแค่ต้องบอกใบ้ ไม่ต้องวาดให้ถูกจริง -->
+<defs>
+<linearGradient id="pvWall" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-wall-1,#D3BB92)"/>
+<stop offset=".46" stop-color="var(--hs-wall-2,#BC9F73)"/>
+<stop offset="1"   stop-color="var(--hs-wall-3,#95794F)"/>
+</linearGradient>
+<linearGradient id="pvWood" x1="0" y1="0" x2=".3" y2="1">
+<stop offset="0"   stop-color="var(--hs-wood-hi,#6B3B30)"/>
+<stop offset=".45" stop-color="var(--hs-wood,#4E2820)"/>
+<stop offset="1"   stop-color="var(--hs-wood-lo,#2E1610)"/>
+</linearGradient>
+<linearGradient id="pvBeam" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--hs-beam-1,#3E1F18)"/>
+<stop offset=".55" stop-color="var(--hs-beam-2,#54291F)"/>
+<stop offset="1"   stop-color="var(--hs-beam-3,#33170F)"/>
+</linearGradient>
+<linearGradient id="pvRed" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-red-hi,#D9462F)"/>
+<stop offset=".55" stop-color="var(--hs-red,#B22C1C)"/>
+<stop offset="1"   stop-color="var(--hs-red-lo,#75160D)"/>
+</linearGradient>
+<linearGradient id="pvGold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0"   stop-color="var(--hs-gold-hi,#F6E1A6)"/>
+<stop offset=".52" stop-color="var(--hs-gold,#D3A94E)"/>
+<stop offset="1"   stop-color="var(--hs-gold-lo,#8A6420)"/>
+</linearGradient>
+<linearGradient id="pvNight" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--hs-night-1,#2A4A6E)"/>
+<stop offset=".52" stop-color="var(--hs-night-2,#182C46)"/>
+<stop offset="1"   stop-color="var(--hs-night-3,#0D1927)"/>
+</linearGradient>
+<linearGradient id="pvStone" x1="0" y1="0" x2=".4" y2="1">
+<stop offset="0"   stop-color="var(--hs-stone-hi,#8C8478)"/>
+<stop offset=".5"  stop-color="var(--hs-stone,#6E675C)"/>
+<stop offset="1"   stop-color="var(--hs-stone-lo,#4A453C)"/>
+</linearGradient>
+<radialGradient id="pvLampGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--hs-lamp,#FFC77A)" stop-opacity=".5"/>
+<stop offset=".55" stop-color="var(--hs-lamp,#FFC77A)" stop-opacity=".16"/>
+<stop offset="1"   stop-color="var(--hs-lamp,#FFC77A)" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="pvMoonGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--hs-moon,#F3ECD8)" stop-opacity=".55"/>
+<stop offset=".5"  stop-color="var(--hs-moon,#F3ECD8)" stop-opacity=".13"/>
+<stop offset="1"   stop-color="var(--hs-moon,#F3ECD8)" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="pvPaperLit" cx=".5" cy=".42" r=".62">
+<stop offset="0"   stop-color="var(--hs-paper-hi,#FFF3D4)"/>
+<stop offset="1"   stop-color="var(--hs-paper,#F0D9A4)"/>
+</radialGradient>
+<clipPath id="pvGate"><circle cx="134" cy="286" r="108"/></clipPath>
+<clipPath id="pvRugClip"><path d="M188 640h216l32 106H156z"/></clipPath>
+<!-- ลายกุญแจจีน (回纹) : ต้องเป็น "แถบต่อเนื่อง" มีเส้นฐานเชื่อมทุกหน่วย
+     ถ้าวาดเป็นขอเกี่ยวแยกชิ้น ตาจะอ่านเป็นตัวอักษร ㄱ เรียงกัน ไม่ใช่ลายขอบพรม -->
+<pattern id="pvFret" width="20" height="15" patternUnits="userSpaceOnUse">
+<path d="M0 13.6h20M3.4 13.6V4h13.2v7.6h-8.6V7.6h4.4" fill="none" stroke="var(--hs-rug-key,#C9A24E)" stroke-width="2.1"/>
+</pattern>
+</defs>
+
+<!-- ═══ ผนังปูนขาวเก่า ═══
+     ลายปูนต้องเป็น "รอยด่างเป็นหย่อม" ไม่ใช่เส้นขนาน (เส้นขนานอ่านเป็นวอลเปเปอร์ลายทาง) -->
+<rect x="0" y="0" width="440" height="612" fill="url(#pvWall)"/>
+<g fill="var(--hs-wall-4,#7A6039)" opacity=".16">
+<ellipse cx="70"  cy="470" rx="54" ry="26"/>
+<ellipse cx="330" cy="150" rx="66" ry="30"/>
+<ellipse cx="396" cy="500" rx="44" ry="34"/>
+<ellipse cx="250" cy="560" rx="72" ry="24"/>
+<ellipse cx="30"  cy="200" rx="34" ry="46"/>
+</g>
+<!-- แสงโคมที่ตกบนผนัง: อุ่นตรงกลางขวา จางลงตรงมุม (เป็นตัวเดียวที่บอกว่านี่คือ "ตอนค่ำ") -->
+<ellipse cx="352" cy="150" rx="190" ry="180" fill="url(#pvLampGlow)"/>
+<rect x="0" y="0" width="440" height="612" fill="var(--hs-dusk,#1A0E1E)" opacity=".15"/>
+
+<!-- ═══ คานหลังคา + ค้ำยัน (斗拱) เหนือสุด ═══
+     ค้ำยันต้องเป็นขั้นบันไดยื่นออกทีละชั้น ถ้าวาดเป็นกล่องเดี่ยวจะอ่านเป็น "ลำโพง" -->
+<g>
+<rect x="0" y="0" width="440" height="36" fill="url(#pvBeam)"/>
+<rect x="0" y="33" width="440" height="4" fill="var(--hs-wood-lo,#2E1610)" opacity=".8"/>
+<g fill="url(#pvWood)">
+<g transform="translate(44,36)"><rect x="-22" y="0" width="44" height="9"/><rect x="-15" y="9" width="30" height="9"/><rect x="-8" y="18" width="16" height="10"/></g>
+<g transform="translate(158,36)"><rect x="-22" y="0" width="44" height="9"/><rect x="-15" y="9" width="30" height="9"/><rect x="-8" y="18" width="16" height="10"/></g>
+<g transform="translate(282,36)"><rect x="-22" y="0" width="44" height="9"/><rect x="-15" y="9" width="30" height="9"/><rect x="-8" y="18" width="16" height="10"/></g>
+<g transform="translate(396,36)"><rect x="-22" y="0" width="44" height="9"/><rect x="-15" y="9" width="30" height="9"/><rect x="-8" y="18" width="16" height="10"/></g>
+</g>
+<!-- เส้นทองคาดใต้คาน = ของประดับบ้านจีนจริง และเป็นตัวผูกกับหมุดทองเหลืองที่อื่นในฉาก -->
+<rect x="0" y="28" width="440" height="2.6" fill="url(#pvGold)" opacity=".65"/>
+<rect x="0" y="64" width="440" height="7" fill="var(--hs-wood-lo,#2E1610)" opacity=".55"/>
+</g>
+
+<!-- ═══ เสาไม้สองข้าง + ฐานหิน (柱础) ═══ -->
+<g>
+<rect x="0" y="36" width="22" height="560" fill="url(#pvWood)"/>
+<rect x="16" y="36" width="6" height="560" fill="var(--hs-wood-lo,#2E1610)" opacity=".6"/>
+<rect x="418" y="36" width="22" height="560" fill="url(#pvWood)"/>
+<rect x="418" y="36" width="6" height="560" fill="var(--hs-wood-lo,#2E1610)" opacity=".55"/>
+<g fill="url(#pvStone)">
+<path d="M-4 596h34l4 16H-8z"/><path d="M410 596h34l4 16h-42z"/>
+</g>
+<g fill="url(#pvGold)" opacity=".7">
+<rect x="0" y="188" width="22" height="3"/><rect x="0" y="404" width="22" height="3"/>
+<rect x="418" y="188" width="22" height="3"/><rect x="418" y="404" width="22" height="3"/>
+</g>
+</g>
+
+<!-- ═══ ประตูวงกลม 月洞门 : ทางเดียวที่มองเห็นข้างนอก ═══
+     ขอบเป็น "อิฐเรียงเป็นวง" ต้องมีรอยต่อรัศมี ไม่งั้นอ่านเป็นวงแหวนเทาเฉยๆ
+     ⚠️ translate(16,0) มีเหตุผลเชิงโครงสร้าง ห้ามลบ:
+        เดิมขอบนอกของประตูอยู่ที่ x=12 แต่เสาไม้ซ้ายกิน x 0-26 -> ประตูกินเข้าไปในเสา 14 หน่วย
+        ในความเป็นจริงเจาะหน้าต่างบนเสารับน้ำหนักไม่ได้ ตาเลยอ่านว่า "ผิด" ทันที (user ทักเอง)
+        ย้ายทั้งกลุ่มด้วย transform ตัวเดียว เพื่อให้ทั้งขอบอิฐ รอยต่อ และของข้างในกรอบ
+        (ซึ่งถูก clip ด้วย pvGate) เลื่อนพร้อมกันหมด ถ้าไปไล่แก้ cx ทีละอันจะหลุดกันแน่นอน
+        + เสาถูกลดจาก 26 เหลือ 22 ด้วย -> เหลือช่องว่างระหว่างเสากับขอบประตู 6 หน่วย
+        ขอบขวาของประตูจบที่ 272 ส่วนม้วนภาพเริ่ม 286 = ห่างกัน 14 หน่วย ไม่ชนกัน -->
+<g transform="translate(16,0)">
+<circle cx="134" cy="286" r="122" fill="url(#pvStone)"/>
+<circle cx="134" cy="286" r="122" fill="none" stroke="var(--hs-stone-lo,#4A453C)" stroke-width="3" opacity=".7"/>
+<g stroke="var(--hs-stone-lo,#4A453C)" stroke-width="2.2" opacity=".55">
+<path d="M134 164v14M177 174l-6 13M212 202l-11 9M231 240l-13 5M235 286h-14M231 332l-13-5M212 370l-11-9M177 398l-6-13M134 408v-14M91 398l6-13M56 370l11-9M37 332l13-5M33 286h14M37 240l13 5M56 202l11 9M91 174l6 13"/>
+</g>
+<circle cx="134" cy="286" r="108" fill="url(#pvNight)"/>
+
+<g clip-path="url(#pvGate)">
+<!-- พระจันทร์เต็มดวง + วงเรือง -->
+<circle class="hsMoonHalo" cx="182" cy="228" r="66" fill="url(#pvMoonGlow)"/>
+<circle cx="182" cy="228" r="29" fill="var(--hs-moon,#F3ECD8)"/>
+<g fill="var(--hs-moon-2,#DCD2B6)" opacity=".55">
+<circle cx="174" cy="220" r="6"/><circle cx="191" cy="235" r="4.4"/><circle cx="178" cy="240" r="3.2"/>
+</g>
+<!-- ภูเขาไกล 2 ชั้น : ชั้นไกลจางกว่าและอยู่สูงกว่า = ได้ระยะโดยไม่ต้องใช้ perspective -->
+<path d="M26 318l40-46 26 24 34-40 30 32 28-24 42 46v76H26z" fill="var(--hs-far,#2C4763)" opacity=".8"/>
+<path d="M26 344l34-32 30 26 26-18 36 30 26-20 48 40v34H26z" fill="var(--hs-near,#1E3550)"/>
+<!-- แถบหมอกคาดกลางภูเขา = ตัวที่ทำให้อ่านเป็นภาพจีน ไม่ใช่เนินดินสองก้อน -->
+<g fill="var(--hs-mist,#B9CEDE)">
+<rect x="18" y="330" width="234" height="11" rx="5.5" opacity=".3"/>
+<rect x="18" y="346" width="234" height="7"  rx="3.5" opacity=".2"/>
+<rect x="18" y="312" width="234" height="6"  rx="3"   opacity=".14"/>
+</g>
+<!-- ไผ่ริมประตู : ลำมีข้อปล้อง + ใบเป็นแฉกเรียว ถ้าวาดลำเรียบจะอ่านเป็น "เสา" -->
+<g class="hsBamboo">
+<g stroke="var(--hs-bamboo,#4E7A5A)" stroke-width="6" stroke-linecap="round" fill="none">
+<path d="M48 396c-3-52-2-84 2-124"/>
+<path d="M70 396c2-44 3-72 0-104"/>
+</g>
+<g stroke="var(--hs-bamboo-2,#6E9E77)" stroke-width="6" stroke-linecap="round" fill="none" opacity=".8">
+<path d="M88 396c3-36 4-58 2-82"/>
+</g>
+<g stroke="var(--hs-bamboo-lo,#2F5140)" stroke-width="2" stroke-linecap="round" opacity=".8">
+<path d="M45 350h7M46 312h7M67 348h7M68 310h7M85 356h7M86 322h7"/>
+</g>
+<!-- ใบไผ่ต้องเรียวยาวและออกเป็นกระจุก 3 ใบจากข้อเดียว
+     ⚠️ รอบแรกวาดเป็นใบกว้างเดี่ยวๆ ตาอ่านเป็น "ต้นไม้ในกระถาง" ไม่ใช่ไผ่ -->
+<g fill="var(--hs-bamboo-2,#5F9169)">
+<g transform="translate(50,272)">
+<path d="M0 0C-10-2-22-5-31-3C-22 4-10 3 0 0z"/>
+<path d="M0 0C-8-8-16-18-22-23C-20-13-11-4 0 0z"/>
+<path d="M0 0C-9 2-20 8-27 12C-18 11-8 6 0 0z"/>
+<path d="M0 0C4-9 9-19 16-24C13-13 8-5 0 0z"/>
+</g>
+<g transform="translate(70,292)">
+<path d="M0 0C10-2 22-5 31-3C22 4 10 3 0 0z"/>
+<path d="M0 0C8-8 16-18 22-23C20-13 11-4 0 0z"/>
+<path d="M0 0C-8-6-17-13-23-16C-19-8-10-2 0 0z"/>
+</g>
+<g transform="translate(90,314)">
+<path d="M0 0C10-2 22-6 30-4C21 4 10 3 0 0z"/>
+<path d="M0 0C7-8 14-17 20-21C18-11 10-4 0 0z"/>
+<path d="M0 0C-7 3-16 8-22 12C-14 11-6 6 0 0z"/>
+</g>
+<g transform="translate(47,332)" opacity=".92">
+<path d="M0 0C-8-2-19-5-26-3C-18 3-8 3 0 0z"/>
+<path d="M0 0C-6 3-15 8-21 12C-13 11-5 6 0 0z"/>
+</g>
+<g transform="translate(89,352)" opacity=".9">
+<path d="M0 0C8-2 18-5 25-3C17 3 8 3 0 0z"/>
+<path d="M0 0C6 3 14 8 20 12C12 11 5 6 0 0z"/>
+</g>
+</g>
+</g>
+<!-- ราวหินเตี้ยหน้าระเบียง : บอกว่าข้างนอกเป็น "ระเบียง" ไม่ใช่ทุ่งเปิด -->
+<g>
+<rect x="14" y="340" width="242" height="8" fill="var(--hs-stone-hi,#8C8478)" opacity=".85"/>
+<g fill="var(--hs-stone,#6E675C)" opacity=".9">
+<rect x="34" y="348" width="8" height="18"/><rect x="78" y="348" width="8" height="18"/>
+<rect x="122" y="348" width="8" height="18"/><rect x="166" y="348" width="8" height="18"/>
+<rect x="210" y="348" width="8" height="18"/>
+</g>
+<rect x="14" y="364" width="242" height="10" fill="var(--hs-stone-lo,#4A453C)" opacity=".9"/>
+</g>
+<rect x="14" y="374" width="242" height="24" fill="var(--hs-stone,#6E675C)"/>
+<!-- ธรณีประตูไม้ (门槛) : วางไว้ในกรอบ วงกลมจึงตัดให้โค้งเอง = อ่านเป็นธรณีประตู ไม่ใช่ชั้นวางของ
+     ตอนแรกวาดไว้นอกกรอบแล้วมันยื่นพ้นวงออกมา ตาอ่านเป็น "หิ้งใต้หน้าต่าง" ทันที -->
+<rect x="4" y="378" width="262" height="20" fill="url(#pvWood)"/>
+<rect x="4" y="378" width="262" height="3.4" fill="var(--hs-wood-hi,#6B3B30)" opacity=".8"/>
+</g>
+</g>
+
+<!-- ═══ ป้ายไม้ดำอักษรทอง (匾额) แขวนเหนือประตู : เขียนว่า 明月 (จันทร์กระจ่าง) ═══
+     ⚠️ รอบแรกทำเป็นป้าย "ชาดแดง" แล้วเปิดในแอปจริงถึงเห็นว่าพัง:
+        ปุ่ม CTA ของแอปเป็นป้ายชาดแดงเหมือนกัน และมันลอยทับตรงนี้พอดีทุกขนาดจอ
+        แดงสองก้อนติดกัน = ตาอ่านรวมเป็นก้อนเดียว ปุ่มเลยหมดสถานะ "ของที่ต้องกด"
+        ตามลำดับวัสดุของชุด แดงชาดถูกสงวนให้ "ของที่แตะได้" เท่านั้น ป้ายบนผนังจึงต้องเป็นไม้
+     อักษรวาดเป็นบล็อกเส้นตั้ง/นอนสมดุล ถ้าลากเป็นเส้นหวัดๆ จะอ่านเป็น "รอยขีดข่วน" ทันที -->
+<g id="pvPlaque">
+<g stroke="var(--hs-gold-lo,#8A6420)" stroke-width="2.4" opacity=".85">
+<path d="M78 71v20M190 71v20"/>
+</g>
+<rect x="44" y="88" width="180" height="54" rx="4" fill="url(#pvWood)"/>
+<rect x="50" y="94" width="168" height="42" rx="2" fill="var(--hs-plaque-in,#1F0D07)" opacity=".55"/>
+<rect x="44" y="88" width="180" height="54" rx="4" fill="none" stroke="url(#pvGold)" stroke-width="3"/>
+<rect x="50" y="94" width="168" height="42" rx="2" fill="none" stroke="var(--hs-gold-lo,#8A6420)" stroke-width="1.4" opacity=".8"/>
+<rect x="44" y="88" width="180" height="3" fill="#C89A78" opacity=".35"/>
+<g fill="url(#pvGold)">
+<g transform="translate(104,100)">
+<rect x="-32" y="2" width="13" height="3"/><rect x="-32" y="12.5" width="13" height="3"/><rect x="-32" y="23" width="13" height="3"/>
+<rect x="-32" y="2" width="3" height="24"/><rect x="-22" y="2" width="3" height="24"/>
+<rect x="-12" y="0" width="18" height="3.2"/><rect x="-12" y="8.5" width="18" height="3.2"/><rect x="-12" y="17" width="18" height="3.2"/>
+<rect x="2.8" y="0" width="3.2" height="28"/>
+<path d="M-12 0h3.2v20q0 4.6-6 7.8l-1.7-2.6q4.5-2.4 4.5-5.2z"/>
+</g>
+<g transform="translate(176,99)">
+<rect x="-12" y="0" width="24" height="3.2"/><rect x="-12" y="9.5" width="24" height="3.2"/><rect x="-12" y="19" width="24" height="3.2"/>
+<rect x="8.8" y="0" width="3.2" height="30"/>
+<path d="M-12 0h3.2v21q0 5-6.6 8.6l-1.8-2.8q4.2-2.6 4.2-5.8z"/>
+</g>
+</g>
+<g fill="url(#pvGold)" opacity=".9">
+<circle cx="52" cy="96" r="2.6"/><circle cx="216" cy="96" r="2.6"/>
+<circle cx="52" cy="134" r="2.6"/><circle cx="216" cy="134" r="2.6"/>
+</g>
+</g>
+
+<!-- ═══ โคมกระดาษแดง 2 ดวง (แสงชิ้นเดียวของห้อง) ═══
+     ทรงต้องเป็นถังป่อง มีซี่ตามยาว + ฝาไม้บน/ล่าง + พู่ห้อย
+     ถ้าวาดเป็นวงกลมเรียบจะอ่านเป็น "ลูกโป่ง" ทันที -->
+<g class="hsLantern hsLantern1" id="pvLampBig">
+<ellipse cx="366" cy="150" rx="94" ry="88" fill="url(#pvLampGlow)"/>
+<rect x="364" y="36" width="4" height="56" fill="var(--hs-wood-lo,#2E1610)"/>
+<rect x="348" y="88" width="36" height="9" rx="2" fill="url(#pvWood)"/>
+<path d="M366 97c26 0 44 14 44 34s-18 38-44 38-44-18-44-38 18-34 44-34z" fill="url(#pvRed)"/>
+<g stroke="var(--hs-red-lo,#75160D)" stroke-width="1.8" fill="none" opacity=".55">
+<path d="M348 100c-5 12-6 24-4 36M366 97v72M384 100c5 12 6 24 4 36"/>
+</g>
+<path d="M336 118c6-12 16-19 28-21-11 6-18 14-20 26z" fill="#FFE0B2" opacity=".3"/>
+<rect x="348" y="163" width="36" height="9" rx="2" fill="url(#pvWood)"/>
+<g fill="var(--hs-gold,#D3A94E)" opacity=".85">
+<rect x="356" y="172" width="20" height="6" rx="2"/>
+</g>
+<g stroke="var(--hs-red,#B22C1C)" stroke-width="2.4" stroke-linecap="round">
+<path d="M360 178v22M366 178v26M372 178v21"/>
+</g>
+</g>
+<g class="hsLantern hsLantern2" id="pvLampSmall">
+<ellipse cx="278" cy="118" rx="66" ry="60" fill="url(#pvLampGlow)"/>
+<rect x="276" y="36" width="4" height="42" fill="var(--hs-wood-lo,#2E1610)"/>
+<rect x="264" y="74" width="28" height="7" rx="2" fill="url(#pvWood)"/>
+<path d="M278 81c19 0 32 10 32 25s-13 27-32 27-32-12-32-27 13-25 32-27z" fill="url(#pvRed)"/>
+<g stroke="var(--hs-red-lo,#75160D)" stroke-width="1.5" fill="none" opacity=".5">
+<path d="M264 84c-4 9-5 18-3 26M278 81v52M292 84c4 9 5 18 3 26"/>
+</g>
+<path d="M254 96c4-9 12-14 21-15-8 4-13 10-15 19z" fill="#FFE0B2" opacity=".28"/>
+<rect x="264" y="128" width="28" height="7" rx="2" fill="url(#pvWood)"/>
+<g stroke="var(--hs-red,#B22C1C)" stroke-width="2" stroke-linecap="round">
+<path d="M273 135v16M278 135v19M283 135v15"/>
+</g>
+</g>
+
+<!-- ═══ ภาพหมึกแขวนผนัง (立軸) : "งานที่วาดจบแล้ว" จึงมีตราแดงประทับ ═══
+     นี่คือชิ้นที่ผูกฉากเข้ากับหน้าจับเวลา (หน้านั้นคือภาพเดียวกันตอนยังไม่จบ)
+     ต้องมีลูกกลิ้งไม้โผล่สองข้างบน/ล่าง ไม่งั้นอ่านเป็น "กรอบรูป" ธรรมดา -->
+<g id="pvScroll">
+<rect x="286" y="216" width="128" height="6" rx="3" fill="url(#pvWood)"/>
+<rect x="292" y="222" width="116" height="200" fill="var(--hs-silk,#B9A98C)"/>
+<rect x="292" y="222" width="116" height="200" fill="none" stroke="var(--hs-silk-lo,#8A7A5E)" stroke-width="1.6"/>
+<rect x="300" y="240" width="100" height="150" fill="var(--hs-xuan,#EFE4CA)"/>
+<rect x="300" y="240" width="100" height="150" fill="none" stroke="var(--hs-silk-lo,#8A7A5E)" stroke-width="1" opacity=".6"/>
+<!-- ภาพหมึก: ภูเขา + หมอก + สน + เรือ (ของเดียวกับที่หน้าจับเวลาค่อยๆ วาดขึ้นมา) -->
+<!-- นกสองตัวสูงสุด = ตัวบอกมาตราส่วนว่าภูเขาข้างล่างใหญ่มาก -->
+<g stroke="var(--hs-ink,#25242A)" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".55">
+<path d="M338 260l5-3 5 3M362 254l4-2.4 4 2.4"/>
+</g>
+<!-- ภูเขา 3 ชั้น ไล่จางไปหาชั้นไกล = ได้ระยะแบบภาพหมึกจีน (ชั้นไกลห้ามเข้ม) -->
+<g fill="var(--hs-ink,#25242A)">
+<path d="M302 316l18-32 13 17 15-27 19 27 13-15 18 30v8h-96z" opacity=".26"/>
+<path d="M302 334l16-24 12 12 15-18 15 20 13-11 11 15v10h-82z" opacity=".44"/>
+<path d="M302 348l14-16 12 10 16-12 14 16 14-10 12 12v8h-82z" opacity=".78"/>
+</g>
+<!-- หมอกคาดกลาง : แถบนุ่มสองชั้น ไม่ใช่แถบทึบเส้นเดียว (แถบทึบอ่านเป็น "รอยลบ") -->
+<g fill="var(--hs-xuan,#EFE4CA)">
+<rect x="300" y="330" width="100" height="10" rx="5" opacity=".62"/>
+<rect x="300" y="342" width="100" height="6" rx="3" opacity=".38"/>
+<rect x="300" y="322" width="100" height="5" rx="2.5" opacity=".26"/>
+</g>
+<!-- เส้นน้ำ + ต้นสน (กิ่งเป็นแผงแบนซ้อนชั้น = ท่าวาดสนแบบจีน ไม่ใช่ทรงกรวยแบบต้นคริสต์มาส) -->
+<g stroke="var(--hs-ink,#25242A)" stroke-linecap="round" fill="none">
+<path d="M302 364h96" stroke-width="1" opacity=".3"/>
+<path d="M316 382c1-13 3-21 9-30" stroke-width="2"/>
+<path d="M320 366q-9-2-13-7M323 357q9-3 13-8M319 350q-7-2-10-6" stroke-width="1.4" opacity=".9"/>
+</g>
+<g fill="var(--hs-ink,#25242A)" opacity=".8">
+<ellipse cx="306" cy="358" rx="8" ry="2.6"/>
+<ellipse cx="337" cy="348" rx="8" ry="2.6"/>
+<ellipse cx="310" cy="343" rx="6.4" ry="2.2"/>
+</g>
+<!-- เรือลำเล็กบนน้ำ : ท้องเรือโค้ง + หลังคาโค้ง = อ่านออกว่าเป็นเรือ ไม่ใช่ขีดสองขีด -->
+<g stroke="var(--hs-ink,#25242A)" stroke-width="1.4" stroke-linecap="round" fill="none">
+<path d="M352 360q10 5 20 0"/>
+<path d="M358 359q4-6 9-1"/>
+</g>
+<!-- ตราชาดแดง : ของชิ้นเดียวในภาพนี้ที่เป็นสีแดง = เครื่องหมายว่างานนี้ "จบแล้ว" -->
+<rect x="376" y="366" width="15" height="15" rx="1.5" fill="var(--hs-seal,#C0281A)"/>
+<g stroke="var(--hs-xuan,#EFE4CA)" stroke-width="1.5">
+<path d="M379 370h9M379 374h9M383.5 368v11"/>
+</g>
+<g stroke="var(--hs-ink,#25242A)" stroke-width="1.2" stroke-linecap="round" opacity=".7">
+<path d="M368 367v8M368 378v5M372 367v11"/>
+</g>
+<rect x="286" y="422" width="128" height="8" rx="4" fill="url(#pvWood)"/>
+<circle cx="288" cy="426" r="5" fill="url(#pvWood)"/>
+<circle cx="412" cy="426" r="5" fill="url(#pvWood)"/>
+<rect x="292" y="222" width="116" height="2.4" fill="#FFE7C4" opacity=".2"/>
+</g>
+
+<!-- ═══ โต๊ะเขียนหนังสือ (書案) ฝั่งซ้าย : ฐานขาจบที่ y=634 = ต่ำกว่าเส้นพื้น จึงยืนบนพื้นจริง ═══ -->
+<g id="pvDesk">
+<ellipse cx="108" cy="636" rx="118" ry="15" fill="#000" opacity=".3"/>
+<!-- ปลายโต๊ะจีนงอนขึ้นสองข้าง (翘头案) = ตัวที่บอกว่าเป็นโต๊ะจีน ไม่ใช่โต๊ะทั่วไป -->
+<path d="M2 466h212v18H2z" fill="url(#pvWood)"/>
+<path d="M2 454c8-2 14 2 16 12H2z" fill="url(#pvWood)"/>
+<path d="M214 454c-8-2-14 2-16 12h16z" fill="url(#pvWood)"/>
+<rect x="2" y="466" width="212" height="3.4" fill="var(--hs-wood-hi,#6B3B30)" opacity=".7"/>
+<rect x="2" y="484" width="212" height="14" fill="var(--hs-wood-lo,#2E1610)" opacity=".85"/>
+<g stroke="var(--hs-gold,#D3A94E)" stroke-width="1.4" opacity=".5" fill="none">
+<path d="M14 491h188"/>
+</g>
+<rect x="24" y="498" width="17" height="136" fill="url(#pvWood)"/>
+<rect x="172" y="498" width="17" height="136" fill="url(#pvWood)"/>
+<rect x="24" y="498" width="5" height="136" fill="var(--hs-wood-lo,#2E1610)" opacity=".5"/>
+<rect x="172" y="498" width="5" height="136" fill="var(--hs-wood-lo,#2E1610)" opacity=".5"/>
+<rect x="41" y="586" width="131" height="10" fill="url(#pvWood)"/>
+</g>
+
+<!-- ═══ ของบนโต๊ะ (文房四宝) ทุกชิ้นฐานแตะผิวโต๊ะ y=466 ═══ -->
+<!-- กระดาษซ้อนแผ่น + ที่ทับกระดาษทองเหลือง (镇纸) -->
+<g id="pvPaper">
+<rect x="16" y="456" width="66" height="10" rx="1.5" fill="var(--hs-xuan,#EFE4CA)"/>
+<g stroke="var(--hs-paper-lo,#C9B68C)" stroke-width="1" opacity=".85">
+<path d="M17 459.5h64M17 462.5h64"/>
+</g>
+<rect x="18" y="450" width="62" height="8" rx="1.5" fill="var(--hs-paper-hi,#FFF6DE)"/>
+<rect x="18" y="450" width="62" height="2.6" rx="1.3" fill="#FFFDF2" opacity=".7"/>
+<rect x="24" y="443" width="50" height="7" rx="2.5" fill="url(#pvGold)"/>
+<rect x="24" y="443" width="50" height="2" rx="1" fill="#FFF0C6" opacity=".6"/>
+<g stroke="var(--hs-gold-lo,#8A6420)" stroke-width="1" opacity=".6">
+<path d="M32 446v3.4M42 446v3.4M52 446v3.4M62 446v3.4"/>
+</g>
+</g>
+<!-- แท่นฝนหมึก (硯) : หมึกในแอ่งต้องมีไฮไลต์เดียวคมๆ ไม่งั้นอ่านเป็น "จานสีดำ" -->
+<g id="pvInkstone">
+<path d="M88 448h44l4 4v10l-4 4H88l-4-4v-10z" fill="var(--hs-slate,#6A5A55)"/>
+<path d="M88 448h44l4 4H84z" fill="var(--hs-slate-hi,#8E7B74)"/>
+<path d="M91 452.4h38l2 2v6.6l-2 2H91l-2-2v-6.6z" fill="var(--hs-slate-2,#4A3E3B)"/>
+<path d="M93 454.6h26a9 5 0 0 1-9 7.4h-8a9 5 0 0 1-9-7.4z" fill="var(--hs-ink,#12111A)"/>
+<ellipse cx="101" cy="457.4" rx="4" ry="1.2" fill="#93A6B6" opacity=".38"/>
+</g>
+<!-- พู่กันวางพาดบนแท่น ปลายจุ่มอยู่ในบ่อหมึก
+     ⚠️ รอบก่อนวาง "แท่งหมึก" ตั้งขึ้นบนแท่นสีเทา ทั้งชุดอ่านเป็น "รีโมท/เครื่องเสียง"
+        คู่ที่อ่านออกทันทีคือ แท่นหิน + พู่กันพาด ไม่ใช่ แท่นหิน + แท่งดำตั้ง -->
+<g id="pvRestBrush" transform="rotate(-10 116 452)">
+<rect x="112" y="449.4" width="26" height="3.2" rx="1.6" fill="var(--hs-wood-hi,#6B3B30)"/>
+<rect x="134" y="448.8" width="4.4" height="4.4" rx="1.5" fill="url(#pvGold)" opacity=".85"/>
+<path d="M112 450.6c-6 0-10-.6-13 .4 3 1 7 1.6 13 1.6z" fill="var(--hs-ink,#25242A)"/>
+</g>
+<!-- กระบอกพู่กัน (笔筒) + พู่กัน 3 ด้าม : ขนพู่กันต้องเรียวจบเป็นปลายแหลม -->
+<g id="pvBrushes">
+<g stroke-linecap="round">
+<g stroke="var(--hs-wood-hi,#6B3B30)" stroke-width="3.4">
+<path d="M154 424v-42M162 424v-48M170 424v-38"/>
+</g>
+<g stroke="var(--hs-ink,#25242A)" stroke-width="4.6">
+<path d="M154 384v-9M162 378v-10M170 388v-8"/>
+</g>
+</g>
+<g fill="var(--hs-ink,#25242A)">
+<path d="M154 376c-2 0-3-4 0-8 3 4 2 8 0 8z"/>
+<path d="M162 369c-2 0-3-4 0-8 3 4 2 8 0 8z"/>
+<path d="M170 381c-2 0-3-4 0-8 3 4 2 8 0 8z"/>
+</g>
+<path d="M146 420h34l-3 46h-28z" fill="var(--hs-celadon,#7C9A86)"/>
+<path d="M164 420h16l-3 46h-13z" fill="var(--hs-celadon-lo,#5C7A67)"/>
+<rect x="144" y="416" width="38" height="7" rx="2.5" fill="var(--hs-celadon-hi,#9DBBA6)"/>
+<g stroke="var(--hs-celadon-lo,#4E6B59)" stroke-width="1.3" fill="none" opacity=".7">
+<path d="M150 436h24M150 448h23"/>
+</g>
+</g>
+<!-- กระถางธูปทองเหลือง 3 ขา (香炉) : ตัวเดียวในฉากที่ขยับ (ควันลอย) -->
+<g id="pvCenser">
+<ellipse cx="196" cy="466" rx="20" ry="4" fill="#000" opacity=".26"/>
+<!-- หูสองข้างที่ยื่นพ้นปากกระถาง = ตัวชี้ขาดว่าเป็น "กระถางธูป" ไม่ใช่กระถางต้นไม้
+     รอบแรกไม่มีหู ทรงเลยเป็นกรวยคว่ำ ตาอ่านเป็นกระถางต้นไม้ทันที -->
+<g fill="none" stroke="url(#pvGold)" stroke-width="3.4" stroke-linecap="round">
+<path d="M176 441c-8 1-9 9-2 11"/>
+<path d="M216 441c8 1 9 9 2 11"/>
+</g>
+<path d="M179 445h34c0 11-6 17-17 17s-17-6-17-17z" fill="url(#pvGold)"/>
+<path d="M196 445h17c0 11-6 17-17 17z" fill="var(--hs-gold-lo,#8A6420)" opacity=".35"/>
+<rect x="173" y="439" width="46" height="7" rx="3" fill="url(#pvGold)"/>
+<rect x="173" y="439" width="46" height="2.2" rx="1.1" fill="#FFF0C6" opacity=".55"/>
+<g fill="var(--hs-gold-lo,#8A6420)">
+<path d="M183 458h4.6v8H183zM193.7 461h4.6v5h-4.6zM204.4 458h4.6v8h-4.6z"/>
+</g>
+<ellipse cx="196" cy="445" rx="13" ry="2.6" fill="var(--hs-ash,#CBBEA8)" opacity=".7"/>
+<path d="M196 444v-15" stroke="var(--hs-ink,#25242A)" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="196" cy="428" r="4.4" fill="#FF7B3C" opacity=".26"/>
+<circle cx="196" cy="428" r="2" fill="#FF8B45"/>
+</g>
+<!-- ควันธูป : เส้นเดี่ยวคดเคี้ยว 3 เส้นคนละจังหวะ ถ้าเท่ากันจะอ่านเป็น "ริบบิ้น" -->
+<g class="hsSmokes" fill="none" stroke="var(--hs-smoke,#E4D7C0)" stroke-linecap="round">
+<path class="hsSmoke hsSmoke1" d="M195 424c-9-14 8-22 0-36s7-22 1-34" stroke-width="2.6" opacity=".38"/>
+<path class="hsSmoke hsSmoke2" d="M195 424c9-12-7-20 1-32s-6-20 0-30" stroke-width="2" opacity=".26"/>
+<path class="hsSmoke hsSmoke3" d="M195 424c-6-10 6-16 0-26" stroke-width="1.6" opacity=".2"/>
+</g>
+
+<!-- ═══ หนังสือเย็บเชือกกองใต้โต๊ะ (线装书) ═══
+     ต้องเห็น "สันเชือกเย็บ" ด้านข้าง ไม่งั้นกองสี่เหลี่ยมซ้อนกันอ่านเป็น "ลังไม้" -->
+<g id="pvBooks">
+<ellipse cx="104" cy="614" rx="60" ry="9" fill="#000" opacity=".28"/>
+<g>
+<rect x="50" y="596" width="108" height="16" rx="1.5" fill="var(--hs-book,#3E5A70)"/>
+<rect x="54" y="580" width="102" height="16" rx="1.5" fill="var(--hs-book-2,#4E6B80)"/>
+<rect x="48" y="564" width="104" height="16" rx="1.5" fill="var(--hs-book,#3E5A70)"/>
+<g fill="var(--hs-xuan,#EFE4CA)" opacity=".85">
+<rect x="50" y="600" width="108" height="7"/><rect x="54" y="584" width="102" height="7"/><rect x="48" y="568" width="104" height="7"/>
+</g>
+<g stroke="var(--hs-book-lo,#233848)" stroke-width="1.6" opacity=".85">
+<path d="M62 596v16M74 596v16M66 580v16M78 580v16M60 564v16M72 564v16"/>
+</g>
+<rect x="96" y="566" width="26" height="10" rx="1" fill="var(--hs-red,#B22C1C)"/>
+</g>
+</g>
+
+<!-- ═══ พื้นอิฐเทาเขียว (青砖) เริ่มที่ y=612 ═══
+     เรียงสลับฟันปลาแบบอิฐจริง แถวล่างสูงกว่าแถวบน = ได้ระยะโดยไม่ต้องวาด perspective เต็ม -->
+<rect x="0" y="612" width="440" height="248" fill="var(--hs-floor,#59665F)"/>
+<rect x="0" y="612" width="440" height="10" fill="var(--hs-floor-3,#374139)" opacity=".8"/>
+<g stroke="var(--hs-floor-3,#374139)" stroke-width="3" opacity=".75">
+<path d="M0 656h440M0 706h440M0 762h440M0 826h440"/>
+</g>
+<g stroke="var(--hs-floor-3,#374139)" stroke-width="2.4" opacity=".5">
+<path d="M74 622v34M188 622v34M302 622v34M416 622v34"/>
+<path d="M18 656v50M132 656v50M246 656v50M360 656v50"/>
+<path d="M86 706v56M212 706v56M338 706v56"/>
+<path d="M26 762v64M162 762v64M298 762v64M434 762v64"/>
+<path d="M96 826v34M244 826v34M392 826v34"/>
+</g>
+<g fill="var(--hs-floor-2,#4A574F)" opacity=".55">
+<rect x="0" y="622" width="74" height="34"/><rect x="188" y="622" width="114" height="34"/>
+<rect x="18" y="656" width="114" height="50"/><rect x="246" y="656" width="114" height="50"/>
+<rect x="86" y="706" width="126" height="56"/><rect x="338" y="706" width="102" height="56"/>
+<rect x="26" y="762" width="136" height="64"/><rect x="298" y="762" width="136" height="64"/>
+</g>
+
+<!-- ═══ พรมลายเมฆมงคล (祥云毯) คลุมตำแหน่งเท้ามาสคอต (x 228-371 / y 633-680) ═══
+     จงใจเป็นสี่เหลี่ยมคางหมู ไม่ใช่วงรี : ธีมใต้ทะเลใช้พรมวงรีไปแล้ว
+     ทรงเป็นตัวบอกว่าคนละธีม ถ้าทรงเดียวกันแล้วเปลี่ยนสีจะอ่านเป็นของเดิมทาสีใหม่ -->
+<g id="pvRug">
+<path d="M188 646h216l32 106H156z" fill="#000" opacity=".26" transform="translate(0,7)"/>
+<path d="M188 640h216l32 106H156z" fill="var(--hs-rug-edge,#1B2C46)"/>
+<path d="M196 648h200l26 90H170z" fill="var(--hs-rug,#2B4267)"/>
+<path d="M206 658h180l20 70H186z" fill="var(--hs-rug-2,#35507A)"/>
+<g clip-path="url(#pvRugClip)">
+<rect x="150" y="650" width="310" height="15" fill="url(#pvFret)" opacity=".85"/>
+<g transform="translate(0,1462) scale(1,-1)">
+<rect x="150" y="722" width="310" height="15" fill="url(#pvFret)" opacity=".85"/>
+</g>
+<!-- เมฆมงคล (祥云) : ใช้สูตรที่พิสูจน์แล้วในเรโปนี้ = วงกลม 3 วงเกยกัน + ฐานแบน
+     แล้วเติม "ก้นหอย" ที่หัวกับ "หาง" ที่ปลาย ซึ่งเป็นสองอย่างที่แยกเมฆจีนออกจากเมฆฝรั่ง
+     ⚠️ รอบแรกวาดเป็นวงกลมสองวงเรียงกันด้วยเส้น -> อ่านเป็น "แว่นตา" ทันที -->
+<g class="pvCloud" transform="translate(178,698) scale(.92)">
+<g fill="var(--hs-rug-cloud,#8FAFD6)" opacity=".9">
+<circle cx="12" cy="12" r="8"/><circle cx="25" cy="9" r="10"/><circle cx="37" cy="13" r="7.4"/>
+<rect x="4" y="12" width="40" height="9" rx="4.5"/>
+</g>
+<path d="M44 17q12 1 17-5" fill="none" stroke="var(--hs-rug-cloud,#8FAFD6)" stroke-width="3.6" stroke-linecap="round" opacity=".9"/>
+<path d="M13 17a5.4 5.4 0 1 1 5.4-5.4" fill="none" stroke="var(--hs-rug-cloud-lo,#3B5F87)" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>
+</g>
+<g class="pvCloud" transform="translate(330,706) scale(.92)">
+<g fill="var(--hs-rug-cloud,#8FAFD6)" opacity=".9">
+<circle cx="12" cy="12" r="8"/><circle cx="25" cy="9" r="10"/><circle cx="37" cy="13" r="7.4"/>
+<rect x="4" y="12" width="40" height="9" rx="4.5"/>
+</g>
+<path d="M44 17q12 1 17-5" fill="none" stroke="var(--hs-rug-cloud,#8FAFD6)" stroke-width="3.6" stroke-linecap="round" opacity=".9"/>
+<path d="M13 17a5.4 5.4 0 1 1 5.4-5.4" fill="none" stroke="var(--hs-rug-cloud-lo,#3B5F87)" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>
+</g>
+<g class="pvCloud" transform="translate(258,714) scale(.68)">
+<g fill="var(--hs-rug-cloud-2,#C3593F)" opacity=".85">
+<circle cx="12" cy="12" r="8"/><circle cx="25" cy="9" r="10"/><circle cx="37" cy="13" r="7.4"/>
+<rect x="4" y="12" width="40" height="9" rx="4.5"/>
+</g>
+<path d="M44 17q12 1 17-5" fill="none" stroke="var(--hs-rug-cloud-2,#C3593F)" stroke-width="3.6" stroke-linecap="round" opacity=".85"/>
+</g>
+</g>
+<path d="M188 640h216l32 106H156z" fill="none" stroke="var(--hs-rug-rim,#101C2E)" stroke-width="3"/>
+</g>
+</svg>

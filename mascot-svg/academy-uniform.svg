@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 720" data-outfit="academy" role="img" aria-label="Royal academy uniform for the fox mascot">
+<!--
+  ชุดนักเรียนโรงเรียนหลวง — ของที่ยัดเข้าช่อง fx-outfit-* ของ fox.svg
+  พิกัดอยู่ใน user space เดียวกับ fox.svg (viewBox 0 0 956 720) วาดทับได้เลยไม่ต้องแปลง
+
+  ข้อบังคับ (RIG CONTRACT ของ fox.svg):
+    - ห้ามใส่ attribute transform= บน <g class="fx-*"> (ในนี้ไม่มี fx-* เลย ปลอดภัย)
+    - id ทุกตัวขึ้นต้น au* กันชนกับ furGrad/clipEye* ที่ fox.svg มีอยู่แล้ว
+    - defs อยู่ในช่อง back ซึ่งถูกยัดเข้าเสมอพร้อมกันทุกช่อง
+
+  ลำดับที่ตาเห็น: back(ผ้าคลุมหลังลำตัว) -> [ตัวหมา] -> hat(หมวก) -> neck(ปกเสื้อ+โบ)
+  หมวก: กว้าง x 404..552 เท่านั้น (แคบกว่าหัวมาก) เพราะถ้ากว้างกว่านี้จะไปทับโคนหูทั้ง 2 ข้าง
+  ไม่แตะช่อง face (ตายังเห็น) และไม่แตะช่องหู (ดอกซากุระของเดิมยังอยู่)
+-->
+
+<!-- ══════════════ ช่อง back: ผ้าคลุมไหล่ (วาดก่อนลำตัว = อยู่ข้างหลัง) ══════════════ -->
+<g data-slot="back">
+  <defs>
+    <linearGradient id="auCloth" x1="0" y1="0" x2=".25" y2="1">
+      <stop offset="0"   stop-color="#1E7460"/>
+      <stop offset=".38" stop-color="#125343"/>
+      <stop offset="1"   stop-color="#092F26"/>
+    </linearGradient>
+    <linearGradient id="auGold" x1="0" y1="0" x2=".3" y2="1">
+      <stop offset="0"   stop-color="#FBEEBE"/>
+      <stop offset=".42" stop-color="#E7C471"/>
+      <stop offset="1"   stop-color="#A97C2E"/>
+    </linearGradient>
+    <linearGradient id="auShirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF"/>
+      <stop offset="1"   stop-color="#DDE6F2"/>
+    </linearGradient>
+    <linearGradient id="auTie" x1="0" y1="0" x2=".3" y2="1">
+      <stop offset="0"   stop-color="#E0596A"/>
+      <stop offset=".5"  stop-color="#C2354A"/>
+      <stop offset="1"   stop-color="#8E1F32"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ตัวผ้าคลุม: ต้องกว้างกว่าลำตัว (ลำตัว x 336..620) ไม่งั้นโดนตัวหมาบังจนไม่เห็นอะไรเลย
+       ชายผ้าอยู่ที่ y≈616 = สูงกว่าเท้า (y≈680) จะได้ไม่มีเศษผ้าโผล่ใต้ขา -->
+  <path d="M478 448C386 448 306 492 282 556c-10 22-14 42-12 60q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0c2-18-2-38-12-60C650 492 570 448 478 448z"
+        fill="url(#auCloth)"/>
+  <!-- แถบทองริมชายผ้า (ตามลอนเดียวกัน) -->
+  <path d="M270 616q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0q20 14 41 0"
+        fill="none" stroke="url(#auGold)" stroke-width="10" stroke-linecap="round"/>
+  <!-- เงาพับผ้า -->
+  <g stroke="#07241D" opacity=".3" fill="none" stroke-linecap="round">
+    <path d="M356 512c-30 32-44 68-46 104" stroke-width="8"/>
+    <path d="M600 512c30 32 44 68 46 104" stroke-width="8"/>
+    <path d="M412 486c-22 40-32 88-34 130" stroke-width="6" opacity=".7"/>
+    <path d="M544 486c22 40 32 88 34 130" stroke-width="6" opacity=".7"/>
+  </g>
+  <!-- ไฮไลต์บ่า -->
+  <path d="M478 448c66 0 118 22 152 60-40-26-94-40-152-40s-112 14-152 40c34-38 86-60 152-60z"
+        fill="#4FA890" opacity=".5"/>
+</g>
+
+<!-- ══════════════ ช่อง hat: หมวกนักเรียนยอดแหลม ══════════════ -->
+<g data-slot="hat">
+  <!-- เงาบนกะโหลก -->
+  <ellipse cx="478" cy="178" rx="76" ry="12" fill="#0B2E26" opacity=".18"/>
+  <!-- ทรงหมวก -->
+  <path d="M478 108c40 0 66 26 70 62 1 8-6 12-14 12H422c-8 0-15-4-14-12 4-36 30-62 70-62z" fill="url(#auCloth)"/>
+  <!-- ไฮไลต์ด้านรับแสง -->
+  <path d="M478 108c-40 0-66 26-70 62-1 8 6 12 14 12h16c-4-38 12-64 40-74z" fill="#3E9179" opacity=".5"/>
+  <!-- ขอบหมวก -->
+  <path d="M404 182h148c7 0 12 5 12 11s-5 11-12 11H404c-7 0-12-5-12-11s5-11 12-11z" fill="#0B3B2F"/>
+  <path d="M404 182h148c7 0 12 5 12 11H392c0-6 5-11 12-11z" fill="#2A6E5C"/>
+  <!-- แถบทองรอบหมวก -->
+  <path d="M400 176h156" stroke="url(#auGold)" stroke-width="6" stroke-linecap="round"/>
+  <!-- ตราหน้าหมวก -->
+  <path d="M478 128l16 6v14c0 10-7 17-16 20-9-3-16-10-16-20v-14z" fill="url(#auGold)"/>
+  <path d="M478 134l10 4v10c0 6-4 11-10 13-6-2-10-7-10-13v-10z" fill="#0B3B2F"/>
+  <path d="M478 140l2.6 5.4 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.2-4.1 5.8-.8z" fill="#FBEEBE"/>
+  <!-- ปุ่มยอดหมวก -->
+  <circle cx="478" cy="106" r="7" fill="url(#auGold)"/>
+</g>
+
+<!-- ══════════════ ช่อง neck: ปกเสื้อ + โบ + ขอบเสื้อนอก ══════════════ -->
+<g data-slot="neck">
+  <!-- ปกเสื้อเชิ้ตขาว -->
+  <path d="M478 452l-52 12c-16 4-26 16-28 32l-6 44 44-14 42-30z" fill="url(#auShirt)"/>
+  <path d="M478 452l52 12c16 4 26 16 28 32l6 44-44-14-42-30z" fill="url(#auShirt)"/>
+  <path d="M478 452l-42 42 20 8z" fill="#C7D4E6" opacity=".6"/>
+  <path d="M478 452l42 42-20 8z" fill="#C7D4E6" opacity=".4"/>
+  <!-- เสื้อนอกสีเขียว 2 ข้าง -->
+  <path d="M414 470c-18 8-28 24-32 44l-8 46c-14-6-24-16-26-30-4-30 16-52 66-60z" fill="url(#auCloth)"/>
+  <path d="M542 470c18 8 28 24 32 44l8 46c14-6 24-16 26-30 4-30-16-52-66-60z" fill="url(#auCloth)"/>
+  <path d="M414 470c-18 8-28 24-32 44l-4 22c6-34 18-54 36-66z" fill="#3E9179" opacity=".45"/>
+  <!-- โบผูกคอ -->
+  <path d="M478 496l-38-14c-8-3-14 4-11 12l10 26c3 8 12 10 18 4z" fill="url(#auTie)"/>
+  <path d="M478 496l38-14c8-3 14 4 11 12l-10 26c-3 8-12 10-18 4z" fill="url(#auTie)"/>
+  <path d="M478 496l-14 62c-2 8 4 12 10 8l4-4 4 4c6 4 12 0 10-8z" fill="#A82A3E"/>
+  <path d="M478 496l14 62c2 8-4 12-10 8l-4-4v-66z" fill="#8E1F32" opacity=".7"/>
+  <ellipse cx="478" cy="498" rx="15" ry="11" fill="url(#auGold)"/>
+  <ellipse cx="478" cy="496" rx="8" ry="5.5" fill="#8E1F32"/>
+</g>
+</svg>

@@ -1,39 +1,36 @@
 # SakuraQ
 
-**A quest-style focus timer that turns study sessions into points — shipped as an Android APK and an installable web app.**
+A quest-style focus timer that turns a planned session into points, streaks, history, and collectible interface skins. It ships as both an Android APK and an installable PWA.
 
-You pick a category, name the thing you're about to do, set a length, and start. The app times it,
-scores it, and keeps a history you can't quietly edit later. Built because tracking systems that
-ask you to write things down by hand always died within a week.
+![SakuraQ home](screens/sakuraq-1-home.png)
 
-![Home](screens/sakuraq-1-home.png)
-![Timer](screens/sakuraq-3-run.png)
+## Why it is worth opening
 
-## What's interesting in here
+- **35,000+ lines in one shipped HTML file.** The app has no framework, bundler, or compile step.
+- **Timers survive the WebView closing.** The Android build schedules an OS alarm for the quest end time instead of trusting a background JavaScript loop.
+- **Goals are user-defined.** Tags, colours, and plan-calendar sessions replaced the original fixed categories.
+- **Sync does not mix users.** Firebase data and every local storage key are namespaced by account.
+- **The mascot reacts without an LLM.** A deterministic observation engine scores recent events, applies cooldowns, and avoids repeating the same line.
+- **Cosmetics change the whole scene.** Skins replace the home artwork, timer surface, controls, particles, and sound—not just an accent colour.
 
-- **One file, no build step.** The entire app — markup, styles, and logic — is 28,270 lines in a
-  single `index.html`. No framework, no bundler, no transpiler. It loads as-is.
-- **Alarms that survive the app being closed.** Background timers in a web view stop running, so
-  the app pre-schedules an OS-level alarm at the quest's end time instead of relying on its own
-  tick loop.
-- **Cloud sync that doesn't mix accounts.** Google sign-in with Firestore sync, and every storage
-  key is namespaced per user id, so two accounts on the same device never read each other's data.
-- **Works offline and installs.** Service worker app shell, installable on Android and iOS.
-- **Cosmetics that actually re-skin the app** — purchasable themes and skins that change the timer
-  screen, buttons, and home scene, not just an accent color.
-- **Bilingual (Thai / English)** through a small i18n engine written for this app.
+![Goal picker](screens/sakuraq-2-questflow.png)
+![Running quest](screens/sakuraq-3-run.png)
 
-## Shipped
+## Run it
 
-- Android APK, currently `v0.18.14`, distributed through GitHub Releases
-- Installable web app
+Serve this folder with any static server. Opening `index.html` directly also works for most of the UI, but a server is required to exercise service-worker behaviour.
+
+- [Installable web app](https://sakuraq-b7f96.web.app/welcome.html)
+- [Latest public Android release (v0.18.15)](https://github.com/sacmaib80-cmyk/sakuraq/releases/latest)
 
 ## Stack
 
-Vanilla JavaScript · Capacitor 6 · Firebase Auth + Firestore · Service Worker
+Vanilla JavaScript · Capacitor · Firebase Auth and Firestore · Service Worker
+
+## Release state
+
+This repository is a curated snapshot of the newer **v0.18.27 source**. The public APK release is still **v0.18.15**, so the source and downloadable binary are intentionally labelled separately.
 
 ## Honest notes
 
-Built and maintained solo. Ten people tested it and none of them kept using it — I found that out
-because I built the usage tracking myself, and that result is what most of the recent work has been
-reacting to.
+Built and maintained solo. Ten people tested an early release and none retained; that result came from the usage tracking built into the app. The mascot's decision engine is implemented, but parts of its dialogue copy are still being rewritten.

@@ -1,15 +1,12 @@
 // bump ทุกครั้งที่แก้ไฟล์ใน APP_SHELL หรือ auth.js — fetch handler เป็น cache-first
 // ถ้าไม่ bump คนที่เคยเปิดจะยังได้ auth.js ตัวเก่า (ล็อกอิน iOS จะไม่มีทางทำงาน)
-const CACHE_NAME = "sakuraq-v0-18-14-court-art";
+const CACHE_NAME = "sakuraq-v0-18-27-lookat-fix";
 
 const APP_SHELL = [
   "/index.html",
   "/manifest.webmanifest",
   "/logo-192.png",
-  "/app-icon.png",
-  "/rive.min.js",
-  "/rive.wasm",
-  "/fox-idle.webm"
+  "/app-icon.png"
 ];
 
 self.addEventListener("install", (event) => {

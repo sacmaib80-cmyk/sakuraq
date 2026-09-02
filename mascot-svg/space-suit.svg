@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 720" data-outfit="space" role="img" aria-label="Space explorer suit for the fox mascot">
+<!--
+  ชุดนักสำรวจอวกาศ — ของที่ยัดเข้าช่อง fx-outfit-* ของ fox.svg
+  พิกัดอยู่ใน user space เดียวกับ fox.svg (viewBox 0 0 956 720) วาดทับได้เลยไม่ต้องแปลง
+
+  วิธีต่อ: applyEquippedCosmetics() อ่าน <g data-slot="..."> แล้วยัด innerHTML
+           ลงใน .fx-outfit-<slot> ที่อยู่ใน #mascotSvg — ถอดออกก็ล้าง innerHTML
+
+  ข้อบังคับ (RIG CONTRACT ของ fox.svg):
+    - ห้ามใส่ attribute transform= บน <g class="fx-*"> (ในนี้ไม่มี fx-* เลย ปลอดภัย)
+    - id ทุกตัวขึ้นต้น ss* กันชนกับ furGrad/clipEye* ที่ fox.svg มีอยู่แล้ว
+    - defs อยู่ในช่อง back ซึ่งถูกยัดเข้าเสมอพร้อมกันทั้ง 4 ช่อง
+
+  ลำดับที่ตาเห็น: back(หลังลำตัว) -> [ตัวหมา] -> hat(โดม ทับหู) -> face(HUD บนกระจก) -> neck(ปลอกคอ)
+  โดม: วงรี cx478 cy250 rx236 ry200 ตัดล่างที่ y=434 -> ปากโดมกว้าง x 375..581 ลงล็อกพอดีกับปลอกคอ rx=118
+       ยอดโดม y=50 อยู่เหนือปลายหู (y=66) -> หูอยู่ในโดมทั้งคู่ ไม่มีรอยตัดกลางหู
+-->
+
+<!-- ══════════════════ ช่อง back: ถังอากาศ + หัวฉีด (วาดก่อนลำตัว = อยู่ข้างหลัง) ══════════════════ -->
+<g data-slot="back">
+  <defs>
+    <linearGradient id="ssTank" x1="0" y1="0" x2="1" y2=".2">
+      <stop offset="0"   stop-color="#F2F6FF"/>
+      <stop offset=".34" stop-color="#C3CFE6"/>
+      <stop offset=".72" stop-color="#7C8CB0"/>
+      <stop offset="1"   stop-color="#4A5679"/>
+    </linearGradient>
+    <linearGradient id="ssSteel" x1="0" y1="0" x2=".4" y2="1">
+      <stop offset="0"   stop-color="#DCE8FF"/>
+      <stop offset=".45" stop-color="#8FA3C8"/>
+      <stop offset="1"   stop-color="#3B4870"/>
+    </linearGradient>
+    <linearGradient id="ssGlass" x1=".22" y1="0" x2=".8" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity=".30"/>
+      <stop offset=".38" stop-color="#9DFBDD" stop-opacity=".13"/>
+      <stop offset=".74" stop-color="#5CF2C0" stop-opacity=".08"/>
+      <stop offset="1"   stop-color="#2E6C8E" stop-opacity=".22"/>
+    </linearGradient>
+    <radialGradient id="ssOrbGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0"   stop-color="#C9FFEE" stop-opacity=".95"/>
+      <stop offset=".38" stop-color="#5CF2C0" stop-opacity=".5"/>
+      <stop offset="1"   stop-color="#5CF2C0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ssJet" cx=".5" cy="0" r="1">
+      <stop offset="0"   stop-color="#EAFFF8" stop-opacity=".9"/>
+      <stop offset=".42" stop-color="#5CF2C0" stop-opacity=".45"/>
+      <stop offset="1"   stop-color="#5CF2C0" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="ssDomeCut"><rect x="0" y="0" width="956" height="434"/></clipPath>
+  </defs>
+
+  <!-- ถังซ้าย -->
+  <g>
+    <rect x="292" y="474" width="56" height="146" rx="28" fill="url(#ssTank)"/>
+    <rect x="292" y="474" width="56" height="146" rx="28" fill="none" stroke="#39456B" stroke-width="4"/>
+    <rect x="303" y="486" width="12" height="118" rx="6" fill="#FFFFFF" opacity=".5"/>
+    <rect x="292" y="528" width="56" height="14" fill="#5CF2C0" opacity=".8"/>
+    <rect x="292" y="560" width="56" height="7"  fill="#39456B" opacity=".55"/>
+    <path d="M308 474v-16h24v16z" fill="url(#ssSteel)"/>
+    <path d="M308 474v-16h24v16z" fill="none" stroke="#39456B" stroke-width="3.4"/>
+    <!-- หัวฉีด + ไอพ่น -->
+    <path d="M304 620h36l-9 26h-18z" fill="url(#ssSteel)"/>
+    <path d="M304 620h36l-9 26h-18z" fill="none" stroke="#39456B" stroke-width="3.4"/>
+    <ellipse class="ssJet ssJet1" cx="322" cy="672" rx="20" ry="34" fill="url(#ssJet)"/>
+  </g>
+
+  <!-- ถังขวา -->
+  <g>
+    <rect x="608" y="474" width="56" height="146" rx="28" fill="url(#ssTank)"/>
+    <rect x="608" y="474" width="56" height="146" rx="28" fill="none" stroke="#39456B" stroke-width="4"/>
+    <rect x="619" y="486" width="12" height="118" rx="6" fill="#FFFFFF" opacity=".5"/>
+    <rect x="608" y="528" width="56" height="14" fill="#5CF2C0" opacity=".8"/>
+    <rect x="608" y="560" width="56" height="7"  fill="#39456B" opacity=".55"/>
+    <path d="M624 474v-16h24v16z" fill="url(#ssSteel)"/>
+    <path d="M624 474v-16h24v16z" fill="none" stroke="#39456B" stroke-width="3.4"/>
+    <path d="M620 620h36l-9 26h-18z" fill="url(#ssSteel)"/>
+    <path d="M620 620h36l-9 26h-18z" fill="none" stroke="#39456B" stroke-width="3.4"/>
+    <ellipse class="ssJet ssJet2" cx="638" cy="672" rx="20" ry="34" fill="url(#ssJet)"/>
+  </g>
+
+  <!-- ท่อจากถังขึ้นไปหาปลอกคอ (โผล่ให้เห็นแค่ริมลำตัว) -->
+  <path d="M330 474c0-30 18-44 44-48" fill="none" stroke="#39456B" stroke-width="13" stroke-linecap="round"/>
+  <path d="M330 474c0-30 18-44 44-48" fill="none" stroke="#8FA3C8" stroke-width="7"  stroke-linecap="round"/>
+  <path d="M626 474c0-30-18-44-44-48" fill="none" stroke="#39456B" stroke-width="13" stroke-linecap="round"/>
+  <path d="M626 474c0-30-18-44-44-48" fill="none" stroke="#8FA3C8" stroke-width="7"  stroke-linecap="round"/>
+</g>
+
+<!-- ══════════════════ ช่อง hat: โดมกระจก + หนวดเอเลี่ยน (อยู่ใน fx-head ขยับตามหัว) ══════════════════ -->
+<g data-slot="hat">
+  <!-- หนวด 2 เส้น: วาดก่อนโดม เพื่อให้โคนหนวดจมอยู่หลังกระจก -->
+  <g class="ssAnt ssAntL">
+    <path d="M452 88c-16-22-30-40-38-64" fill="none" stroke="#39456B" stroke-width="11" stroke-linecap="round"/>
+    <path d="M452 88c-16-22-30-40-38-64" fill="none" stroke="#B9C8E6" stroke-width="5"  stroke-linecap="round"/>
+    <circle cx="414" cy="24" r="30" fill="url(#ssOrbGlow)"/>
+    <circle cx="414" cy="24" r="13" fill="#C9FFEE"/>
+    <circle cx="414" cy="24" r="13" fill="none" stroke="#2E9A93" stroke-width="3"/>
+    <circle cx="410" cy="20" r="4"  fill="#FFFFFF"/>
+  </g>
+  <g class="ssAnt ssAntR">
+    <path d="M504 88c16-22 30-40 38-64" fill="none" stroke="#39456B" stroke-width="11" stroke-linecap="round"/>
+    <path d="M504 88c16-22 30-40 38-64" fill="none" stroke="#B9C8E6" stroke-width="5"  stroke-linecap="round"/>
+    <circle cx="542" cy="24" r="30" fill="url(#ssOrbGlow)"/>
+    <circle cx="542" cy="24" r="13" fill="#C9FFEE"/>
+    <circle cx="542" cy="24" r="13" fill="none" stroke="#2E9A93" stroke-width="3"/>
+    <circle cx="538" cy="20" r="4"  fill="#FFFFFF"/>
+  </g>
+
+  <!-- โดมกระจก: ทึบน้อยมากเพื่อให้หน้ายังอ่านออก -->
+  <g clip-path="url(#ssDomeCut)">
+    <ellipse cx="478" cy="250" rx="236" ry="200" fill="url(#ssGlass)"/>
+    <ellipse cx="478" cy="250" rx="236" ry="200" fill="none" stroke="#9DFBDD" stroke-width="7" opacity=".55"/>
+    <ellipse cx="478" cy="250" rx="229" ry="193" fill="none" stroke="#FFFFFF" stroke-width="3" opacity=".38"/>
+    <!-- แสงสะท้อนบนกระจก: วางบน-ซ้าย ห่างจากลูกตา (ตาอยู่ y 245-351) -->
+    <path d="M312 214c14-64 62-112 122-126-56 26-92 74-100 136-12-2-19-5-22-10z" fill="#FFFFFF" opacity=".4"/>
+    <path d="M352 300c-6-20-6-40 0-58-14 22-16 46-6 66 3-2 5-5 6-8z" fill="#FFFFFF" opacity=".18"/>
+    <path d="M632 158c22 30 30 66 22 100 16-34 10-76-14-108-3 2-6 5-8 8z" fill="#FFFFFF" opacity=".16"/>
+  </g>
+  <!-- ปากโดม: วงแหวนโลหะที่หนีบขอบกระจก -->
+  <path d="M373 430h210" fill="none" stroke="#39456B" stroke-width="14" stroke-linecap="round"/>
+  <path d="M375 427h206" fill="none" stroke="#B9C8E6" stroke-width="6"  stroke-linecap="round"/>
+</g>
+
+<!-- ══════════════════ ช่อง face: HUD ฉายบนกระจก (เลี่ยงตาทั้งสองข้าง) ══════════════════ -->
+<g data-slot="face">
+  <g class="ssHud" opacity=".62" fill="none" stroke="#5CF2C0" stroke-linecap="round">
+    <circle cx="330" cy="196" r="26" stroke-width="3"/>
+    <circle cx="330" cy="196" r="9"  stroke-width="2.4" opacity=".8"/>
+    <path d="M330 158v-13M330 247v-13M292 196h-13M381 196h-13" stroke-width="3"/>
+    <path d="M366 244h44M366 258h28" stroke-width="3.4" opacity=".85"/>
+    <path d="M614 176h40M614 190h24" stroke-width="3.4" opacity=".7"/>
+  </g>
+</g>
+
+<!-- ══════════════════ ช่อง neck: ปลอกคอชุดอวกาศ (อยู่นอกหัว ไม่ขยับตามหัว) ══════════════════ -->
+<g data-slot="neck">
+  <!-- ตัวปลอกคอ -->
+  <path d="M360 452a118 34 0 0 1 236 0v22a118 34 0 0 1-236 0z" fill="url(#ssSteel)"/>
+  <path d="M360 452a118 34 0 0 1 236 0v22a118 34 0 0 1-236 0z" fill="none" stroke="#39456B" stroke-width="6"/>
+  <!-- ขอบบน (ที่โดมเสียบลง) -->
+  <ellipse cx="478" cy="452" rx="118" ry="34" fill="#2C3762"/>
+  <ellipse cx="478" cy="452" rx="118" ry="34" fill="none" stroke="#39456B" stroke-width="6"/>
+  <ellipse cx="478" cy="452" rx="103" ry="26" fill="#1B2547"/>
+  <path d="M375 452a103 26 0 0 1 206 0" fill="none" stroke="#DCE8FF" stroke-width="5" opacity=".75"/>
+  <!-- สลัก 3 ตัว -->
+  <g fill="#DCE8FF" stroke="#39456B" stroke-width="4">
+    <rect x="366" y="466" width="30" height="22" rx="8"/>
+    <rect x="463" y="482" width="30" height="22" rx="8"/>
+    <rect x="560" y="466" width="30" height="22" rx="8"/>
+  </g>
+  <!-- แถบไฟบอกสถานะ -->
+  <g class="ssPips">
+    <circle class="ssPip ssPip1" cx="418" cy="486" r="7" fill="#5CF2C0"/>
+    <circle class="ssPip ssPip2" cx="440" cy="491" r="7" fill="#5CF2C0"/>
+    <circle class="ssPip ssPip3" cx="516" cy="491" r="7" fill="#5CF2C0"/>
+    <circle class="ssPip ssPip4" cx="538" cy="486" r="7" fill="#5CF2C0"/>
+  </g>
+</g>
+</svg>

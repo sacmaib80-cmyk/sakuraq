@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Jade seal cube dice skin">
+<!-- ลูกเต๋า "ตราหยก" (ชุดหอพระจันทร์) — ลูกบาศก์ไอโซเมตริก ท่าเดียวกับ dice-pearl/dice-ufo/dice-royal/dice-rain
+     จะได้ยืนเรียงกันในร้านแล้วเป็นชุดเดียวกัน
+     ตัวตนของลูกนี้ = ตราประทับหยก (玉玺) หน้าบนคือ "หน้าตรา" ที่แกะแล้วป้ายชาดแดง
+     ผูกกับกฎกลางของชุดตรงๆ: แดง = ของที่ยืนยันแล้ว -> แต้มจึงเป็นรอยแกะที่ป้ายชาด ไม่ใช่จุดทึบ
+     ⚠️ แต้มต้องเป็น "หลุมแกะ" (มีเงาขอบบน + ชาดข้างใน) ถ้าเป็นจุดนูนความเป็นตราหายหมด -->
+<defs>
+<linearGradient id="dsTop" x1="0" y1="0" x2=".7" y2="1">
+<stop offset="0"   stop-color="var(--ds-top-1,#E4F0E2)"/>
+<stop offset="1"   stop-color="var(--ds-top-2,#B8D4C0)"/>
+</linearGradient>
+<clipPath id="dsFace"><path d="M36 8 62 23 36 38 10 23z"/></clipPath>
+<clipPath id="dsLeft"><path d="M10 23 36 38v28L10 51z"/></clipPath>
+<clipPath id="dsRight"><path d="M62 23 36 38v28l26-15z"/></clipPath>
+</defs>
+
+<ellipse cx="36" cy="67" rx="20" ry="4" fill="#1B2A22" opacity=".3"/>
+
+<!-- สามหน้าคนละเฉด = อ่านออกว่าเป็นก้อน 3 มิติแม้ย่อเหลือ 60px -->
+<path d="M10 23 36 38v28L10 51z" fill="var(--ds-left,#5F8A72)"/>
+<path d="M62 23 36 38v28l26-15z" fill="var(--ds-right,#7CA98C)"/>
+<path d="M36 8 62 23 36 38 10 23z" fill="url(#dsTop)"/>
+
+<!-- ลายหยก: ริ้วขุ่นไหลไม่ขนานกัน ถ้าลากเป็นเส้นขนานคาบเดียวจะอ่านเป็น "ลายทาง" -->
+<g clip-path="url(#dsLeft)" stroke="var(--ds-vein,#8FBFA0)" fill="none" stroke-linecap="round" opacity=".5">
+<path d="M12 30c7 5 11 12 10 20" stroke-width="2.2"/>
+<path d="M18 46c5 2 9 7 10 13" stroke-width="1.5"/>
+</g>
+<g clip-path="url(#dsRight)" stroke="var(--ds-vein-2,#B4DCC0)" fill="none" stroke-linecap="round" opacity=".45">
+<path d="M60 28c-6 6-9 14-8 22" stroke-width="2"/>
+<path d="M50 48c-3 3-5 8-5 13" stroke-width="1.4"/>
+</g>
+<g clip-path="url(#dsFace)" stroke="var(--ds-vein-3,#9CC7AC)" fill="none" stroke-linecap="round" opacity=".42">
+<path d="M16 22c8 4 16 3 24-2" stroke-width="1.8"/>
+<path d="M34 32c8-2 14-6 18-11" stroke-width="1.3"/>
+</g>
+
+<!-- ═══ หน้าบน = หน้าตรา (印面) : กรอบชาดแดง + อักษรตราสองตัว ═══
+     เป็นของชิ้นเดียวกับตราบนภาพหมึกในฉากหน้า Home และตราที่ประทับตอนเวลาหมด -->
+<g clip-path="url(#dsFace)">
+<path d="M36 13.6 54.6 23 36 32.4 17.4 23z" fill="var(--ds-seal,#BE2A18)"/>
+<path d="M36 16.6 48.6 23 36 29.4 23.4 23z" fill="var(--ds-top-1,#E4F0E2)"/>
+<g stroke="var(--ds-seal,#BE2A18)" stroke-width="1.5" stroke-linecap="round">
+<path d="M30.4 22.2 34 24M30.4 24.4 34 26.2M32.2 20.8 32.2 26"/>
+<path d="M38.6 20.6 42.2 22.4M38.6 22.8 42.2 24.6M40.4 19.6 40.4 25.4"/>
+</g>
+</g>
+<!-- ขอบหลุมของหน้าตรา: เส้นเงาบนขอบไกล = ตาอ่านว่า "แกะลึกลงไป" ไม่ใช่ "แปะสติกเกอร์" -->
+<path d="M36 13.6 54.6 23 36 32.4 17.4 23z" fill="none" stroke="var(--ds-groove,#7E9C87)" stroke-width="1.2" opacity=".7"/>
+
+<!-- ขอบลูกบาศก์: เส้นสว่างบางๆ = ขอบหยกขัดเงารับแสง -->
+<g fill="none" stroke="var(--ds-edge,#EAF6EC)" stroke-width="1.5" stroke-linejoin="round" opacity=".8">
+<path d="M36 8 62 23 36 38 10 23z"/>
+<path d="M10 23v28l26 15 26-15V23"/>
+<path d="M36 38v28"/>
+</g>
+
+<!-- ═══ แต้ม = หลุมแกะที่ป้ายชาดแดง (เงาขอบบน + ชาดข้างใน + ขอบสว่างล่าง) ═══ -->
+<!-- ⚠️ ตำแหน่งแต้มคำนวณจากมุมของแต่ละหน้าจริง (พาราเมตริก u,v บนสี่เหลี่ยมด้านขนาน)
+     รอบแรกยกตัวเลขมาจากลูกเต๋าใบอื่นแล้วแต้มล่างขวาหลุดพ้นขอบหน้าออกไป
+     ⚠️ กลไกที่ทำให้อ่านเป็น "หลุมแกะ" ไม่ใช่ "เม็ดนูน": เงาอยู่ขอบ *บน* ของหลุม
+        (ชาดเลื่อนลงเล็กน้อยจนเห็นเสี้ยวเข้มด้านบน) + ขอบสว่างอยู่ *ล่าง*
+        ถ้าใส่ไฮไลต์เม็ดขาวกลางแต้ม มันจะกลายเป็นลูกปัดกลมทันที -->
+<!-- หน้าซ้าย 2 แต้ม -->
+<g>
+<ellipse cx="18" cy="36" rx="3.6" ry="4.1" fill="var(--ds-pit,#2F4C3B)"/>
+<ellipse cx="18" cy="36.9" rx="3" ry="3.4" fill="var(--ds-seal,#BE2A18)"/>
+<path d="M14.5 37.2a3.5 4 0 0 0 7 0" fill="none" stroke="var(--ds-vein-2,#CDE8D6)" stroke-width=".9" opacity=".5"/>
+<ellipse cx="28" cy="52" rx="3.6" ry="4.1" fill="var(--ds-pit,#2F4C3B)"/>
+<ellipse cx="28" cy="52.9" rx="3" ry="3.4" fill="var(--ds-seal,#BE2A18)"/>
+<path d="M24.5 53.2a3.5 4 0 0 0 7 0" fill="none" stroke="var(--ds-vein-2,#CDE8D6)" stroke-width=".9" opacity=".5"/>
+</g>
+<!-- หน้าขวา 3 แต้ม (เรียงตามแนวทแยงของหน้า = ท่าเลข 3 บนลูกเต๋าจริง) -->
+<g>
+<ellipse cx="41.7" cy="40.9" rx="3.5" ry="4" fill="var(--ds-pit,#2F4C3B)"/>
+<ellipse cx="41.7" cy="41.8" rx="2.9" ry="3.3" fill="var(--ds-seal,#C93020)"/>
+<path d="M38.3 42.1a3.4 3.9 0 0 0 6.8 0" fill="none" stroke="var(--ds-vein-2,#CDE8D6)" stroke-width=".9" opacity=".45"/>
+<ellipse cx="49" cy="44.5" rx="3.5" ry="4" fill="var(--ds-pit,#2F4C3B)"/>
+<ellipse cx="49" cy="45.4" rx="2.9" ry="3.3" fill="var(--ds-seal,#C93020)"/>
+<path d="M45.6 45.7a3.4 3.9 0 0 0 6.8 0" fill="none" stroke="var(--ds-vein-2,#CDE8D6)" stroke-width=".9" opacity=".45"/>
+<ellipse cx="56.3" cy="48.1" rx="3.5" ry="4" fill="var(--ds-pit,#2F4C3B)"/>
+<ellipse cx="56.3" cy="49" rx="2.9" ry="3.3" fill="var(--ds-seal,#C93020)"/>
+<path d="M52.9 49.3a3.4 3.9 0 0 0 6.8 0" fill="none" stroke="var(--ds-vein-2,#CDE8D6)" stroke-width=".9" opacity=".45"/>
+</g>
+
+<!-- ไฮไลต์หยกบนมุมซ้ายของหน้าบน (หยกขัดเงาสะท้อนแสงเป็นแถบเดียว ไม่ใช่ทั้งหน้า) -->
+<path d="M20 22 32 14.4l4.4 2.6-12 7.6z" fill="#FFFFFF" opacity=".45"/>
+</svg>

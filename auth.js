@@ -58,6 +58,10 @@ provider.setCustomParameters({ prompt: "select_account" }); // บังคั�
 let currentUser = null;
 let googleAuthReady = false;
 
+/* uid ที่ยิง sq-user-changed ออกไปครั้งล่าสุด
+   undefined = ยังไม่เคยยิงเลย (ต้องยิงรอบแรกเสมอ เพื่อสลับ scope จาก guest → uid จริง) */
+let lastDispatchedUid;
+
 function isCapacitor() {
   return !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 }
@@ -332,7 +336,18 @@ onAuthStateChanged(auth, (user) => {
   }
   syncAuthGate(user);
   window.dispatchEvent(new CustomEvent("sq-auth-changed", { detail: window.sqAuth }));
-  window.dispatchEvent(new Event("sq-user-changed"));
+
+  /* 🔴 ยิง sq-user-changed เฉพาะตอน "คนใช้เปลี่ยนจริง" เท่านั้น
+     onAuthStateChanged ถูกเรียกซ้ำได้หลายเหตุ (ฟื้น session ตอนบูต, refresh token,
+     กลับเข้าแอปหลังปิดจอ) — เดิมยิงทุกครั้งไม่เช็คอะไรเลย ทำให้ฝั่งแอปเรียก
+     resetRuntimeForAccountSwitch() ล้าง state ของเควสที่กำลังเดินอยู่ทิ้ง
+     แล้วไปค้างรอ await cloudLoadAll() → กด Stop ช่วงนั้นได้ 0 วิ + OS alarm ไม่ถูกยกเลิก
+     (บั๊ก 2026-08-17 — พิสูจน์ด้วย tests/repro-timer-authrace.js) */
+  const uidNow = currentUser?.uid || null;
+  if (lastDispatchedUid !== uidNow) {
+    lastDispatchedUid = uidNow;
+    window.dispatchEvent(new Event("sq-user-changed"));
+  }
 });
 
 document.addEventListener("click", (e) => {

@@ -2,7 +2,7 @@
  * ยัดงานวาด SVG จาก www/skins/*.svg เข้า www/index.html เป็นก้อน SKIN_SVG
  * แก้ "งานวาด" ที่ไฟล์ SVG แล้วรันสคริปต์นี้ใหม่ — ห้ามแก้ในตัว index.html
  *
- * รัน:  node www/skins/_build-skins.js [--dry]        (จาก d:/git)
+ * รัน:  node skins/_build-skins.js [--dry]
  *
  * (อยู่ในเรโปข้าง ๆ งานวาดเลย เพราะตอนอยู่ใน scratchpad มันหายทุกครั้งที่ขึ้น session ใหม่)
  */
@@ -15,33 +15,36 @@ const DRY  = process.argv.includes("--dry");
 
 /* ลำดับในนี้ = ลำดับใน SKIN_SVG (ไม่มีผลกับการทำงาน แค่ให้อ่านง่าย) */
 const IDS = [
-  "btn-pixel", "btn-bolt", "btn-gilded", "btn-hull", "btn-saucer", "btn-royal", "btn-court",
-  "dice-pearl", "dice-ufo", "dice-royal",
-  "home-attic", "home-library", "home-sakura", "home-abyss", "home-alien", "home-academy", "home-court",
-  "timer-abyss", "timer-abyss-jelly",   // "timer-rose" = ตัวที่พักไว้ ใส่กลับได้เลยถ้าจะทำต่อ
+  "btn-pixel", "btn-bolt", "btn-gilded", "btn-hull", "btn-saucer", "btn-royal", "btn-court", "btn-knit", "btn-lacquer",
+  "dice-pearl", "dice-ufo", "dice-royal", "dice-rain", "dice-seal",
+  "home-attic", "home-library", "home-sakura", "home-abyss", "home-alien", "home-academy", "home-court", "home-rain", "home-pavilion", "home-clock", "home-kintsugi",
+  "timer-rain", "timer-rain-fall", "timer-rain-view", "timer-abyss", "timer-abyss-jelly",   // "timer-rose" = ตัวที่พักไว้ ใส่กลับได้เลยถ้าจะทำต่อ
   "timer-beam", "timer-beam-crystal",
-  "fx-bubble", "fx-warp", "fx-crest",
+  "timer-scroll", "timer-scroll-art",
+  "fx-bubble", "fx-warp", "fx-crest", "fx-motes", "fx-ink",
 ];
 
 /* ═══ ชุด "ป่าแห่งผีเสื้อเวทมนต์" — ซ่อนไว้ ยังไม่ปล่อยให้ใครเห็น (2026-08-12) ═══
    งานอาร์ตฉากหลังยังไม่ผ่าน user เลยพักไว้ทั้งชุด งานวาดย้ายออกไปนอก www แล้ว
-   (อยู่ที่ d:\git\skins-wip\ — ไม่ได้อยู่ใน www จึงไม่ถูกแจกไปกับเว็บ/APK)
+   (ไฟล์ WIP ไม่ได้รวมอยู่ในสำเนาพอร์ตนี้)
 
    วิธีเอากลับมาทำต่อ ทำ 3 อย่างนี้:
      1. ย้ายไฟล์กลับ:  mv skins-wip/*.svg www/skins/
      2. เติม 5 id นี้กลับเข้า IDS ข้างบน:
           "btn-butterfly" · "dice-wish" · "home-butterfly" · "butterfly-flyby" · "fx-wish"
+     [2026-08-19] ฉากหลังตัวที่วาดใหม่ 2026-08-18 ก็ถูกถอดออกอีกรอบ (user: "มันยังใช้ไม่ได้")
+     ไฟล์ไปอยู่ที่ skins-wip/home-butterfly.2026-08-18*.svg
      3. ปลดคอมเมนต์ของ 5 ชิ้นใน STORE_ITEMS ของ www/index.html (ค้นคำว่า "ป่าแห่งผีเสื้อเวทมนต์")
    CSS / ตัวคุมผีเสื้อบินผ่านจอ / i18n ยังอยู่ครบใน index.html ไม่ต้องทำอะไรเพิ่ม */
 
 /* งานวาดที่อยู่นอก www/skins/ — ชุดมาสคอตอยู่ข้าง fox.svg เพราะพิกัดผูกกับตัวหมา
    (ถ้าก๊อปมาไว้ที่นี่ด้วยจะมี 2 ก๊อป แล้วแก้ไม่ตรงกันแน่นอน) */
 const EXTRA = {
-  "mascot-space":  path.join(DIR, "..", "..", "mascot-svg", "space-suit.svg"),
-  "mascot-shades": path.join(DIR, "..", "..", "mascot-svg", "deal-shades.svg"),
-  "mascot-academy":path.join(DIR, "..", "..", "mascot-svg", "academy-uniform.svg"),
-  "mascot-basket": path.join(DIR, "..", "..", "mascot-svg", "basket-jersey.svg"),
-  "mascot-cozy":   path.join(DIR, "..", "..", "mascot-svg", "cozy-knit.svg"),
+  "mascot-space":  path.join(DIR, "..", "mascot-svg", "space-suit.svg"),
+  "mascot-shades": path.join(DIR, "..", "mascot-svg", "deal-shades.svg"),
+  "mascot-academy":path.join(DIR, "..", "mascot-svg", "academy-uniform.svg"),
+  "mascot-basket": path.join(DIR, "..", "mascot-svg", "basket-jersey.svg"),
+  "mascot-cozy":   path.join(DIR, "..", "mascot-svg", "cozy-knit.svg"),
 };
 
 const START = "/* ===== SKIN ART — สร้างจาก www/skins/*.svg โดย scratchpad/build-skins.js ===== */";

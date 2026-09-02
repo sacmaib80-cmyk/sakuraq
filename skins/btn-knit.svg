@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Knit blanket button skin">
+<!-- ปุ่ม "ผ้าห่มไหมพรม" (ชุดวันพายุ)
+     ⚠️ เหตุผลที่ไม่ใช่ลายฝน: คอนเซปต์ของชุดนี้คือ "ข้างนอก=พายุ / ข้างใน=เซฟโซน"
+        ปุ่มอยู่ในบ้าน ถ้าเอาฝนมาแปะบนปุ่ม = ลากพายุเข้ามาในเซฟโซน คอนเซปต์พังทันที
+        ของที่อยู่บนปุ่มจึงต้องเป็นของอุ่นในบ้าน -> ผ้าห่มผืนเดียวกับที่อยู่ในตะกร้าของฉาก
+     ⚠️ จงใจไม่มีแสงกวาด/ประกายดาว/ตะเข็บหนัง — สามอย่างนั้นเป็นลายเซ็นของ
+        ซากุระทอง ตราโรงเรียน และหนังลูกบาส ตามลำดับ
+     ⚠️ พื้นต้องเข้มพอ เพราะตัวหนังสือปุ่มเป็นสีขาว (ไล่จบที่ #5a3125)
+     ตัวตนของปุ่มนี้: นิ่ง = ผ้าถักนิ่งๆ ไม่ขยับเลย · กด = ไออุ่นแผ่ + ปุยไหมพรมฟูขึ้น -->
+<defs>
+<linearGradient id="bkBase" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--bk-1,#9c5b45)"/>
+<stop offset=".5"  stop-color="var(--bk-2,#7d4433)"/>
+<stop offset="1"   stop-color="var(--bk-3,#5a3125)"/>
+</linearGradient>
+<radialGradient id="bkWarm" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--bk-warm,#ffd9a8)" stop-opacity=".85"/>
+<stop offset="1"   stop-color="var(--bk-warm,#ffd9a8)" stop-opacity="0"/>
+</radialGradient>
+<!-- ลายถัก: ตัว V ซ้ำเป็นตาราง = เงาของผ้าถักที่ตาจำได้ทันที -->
+<pattern id="bkStitch" width="9" height="11" patternUnits="userSpaceOnUse">
+<path d="M1.4 3l3.1 4 3.1-4" fill="none" stroke="var(--bk-stitch,#c07a5e)" stroke-width="1.5" stroke-linecap="round" opacity=".42"/>
+<path d="M1.4 8.6l3.1 4 3.1-4" fill="none" stroke="var(--bk-stitch-lo,#4a2519)" stroke-width="1.3" stroke-linecap="round" opacity=".3"/>
+</pattern>
+</defs>
+
+<rect x="0" y="0" width="320" height="54" fill="url(#bkBase)"/>
+<rect x="0" y="0" width="320" height="54" fill="url(#bkStitch)"/>
+
+<!-- แถบสีครีมสองข้าง: ลายเดียวกับผ้าห่มในตะกร้าของฉากหน้า Home (ผูกของสองชิ้นให้เป็นผืนเดียวกัน) -->
+<g fill="var(--bk-stripe,#e8cbb4)" opacity=".82">
+<rect x="16" y="0" width="9" height="54"/>
+<rect x="31" y="0" width="4" height="54" opacity=".6"/>
+<rect x="285" y="0" width="4" height="54" opacity=".6"/>
+<rect x="295" y="0" width="9" height="54"/>
+</g>
+
+<!-- เปียถัก (cable braid) ขอบบน/ล่าง: เกลียวสองเส้นสวนกัน = ตัวที่บอกว่า "ถัก" ไม่ใช่ "ผ้าเรียบ" -->
+<g fill="none" stroke-linecap="round">
+<g stroke="var(--bk-cable,#b56d52)" stroke-width="5.4">
+<path d="M-8 7q13 7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+<path d="M-8 7q13-7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+<path d="M-8 47q13 7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+<path d="M-8 47q13-7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+</g>
+<g stroke="var(--bk-cable-hi,#d99c78)" stroke-width="1.6" opacity=".55">
+<path d="M-8 5.6q13 7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+<path d="M-8 45.6q13 7 26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0t26 0"/>
+</g>
+</g>
+
+<!-- ขอบบนรับแสงโคม / ขอบล่างเป็นเงา -->
+<rect x="0" y="0" width="320" height="1.8" fill="#ffe3c2" opacity=".26"/>
+<rect x="0" y="52.2" width="320" height="1.8" fill="#2c1409" opacity=".4"/>
+
+<!-- ═══ ตอนกด: ไออุ่นแผ่จากกลางปุ่ม + ปุยไหมพรมฟูขึ้น (CSS โชว์เฉพาะ :active) ═══ -->
+<g class="skCozy" opacity="0">
+<ellipse class="skWarmGlow" cx="160" cy="27" rx="66" ry="24" fill="url(#bkWarm)"/>
+<g class="skFuzzes" stroke="var(--bk-fuzz,#f0d8bd)" stroke-width="1.7" stroke-linecap="round" fill="none">
+<path class="skFuzz skFuzz1" d="M96 34c-2-6 1-10-1-15"/>
+<path class="skFuzz skFuzz2" d="M132 36c2-7-1-11 1-16"/>
+<path class="skFuzz skFuzz3" d="M188 36c-2-7 1-11-1-16"/>
+<path class="skFuzz skFuzz4" d="M224 34c2-6-1-10 1-15"/>
+<path class="skFuzz skFuzz5" d="M160 38c0-8 0-12 0-18"/>
+</g>
+</g>
+</svg>

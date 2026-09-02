@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 720" data-outfit="cozy" role="img" aria-label="Cozy knit beanie and scarf for the fox mascot">
+<!--
+  ชุดไหมพรม "ขาประจำ" — รางวัลเช็คอินครบ 7 วัน (ซื้อในร้านไม่ได้)
+  user สั่งไว้ว่า "ไม่ต้องเวอร์มาก เหมาะกับการล็อกอินรายวัน" -> ตั้งใจทำให้อบอุ่น เรียบ ไม่แข่งกับชุดที่ขายจริง
+
+  พิกัดอยู่ใน user space เดียวกับ fox.svg (viewBox 0 0 956 720)
+  ข้อบังคับ (RIG CONTRACT ของ fox.svg):
+    - ห้ามใส่ attribute transform= บน <g class="fx-*">   (ในนี้ไม่มี fx-* เลย ปลอดภัย)
+    - id ทุกตัวขึ้นต้น ck* กันชนกับของเดิมใน fox.svg
+    - defs อยู่ในช่อง neck ซึ่งถูกยัดเข้าเสมอพร้อมกันทุกช่อง
+
+  ลำดับที่ตาเห็น: [ตัวหมา] -> hat(หมวกไหมพรม) -> neck(ผ้าพันคอ)
+  หมวก: กว้าง x 404..552 เท่านั้น (กว้างกว่านี้ทับโคนหู — บทเรียนจากชุดนักเรียน)
+  ผ้าพันคอ: พันรอบคอที่ y≈446..512 แล้วปล่อยชายลงมาถึง y≈600 ข้างเดียว (ไม่บังปุยอกทั้งหมด)
+-->
+
+<!-- ══════════════ ช่อง neck: ผ้าพันคอไหมพรม ══════════════ -->
+<g data-slot="neck">
+  <defs>
+    <linearGradient id="ckYarn" x1="0" y1="0" x2=".2" y2="1">
+      <stop offset="0"   stop-color="#FBC6D4"/>
+      <stop offset=".45" stop-color="#F0A9BE"/>
+      <stop offset="1"   stop-color="#D2809A"/>
+    </linearGradient>
+    <linearGradient id="ckYarn2" x1="0" y1="0" x2=".2" y2="1">
+      <stop offset="0"   stop-color="#FFF8EC"/>
+      <stop offset="1"   stop-color="#EBDCC6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- วงผ้าพันคอรอบคอ -->
+  <path d="M400 452c14 26 44 40 78 40s64-14 78-40c10 16 12 34 6 50-22 26-52 40-84 40s-62-14-84-40c-6-16-4-34 6-50z"
+        fill="url(#ckYarn)"/>
+  <!-- ลายถักบนวง -->
+  <g stroke="#C4738D" stroke-width="4" stroke-linecap="round" opacity=".55" fill="none">
+    <path d="M418 478c-2 14-2 28 2 40"/>
+    <path d="M446 492c-2 14-2 26 0 38"/>
+    <path d="M478 498v38"/>
+    <path d="M510 492c2 14 2 26 0 38"/>
+    <path d="M538 478c2 14 2 28-2 40"/>
+  </g>
+  <!-- ไฮไลต์ด้านรับแสง -->
+  <path d="M400 452c14 26 44 40 78 40v18c-34 0-64-14-84-40-2-6-1-12 6-18z" fill="#FFE0E9" opacity=".5"/>
+
+  <!-- ชายผ้าห้อยข้างขวา -->
+  <path d="M540 520c14 20 20 46 18 74-14 8-30 8-44 0 2-26-2-50-10-70z" fill="url(#ckYarn)"/>
+  <path d="M540 520c8 12 14 28 16 44-10 4-20 4-30 0-2-16-6-30-12-40z" fill="#FBC6D4" opacity=".5"/>
+  <!-- ลายขวางขาวบนชาย -->
+  <g stroke="url(#ckYarn2)" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M519 548c14 6 28 6 40 0"/>
+    <path d="M523 572c12 6 24 6 34 0"/>
+  </g>
+  <!-- พู่ปลายชาย -->
+  <g stroke="#D2809A" stroke-width="5" stroke-linecap="round">
+    <path d="M518 592v16"/><path d="M528 594v18"/><path d="M540 594v18"/><path d="M552 592v16"/>
+  </g>
+</g>
+
+<!-- ══════════════ ช่อง hat: หมวกไหมพรม ══════════════ -->
+<g data-slot="hat">
+  <!-- เงาบนกะโหลก -->
+  <ellipse cx="478" cy="196" rx="74" ry="12" fill="#8A5F72" opacity=".16"/>
+  <!-- ทรงหมวก -->
+  <path d="M478 118c38 0 66 26 70 62 1 8-6 12-14 12H422c-8 0-15-4-14-12 4-36 32-62 70-62z" fill="url(#ckYarn)"/>
+  <!-- ริ้วถักแนวตั้ง -->
+  <g stroke="#C4738D" stroke-width="4.4" stroke-linecap="round" opacity=".5" fill="none">
+    <path d="M436 190c-2-24 2-44 12-58"/>
+    <path d="M458 190c-1-26 1-48 8-64"/>
+    <path d="M478 190v-66"/>
+    <path d="M498 190c1-26-1-48-8-64"/>
+    <path d="M520 190c2-24-2-44-12-58"/>
+  </g>
+  <!-- ไฮไลต์ -->
+  <path d="M478 118c-38 0-66 26-70 62-1 8 6 12 14 12h14c-4-38 14-64 42-74z" fill="#FFE0E9" opacity=".45"/>
+  <!-- ขอบพับ -->
+  <path d="M406 190h144c7 0 12 6 12 13s-5 13-12 13H406c-7 0-12-6-12-13s5-13 12-13z" fill="url(#ckYarn2)"/>
+  <g stroke="#D9C6AC" stroke-width="3.4" stroke-linecap="round" opacity=".65">
+    <path d="M424 194v18"/><path d="M448 194v18"/><path d="M478 194v18"/><path d="M508 194v18"/><path d="M532 194v18"/>
+  </g>
+  <!-- ปอมปอม -->
+  <circle cx="478" cy="112" r="20" fill="url(#ckYarn2)"/>
+  <g stroke="#D9C6AC" stroke-width="3" stroke-linecap="round" opacity=".7">
+    <path d="M466 102l-6-6"/><path d="M490 102l6-6"/><path d="M478 94v-8"/><path d="M462 118l-9 3"/><path d="M494 118l9 3"/>
+  </g>
+</g>
+</svg>

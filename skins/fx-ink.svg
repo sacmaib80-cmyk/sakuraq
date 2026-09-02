@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ink bloom tap effect">
+<!-- เอฟเฟกต์ตอนแตะจอ "หมึกซึมกระดาษ" (ชุดหอพระจันทร์)
+     กฎกลางของชุด: หมึกดำ = สิ่งที่กำลังลงมือทำ / แดงชาด = สิ่งที่จบแล้ว
+     การแตะจอ = "เริ่มลงมือ" -> จึงต้องเป็นหมึก ไม่ใช่ตราแดง (ตราแดงถูกสงวนไว้ให้ตอนเวลาหมด)
+     ต่างจากฟองใต้ทะเล/ละอองโคม/วาร์ปตรงจังหวะ: หมึกแผ่เร็วตอนแรกแล้วหน่วงลง แล้วจางหายเข้ากระดาษ
+     ⚠️ ขอบวงหมึกห้ามกลมเป๊ะ หมึกบนกระดาษสาซึมเป็นแฉกไม่เท่ากัน
+        ถ้าวาดเป็นวงกลมสมบูรณ์จะอ่านเป็น "ระลอกน้ำ" ซึ่งเป็นของธีมใต้ทะเลไปแล้ว
+     ทุก class ถูกขับด้วย CSS (.sq-tap-ink ...) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<radialGradient id="fiWash" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--fi-ink,#2A2A33)" stop-opacity=".5"/>
+<stop offset=".62" stop-color="var(--fi-ink,#2A2A33)" stop-opacity=".14"/>
+<stop offset="1"   stop-color="var(--fi-ink,#2A2A33)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<!-- รอยซึมนอกสุด: จางและขอบฟุ้ง -->
+<circle class="fiWash" cx="32" cy="32" r="20" fill="url(#fiWash)"/>
+
+<!-- วงหมึก 2 ชั้น ขอบเป็นแฉกคนละจังหวะ (คนละจำนวนแฉก จะได้ไม่ซ้อนทับกันเป๊ะ) -->
+<path class="fiBloom fiBloom1" fill="var(--fi-ink,#2A2A33)" opacity=".5"
+      d="M32 18c6-1 9 3 12 6s5 8 2 12-3 8-8 9-9-2-13-4-8-4-8-9 1-8 4-11 5-2 11-3z"/>
+<path class="fiBloom fiBloom2" fill="var(--fi-ink,#1E1E26)" opacity=".72"
+      d="M32 22c5 0 6 3 9 5s3 6 1 9-3 6-7 6-7-2-10-4-5-4-4-8 2-5 4-6 3-2 7-2z"/>
+
+<!-- แกนหยดที่ตกลงมา (เข้มสุด เป็นจุดเดียวในภาพที่ทึบเต็ม) -->
+<g class="fiDrop">
+<path fill="var(--fi-core,#15151B)" d="M32 26c3 0 5 2 6 4s1 5-2 6-6 1-8-1-2-5 0-7 2-2 4-2z"/>
+</g>
+
+<!-- เม็ดหมึกกระเด็น: ขนาดต่างกันมาก ถ้าเท่ากันหมดจะอ่านเป็น "จุดไข่ปลา" -->
+<g class="fiSpeck fiSpeck1"><ellipse cx="32" cy="32" rx="2.4" ry="1.9" fill="var(--fi-ink,#2A2A33)"/></g>
+<g class="fiSpeck fiSpeck2"><ellipse cx="32" cy="32" rx="1.4" ry="1.7" fill="var(--fi-ink,#2A2A33)"/></g>
+<g class="fiSpeck fiSpeck3"><ellipse cx="32" cy="32" rx="3" ry="2.2" fill="var(--fi-ink,#1E1E26)"/></g>
+<g class="fiSpeck fiSpeck4"><ellipse cx="32" cy="32" rx="1.1" ry="1.3" fill="var(--fi-ink,#2A2A33)"/></g>
+<g class="fiSpeck fiSpeck5"><ellipse cx="32" cy="32" rx="2" ry="1.5" fill="var(--fi-ink,#1E1E26)"/></g>
+<g class="fiSpeck fiSpeck6"><ellipse cx="32" cy="32" rx="1.3" ry="1.6" fill="var(--fi-ink,#2A2A33)"/></g>
+
+<!-- ปลายพู่กันสะบัดออกหนึ่งเส้น = ตัวที่บอกว่าหมึกนี้มาจาก "พู่กัน" ไม่ใช่ "น้ำหก" -->
+<path class="fiFlick" d="M36 30c6 1 11 4 15 9-6-2-11-5-15-9z" fill="var(--fi-ink,#2A2A33)" opacity=".8"/>
+</svg>

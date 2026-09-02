@@ -1,0 +1,12 @@
+{
+  "name": "sakuraq-portfolio-snapshot",
+  "version": "0.18.27",
+  "private": true,
+  "scripts": {
+    "build:skins": "node skins/_build-skins.js",
+    "check:skins": "node skins/_check-scene.js --all"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.16.0"
+  }
+}

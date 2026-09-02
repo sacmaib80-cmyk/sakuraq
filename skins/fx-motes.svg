@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lamplight motes tap effect">
+<!-- เอฟเฟกต์ตอนแตะจอ "ละอองแสงจากโคม" (ชุดวันพายุ)
+     ⚠️ เหตุผลที่ไม่ใช่หยดน้ำ: การแตะจอเกิดขึ้น "ในบ้าน" ซึ่งเป็นเซฟโซน
+        ถ้าพ่นน้ำออกมาตอนแตะ = ลากฝนเข้ามาในบ้าน คอนเซปต์ของชุดพัง
+        ของที่ควรเกิดในบ้านคือไออุ่นจากโคม + ฝุ่นละอองที่ลอยอยู่ในลำแสง
+     ต่างจาก fx-bubble ตรงจังหวะ: ฟองพุ่งเร็วแล้วแตก ส่วนละอองลอยช้าและเรืองนุ่ม
+     ทุก class ถูกขับด้วย CSS (.sq-tap-motes ...) ไม่มีอนิเมชั่นในไฟล์นี้ -->
+<defs>
+<radialGradient id="fmGlow" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--fm-glow,#ffd9a8)" stop-opacity=".62"/>
+<stop offset=".58" stop-color="var(--fm-glow,#ffd9a8)" stop-opacity=".16"/>
+<stop offset="1"   stop-color="var(--fm-glow,#ffd9a8)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<circle class="fmHalo" cx="32" cy="32" r="19" fill="url(#fmGlow)"/>
+
+<!-- วงไออุ่น: นุ่มและจาง ไม่ใช่วงกระเพื่อมคมๆ แบบผิวน้ำ -->
+<g fill="none" stroke="var(--fm-ring,#ffcf8f)" stroke-linecap="round">
+<circle class="fmRing fmRing1" cx="32" cy="32" r="10" stroke-width="2.2" opacity=".7"/>
+<circle class="fmRing fmRing2" cx="32" cy="32" r="10" stroke-width="1.4" opacity=".45"/>
+</g>
+
+<!-- แกนแสงตรงกลาง -->
+<g class="fmCore">
+<circle cx="32" cy="32" r="4.4" fill="var(--fm-core,#fff1d6)" opacity=".9"/>
+<circle cx="32" cy="32" r="2.2" fill="#ffffff"/>
+</g>
+
+<!-- ละอองฝุ่นในลำแสง: เม็ดกลมนุ่ม มีขนาดต่างกันมาก (เท่ากันหมดจะอ่านเป็นจุดไข่ปลา) -->
+<g class="fmMote fmMote1"><circle cx="32" cy="32" r="2.3" fill="var(--fm-dust,#ffe6c2)"/></g>
+<g class="fmMote fmMote2"><circle cx="32" cy="32" r="1.5" fill="var(--fm-dust,#ffe6c2)"/></g>
+<g class="fmMote fmMote3"><circle cx="32" cy="32" r="2.8" fill="var(--fm-dust,#fff2dc)"/></g>
+<g class="fmMote fmMote4"><circle cx="32" cy="32" r="1.2" fill="var(--fm-dust,#ffe6c2)"/></g>
+<g class="fmMote fmMote5"><circle cx="32" cy="32" r="1.9" fill="var(--fm-dust,#fff2dc)"/></g>
+<g class="fmMote fmMote6"><circle cx="32" cy="32" r="1.1" fill="var(--fm-dust,#ffe6c2)"/></g>
+<g class="fmMote fmMote7"><circle cx="32" cy="32" r="2.1" fill="var(--fm-dust,#fff2dc)"/></g>
+<g class="fmMote fmMote8"><circle cx="32" cy="32" r="1.4" fill="var(--fm-dust,#ffe6c2)"/></g>
+</svg>

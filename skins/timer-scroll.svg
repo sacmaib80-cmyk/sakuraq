@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Hanging scroll timer frame">
+<!-- หน้าจับเวลา "ภาพที่ยังวาดไม่จบ" (ชุดหอพระจันทร์) — กรอบม้วนภาพแขวน (立軸)
+     ⚠️ จงใจเป็น "ม้วนภาพแขวน" ไม่ใช่วงแหวน/หน้าต่าง/จานเสียง/ลำแสง
+        ทรงเป็นตัวบอกว่าคนละธีม ถ้าทรงเดียวกันแล้วเปลี่ยนสีคนดูจะอ่านว่าเป็นของเดิมทาสีใหม่
+        ตัวที่ทำให้อ่านออกว่าเป็นม้วนภาพจีน = ลูกกลิ้งไม้บน/ล่าง + ลูกบิดกลมโผล่พ้นสองข้าง + ผ้าไหมขอบ
+     ⚠️ กลางบานเว้นว่างไว้ให้ตัวเลขเวลา (ภาพจีนเว้นที่ว่างกลางภาพอยู่แล้ว = 留白 พอดีกับข้อจำกัดนี้)
+     ⚠️ ตัวเลขเวลาในธีมนี้เป็น "สีหมึก" ไม่ใช่สีขาว เพราะพื้นเป็นกระดาษสาสีครีม
+        ขาวบนครีมอ่านไม่ออก (เคยพลาดขาวบนขาวมาแล้วในธีมวันพายุ)
+
+     กลไกเวลาไม่ใช่เกจ แต่เป็น "ภาพที่ถูกวาดขึ้นทีละเส้น":
+       เริ่มจับเวลา = กระดาษเปล่า
+       ระหว่างทาง   = ภูเขาไกล ภูเขาใกล้ หมอก ตลิ่ง ต้นสน เรือ นก ค่อยๆ โผล่จากบนลงล่าง
+       หมดเวลา      = ตราชาดแดงประทับลงมา (จีนประทับตราก็ต่อเมื่องานเสร็จ)
+     ตราแดงคือรางวัลของช่วงท้ายล้วนๆ ห้ามโชว์ตั้งแต่แรก ไม่งั้นจะไม่มีอะไรให้รอ
+     ช่องกระดาษ = x 62-238 / y 50-238 -> ไฟล์ timer-scroll-art.svg ตั้ง viewBox เป็นช่วงเดียวกัน
+     จึงวางทับได้ตรงๆ ไม่ต้องชดเชยเปอร์เซ็นต์ -->
+<defs>
+<linearGradient id="tsWood" x1="0" y1="0" x2=".2" y2="1">
+<stop offset="0"   stop-color="var(--ts-wood-hi,#7A4436)"/>
+<stop offset=".45" stop-color="var(--ts-wood,#54291F)"/>
+<stop offset="1"   stop-color="var(--ts-wood-lo,#2E1610)"/>
+</linearGradient>
+<linearGradient id="tsSilk" x1="0" y1="0" x2=".3" y2="1">
+<stop offset="0"   stop-color="var(--ts-silk-hi,#4E6272)"/>
+<stop offset=".5"  stop-color="var(--ts-silk,#3B4C5C)"/>
+<stop offset="1"   stop-color="var(--ts-silk-lo,#2A3846)"/>
+</linearGradient>
+<linearGradient id="tsBrass" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0"   stop-color="var(--ts-brass-hi,#F6E1A6)"/>
+<stop offset=".55" stop-color="var(--ts-brass,#D3A94E)"/>
+<stop offset="1"   stop-color="var(--ts-brass-lo,#8A6420)"/>
+</linearGradient>
+<linearGradient id="tsKnob" x1="0" y1="0" x2=".6" y2="1">
+<stop offset="0"   stop-color="var(--ts-knob-hi,#8C5140)"/>
+<stop offset=".6"  stop-color="var(--ts-knob,#5A2D22)"/>
+<stop offset="1"   stop-color="var(--ts-knob-lo,#2A130E)"/>
+</linearGradient>
+</defs>
+
+<!-- เชือกแขวน + ห่วงทองเหลือง -->
+<g>
+<path d="M150 2v14" stroke="var(--ts-cord,#7A3B2E)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+<circle cx="150" cy="4" r="4" fill="none" stroke="url(#tsBrass)" stroke-width="2.2"/>
+</g>
+
+<!-- ผ้าไหมประกอบ (绫) : พื้นหลังของกระดาษ ต้องเข้มกว่ากระดาษมาก ไม่งั้นขอบภาพจะหายไป -->
+<rect x="40" y="24" width="220" height="240" fill="url(#tsSilk)"/>
+<rect x="40" y="24" width="220" height="240" fill="none" stroke="var(--ts-silk-lo,#22303C)" stroke-width="2"/>
+<!-- ลายดอกบนผ้าไหม: จุดเล็กเรียงเฉียง ทึบราว 12% ถ้าจางกว่านี้จะอ่านเป็นสีเรียบ -->
+<g fill="var(--ts-silk-hi,#6E8496)" opacity=".16">
+<circle cx="52" cy="40" r="2.2"/><circle cx="52" cy="86" r="2.2"/><circle cx="52" cy="132" r="2.2"/><circle cx="52" cy="178" r="2.2"/><circle cx="52" cy="224" r="2.2"/>
+<circle cx="248" cy="52" r="2.2"/><circle cx="248" cy="98" r="2.2"/><circle cx="248" cy="144" r="2.2"/><circle cx="248" cy="190" r="2.2"/><circle cx="248" cy="236" r="2.2"/>
+<circle cx="90" cy="36" r="2"/><circle cx="150" cy="36" r="2"/><circle cx="210" cy="36" r="2"/>
+<circle cx="90" cy="252" r="2"/><circle cx="150" cy="252" r="2"/><circle cx="210" cy="252" r="2"/>
+</g>
+<!-- แถบผ้าไหมชั้นในสีอ่อนกว่า (镶边) = ของจริงบนม้วนภาพจีน มีสองชั้นเสมอ -->
+<rect x="54" y="42" width="192" height="204" fill="none" stroke="var(--ts-silk-hi,#5C7183)" stroke-width="4" opacity=".7"/>
+
+<!-- กระดาษสา (画心) : ตรงกลางเว้นให้ตัวเลขเวลา -->
+<rect x="62" y="50" width="176" height="188" fill="var(--ts-paper,#EDE1C6)"/>
+<rect x="62" y="50" width="176" height="188" fill="none" stroke="var(--ts-paper-lo,#C8B893)" stroke-width="1.2"/>
+<!-- เส้นใยกระดาษสา: ขีดสั้นๆ กระจายไม่เป็นระเบียบ ทึบพอให้รู้สึกได้ -->
+<g stroke="var(--ts-paper-lo,#CDBD98)" stroke-width="1" stroke-linecap="round" opacity=".45">
+<path d="M74 66h16M186 74h14M92 218h18M150 226h12M70 148h10M214 160h12M120 58h14M198 208h10"/>
+</g>
+<!-- เงาขอบในกระดาษ: ทำให้รู้ว่ากระดาษอยู่ลึกเข้าไปจากหน้าผ้าไหม -->
+<rect x="62" y="50" width="176" height="188" fill="none" stroke="#2A1D10" stroke-width="9" opacity=".12"/>
+
+<!-- ลูกกลิ้งไม้บน (天杆) -->
+<rect x="22" y="14" width="256" height="13" rx="3" fill="url(#tsWood)"/>
+<rect x="22" y="14" width="256" height="2.8" rx="1.4" fill="var(--ts-wood-hi,#7A4436)" opacity=".85"/>
+<g fill="url(#tsBrass)" opacity=".9">
+<rect x="22" y="14" width="5" height="13"/><rect x="273" y="14" width="5" height="13"/>
+</g>
+
+<!-- ลูกกลิ้งไม้ล่าง (地杆) + ลูกบิดกลมโผล่พ้นสองข้าง
+     ลูกบิดคือชิ้นที่ทำให้อ่านออกว่าเป็น "ม้วนภาพ" ไม่ใช่ "กรอบรูป" -->
+<rect x="26" y="262" width="248" height="16" rx="4" fill="url(#tsWood)"/>
+<rect x="26" y="262" width="248" height="3.2" rx="1.6" fill="var(--ts-wood-hi,#7A4436)" opacity=".8"/>
+<circle cx="22" cy="270" r="10" fill="url(#tsKnob)"/>
+<circle cx="278" cy="270" r="10" fill="url(#tsKnob)"/>
+<circle cx="19" cy="267" r="3.4" fill="#C58C74" opacity=".45"/>
+<circle cx="275" cy="267" r="3.4" fill="#C58C74" opacity=".45"/>
+<g fill="url(#tsBrass)" opacity=".85">
+<rect x="34" y="262" width="4" height="16"/><rect x="262" y="262" width="4" height="16"/>
+</g>
+<!-- เงาใต้ลูกกลิ้งล่าง: บอกว่าม้วนภาพแขวนลอยอยู่หน้าผนัง -->
+<ellipse cx="150" cy="285" rx="120" ry="7" fill="#1A0D08" opacity=".28"/>
+</svg>

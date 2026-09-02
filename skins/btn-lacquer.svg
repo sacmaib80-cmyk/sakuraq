@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" preserveAspectRatio="none" role="img" aria-label="Cinnabar lacquer plaque button skin">
+<!-- ปุ่ม "ป้ายชาดแดง" (ชุดหอพระจันทร์)
+     กฎกลางของชุด: หมึกดำ = งานที่ยังไม่จบ / แดงชาด = ของที่ยืนยันแล้ว
+     ปุ่มคือ "การยืนยัน" ของผู้ใช้ -> ปุ่มจึงต้องเป็นชาดแดง และเป็นของที่อิ่มสีที่สุดในจอ
+     (แถบ HUD ที่อยู่ติดกันเป็นไม้จันทน์เกือบดำ ถ้าปุ่มเป็นไม้ด้วยมันจะจมหายไปในแถบ)
+     ⚠️ จงใจไม่มี: แสงกวาด (ลายเซ็นซากุระทอง) . ประกายดาว (ตราโรงเรียน) . ตะเข็บหนัง (ลูกบาส) . ลายถักตัว V (ผ้าห่ม)
+     ตัวตนของปุ่มนี้: ผิวรักเงาลึก + ลายกุญแจทองขอบบนล่าง + ฉากทองเหลืองยึดสี่มุม
+     นิ่ง = ป้ายแขวนนิ่ง . กด = เมฆมงคลทองลอยเข้ามาจากสองปลาย + ลายทองสว่างขึ้น
+     ⚠️ พื้นต้องเข้มพอ เพราะตัวหนังสือปุ่มเป็นสีขาว (ไล่จบที่ #6E1409) -->
+<defs>
+<linearGradient id="blBase" x1="0" y1="0" x2=".12" y2="1">
+<stop offset="0"   stop-color="var(--bl-1,#C43524)"/>
+<stop offset=".46" stop-color="var(--bl-2,#9E2416)"/>
+<stop offset="1"   stop-color="var(--bl-3,#6E1409)"/>
+</linearGradient>
+<linearGradient id="blGold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0"   stop-color="var(--bl-gold-hi,#F7E3AC)"/>
+<stop offset=".55" stop-color="var(--bl-gold,#D5AC54)"/>
+<stop offset="1"   stop-color="var(--bl-gold-lo,#8B6620)"/>
+</linearGradient>
+<radialGradient id="blRuyi" cx=".5" cy=".5" r=".5">
+<stop offset="0"   stop-color="var(--bl-glow,#FFD98F)" stop-opacity=".8"/>
+<stop offset="1"   stop-color="var(--bl-glow,#FFD98F)" stop-opacity="0"/>
+</radialGradient>
+<!-- ลายกุญแจจีน (回纹) ต้องมีเส้นฐานเชื่อมทุกหน่วย ไม่งั้นอ่านเป็นขอเกี่ยวเรียงกัน -->
+<pattern id="blFret" width="16" height="12" patternUnits="userSpaceOnUse">
+<path d="M0 11h16M2.6 11V3h10.6v6H6.4V6h3.4" fill="none" stroke="var(--bl-gold,#D5AC54)" stroke-width="1.5" opacity=".85"/>
+</pattern>
+</defs>
+
+<rect x="0" y="0" width="320" height="54" fill="url(#blBase)"/>
+
+<!-- รอยรักเคลือบ: เงาลึกเป็นหย่อมไม่สม่ำเสมอ = ผิวรักจริงที่ขัดเงาแล้ว
+     ถ้าใช้ไล่เฉดเรียบเส้นเดียวจะอ่านเป็น "พลาสติกแดง" -->
+<g fill="#3F0A03" opacity=".22">
+<ellipse cx="58"  cy="44" rx="70" ry="16"/>
+<ellipse cx="238" cy="46" rx="86" ry="14"/>
+</g>
+<g fill="#FF8A62" opacity=".13">
+<ellipse cx="104" cy="12" rx="86" ry="9"/>
+<ellipse cx="268" cy="10" rx="60" ry="7"/>
+</g>
+
+<!-- ลายกุญแจทองคาดขอบบน/ล่าง -->
+<rect x="0" y="2"  width="320" height="12" fill="url(#blFret)" opacity=".9"/>
+<g transform="translate(0,54) scale(1,-1)">
+<rect x="0" y="2" width="320" height="12" fill="url(#blFret)" opacity=".9"/>
+</g>
+<g fill="url(#blGold)" opacity=".85">
+<rect x="0" y="15.6" width="320" height="1.2"/>
+<rect x="0" y="37.4" width="320" height="1.2"/>
+</g>
+
+<!-- ฉากทองเหลืองยึดสี่มุม (角叶) : ของจริงบนป้ายจีน และเป็นตัวที่ทำให้ปุ่ม "มีความหนา" -->
+<g fill="url(#blGold)">
+<path d="M0 0h30v5H5v13H0z"/>
+<path d="M320 0h-30v5h25v13h5z"/>
+<path d="M0 54h30v-5H5V36H0z"/>
+<path d="M320 54h-30v-5h25V36h5z"/>
+</g>
+<g fill="var(--bl-gold-lo,#8B6620)" opacity=".9">
+<circle cx="9" cy="9" r="2.2"/><circle cx="311" cy="9" r="2.2"/>
+<circle cx="9" cy="45" r="2.2"/><circle cx="311" cy="45" r="2.2"/>
+</g>
+
+<!-- ขอบบนรับแสงโคม / ขอบล่างเป็นเงา -->
+<rect x="0" y="0" width="320" height="1.8" fill="#FFD5A8" opacity=".3"/>
+<rect x="0" y="52.2" width="320" height="1.8" fill="#2A0602" opacity=".45"/>
+
+<!-- ═══ ตอนกด: เมฆมงคลทองลอยเข้ามาจากสองปลาย + ลายทองสว่างขึ้น (CSS โชว์เฉพาะ :active) ═══
+     เมฆใช้สูตรเดียวกับพรมในฉากหน้า Home: วงกลม 3 วงเกยกัน + ฐานแบน + หางสะบัด
+     (ถ้าวาดเป็นวงกลมสองวงต่อกันด้วยเส้น ตาจะอ่านเป็น "แว่นตา") -->
+<g class="skRuyi" opacity="0">
+<ellipse class="skRuyiGlow" cx="160" cy="27" rx="82" ry="22" fill="url(#blRuyi)"/>
+<g class="skCloud skCloudL" fill="url(#blGold)" opacity=".95">
+<g transform="translate(26,18) scale(.62)">
+<circle cx="12" cy="12" r="8"/><circle cx="25" cy="9" r="10"/><circle cx="37" cy="13" r="7.4"/>
+<rect x="4" y="12" width="40" height="9" rx="4.5"/>
+</g>
+<path d="M54 30q13 1 18-5" fill="none" stroke="url(#blGold)" stroke-width="2.6" stroke-linecap="round"/>
+</g>
+<g class="skCloud skCloudR" fill="url(#blGold)" opacity=".95">
+<g transform="translate(294,18) scale(-.62,.62)">
+<circle cx="12" cy="12" r="8"/><circle cx="25" cy="9" r="10"/><circle cx="37" cy="13" r="7.4"/>
+<rect x="4" y="12" width="40" height="9" rx="4.5"/>
+</g>
+<path d="M266 30q-13 1-18-5" fill="none" stroke="url(#blGold)" stroke-width="2.6" stroke-linecap="round"/>
+</g>
+<g class="skFretLit" opacity=".9">
+<rect x="0" y="2"  width="320" height="12" fill="url(#blFret)"/>
+<g transform="translate(0,54) scale(1,-1)">
+<rect x="0" y="2" width="320" height="12" fill="url(#blFret)"/>
+</g>
+</g>
+</g>
+</svg>
