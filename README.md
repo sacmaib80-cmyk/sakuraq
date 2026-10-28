@@ -21,7 +21,7 @@ A quest-style focus timer that turns a planned session into points, streaks, his
 Serve this folder with any static server. Opening `index.html` directly also works for most of the UI, but a server is required to exercise service-worker behaviour.
 
 - [Installable web app](https://sakuraq-b7f96.web.app/welcome.html)
-- [Latest public Android release (v0.18.15)](https://github.com/sacmaib80-cmyk/sakuraq/releases/latest)
+- [Latest Android release (APK)](https://github.com/sacmaib80-cmyk/Skr-v.0.11.2/releases/latest)
 
 ## Stack
 
@@ -29,8 +29,8 @@ Vanilla JavaScript · Capacitor · Firebase Auth and Firestore · Service Worker
 
 ## Release state
 
-This repository is a curated snapshot of the newer **v0.18.27 source**. The public APK release is still **v0.18.15**, so the source and downloadable binary are intentionally labelled separately.
+This repository is a curated snapshot of the **v0.18.27 source**. Android builds are published separately on the [release page](https://github.com/sacmaib80-cmyk/Skr-v.0.11.2/releases), and the newest build there is ahead of this snapshot.
 
 ## Honest notes
 
-Built and maintained solo. Ten people tested an early release and none retained; that result came from the usage tracking built into the app. The mascot's decision engine is implemented, but parts of its dialogue copy are still being rewritten.
+Ten people tested an early release and none retained; that result came from the usage tracking built into the app. The mascot's decision engine is implemented, but parts of its dialogue copy are still being rewritten.
